@@ -1328,6 +1328,44 @@
             </div>
           </div>
         </div>
+        <div class="prod-card" onclick="showDetail('food','cookie')">
+          <div class="prod-card-img">
+            <img src="images/products/food/YMYM/YMYM_cookie_main.jpg"
+                 alt="Protein Cookie"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="프로틴 쿠키"
+                 data-en="Protein Cookie">
+              Protein Cookie
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="야미요밀"
+                 data-en="YUMMY YOMIL">
+              YUMMY YOMIL
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('food','cracker')">
+          <div class="prod-card-img">
+            <img src="images/products/food/YMYM/YMYM_cracker_main.jpg"
+                 alt="Protein Cracker"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="프로틴 크래커"
+                 data-en="Protein Cracker">
+              Protein Cracker
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="야미요밀"
+                 data-en="YUMMY YOMIL">
+              YUMMY YOMIL
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1787,7 +1825,7 @@
 
   /** 카테고리별 제품 정렬. 각 배열은 sample-products-import.csv에서 해당 category의 행 순서(위→아래)와 동일한 productId 나열. */
   const PRODUCT_ORDER = {
-    food: ['mochi', 'tteokbokki', 'can', 'rice', 'pancake', 'tart', 'choco', 'drink'],
+    food: ['mochi', 'tteokbokki', 'can', 'rice', 'pancake', 'tart', 'choco', 'drink', 'cookie', 'cracker'],
     health: ['deerA', 'deerK'],
     beauty: ['toner', 'serum', 'gel'],
     fashion: ['eyeglass', 'socks', 'sunglasses']
@@ -2291,6 +2329,74 @@
           { valueKo: '200 * 110 * 35(mm) / 240g', valueEn: '200 * 110 * 35(mm) / 240g' },
           { valueKo: '실온 보관', valueEn: 'Room temp.' },
           { valueKo: '18개월', valueEn: '18 months' }
+        ]
+      },
+      cookie: {
+        nameEn: 'Protein Cookie',
+        nameKo: '프로틴 쿠키',
+        descEn: 'This high-protein vegan snack contains 9g of plant-based protein per bag. Made with 100% plant-based ingredients—free from milk, butter, and eggs—it is oven-baked to reduce fat and maximize crunchiness. The lineup includes a mild rice base and a fiber-rich whole wheat base, available in four flavors: Almond, Chocolate, Orange Peel, and Cranberry. All products are safely manufactured in HACCP-certified facilities, ensuring reliable quality.',
+        descKo: '본 제품은 한 봉지당 9g의 식물성 단백질을 함유한 고단백 비건 스낵입니다. 우유, 버터, 달걀을 배제한 100% 식물성 원료를 사용했으며, 오븐 베이킹 공법으로 지방은 낮추고 바삭함은 살렸습니다. 라인업은 담백한 쌀 베이스와 식이섬유가 풍부한 통밀 베이스로 구분되며, 아몬드, 초코, 오렌지 필, 크랜베리 4종의 맛을 제공합니다. 모든 제품은 HACCP 인증 시설에서 안전하게 제조되어 신뢰할 수 있는 품질을 보장합니다.',
+        catalogUrl: 'files/YMYM_catalog_cookie_en.pdf',
+        mainImg: 'images/products/food/YMYM/YMYM_cookie_main.jpg',
+        thumbs: [
+          'images/products/food/YMYM/YMYM_cookie_main.jpg',
+          'images/products/food/YMYM/YMYM_cookie_thumb1.jpg',
+          'images/products/food/YMYM/YMYM_cookie_thumb2.jpg',
+          'images/products/food/YMYM/YMYM_cookie_thumb3.jpg',
+          'images/products/food/YMYM/YMYM_cookie_thumb4.jpg'
+        ],
+        details: [
+          'images/products/food/YMYM/YMYM_cookie_detail1.jpg',
+          'images/products/food/YMYM/YMYM_cookie_detail2.jpg',
+          'images/products/food/YMYM/YMYM_cookie_detail3.jpg',
+          'images/products/food/YMYM/YMYM_cookie_detail4.jpg',
+          'images/products/food/YMYM/YMYM_cookie_detail5.jpg',
+          'images/products/food/YMYM/YMYM_cookie_detail6.jpg',
+          'images/products/food/YMYM/YMYM_cookie_detail7.jpg',
+          'images/products/food/YMYM/YMYM_cookie_detail8.jpg'
+        ],
+        specRows: [
+          { valueKo: '야미요밀', valueEn: 'YUMMY YOMIL' },
+          { valueKo: '단백질쿠키, 식물성단백질9g, NO버터, NO우유, NO계란, 100%식물성', valueEn: 'ProteinCookie, Plant-Base-Protein(9g), No-Butter, No-Milk, No-Eggs, 100%Plant-based' },
+          { valueKo: '분리대두단백, 대두레시틴, 아몬드분말, 쌀가루, 통밀가루 등', valueEn: 'Isolated soy protein, Soy lecithin,Almond powder, Rice flour, Whole wheat flour, etc.' },
+          { valueKo: 'HACCP, ISO22000:2018, FSSC22000', valueEn: 'HACCP, ISO22000:2018, FSSC22000' },
+          { valueKo: '150 * 10 * 220(mm) / 245g', valueEn: '150 * 10 * 220(mm) / 245g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '12개월', valueEn: '12 months' }
+        ]
+      },
+      cracker: {
+        nameEn: 'Protein Cracker',
+        nameKo: '프로틴 크래커',
+        descEn: 'This high-protein vegan snack contains 10g of plant-based protein per bag. Made with 100% plant-based ingredients—free from milk, butter, and eggs—it is oven-baked to reduce fat and maximize crunchiness. The lineup includes a mild rice base and a fiber-rich whole wheat base, available in four flavors: Original, Onion, Vegetable, and Black Olive. All products are safely manufactured in HACCP-certified facilities, ensuring reliable quality.',
+        descKo: '본 제품은 한 봉지당 10g의 식물성 단백질을 함유한 고단백 비건 스낵입니다. 우유, 버터, 달걀을 배제한 100% 식물성 원료를 사용했으며, 오븐 베이킹 공법으로 지방은 낮추고 바삭함은 살렸습니다. 라인업은 담백한 쌀 베이스와 식이섬유가 풍부한 통밀 베이스로 구분되며, 오리지널, 어니언, 채소, 블랙 올리브 4종의 맛을 제공합니다. 모든 제품은 HACCP 인증 시설에서 안전하게 제조되어 신뢰할 수 있는 품질을 보장합니다.',
+        catalogUrl: 'files/YMYM_catalog_cracker_en.pdf',
+        mainImg: 'images/products/food/YMYM/YMYM_cracker_main.jpg',
+        thumbs: [
+          'images/products/food/YMYM/YMYM_cracker_main.jpg',
+          'images/products/food/YMYM/YMYM_cracker_thumb1.jpg',
+          'images/products/food/YMYM/YMYM_cracker_thumb2.jpg',
+          'images/products/food/YMYM/YMYM_cracker_thumb3.jpg',
+          'images/products/food/YMYM/YMYM_cracker_thumb4.jpg'
+        ],
+        details: [
+          'images/products/food/YMYM/YMYM_cracker_detail1.jpg',
+          'images/products/food/YMYM/YMYM_cracker_detail2.jpg',
+          'images/products/food/YMYM/YMYM_cracker_detail3.jpg',
+          'images/products/food/YMYM/YMYM_cracker_detail4.jpg',
+          'images/products/food/YMYM/YMYM_cracker_detail5.jpg',
+          'images/products/food/YMYM/YMYM_cracker_detail6.jpg',
+          'images/products/food/YMYM/YMYM_cracker_detail7.jpg',
+          'images/products/food/YMYM/YMYM_cracker_detail8.jpg'
+        ],
+        specRows: [
+          { valueKo: '야미요밀', valueEn: 'YUMMY YOMIL' },
+          { valueKo: '단백질크래커, 식물성단백질10g, NO버터, NO우유, NO계란, 100%식물성', valueEn: 'ProteinCracker, Plant-Base-Protein(10g), No-Butter, No-Milk, No-Eggs, 100%Plant-based' },
+          { valueKo: '분리대두단백, 대두레시틴, 아몬드분말, 쌀가루, 통밀가루 등', valueEn: 'Isolated soy protein, Soy lecithin,Almond powder, Rice flour, Whole wheat flour, etc.' },
+          { valueKo: 'HACCP, ISO22000:2018, FSSC22000', valueEn: 'HACCP, ISO22000:2018, FSSC22000' },
+          { valueKo: '150 * 10 * 220(mm) / 245g', valueEn: '150 * 10 * 220(mm) / 245g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '12개월', valueEn: '12 months' }
         ]
       }
     },
