@@ -493,7 +493,11 @@
     }
 
     @media (max-width: 768px) {
-      footer { overflow: hidden; }
+      footer {
+        overflow-x: hidden;
+        overflow-y: visible;
+        padding-bottom: calc(120px + env(safe-area-inset-bottom, 0px)) !important;
+      }
       footer > div[style*="max-width:1160px"],
       footer .footer-inner {
         width: calc(100% - 24px) !important;
@@ -583,16 +587,40 @@
         margin-top: 14px !important;
         padding: 12px 0 22px !important;
         flex-direction: column !important;
-        align-items: flex-end !important;
-        text-align: right !important;
-        gap: 8px !important;
+        align-items: stretch !important;
+        text-align: left !important;
+        gap: 10px !important;
+        position: relative !important;
+        z-index: 2 !important;
       }
       footer [style*="display:flex; gap:16px;"],
       footer .footer-bottom > div {
         display: flex !important;
         flex-wrap: wrap !important;
-        justify-content: flex-end !important;
+        justify-content: flex-start !important;
         gap: 6px 12px !important;
+        width: 100% !important;
+      }
+      footer .footer-legal-row {
+        position: relative !important;
+        z-index: 2 !important;
+        overflow: visible !important;
+      }
+      footer .footer-legal-links {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 10px 16px !important;
+        width: 100% !important;
+        justify-content: flex-start !important;
+      }
+      footer .footer-legal-links a {
+        display: inline-block !important;
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+        color: #374151 !important;
+        -webkit-text-fill-color: #374151;
+        text-decoration: underline !important;
+        text-underline-offset: 2px !important;
       }
     }
   </style>
@@ -857,9 +885,9 @@
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bottom footer-legal-row">
       <span style="font-size:11px; color:#9CA3AF;">© 2026 PATHFINDER Inc. All rights reserved.</span>
-      <div style="display:flex; gap:16px;">
+      <div class="footer-legal-links" style="display:flex; gap:16px;">
         <a href="terms.html" data-ko="이용약관" data-en="Terms of Service"
            style="font-size:11px; color:#6B7280; text-decoration:underline; text-underline-offset:2px;">Terms of Service</a>
         <a href="privacy.html" data-ko="개인정보처리방침" data-en="Privacy Policy"
@@ -903,7 +931,13 @@
     if (bkm) bkm.classList.toggle('active', lang === 'ko');
     if (bem) bem.classList.toggle('active', lang === 'en');
     document.querySelectorAll('[data-ko]').forEach(el => {
-      el.innerHTML = lang === 'ko' ? el.dataset.ko : el.dataset.en;
+      const val = lang === 'ko' ? el.dataset.ko : el.dataset.en;
+      const s = val != null ? String(val) : '';
+      if (el.tagName === 'A') {
+        el.textContent = s;
+      } else {
+        el.innerHTML = s;
+      }
     });
     document.title = lang === 'ko'
       ? '개인정보처리방침 — PATHFINDER Inc.'
