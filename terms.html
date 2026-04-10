@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — PATHFINDER Inc.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #0F4C8A;
+      --accent: #0078D4;
+      --text-primary: #111111;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --bg-white: #FFFFFF;
+      --border: #E5E7EB;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.6;
+      background: #ffffff;
+    }
+    h1, h2, h3, .nav-logo {
+      font-family: 'Plus Jakarta Sans', 'Pretendard', sans-serif;
+    }
+
+    /* ── NAV (index.html 과 동일) ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+    .logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    nav ul a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--text-secondary); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg-white) !important;
+      padding: 9px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #006BBD !important; color: var(--bg-white) !important; }
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 4px;
+      gap: 0;
+      border: 1px solid #E5E7EB;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #6B7280;
+      font-size: 0.8rem;
+      font-weight: 400;
+      padding: 4px 12px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+    }
+    .lang-btn .flag { display: none; }
+    .lang-btn.active { background: #0078D4; color: #ffffff; font-weight: 500; }
+    .lang-btn:hover:not(.active) { color: #0078D4; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1100;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100vw;
+      bottom: auto;
+      height: auto;
+      max-height: min(560px, calc(100dvh - 56px));
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      flex-direction: column;
+      padding: 12px 24px 20px;
+      gap: 0;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      z-index: 998;
+      border-top: 0;
+      border-radius: 0 0 12px 12px;
+      overflow-y: auto;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .mobile-menu-backdrop {
+      display: none;
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 36, 99, 0.28);
+      z-index: 997;
+    }
+    .mobile-menu-backdrop.open { display: block; }
+    .nav-mobile-menu a {
+      color: rgba(10,36,99,0.8);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(10,36,99,0.06);
+      transition: color 0.2s;
+      display: block;
+    }
+    .nav-mobile-menu a:hover { color: var(--primary); }
+    .nav-mobile-menu a.mobile-cta {
+      margin-top: 12px;
+      background: var(--accent);
+      color: #fff !important;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 20px;
+      text-align: center;
+      font-weight: 700;
+      border-bottom: none;
+    }
+    .nav-mobile-menu a.mobile-cta:hover { filter: brightness(0.9); }
+    .mobile-lang-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(10,36,99,0.06);
+    }
+    .mobile-lang-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(10,36,99,0.7);
+    }
+    .mobile-lang-row .lang-toggle {
+      border: 1.5px solid rgba(10,36,99,0.25);
+      transform: scale(0.85);
+      transform-origin: right center;
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      nav ul { display: none; }
+      .hamburger { display: flex !important; }
+      nav .logo {
+        max-width: calc(100vw - 84px);
+        min-width: 0;
+        overflow: hidden;
+      }
+      nav .logo img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    /* index.html 하단 light-theme 네비(실제 메인과 동일) */
+    nav {
+      background: #FFFFFF !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border-bottom: 0.5px solid var(--border) !important;
+      box-shadow: none !important;
+    }
+    nav ul a {
+      color: var(--primary) !important;
+      font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 0.95rem;
+    }
+    nav ul a:hover { color: var(--accent) !important; }
+    nav .logo img { display: block; width: auto; filter: none !important; }
+    nav #logo-title { color: var(--primary) !important; }
+    .nav-cta {
+      background: var(--accent) !important;
+      border: none !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      padding: 0 20px !important;
+      height: 32px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      color: #fff !important;
+      border-radius: 8px !important;
+    }
+    .nav-cta:hover {
+      filter: brightness(0.9);
+      transform: translateY(-1px) !important;
+    }
+    .lang-toggle {
+      background: #ffffff !important;
+      border: 1px solid #E5E7EB !important;
+      border-radius: 20px !important;
+      padding: 4px !important;
+    }
+    .lang-btn {
+      color: #6B7280 !important;
+      font-weight: 400 !important;
+    }
+    .lang-btn.active {
+      background: #0078D4 !important;
+      color: #ffffff !important;
+      font-weight: 500 !important;
+    }
+    .lang-btn:hover:not(.active) {
+      color: #0078D4 !important;
+      background: transparent !important;
+    }
+    .hamburger span { background: var(--primary); }
+    .nav-mobile-menu { background: rgba(255,255,255,0.97) !important; }
+    .nav-mobile-menu a:not(.mobile-cta) { color: var(--primary); }
+
+    /* ── MAIN CONTENT ── */
+    .page-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 100px 40px 60px;
+    }
+    .page-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0F2A5C;
+      margin-bottom: 8px;
+    }
+    .page-updated {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article {
+      margin-bottom: 36px;
+    }
+    .article h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0F2A5C;
+      margin-bottom: 12px;
+    }
+    .article p, .article li {
+      font-size: 0.9rem;
+      color: #374151;
+      line-height: 1.85;
+      margin-bottom: 8px;
+    }
+    .article ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+    .article ul li { margin-bottom: 4px; }
+    .addendum {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #F5F7FA;
+      border-top: 0.5px solid #E5E7EB;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0;
+    }
+    footer,
+    footer > div[style*="max-width:1160px"],
+    footer .footer-inner,
+    .footer-bottom {
+      background: #F5F7FA !important;
+    }
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .footer-grid {
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: flex-start;
+    }
+    .footer-bottom {
+      margin-top: 20px;
+      padding: 11px 0 52px;
+      border-top: 0.5px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sns-icon-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #FFFFFF; border: 0.5px solid #D1D5DB;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s ease; color: #4B5563; text-decoration: none;
+    }
+    .sns-icon-btn:hover {
+      background: #0078D4; border-color: #0078D4;
+    }
+    .sns-icon-btn:hover svg { stroke: #ffffff; }
+
+    /* SCROLL BUTTONS (index 기준 통일) */
+    .scroll-btns {
+      position: fixed;
+      bottom: 120px;
+      right: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+    .scroll-btn {
+      width: 40px;
+      height: 40px;
+      background: #ffffff;
+      color: #0078D4;
+      border: 1px solid #E5E7EB;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+      opacity: 1;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .scroll-btn:hover {
+      background: #F0F7FF;
+      border-color: #0078D4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,120,212,0.2), 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .floating-cta {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #0078D4;
+      border: 1px solid #E5E7EB;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+      opacity: 1;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .floating-cta:hover {
+      background: #F0F7FF;
+      border-color: #0078D4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,120,212,0.2), 0 2px 6px rgba(0,0,0,0.1);
+    }
+    body.menu-open .scroll-btns { display: none !important; }
+    @media (max-width: 768px) {
+      .page-wrap { padding: 86px 20px 42px; }
+      .page-title { font-size: 1.55rem; }
+      .page-updated { margin-bottom: 30px; padding-bottom: 18px; }
+      .article { margin-bottom: 28px; }
+      .article p, .article li { line-height: 1.7; }
+      .footer-inner { padding: 0 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding-bottom: 28px;
+      }
+      .scroll-btns { bottom: 80px; right: 16px; }
+    }
+    @media (max-width: 480px) {
+      .page-wrap { padding: 80px 16px 36px; }
+      .page-title { font-size: 1.35rem; }
+      .article h2 { font-size: 0.98rem; }
+      .article p, .article li { font-size: 0.86rem; }
+      .footer-inner { padding: 0 16px; }
+      .scroll-btns { bottom: 72px; right: 12px; gap: 6px; }
+      .scroll-btn { width: 40px; height: 40px; }
+      .floating-cta { width: 40px; height: 40px; }
+    }
+    @media (max-width: 430px) {
+      .page-wrap { padding-top: 74px; }
+      .page-updated { font-size: 0.78rem; margin-bottom: 22px; }
+      .article p, .article li { line-height: 1.62; }
+    }
+    @media (max-width: 390px) {
+      .page-title { font-size: 1.2rem; }
+      .article h2 { font-size: 0.92rem; }
+      .article p, .article li { font-size: 0.82rem; }
+      .scroll-btns { right: 10px; }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        height: 56px !important;
+        padding: 0 14px !important;
+        max-width: 100vw !important;
+      }
+      nav > ul { display: none !important; }
+      nav > .logo {
+        max-width: calc(100vw - 84px) !important;
+        min-width: 0;
+        overflow: hidden;
+      }
+      nav > .logo img { max-width: 100%; height: auto; }
+      #hamburger.hamburger {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative;
+        z-index: 1102;
+      }
+      .nav-mobile-menu { top: 56px !important; }
+      .mobile-menu-backdrop { top: 56px !important; }
+    }
+
+    @media (max-width: 768px) {
+      footer { overflow: hidden; }
+      footer > div[style*="max-width:1160px"],
+      footer .footer-inner {
+        width: calc(100% - 24px) !important;
+        max-width: calc(100% - 24px) !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+      }
+      footer > div > div[style*="padding-top:28px"],
+      footer .footer-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 18px !important;
+        padding-top: 18px !important;
+        width: 100% !important;
+      }
+      footer [style*="display:flex; align-items:flex-start; gap:20px;"] {
+        flex-direction: row !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        --footer-brand-h: clamp(59px, 18vw, 77px);
+        width: 100% !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        padding-bottom: 56px !important;
+      }
+      footer [style*="width:1px; background:#E5E7EB"] { display: block !important; }
+      footer img[src*="CI_LOGO_NAVY"] {
+        height: var(--footer-brand-h) !important;
+        width: auto !important;
+        max-width: 38vw !important;
+      }
+      footer [style*="padding-top:2px;"] {
+        padding-top: 0 !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+        height: var(--footer-brand-h) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+      }
+      footer p[style*="font-style:italic; font-weight:500; color:#0F2A5C"] {
+        font-size: clamp(11px, 3.1vw, 13px) !important;
+        line-height: 1.3 !important;
+        margin: 0 0 6px 0 !important;
+        white-space: nowrap !important;
+      }
+      footer p[data-ko*="(주)패스파인더아이엔씨는"] {
+        font-size: clamp(10px, 2.8vw, 12px) !important;
+        line-height: 1.6 !important;
+      }
+      footer [style*="display:flex; gap:12px; margin-top:16px;"] {
+        margin-top: 0 !important;
+        width: auto !important;
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: -24px !important;
+        justify-content: center !important;
+      }
+      footer [style*="width:36px;height:36px;border-radius:50%"],
+      footer .sns-icon-btn {
+        width: 38px !important;
+        height: 38px !important;
+      }
+      footer [style*="display:flex; flex-direction:column; gap:5px; padding-top:4px; margin-left:auto;"] {
+        margin-left: 0 !important;
+        width: 100% !important;
+        gap: 8px !important;
+        padding-top: 0 !important;
+        margin-top: 40px !important;
+      }
+      footer [style*="display:flex; gap:12px; font-size:12px; line-height:1.6;"] {
+        display: grid !important;
+        grid-template-columns: 92px minmax(0, 1fr) !important;
+        gap: 6px 10px !important;
+        font-size: 11px !important;
+        line-height: 1.5 !important;
+      }
+      footer [style*="min-width:110px"] {
+        min-width: 0 !important;
+        font-size: 10px !important;
+      }
+      footer [style*="display:flex; gap:8px; align-items:baseline;"] { display: block !important; }
+      footer [style*="margin-top:20px; padding:11px 0 52px"],
+      footer .footer-bottom {
+        margin-top: 14px !important;
+        padding: 12px 0 22px !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        text-align: right !important;
+        gap: 8px !important;
+      }
+      footer [style*="display:flex; gap:16px;"],
+      footer .footer-bottom > div {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-end !important;
+        gap: 6px 12px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="images/(cutout)CI_LOGO_NAVY(2).png" alt="PATHFINDER" style="height:clamp(18px,2.8vw,28px);width:auto;display:block;" />
+  </a>
+  <ul>
+    <li><a href="index.html#home" data-ko="홈" data-en="Home">Home</a></li>
+    <li><a href="index.html#about" data-ko="회사소개" data-en="About">About</a></li>
+    <li><a href="index.html#services" data-ko="사업영역" data-en="Our Business">Our Business</a></li>
+    <li><a href="products.html" data-ko="제품" data-en="Products">Products</a></li>
+    <li><a href="contact.html" class="nav-cta" data-ko="문의 하기" data-en="Contact">Contact</a></li>
+    <li>
+      <div class="lang-toggle">
+        <button class="lang-btn" id="btn-ko" onclick="setLang('ko')"><span class="flag">🇰🇷</span>KO</button>
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')"><span class="flag">🇺🇸</span>EN</button>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="메뉴 열기" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="index.html#home" data-ko="홈" data-en="Home" onclick="closeMenu()">Home</a>
+  <a href="index.html#about" data-ko="회사소개" data-en="About" onclick="closeMenu()">About</a>
+  <a href="index.html#services" data-ko="사업영역" data-en="Our Business" onclick="closeMenu()">Our Business</a>
+  <a href="products.html" data-ko="제품" data-en="Products" onclick="closeMenu()">Products</a>
+  <div class="mobile-lang-row">
+    <span class="mobile-lang-label" data-ko="언어 설정" data-en="Language">Language</span>
+    <div class="lang-toggle">
+      <button class="lang-btn" id="btn-ko-m" onclick="setLang('ko')"><span class="flag">🇰🇷</span>KO</button>
+      <button class="lang-btn active" id="btn-en-m" onclick="setLang('en')"><span class="flag">🇺🇸</span>EN</button>
+    </div>
+  </div>
+  <a href="contact.html" class="mobile-cta" data-ko="사업 문의" data-en="Contact" onclick="closeMenu()">Contact</a>
+</div>
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop" onclick="closeMenu()"></div>
+
+<!-- CONTENT -->
+<div class="page-wrap">
+  <h1 class="page-title" data-ko="이용약관" data-en="Terms of Service">Terms of Service</h1>
+  <p class="page-updated" data-ko="시행일: 추후 공지 예정" data-en="Effective Date: To be announced upon website launch">Effective Date: To be announced upon website launch</p>
+
+  <!-- Article 1 -->
+  <div class="article">
+    <h2 data-ko="제1조 (목적)" data-en="Article 1 (Purpose)">Article 1 (Purpose)</h2>
+    <p data-ko="이 약관은 (주)패스파인더아이엔씨(이하 &quot;회사&quot;)가 운영하는 웹사이트 (www.pathfinderinc.co, 이하 &quot;사이트&quot;)에서 제공하는 서비스의 이용과 관련하여 회사와 이용자 간의 권리·의무 및 책임사항을 규정함을 목적으로 합니다."
+       data-en="These Terms of Service govern the use of services provided through the website (www.pathfinderinc.co, hereinafter &quot;Site&quot;) operated by PATHFINDER Inc. (hereinafter &quot;Company&quot;), and define the rights, obligations, and responsibilities between the Company and users.">
+      These Terms of Service govern the use of services provided through the website (www.pathfinderinc.co, hereinafter "Site") operated by PATHFINDER Inc. (hereinafter "Company"), and define the rights, obligations, and responsibilities between the Company and users.
+    </p>
+  </div>
+
+  <!-- Article 2 -->
+  <div class="article">
+    <h2 data-ko="제2조 (정의)" data-en="Article 2 (Definitions)">Article 2 (Definitions)</h2>
+    <p data-ko="① &quot;사이트&quot;란 회사가 운영하는 인터넷 홈페이지를 의미합니다." data-en="① &quot;Site&quot; refers to the internet website operated by the Company.">① "Site" refers to the internet website operated by the Company.</p>
+    <p data-ko="② &quot;이용자&quot;란 사이트에 접속하여 이 약관에 따라 회사가 제공하는 서비스를 이용하는 자를 의미합니다." data-en="② &quot;User&quot; refers to any person who accesses the Site and uses the services provided by the Company in accordance with these Terms.">② "User" refers to any person who accesses the Site and uses the services provided by the Company in accordance with these Terms.</p>
+    <p data-ko="③ &quot;서비스&quot;란 사이트를 통해 제공되는 제품 정보 안내, 사업 문의 접수 등 일체의 서비스를 의미합니다." data-en="③ &quot;Service&quot; refers to all services provided through the Site, including product information and business inquiry reception.">③ "Service" refers to all services provided through the Site, including product information and business inquiry reception.</p>
+  </div>
+
+  <!-- Article 3 -->
+  <div class="article">
+    <h2 data-ko="제3조 (약관의 효력 및 변경)" data-en="Article 3 (Effect and Amendment of Terms)">Article 3 (Effect and Amendment of Terms)</h2>
+    <p data-ko="① 이 약관은 사이트에 게시함으로써 효력이 발생합니다." data-en="① These Terms take effect upon publication on the Site.">① These Terms take effect upon publication on the Site.</p>
+    <p data-ko="② 회사는 관련 법령을 위반하지 않는 범위에서 이 약관을 변경할 수 있으며, 변경 시 사이트에 공지합니다." data-en="② The Company may amend these Terms within the scope permitted by applicable laws, and any amendments will be announced on the Site.">② The Company may amend these Terms within the scope permitted by applicable laws, and any amendments will be announced on the Site.</p>
+    <p data-ko="③ 이용자는 변경된 약관에 동의하지 않을 경우 서비스 이용을 중단할 수 있습니다. 변경 공지 후 계속하여 서비스를 이용하는 경우 변경된 약관에 동의한 것으로 간주합니다." data-en="③ Users who do not agree to the amended Terms may discontinue use of the Service. Continued use of the Service after the announcement of amendments shall be deemed acceptance of the amended Terms.">③ Users who do not agree to the amended Terms may discontinue use of the Service. Continued use of the Service after the announcement of amendments shall be deemed acceptance of the amended Terms.</p>
+  </div>
+
+  <!-- Article 4 -->
+  <div class="article">
+    <h2 data-ko="제4조 (서비스의 제공)" data-en="Article 4 (Provision of Services)">Article 4 (Provision of Services)</h2>
+    <p data-ko="① 회사는 사이트를 통해 아래의 서비스를 제공합니다." data-en="① The Company provides the following services through the Site.">① The Company provides the following services through the Site.</p>
+    <ul>
+      <li data-ko="취급 제품 정보 및 카테고리 안내" data-en="Product information and category guidance">Product information and category guidance</li>
+      <li data-ko="수출입 무역 관련 사업 문의 접수" data-en="Business inquiry reception for import/export trade">Business inquiry reception for import/export trade</li>
+      <li data-ko="회사 및 파트너 관련 정보 제공" data-en="Information about the Company and its partners">Information about the Company and its partners</li>
+      <li data-ko="기타 회사가 정하는 서비스" data-en="Other services determined by the Company">Other services determined by the Company</li>
+    </ul>
+    <p data-ko="② 회사는 서비스 내용을 변경하거나 중단할 수 있으며, 이 경우 사이트를 통해 공지합니다." data-en="② The Company may modify or discontinue services, and will notify users through the Site in such cases.">② The Company may modify or discontinue services, and will notify users through the Site in such cases.</p>
+    <p data-ko="③ 사이트는 제품의 직접 판매 및 결제 기능을 제공하지 않습니다. 모든 거래는 별도의 계약을 통해 진행됩니다." data-en="③ The Site does not provide direct product sales or payment functions. All transactions are conducted through separate contracts.">③ The Site does not provide direct product sales or payment functions. All transactions are conducted through separate contracts.</p>
+  </div>
+
+  <!-- Article 5 -->
+  <div class="article">
+    <h2 data-ko="제5조 (문의 접수 및 처리)" data-en="Article 5 (Inquiry Reception and Processing)">Article 5 (Inquiry Reception and Processing)</h2>
+    <p data-ko="① 이용자가 사이트 내 문의 양식을 통해 제출한 내용은 담당자 검토 후 회신합니다." data-en="① Inquiries submitted through the Site's inquiry form will be reviewed by a representative and responded to accordingly.">① Inquiries submitted through the Site's inquiry form will be reviewed by a representative and responded to accordingly.</p>
+    <p data-ko="② 회사는 문의에 대한 회신 의무를 보장하지 않으며, 문의 내용에 따라 회신이 거절될 수 있습니다." data-en="② The Company does not guarantee a response to all inquiries, and responses may be declined depending on the content of the inquiry.">② The Company does not guarantee a response to all inquiries, and responses may be declined depending on the content of the inquiry.</p>
+    <p data-ko="③ 문의 접수가 실제 거래 계약의 성립을 의미하지 않습니다." data-en="③ Receipt of an inquiry does not constitute the conclusion of a transaction or contract.">③ Receipt of an inquiry does not constitute the conclusion of a transaction or contract.</p>
+  </div>
+
+  <!-- Article 6 -->
+  <div class="article">
+    <h2 data-ko="제6조 (지식재산권)" data-en="Article 6 (Intellectual Property)">Article 6 (Intellectual Property)</h2>
+    <p data-ko="① 사이트 내 모든 콘텐츠(텍스트, 이미지, 로고, 디자인 등)의 저작권 및 지식재산권은 회사에 귀속됩니다." data-en="① All copyrights and intellectual property rights for content on the Site (including text, images, logos, and designs) belong to the Company.">① All copyrights and intellectual property rights for content on the Site (including text, images, logos, and designs) belong to the Company.</p>
+    <p data-ko="② 이용자는 회사의 사전 서면 동의 없이 사이트의 콘텐츠를 복제, 배포, 수정, 전시하거나 상업적으로 이용할 수 없습니다." data-en="② Users may not reproduce, distribute, modify, display, or commercially use the Site's content without prior written consent from the Company.">② Users may not reproduce, distribute, modify, display, or commercially use the Site's content without prior written consent from the Company.</p>
+  </div>
+
+  <!-- Article 7 -->
+  <div class="article">
+    <h2 data-ko="제7조 (이용자의 의무)" data-en="Article 7 (User Obligations)">Article 7 (User Obligations)</h2>
+    <p data-ko="① 이용자는 다음 각 호의 행위를 하여서는 안 됩니다." data-en="① Users shall not engage in any of the following acts.">① Users shall not engage in any of the following acts.</p>
+    <ul>
+      <li data-ko="허위 정보를 입력하거나 타인의 정보를 도용하는 행위" data-en="Entering false information or misappropriating another person's information">Entering false information or misappropriating another person's information</li>
+      <li data-ko="회사 또는 제3자의 지식재산권을 침해하는 행위" data-en="Infringing on the intellectual property rights of the Company or third parties">Infringing on the intellectual property rights of the Company or third parties</li>
+      <li data-ko="사이트의 정상적인 운영을 방해하는 행위" data-en="Interfering with the normal operation of the Site">Interfering with the normal operation of the Site</li>
+      <li data-ko="기타 관련 법령을 위반하는 행위" data-en="Any other acts that violate applicable laws and regulations">Any other acts that violate applicable laws and regulations</li>
+    </ul>
+  </div>
+
+  <!-- Article 8 -->
+  <div class="article">
+    <h2 data-ko="제8조 (책임의 한계)" data-en="Article 8 (Limitation of Liability)">Article 8 (Limitation of Liability)</h2>
+    <p data-ko="① 회사는 사이트에 게시된 정보의 정확성을 위해 노력하나, 내용의 완전성 및 최신성을 보장하지 않습니다." data-en="① The Company endeavors to ensure the accuracy of information posted on the Site, but does not guarantee its completeness or currency.">① The Company endeavors to ensure the accuracy of information posted on the Site, but does not guarantee its completeness or currency.</p>
+    <p data-ko="② 회사는 이용자가 사이트를 통해 얻은 정보를 기반으로 한 의사결정 및 그 결과에 대해 책임을 지지 않습니다." data-en="② The Company is not responsible for decisions made based on information obtained through the Site or their consequences.">② The Company is not responsible for decisions made based on information obtained through the Site or their consequences.</p>
+    <p data-ko="③ 회사는 천재지변, 시스템 장애 등 불가항력적 사유로 인한 서비스 중단에 대해 책임을 지지 않습니다." data-en="③ The Company is not liable for service interruptions caused by force majeure events such as natural disasters or system failures.">③ The Company is not liable for service interruptions caused by force majeure events such as natural disasters or system failures.</p>
+  </div>
+
+  <!-- Article 9 -->
+  <div class="article">
+    <h2 data-ko="제9조 (준거법 및 관할법원)" data-en="Article 9 (Governing Law and Jurisdiction)">Article 9 (Governing Law and Jurisdiction)</h2>
+    <p data-ko="① 이 약관의 해석 및 분쟁 해결은 대한민국 법률을 준거법으로 합니다." data-en="① These Terms shall be governed by and construed in accordance with the laws of the Republic of Korea.">① These Terms shall be governed by and construed in accordance with the laws of the Republic of Korea.</p>
+    <p data-ko="② 회사와 이용자 간 분쟁이 발생한 경우 서울남부지방법원을 제1심 관할법원으로 합니다." data-en="② In the event of a dispute between the Company and a user, the Seoul Southern District Court shall have jurisdiction as the court of first instance.">② In the event of a dispute between the Company and a user, the Seoul Southern District Court shall have jurisdiction as the court of first instance.</p>
+  </div>
+
+  <div class="addendum">
+    <p data-ko="부칙: 이 약관은 0000년 00월 00일부터 시행합니다." data-en="Addendum: These Terms of Service shall take effect as of [Date to be filled in upon website launch].">Addendum: These Terms of Service shall take effect as of [Date to be filled in upon website launch].</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div style="display:flex; align-items:flex-start; gap:20px;">
+        <img src="images/(cutout)CI_LOGO_NAVY.png" alt="PATHFINDER Inc." style="height:150px; width:auto; object-fit:contain; flex-shrink:0; display:block;">
+        <div style="width:1px; background:#E5E7EB; align-self:stretch; flex-shrink:0;"></div>
+        <div style="padding-top:2px;">
+          <p style="font-size:13px; font-style:italic; font-weight:500; color:#0F2A5C; letter-spacing:0.02em; margin:0 0 6px 0;">Connecting Values, Inspiring the World</p>
+          <p data-ko="(주)패스파인더아이엔씨는<br>귀사의 해외 비즈니스 성공을 위해<br>최선을 다합니다."
+             data-en="Trusted global trade partner.<br>PATHFINDER Inc. is committed to<br>your global business success."
+             style="font-size:13px; color:#6B7280; line-height:1.7; margin:0;">
+            Trusted global trade partner.<br>PATHFINDER Inc. is committed to<br>your global business success.
+          </p>
+          <div style="display:flex; gap:12px; margin-top:16px;">
+            <a href="javascript:void(0)" aria-disabled="true" onclick="return false;" class="sns-icon-btn"
+               onmouseover="this.style.background='#0078D4';this.style.borderColor='#0078D4';this.querySelector('svg').style.stroke='#ffffff'"
+               onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#D1D5DB';this.querySelector('svg').style.stroke='#4B5563'">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#4B5563" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            </a>
+            <a href="javascript:void(0)" aria-disabled="true" onclick="return false;" class="sns-icon-btn"
+               onmouseover="this.style.background='#0078D4';this.style.borderColor='#0078D4';this.querySelector('svg').style.stroke='#ffffff'"
+               onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#D1D5DB';this.querySelector('svg').style.stroke='#4B5563'">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#4B5563" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:5px; padding-top:4px; margin-left:auto;">
+        <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+          <span data-ko="상호" data-en="Company" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Company</span>
+          <span data-ko="(주)패스파인더아이엔씨" data-en="PATHFINDER Inc." style="color:#374151;">PATHFINDER Inc.</span>
+        </div>
+        <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+          <span data-ko="대표자" data-en="CEO" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">CEO</span>
+          <span data-ko="황현웅" data-en="Hyunwoong Hwang" style="color:#374151;">Hyunwoong Hwang</span>
+        </div>
+        <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+          <span data-ko="사업자등록번호" data-en="Business Reg. No." style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Business Reg. No.</span>
+          <span style="color:#374151;">719-86-03411</span>
+        </div>
+        <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+          <span data-ko="주소" data-en="Address" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Address</span>
+          <span data-ko="서울특별시 강서구 강서로 385,<br>8층 804-4호 (마곡동, 우성에스비타워)"
+                data-en="804-4, 385, Gangseo-ro, Gangseo-gu,<br>Seoul, 07803, Republic of Korea"
+                style="color:#374151;">804-4, 385, Gangseo-ro, Gangseo-gu,<br>Seoul, 07803, Republic of Korea</span>
+        </div>
+        <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+          <span data-ko="개인정보보호책임자" data-en="Privacy Officer" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Privacy Officer</span>
+          <span style="color:#374151; display:flex; gap:8px; align-items:baseline;">
+            <span data-ko="백성욱" data-en="Sungwook Baek">Sungwook Baek</span>
+            <span style="font-size:11px;">(<span style="color:#0078D4;">sam.baek@pathfinderinc.co</span>)</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span style="font-size:11px; color:#9CA3AF;">© 2026 PATHFINDER Inc. All rights reserved.</span>
+      <div style="display:flex; gap:16px;">
+        <a href="terms.html" data-ko="이용약관" data-en="Terms of Service"
+           style="font-size:11px; color:#6B7280; text-decoration:underline; text-underline-offset:2px;">Terms of Service</a>
+        <a href="privacy.html" data-ko="개인정보처리방침" data-en="Privacy Policy"
+           style="font-size:11px; color:#6B7280; text-decoration:underline; text-underline-offset:2px;">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- SCROLL BUTTONS -->
+<div class="scroll-btns">
+  <a href="contact.html" class="scroll-btn floating-cta" title="사업 문의 / Contact">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="4" width="20" height="16" rx="2" fill="#0078D4"/>
+      <path d="M2 6.5L12 13L22 6.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </a>
+  <button class="scroll-btn floating-cta" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="맨 위로">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="6 15 12 9 18 15" stroke="#0078D4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button class="scroll-btn floating-cta" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})" title="맨 아래로">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="6 9 12 15 18 9" stroke="#0078D4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    sessionStorage.setItem('pathfinder_lang', lang);
+    document.documentElement.lang = lang;
+    document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    const bkm = document.getElementById('btn-ko-m');
+    const bem = document.getElementById('btn-en-m');
+    if (bkm) bkm.classList.toggle('active', lang === 'ko');
+    if (bem) bem.classList.toggle('active', lang === 'en');
+    document.querySelectorAll('[data-ko]').forEach(el => {
+      el.innerHTML = lang === 'ko' ? el.dataset.ko : el.dataset.en;
+    });
+    document.title = lang === 'ko'
+      ? '이용약관 — PATHFINDER Inc.'
+      : 'Terms of Service — PATHFINDER Inc.';
+  }
+
+  let menuLockScrollY = 0;
+  function lockBodyScroll() {
+    menuLockScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${menuLockScrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+  }
+  function unlockBodyScroll() {
+    const y = menuLockScrollY;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    const htmlEl = document.documentElement;
+    const prevScrollBehavior = htmlEl.style.scrollBehavior;
+    htmlEl.style.scrollBehavior = 'auto';
+    window.scrollTo(0, y);
+    requestAnimationFrame(() => {
+      htmlEl.style.scrollBehavior = prevScrollBehavior;
+    });
+  }
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const btn = document.getElementById('hamburger');
+    const isOpen = menu.classList.toggle('open');
+    if (backdrop) backdrop.classList.toggle('open', isOpen);
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+    if (isOpen) {
+      lockBodyScroll();
+    } else {
+      unlockBodyScroll();
+    }
+  }
+  function closeMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const btn = document.getElementById('hamburger');
+    menu.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    unlockBodyScroll();
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+  // Init EN
+  const savedLang = sessionStorage.getItem('pathfinder_lang') || 'en';
+  setLang(savedLang);
+</script>
+</body>
+</html>

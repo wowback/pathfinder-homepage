@@ -1,0 +1,2855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PATHFINDER Inc. - Products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --primary: #0F4C8A;
+      --navy: #0F2A5C;
+      --accent: #0078D4;
+      --text-primary: #111111;
+      --text-secondary: #6B7280;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F7FA;
+      --border: #E5E7EB;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Plus Jakarta Sans','Pretendard','Apple SD Gothic Neo',sans-serif; color:var(--text-primary); line-height:1.6; background:var(--bg-white); }
+    h1,h2,h3 { font-family:'Plus Jakarta Sans','Pretendard',sans-serif; }
+
+    /* NAV (index.html 과 동일) */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+    nav ul { list-style: none; display: flex; gap: 32px; align-items: center; }
+    nav ul a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--text-secondary); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg-white) !important;
+      padding: 9px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #006BBD !important; color: var(--bg-white) !important; }
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 4px;
+      gap: 0;
+      border: 1px solid #E5E7EB;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #6B7280;
+      font-size: 0.8rem;
+      font-weight: 400;
+      padding: 4px 12px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+    }
+    .lang-btn .flag { display: none; }
+    .lang-btn.active { background: #0078D4; color: #ffffff; font-weight: 500; }
+    .lang-btn:hover:not(.active) { color: #0078D4; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1100;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100vw;
+      bottom: auto;
+      height: auto;
+      max-height: min(560px, calc(100dvh - 56px));
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      flex-direction: column;
+      padding: 12px 24px 20px;
+      gap: 0;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      z-index: 998;
+      border-top: 0;
+      border-radius: 0 0 12px 12px;
+      overflow-y: auto;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .mobile-menu-backdrop {
+      display: none;
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 36, 99, 0.28);
+      z-index: 997;
+    }
+    .mobile-menu-backdrop.open { display: block; }
+    .nav-mobile-menu a {
+      color: rgba(10,36,99,0.8);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(10,36,99,0.06);
+      transition: color 0.2s;
+      display: block;
+    }
+    .nav-mobile-menu a:hover { color: var(--primary); }
+    .nav-mobile-menu a.mobile-cta {
+      margin-top: 12px;
+      background: var(--accent);
+      color: #fff !important;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 20px;
+      text-align: center;
+      font-weight: 700;
+      border-bottom: none;
+    }
+    .nav-mobile-menu a.mobile-cta:hover { filter: brightness(0.9); }
+    .mobile-lang-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(10,36,99,0.06);
+    }
+    .mobile-lang-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(10,36,99,0.7);
+    }
+    .mobile-lang-row .lang-toggle {
+      border: 1.5px solid rgba(10,36,99,0.25);
+      transform: scale(0.85);
+      transform-origin: right center;
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      nav ul { display: none; }
+      .hamburger { display: flex !important; }
+      nav .logo {
+        max-width: calc(100vw - 84px);
+        min-width: 0;
+        overflow: hidden;
+      }
+      nav .logo img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    /* index.html 하단 light-theme 네비(실제 메인과 동일): 네이비 링크·로고 필터·컴팩트 CTA */
+    nav {
+      background: #FFFFFF !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border-bottom: 0.5px solid var(--border) !important;
+      box-shadow: none !important;
+    }
+    nav ul a {
+      color: var(--primary) !important;
+      font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 0.95rem;
+    }
+    nav ul a:hover { color: var(--accent) !important; }
+    nav .logo img { display: block; width: auto; filter: none !important; }
+    nav #logo-title { color: var(--primary) !important; }
+    .nav-cta {
+      background: var(--accent) !important;
+      border: none !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      padding: 0 20px !important;
+      height: 32px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      color: #fff !important;
+      border-radius: 8px !important;
+    }
+    .nav-cta:hover {
+      filter: brightness(0.9);
+      transform: translateY(-1px) !important;
+    }
+    .lang-toggle {
+      background: #ffffff !important;
+      border: 1px solid #E5E7EB !important;
+      border-radius: 20px !important;
+      padding: 4px !important;
+    }
+    .lang-btn {
+      color: #6B7280 !important;
+      font-weight: 400 !important;
+    }
+    .lang-btn.active {
+      background: #0078D4 !important;
+      color: #ffffff !important;
+      font-weight: 500 !important;
+    }
+    .lang-btn:hover:not(.active) {
+      color: #0078D4 !important;
+      background: transparent !important;
+    }
+    .hamburger span { background: var(--primary); }
+    .nav-mobile-menu { background: rgba(255,255,255,0.97) !important; }
+    .nav-mobile-menu a:not(.mobile-cta) { color: var(--primary); }
+
+    /* PAGE LAYOUT */
+    .page-wrapper {
+      display:flex;
+      padding-top:80px;
+      min-height:100vh;
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width:220px;
+      flex-shrink:0;
+      border-right:1px solid var(--border);
+      padding:40px 0;
+      position:sticky;
+      top:64px;
+      height:calc(100vh - 64px);
+      overflow-y:auto;
+    }
+    .sidebar-title {
+      font-size:11px;
+      font-weight:600;
+      color:#9CA3AF;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      padding:0 24px 12px;
+    }
+    .cat-sidebar-item {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 24px;
+      font-size:14px;
+      color:#6B7280;
+      cursor:pointer;
+      transition:all 0.2s ease;
+      border-left:3px solid transparent;
+      user-select:none;
+    }
+    .cat-sidebar-item:hover { color:#0078D4; background:#F0F7FF; }
+    .cat-sidebar-item.active {
+      color:#0078D4;
+      font-weight:500;
+      border-left:3px solid #0078D4;
+      background:#F0F7FF;
+    }
+    .cat-sidebar-item svg { flex-shrink:0; }
+
+    /* MAIN CONTENT */
+    .main-content { flex:1; padding:40px 0 40px 28px; overflow-x:hidden; }
+
+    /* PRODUCT GRID VIEW */
+    .grid-view { display:block; }
+    .grid-view.hidden { display:none; }
+    #grid-all.hidden { display:none; }
+    .main-content.show-all .grid-view { margin-bottom:60px; }
+    .main-content.show-all .grid-view + .grid-view .cat-title { margin-top:60px; }
+    #grid-all .all-product-grid { display:grid; grid-template-columns:repeat(4,1fr) !important; gap:20px !important; }
+    .cat-title {
+      font-size:22px;
+      font-weight:700;
+      color:#0F2A5C;
+      margin-bottom:8px;
+    }
+    .cat-desc { font-size:14px; color:#6B7280; margin-bottom:24px; }
+    .product-grid {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+    .prod-card {
+      background:#fff;
+      border:0.5px solid #E5E7EB;
+      border-radius:12px;
+      overflow:hidden;
+      cursor:pointer;
+      transition:all 0.2s ease;
+    }
+    .prod-card:hover { border-color:#0078D4; transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,120,212,0.1); }
+    .prod-card-img {
+      height:200px;
+      background:#F9FAFB;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#D1D5DB;
+    }
+    .prod-card-img svg { opacity:0.4; }
+    .prod-card-img .prod-card-cat-icon {
+      opacity:1;
+      flex-shrink:0;
+      display:block;
+    }
+    .prod-card-placeholder-wrap {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      max-width:100%;
+      padding:0 12px;
+      box-sizing:border-box;
+      text-align:center;
+    }
+    .prod-card-placeholder {
+      font-size:12px;
+      font-weight:500;
+      color:#9CA3AF;
+      text-align:center;
+      line-height:1.45;
+      max-width:100%;
+    }
+    .prod-card-img img {
+      max-width:100%;
+      max-height:100%;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      object-position:center;
+      display:block;
+    }
+    .prod-card-info { padding:16px 16px 20px; }
+    .prod-card-name { font-size:14px; font-weight:600; color:#111; }
+    .prod-card-desc { font-size:12px; color:#6B7280; margin-top:4px; }
+    /* 전체보기: Automotive / Industrial 카테고리 진입용 카드(제품 수 집계에서 제외) */
+    .prod-card-nav-cat .prod-card-img { padding:0; box-sizing:border-box; }
+    .prod-card-nav-cat .prod-card-img img {
+      width:100%;
+      height:100%;
+      max-width:none;
+      max-height:none;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    /* DETAIL VIEW */
+    .detail-view { display:none; }
+    .detail-view.visible { display:block; }
+    .back-btn {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:14px;
+      color:#0078D4;
+      cursor:pointer;
+      margin-bottom:28px;
+      background:none;
+      border:none;
+      font-family:inherit;
+      padding:0;
+      transition:opacity 0.2s;
+    }
+    .back-btn:hover { opacity:0.75; }
+    .detail-hero-img {
+      width:100%;
+      max-height:400px;
+      object-fit:contain;
+      background:#F9FAFB;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#D1D5DB;
+      font-size:14px;
+    }
+    .detail-img-placeholder {
+      width:100%;
+      height:360px;
+      background:#F9FAFB;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#9CA3AF;
+      font-size:14px;
+    }
+    .detail-name { font-size:24px; font-weight:500; color:#0F2A5C; margin-top:24px; }
+    .detail-desc { font-size:14px; color:#374151; line-height:1.8; margin-top:12px; }
+    .detail-images { margin-top:32px; display:flex; flex-direction:column; gap:16px; }
+    .detail-img-box {
+      height:300px;
+      background:#F3F4F6;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#9CA3AF;
+      font-size:14px;
+    }
+    .inquiry-btn {
+      display:inline-block;
+      margin-top:40px;
+      background:#0078D4;
+      color:#fff;
+      padding:14px 32px;
+      border-radius:8px;
+      font-size:15px;
+      font-weight:500;
+      text-decoration:none;
+      transition:background 0.2s;
+      font-family:inherit;
+    }
+    .inquiry-btn:hover { background:#0062B1; }
+
+    /* TOAST */
+    .toast {
+      position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(80px);
+      background:#1a3a6a; color:#fff; padding:14px 28px; border-radius:10px;
+      font-size:0.95rem; opacity:0; transition:all 0.4s ease; z-index:9999;
+    }
+    .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+    @media(max-width:900px) {
+      .product-grid { grid-template-columns:repeat(2,1fr); }
+      #grid-all .all-product-grid { grid-template-columns:repeat(2,1fr) !important; }
+      .detail-top { grid-template-columns:1fr; gap:28px; }
+      .detail-main-img { max-width:100%; }
+      .detail-thumbs { max-width:100%; }
+    }
+    @media(max-width:600px) {
+      .page-wrapper { flex-direction:column; }
+      .sidebar {
+        width:100%;
+        height:auto;
+        position:static;
+        border-right:none;
+        border-bottom:1px solid var(--border);
+        padding:16px 12px;
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:8px;
+        overflow:visible;
+      }
+      .sidebar-title {
+        grid-column:1 / -1;
+        padding:0 2px 2px;
+      }
+      .cat-sidebar-item {
+        min-width:0;
+        border-left:none;
+        border:1px solid #DDE3EA;
+        border-radius:10px;
+        padding:10px 12px;
+        font-size:12px;
+        gap:8px;
+        background:#F5F7FA;
+        color:#0078D4;
+      }
+      .cat-sidebar-item[data-cat="all"] {
+        grid-column:1 / -1;
+      }
+      .cat-sidebar-item.active {
+        border:1px solid #0078D4;
+        background:#0078D4;
+        color:#FFFFFF;
+        font-weight:600;
+        border-left:none;
+        box-shadow:0 0 0 1px rgba(255,255,255,0.10) inset;
+      }
+      .cat-sidebar-item span {
+        display:block;
+        white-space:normal;
+        line-height:1.35;
+      }
+      .product-grid { grid-template-columns:1fr; }
+      #grid-all .all-product-grid { grid-template-columns:1fr !important; }
+      .main-content { padding:24px 20px; }
+      .detail-btns { flex-direction:column; align-items:stretch; }
+      .detail-btn-primary, .detail-btn-outline { width:100%; }
+      .inquiry-body { padding:24px 18px 28px; }
+    }
+    @media (max-width: 430px) {
+      nav { padding: 0 14px; }
+      .page-wrapper { padding-left: 12px; padding-right: 12px; }
+      .sidebar { padding: 14px 10px; gap: 7px; }
+      .cat-sidebar-item { padding: 9px 10px; font-size: 11.5px; gap: 6px; }
+      .main-content { padding: 18px 6px 22px; }
+      .cat-title { font-size: 18px; }
+      .cat-desc { font-size: 12px; margin-bottom: 16px; }
+      .prod-card-img { height: 180px; }
+      .prod-card-info { padding: 12px 12px 14px; }
+      .prod-card-name { font-size: 13px; }
+      .prod-card-desc { font-size: 11px; }
+      .detail-back { font-size: 12px; margin-bottom: 14px; }
+      .detail-name { font-size: 17px; }
+      .detail-desc { font-size: 12px; line-height: 1.65; }
+      .detail-spec-wrap { overflow-x: auto; }
+      .detail-spec-table { min-width: 430px; font-size: 10px; }
+      .detail-spec-table th,
+      .detail-spec-table td { padding: 6px 8px; }
+      .inquiry-cat-title { font-size: 17px; }
+      .inquiry-cat-desc { font-size: 12px; line-height: 1.65; }
+      .inquiry-tags span { font-size: 11px; padding: 6px 10px; }
+    }
+    @media (max-width: 390px) {
+      .detail-spec-table { min-width: 400px; }
+      .prod-card-img { height: 168px; }
+      .cat-sidebar-item { font-size: 11px; }
+      .cat-sidebar-item svg { display: none; }
+    }
+    @media (max-width: 768px) {
+      footer [style*="max-width:1160px"] { padding: 0 16px !important; }
+      footer [style*="display:flex; justify-content:space-between; align-items:flex-start"] {
+        flex-direction: column !important;
+        gap: 18px !important;
+      }
+      footer [style*="display:flex; flex-direction:column; gap:5px; padding-top:4px; margin-left:auto;"] {
+        margin-left: 0 !important;
+        width: 100%;
+      }
+      footer [style*="display:flex; gap:12px; font-size:12px; line-height:1.6;"] {
+        flex-wrap: wrap;
+      }
+      footer [style*="min-width:110px"] { min-width: 86px !important; }
+      footer [style*="padding:11px 0 52px"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        padding-bottom: 28px !important;
+      }
+    }
+
+    footer,
+    footer > div[style*="max-width:1160px"],
+    footer .footer-inner,
+    .footer-bottom {
+      background: #F5F7FA !important;
+    }
+
+    /* products 모바일 헤더 고정 (index와 동일 동작 보장) */
+    @media (max-width: 768px) {
+      nav {
+        height: 56px !important;
+        width: 100vw !important;
+        left: 0;
+        right: 0;
+        padding: 0 14px !important;
+        max-width: 100vw !important;
+      }
+      nav > ul { display: none !important; }
+      #hamburger.hamburger {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative;
+        z-index: 1102;
+      }
+      nav > .logo {
+        max-width: calc(100vw - 84px) !important;
+        min-width: 0;
+        overflow: hidden;
+      }
+      nav > .logo img { max-width: 100%; height: auto; }
+      .nav-mobile-menu { top: 56px !important; }
+      .mobile-menu-backdrop { top: 56px !important; }
+    }
+
+    .scroll-btns {
+      position: fixed;
+      bottom: 120px;
+      right: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+    .scroll-btn {
+      width: 40px; height: 40px;
+      background: #ffffff; color: #0078D4;
+      border: 1px solid #E5E7EB; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+      opacity: 1; transition: all 0.2s ease; text-decoration: none;
+    }
+    .scroll-btn:hover {
+      background: #F0F7FF; border-color: #0078D4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,120,212,0.2), 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .floating-cta {
+      width: 40px; height: 40px; padding: 0;
+      border-radius: 50%; background: #ffffff; color: #0078D4;
+      border: 1px solid #E5E7EB;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+      opacity: 1; text-decoration: none; display: flex;
+      align-items: center; justify-content: center; transition: all 0.2s ease;
+    }
+    .floating-cta:hover {
+      background: #F0F7FF; border-color: #0078D4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,120,212,0.2), 0 2px 6px rgba(0,0,0,0.1);
+    }
+    body.menu-open .scroll-btns { display: none !important; }
+    @media (max-width: 768px) {
+      .scroll-btns { bottom: 80px; right: 16px; }
+    }
+    @media (max-width: 480px) {
+      .scroll-btns { bottom: 72px; right: 12px; gap: 6px; }
+      .scroll-btn { width: 40px; height: 40px; }
+      .floating-cta { width: 40px; height: 40px; }
+    }
+    @media (max-width: 390px) {
+      .scroll-btns { right: 10px; }
+    }
+    .inquiry-banner {
+      position: relative;
+      width: 100%;
+      min-height: 220px;
+      height: clamp(220px, 30vw, 340px);
+      overflow: hidden;
+      background: #F9FAFB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .inquiry-banner-img {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      max-height: 340px;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      margin: 0 auto;
+    }
+    .inquiry-body {
+      padding: 36px 28px 40px;
+    }
+    .inquiry-cat-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111111;
+      margin: 0 0 6px;
+    }
+    .inquiry-cat-desc {
+      font-size: 12px;
+      color: #6B7280;
+      line-height: 1.7;
+      margin: 0 0 20px;
+    }
+    .inquiry-notice {
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+    }
+    .inquiry-notice-header {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #111111;
+    }
+    .inquiry-notice p {
+      font-size: 12px;
+      color: #6B7280;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .inquiry-tag-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: #9CA3AF;
+      letter-spacing: 0.05em;
+      margin: 0 0 10px;
+    }
+    .inquiry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+    .inquiry-tags span {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 0.5px solid #D1D5DB;
+      color: #6B7280;
+    }
+    .inquiry-cta {
+      display: inline-block;
+      background: #0078D4;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .inquiry-cta:hover {
+      background: #0F4C8A;
+    }
+    .inquiry-banner-top-fade {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .inquiry-banner-bottom-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .detail-view { padding: 0; }
+    .detail-back { font-size:14px; color:#0078D4; text-decoration:none; display:inline-block; margin-bottom:20px; cursor:pointer; background:none; border:none; padding:0; line-height:1.45; }
+    .detail-back:hover { text-decoration:underline; }
+    /* align-items:start: 왼쪽(큰 사진) 행 높이에 맞춰 오른쪽 flex에 height:100% + margin-top:auto 가 생기지 않도록 */
+    .detail-top { display:grid; grid-template-columns:minmax(0,524px) minmax(0,1fr); gap:40px; margin-bottom:32px; align-items:start; }
+    .detail-image-col { display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; min-height:0; }
+    .detail-main-img { position:relative; border:0.5px solid #E5E7EB; border-radius:12px; overflow:hidden; max-width:524px; width:100%; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; background:#F9FAFB; margin-bottom:10px; }
+    .detail-main-img img { width:100%; height:100%; object-fit:contain; }
+    .detail-main-img img.main-product-img {
+      transition:transform 0.15s ease-out, opacity 0.18s ease;
+      transform-origin:50% 50%;
+      will-change:transform;
+      cursor:zoom-in;
+    }
+    .detail-main-img .detail-img-placeholder { font-size:12px; color:#9CA3AF; }
+    .detail-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.9); border:0.5px solid #E5E7EB; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5; transition:background 0.2s ease; }
+    .detail-arrow:hover { background:#EFF6FF; }
+    .detail-arrow-left { left:10px; }
+    .detail-arrow-right { right:10px; }
+    /* 한 칸 크기 = 5개일 때와 동일: (행너비 - gap 8px×4) / 5 */
+    .detail-thumbs { display:flex; gap:8px; width:100%; max-width:524px; justify-content:flex-start; flex-wrap:wrap; }
+    .detail-thumb {
+      flex:0 0 calc((100% - 32px) / 5);
+      width:calc((100% - 32px) / 5);
+      max-width:calc((100% - 32px) / 5);
+      aspect-ratio:1/1;
+      height:auto;
+      min-width:0;
+      border:0.5px solid #E5E7EB;
+      border-radius:6px;
+      overflow:hidden;
+      cursor:pointer;
+      background:#F9FAFB;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:border 0.15s ease;
+      box-sizing:border-box;
+    }
+    .detail-thumb img { width:100%; height:100%; object-fit:cover; }
+    .detail-thumb.active { border:2px solid #0078D4; }
+    .detail-info-col { display:flex; flex-direction:column; justify-content:flex-start; min-height:0; max-width:480px; }
+    .detail-name { font-size:20px; font-weight:700; color:#111111; margin:0 0 12px; line-height:1.35; }
+    .detail-desc { font-size:13px; color:#6B7280; line-height:1.75; margin:0; white-space:normal; overflow:visible; }
+    .detail-spec-wrap { width:100%; margin-top:16px; }
+    .detail-spec-wrap.hidden { display:none !important; }
+    /* 제품 스펙 표: 샘플 시트 형태(전체 셀 테두리). 우측 값은 추후 productData.specRows 의 valueKo / valueEn 으로 채움 */
+    .detail-spec-table { width:100%; border-collapse:collapse; font-size:11px; border:1px solid #111; table-layout:fixed; }
+    .detail-spec-table th,
+    .detail-spec-table td { padding:8px 10px; text-align:left; border:1px solid #111; vertical-align:middle; line-height:1.45; }
+    .detail-spec-table th { width:34%; max-width:160px; font-weight:600; color:#111; background:#FAFAFA; }
+    .detail-spec-table td { color:#374151; min-height:2.5em; }
+    .detail-spec-table td .detail-spec-empty { color:#9CA3AF; font-weight:400; }
+    .detail-btns { display:flex; gap:10px; margin-top:24px; flex-wrap:wrap; justify-content:flex-start; width:100%; flex-shrink:0; }
+    .detail-btn-primary { display:inline-block; flex:0 0 auto; width:140px; text-align:center; background:transparent; color:#0078D4; border:1px solid #0078D4; font-size:12px; font-weight:500; padding:8px 0; border-radius:6px; text-decoration:none; white-space:nowrap; box-sizing:border-box; transition:background 0.2s ease; }
+    .detail-btn-primary:hover { background:#EFF6FF; }
+    .detail-btn-outline { display:inline-block; flex:0 0 auto; width:140px; text-align:center; background:#0078D4; color:#ffffff; border:1px solid #0078D4; font-size:12px; font-weight:500; padding:8px 0; border-radius:6px; text-decoration:none; white-space:nowrap; box-sizing:border-box; transition:background 0.2s ease; }
+    .detail-btn-outline:hover { background:#0F4C8A; border-color:#0F4C8A; }
+    .detail-bottom { border-top:0.5px solid #E5E7EB; padding-top:24px; }
+    .detail-bottom-title { font-size:14px; font-weight:700; color:#111111; margin:0 0 16px; }
+    .detail-detail-img { border:0.5px solid #E5E7EB; border-radius:12px; overflow:hidden; width:100%; max-width:100%; display:flex; flex-direction:column; align-items:center; gap:0; box-sizing:border-box; }
+    .detail-detail-img img {
+      width:85%;
+      max-width:85%;
+      height:auto;
+      display:block;
+      object-fit:contain;
+      margin:0 auto 16px;
+      box-sizing:border-box;
+    }
+    .detail-detail-img img:last-child { margin-bottom:0; }
+    .detail-detail-img .detail-img-placeholder { display:flex; align-items:center; justify-content:center; min-height:200px; font-size:12px; color:#9CA3AF; background:#F9FAFB; }
+
+    /* DETAIL VIEW — MOBILE LAYOUT FIX */
+    @media (max-width: 768px) {
+      .detail-top {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+        margin-bottom: 22px !important;
+      }
+      .detail-image-col,
+      .detail-info-col {
+        width: 100%;
+        max-width: 100% !important;
+      }
+      .detail-main-img,
+      .detail-thumbs {
+        max-width: 100% !important;
+      }
+      .detail-main-img {
+        touch-action: pan-y;
+        overscroll-behavior-x: contain;
+      }
+      .detail-main-img img.main-product-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .detail-name {
+        font-size: 1.05rem;
+        margin: 0 0 8px;
+      }
+      .detail-desc {
+        font-size: 0.78rem;
+        line-height: 1.6;
+      }
+      .detail-spec-wrap {
+        width: 100%;
+        overflow-x: visible;
+        margin-top: 22px;
+      }
+      .detail-spec-table {
+        width: 100%;
+        min-width: 0 !important;
+        table-layout: fixed;
+        font-size: 10px;
+      }
+      .detail-spec-table th,
+      .detail-spec-table td {
+        padding: 6px 7px;
+        word-break: break-word;
+      }
+      .detail-btns {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+        margin-top: 14px;
+      }
+      .detail-btn-primary,
+      .detail-btn-outline {
+        width: calc(50% - 3px);
+        font-size: 0.72rem;
+        padding: 9px 0;
+      }
+      .detail-bottom {
+        padding-top: 18px;
+      }
+      .detail-detail-img img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      footer { overflow: hidden; }
+      footer > div[style*="max-width:1160px"],
+      footer .footer-inner {
+        width: calc(100% - 24px) !important;
+        max-width: calc(100% - 24px) !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+      }
+      footer > div > div[style*="padding-top:28px"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 18px !important;
+        padding-top: 18px !important;
+        width: 100% !important;
+      }
+      footer [style*="display:flex; align-items:flex-start; gap:20px;"] {
+        flex-direction: row !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        --footer-brand-h: clamp(59px, 18vw, 77px);
+        width: 100% !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        padding-bottom: 56px !important;
+      }
+      footer [style*="width:1px; background:#E5E7EB"] { display: block !important; }
+      footer img[src*="CI_LOGO_NAVY"] {
+        height: var(--footer-brand-h) !important;
+        width: auto !important;
+        max-width: 38vw !important;
+      }
+      footer [style*="padding-top:2px;"] {
+        padding-top: 0 !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+        height: var(--footer-brand-h) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+      }
+      footer p[style*="font-style:italic; font-weight:500; color:#0F2A5C"] {
+        font-size: clamp(11px, 3.1vw, 13px) !important;
+        line-height: 1.3 !important;
+        margin: 0 0 6px 0 !important;
+        white-space: nowrap !important;
+      }
+      footer p[data-ko*="(주)패스파인더아이엔씨는"] {
+        font-size: clamp(10px, 2.8vw, 12px) !important;
+        line-height: 1.6 !important;
+      }
+      footer [style*="display:flex; gap:12px; margin-top:16px;"] {
+        margin-top: 0 !important;
+        width: auto !important;
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: -24px !important;
+        justify-content: center !important;
+      }
+      footer [style*="width:36px;height:36px;border-radius:50%"] {
+        width: 38px !important;
+        height: 38px !important;
+      }
+      footer [style*="display:flex; flex-direction:column; gap:5px; padding-top:4px; margin-left:auto;"] {
+        margin-left: 0 !important;
+        width: 100% !important;
+        gap: 8px !important;
+        padding-top: 0 !important;
+        margin-top: 40px !important;
+      }
+      footer [style*="display:flex; gap:12px; font-size:12px; line-height:1.6;"] {
+        display: grid !important;
+        grid-template-columns: 92px minmax(0, 1fr) !important;
+        gap: 6px 10px !important;
+        font-size: 11px !important;
+        line-height: 1.5 !important;
+      }
+      footer [style*="min-width:110px"] {
+        min-width: 0 !important;
+        font-size: 10px !important;
+      }
+      footer [style*="display:flex; gap:8px; align-items:baseline;"] {
+        display: block !important;
+      }
+      footer [style*="margin-top:20px; padding:11px 0 52px"] {
+        margin-top: 14px !important;
+        padding: 12px 0 22px !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        text-align: right !important;
+        gap: 8px !important;
+      }
+      footer [style*="display:flex; gap:16px;"] {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-end !important;
+        gap: 6px 12px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo" style="text-decoration:none;display:flex;align-items:center;">
+    <img src="images/(cutout)CI_LOGO_NAVY(2).png" alt="PATHFINDER" style="height:clamp(18px,2.8vw,28px);width:auto;display:block;" />
+  </a>
+  <ul>
+    <li><a href="index.html#home" data-ko="홈" data-en="Home">Home</a></li>
+    <li><a href="index.html#about" data-ko="회사소개" data-en="About">About</a></li>
+    <li><a href="index.html#services" data-ko="사업영역" data-en="Our Business">Our Business</a></li>
+    <li><a href="products.html" data-ko="제품" data-en="Products">Products</a></li>
+    <li><a href="contact.html" class="nav-cta" data-ko="문의 하기" data-en="Contact">Contact</a></li>
+    <li>
+      <div class="lang-toggle">
+        <button class="lang-btn" id="btn-ko" onclick="setLang('ko')"><span class="flag">🇰🇷</span>KO</button>
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')"><span class="flag">🇺🇸</span>EN</button>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="메뉴 열기" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="index.html#home" data-ko="홈" data-en="Home" onclick="closeMenu()">Home</a>
+  <a href="index.html#about" data-ko="회사소개" data-en="About" onclick="closeMenu()">About</a>
+  <a href="index.html#services" data-ko="사업영역" data-en="Our Business" onclick="closeMenu()">Our Business</a>
+  <a href="products.html" data-ko="제품" data-en="Products" onclick="closeMenu()">Products</a>
+  <div class="mobile-lang-row">
+    <span class="mobile-lang-label" data-ko="언어 설정" data-en="Language">Language</span>
+    <div class="lang-toggle">
+      <button class="lang-btn" id="btn-ko-m" onclick="setLang('ko')"><span class="flag">🇰🇷</span>KO</button>
+      <button class="lang-btn active" id="btn-en-m" onclick="setLang('en')"><span class="flag">🇺🇸</span>EN</button>
+    </div>
+  </div>
+  <a href="contact.html" class="mobile-cta" data-ko="사업 문의" data-en="Contact" onclick="closeMenu()">Contact</a>
+</div>
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop" onclick="closeMenu()"></div>
+
+<div class="page-wrapper">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-title" data-ko="카테고리" data-en="Categories">Categories</div>
+    <div class="cat-sidebar-item active" data-cat="all" onclick="selectAll()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      <span data-ko="전체보기" data-en="All Products">All Products</span>
+    </div>
+    <div class="cat-sidebar-item" data-cat="food" onclick="selectCategory('food')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+      <span data-ko="식품" data-en="Food">Food</span>
+    </div>
+    <div class="cat-sidebar-item" data-cat="health" onclick="selectCategory('health')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/><polyline points="7 12 10 15 13 10 16 13"/></svg>
+      <span data-ko="건강기능식품" data-en="Health">Health</span>
+    </div>
+    <div class="cat-sidebar-item" data-cat="beauty" onclick="selectCategory('beauty')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+      <span data-ko="화장품 &amp; 뷰티디바이스" data-en="Beauty">Beauty</span>
+    </div>
+    <div class="cat-sidebar-item" data-cat="fashion" onclick="selectCategory('fashion')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>
+      <span data-ko="패션" data-en="Fashion">Fashion</span>
+    </div>
+    <div class="cat-sidebar-item" data-cat="automotive" onclick="selectCategory('automotive')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+      <span data-ko="자동차부품 &amp; 중고차" data-en="Automotive">Automotive</span>
+    </div>
+    <div class="cat-sidebar-item" data-cat="industrial" onclick="selectCategory('industrial')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span data-ko="산업재" data-en="Industrial">Industrial</span>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- ── FOOD ── -->
+    <div class="grid-view hidden" id="grid-food">
+      <div class="cat-title" data-ko="식품" data-en="Food">Food</div>
+      <div class="cat-desc" data-ko="글로벌 식문화의 트렌드 K-푸드" data-en="K-Food Setting the Global Food Trend">K-Food Setting the Global Food Trend</div>
+      <div class="product-grid">
+        <div class="prod-card" onclick="showDetail('food','mochi')">
+          <div class="prod-card-img">
+            <img src="images/products/food/CSCR/CSCR_mochi_main.jpg"
+                 alt="Korean Sticky Rice Cake(Mochi)"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="찹쌀떡(14종)"
+                 data-en="Korean Sticky Rice Cake(Mochi)">
+              Korean Sticky Rice Cake(Mochi)
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="청사초롱"
+                 data-en="Cheong Sa Cho Rong">
+              Cheong Sa Cho Rong
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('food','tteokbokki')">
+          <div class="prod-card-img">
+            <img src="images/products/food/CSCR/CSCR_tteokbokki_main.jpg"
+                 alt="Tteoboki Meal Kit"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="떡볶이 밀키트(3종)"
+                 data-en="Tteoboki Meal Kit">
+              Tteoboki Meal Kit
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="청사초롱"
+                 data-en="Cheong Sa Cho Rong">
+              Cheong Sa Cho Rong
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('food','can')">
+          <div class="prod-card-img">
+            <img src="images/products/food/SLC/SLC_can_main.jpg"
+                 alt="Vegan Canned Stir-fried Kimchi"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="비건 볶음김치캔"
+                 data-en="Vegan Canned Stir-fried Kimchi">
+              Vegan Canned Stir-fried Kimchi
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="슬런치팩토리"
+                 data-en="Slunch Factory">
+              Slunch Factory
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('food','rice')">
+          <div class="prod-card-img">
+            <img src="images/products/food/SLC/SLC_rice_main.jpg"
+                 alt="Vegan Kimchi Fried Rice Meal Kit"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="비건 김치볶음밥 밀키트"
+                 data-en="Vegan Kimchi Fried Rice Meal Kit">
+              Vegan Kimchi Fried Rice Meal Kit
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="슬런치팩토리"
+                 data-en="Slunch Factory">
+              Slunch Factory
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('food','pancake')">
+          <div class="prod-card-img">
+            <img src="images/products/food/SLC/SLC_pancake_main.jpg"
+                 alt="Vegan Kimchi pancake Meal Kit"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="비건 김치전 밀키트"
+                 data-en="Vegan Kimchi pancake Meal Kit">
+              Vegan Kimchi pancake Meal Kit
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="슬런치팩토리"
+                 data-en="Slunch Factory">
+              Slunch Factory
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('food','tart')">
+          <div class="prod-card-img">
+            <img src="images/products/food/SLC/SLC_tart_main.jpg"
+                 alt="Vegan Fruit Tart(peach, blueberry)"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="비건 과일 타르트(2종)"
+                 data-en="Vegan Fruit Tart(peach, blueberry)">
+              Vegan Fruit Tart(peach, blueberry)
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="슬런치팩토리"
+                 data-en="Slunch Factory">
+              Slunch Factory
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('food','choco')">
+          <div class="prod-card-img">
+            <img src="images/products/food/SLC/SLC_choco_main.jpg"
+                 alt="Vegan Peanut Butter Choco Bar"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="비건 피넛 버터 초코바"
+                 data-en="Vegan Peanut Butter Choco Bar">
+              Vegan Peanut Butter Choco Bar
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="슬런치팩토리"
+                 data-en="Slunch Factory">
+              Slunch Factory
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('food','drink')">
+          <div class="prod-card-img">
+            <img src="images/products/food/ONCUP/ONCUP_drink_main.jpg"
+                 alt="Pouch-type RTD Beverage (COFFEE, ICED TEA, ADE)"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="RTD 파우치 음료"
+                 data-en="Pouch-type RTD Beverage (COFFEE, ICED TEA, ADE)">
+              Pouch-type RTD Beverage (COFFEE, ICED TEA, ADE)
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="온컵"
+                 data-en="OnCup">
+              OnCup
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HEALTH ── -->
+    <div class="grid-view hidden" id="grid-health">
+      <div class="cat-title" data-ko="건강기능식품" data-en="Health">Health</div>
+      <div class="cat-desc" data-ko="글로벌 시장이 신뢰하는 품질과 안전" data-en="Trusted Quality and Safety for Global Markets">Trusted Quality and Safety for Global Markets</div>
+      <div class="product-grid">
+        <div class="prod-card" onclick="showDetail('health','deerA')">
+          <div class="prod-card-img">
+            <img src="images/products/health/MNY/MNY_adult_main.jpg"
+                 alt="[MOM&amp;YOUNG] Health Food - Adult Line" />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="[성인]녹용 건강기능식품"
+                 data-en="[MOM&amp;YOUNG] Health Food - Adult Line">
+              [MOM&amp;YOUNG] Health Food - Adult Line
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="몸엔용"
+                 data-en="MOM&amp;YOUNG">
+              MOM&amp;YOUNG
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('health','deerK')">
+          <div class="prod-card-img">
+            <img src="images/products/health/MNY/MNY_kids_main.jpg"
+                 alt="[MOM&amp;YOUNG] Health Food - Kids Line" />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="[어린이]녹용 건강기능식품"
+                 data-en="[MOM&amp;YOUNG] Health Food - Kids Line">
+              [MOM&amp;YOUNG] Health Food - Kids Line
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="몸엔용"
+                 data-en="MOM&amp;YOUNG">
+              MOM&amp;YOUNG
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BEAUTY ── -->
+    <div class="grid-view hidden" id="grid-beauty">
+      <div class="cat-title" data-ko="화장품" data-en="Beauty">Beauty</div>
+      <div class="cat-desc" data-ko="글로벌 뷰티 시장을 선도하는 K-뷰티" data-en="K-Beauty Leading the Global Skincare Market">K-Beauty Leading the Global Skincare Market</div>
+      <div class="product-grid">
+        <div class="prod-card" onclick="showDetail('beauty','toner')">
+          <div class="prod-card-img">
+            <div class="prod-card-placeholder-wrap">
+              <svg class="prod-card-cat-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+              <span class="prod-card-placeholder" data-ko="업데이트 예정" data-en="To be Updated">To be Updated</span>
+            </div>
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name" data-ko="토너" data-en="Toner">Toner</div>
+            <div class="prod-card-desc" data-ko="수분 & 브라이트닝" data-en="Hydrating & brightening">Hydrating & brightening</div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('beauty','serum')">
+          <div class="prod-card-img">
+            <div class="prod-card-placeholder-wrap">
+              <svg class="prod-card-cat-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+              <span class="prod-card-placeholder" data-ko="업데이트 예정" data-en="To be Updated">To be Updated</span>
+            </div>
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name" data-ko="세럼 & 앰플" data-en="Serum & Ampoule">Serum & Ampoule</div>
+            <div class="prod-card-desc" data-ko="집중 케어 라인" data-en="Intensive care line">Intensive care line</div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('beauty','gel')">
+          <div class="prod-card-img">
+            <div class="prod-card-placeholder-wrap">
+              <svg class="prod-card-cat-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+              <span class="prod-card-placeholder" data-ko="업데이트 예정" data-en="To be Updated">To be Updated</span>
+            </div>
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name" data-ko="수딩젤" data-en="Soothing Gel">Soothing Gel</div>
+            <div class="prod-card-desc" data-ko="진정 & 보습" data-en="Calming & moisturizing">Calming & moisturizing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FASHION ── -->
+    <div class="grid-view hidden" id="grid-fashion">
+      <div class="cat-title" data-ko="패션" data-en="Fashion">Fashion</div>
+      <div class="cat-desc" data-ko="새로운 글로벌 스타일의 기준 K-패션" data-en="K-Fashion — The New Global Style Standard">K-Fashion — The New Global Style Standard</div>
+      <div class="product-grid">
+        <div class="prod-card" onclick="showDetail('fashion','eyeglass')">
+          <div class="prod-card-img">
+            <div class="prod-card-placeholder-wrap">
+              <svg class="prod-card-cat-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>
+              <span class="prod-card-placeholder" data-ko="업데이트 예정" data-en="To be Updated">To be Updated</span>
+            </div>
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name" data-ko="안경테" data-en="Eyeglass Frame">Eyeglass Frame</div>
+            <div class="prod-card-desc" data-ko="가볍고 스타일리시" data-en="Lightweight & stylish">Lightweight & stylish</div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('fashion','socks')">
+          <div class="prod-card-img">
+            <div class="prod-card-placeholder-wrap">
+              <svg class="prod-card-cat-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>
+              <span class="prod-card-placeholder" data-ko="업데이트 예정" data-en="To be Updated">To be Updated</span>
+            </div>
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name" data-ko="양말" data-en="Korean Socks">Korean Socks</div>
+            <div class="prod-card-desc" data-ko="트렌디한 K-패션 양말" data-en="Trendy K-fashion socks">Trendy K-fashion socks</div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('fashion','sunglasses')">
+          <div class="prod-card-img">
+            <div class="prod-card-placeholder-wrap">
+              <svg class="prod-card-cat-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>
+              <span class="prod-card-placeholder" data-ko="업데이트 예정" data-en="To be Updated">To be Updated</span>
+            </div>
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name" data-ko="선글라스" data-en="Sunglasses">Sunglasses</div>
+            <div class="prod-card-desc" data-ko="자외선 차단" data-en="UV protection">UV protection</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── AUTOMOTIVE ── -->
+    <div class="grid-view hidden" id="grid-automotive">
+
+      <div class="inquiry-banner">
+        <img src="images/products_automotive.png?v=2"
+             alt="Automotive & Used Cars"
+             class="inquiry-banner-img" />
+        <div style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 60px;
+          background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+          pointer-events: none;
+          z-index: 1;
+        "></div>
+        <div style="
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 80px;
+          background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+          pointer-events: none;
+          z-index: 1;
+        "></div>
+      </div>
+
+      <div class="inquiry-body">
+        <p class="inquiry-cat-title"
+           data-ko="자동차 부품 & 중고차"
+           data-en="Automotive & Used Cars">
+          Automotive & Used Cars
+        </p>
+        <p class="inquiry-cat-desc"
+           data-ko="바이어의 니즈에 맞춘 한국산 자동차 부품 및 중고차를 소싱·공급합니다."
+           data-en="We source and supply Korean automotive parts and pre-owned vehicles tailored to your needs.">
+          We source and supply Korean automotive parts
+          and pre-owned vehicles tailored to your needs.
+        </p>
+
+        <div class="inquiry-notice">
+          <div class="inquiry-notice-header">
+            <svg width="16" height="16" viewBox="0 0 24 24"
+                 fill="none" stroke="#0078D4" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="8"
+                    stroke-linecap="round" stroke-width="2.5"/>
+              <line x1="12" y1="12" x2="12" y2="16"
+                    stroke-linecap="round" stroke-width="2"/>
+            </svg>
+            <span data-ko="문의 후 안내드립니다"
+                  data-en="Available upon request">
+              Available upon request
+            </span>
+          </div>
+          <p data-ko="해당 카테고리는 제품의 특성상 가격 및 MOQ를 별도로 공개하지 않습니다. 바이어의 요건에 맞는 맞춤형 소싱 제안을 위해 별도의 문의를 주시기 바랍니다."
+             data-en="Pricing and MOQ details are provided upon request only. Please reach out to us separately for a customized sourcing proposal tailored to your market.">
+            Pricing and MOQ details are provided upon request only.
+            Please reach out to us separately for a customized
+            sourcing proposal tailored to your market.
+          </p>
+        </div>
+
+        <p class="inquiry-tag-label"
+           data-ko="취급 가능 품목"
+           data-en="ITEMS WE CAN SOURCE">
+          ITEMS WE CAN SOURCE
+        </p>
+        <div class="inquiry-tags">
+          <span data-ko="중고차 수출" data-en="Used Car Export">Used Car Export</span>
+          <span data-ko="자동차 부품" data-en="Automotive Parts">Automotive Parts</span>
+          <span data-ko="중고 부품" data-en="Used Parts">Used Parts</span>
+          <span data-ko="재생 부품" data-en="Remanufactured Parts">Remanufactured Parts</span>
+          <span data-ko="애프터마켓 부품" data-en="Aftermarket Parts">Aftermarket Parts</span>
+          <span data-ko="맞춤 소싱 가능" data-en="Custom Sourcing Available">Custom Sourcing Available</span>
+        </div>
+
+        <a href="contact.html" class="inquiry-cta">
+          <span data-ko="문의하기"
+                data-en="Contact Us for a Quote">
+            Contact Us for a Quote
+          </span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ── INDUSTRIAL ── -->
+    <div class="grid-view hidden" id="grid-industrial">
+
+      <div class="inquiry-banner">
+        <img src="images/products_industrial.png"
+             alt="Industrial"
+             class="inquiry-banner-img" />
+        <div class="inquiry-banner-top-fade"></div>
+        <div class="inquiry-banner-bottom-fade"></div>
+      </div>
+
+      <div class="inquiry-body">
+        <p class="inquiry-cat-title"
+           data-ko="산업재"
+           data-en="Industrial">
+          Industrial
+        </p>
+        <p class="inquiry-cat-desc"
+           data-ko="프로젝트 요건에 맞는 한국산 산업용 장비, 원자재 및 부품을 소싱·공급합니다."
+           data-en="We source and supply Korean industrial equipment, raw materials, and components tailored to your project needs.">
+          We source and supply Korean industrial equipment,
+          raw materials, and components tailored to your
+          project needs.
+        </p>
+
+        <div class="inquiry-notice">
+          <div class="inquiry-notice-header">
+            <svg width="16" height="16" viewBox="0 0 24 24"
+                 fill="none" stroke="#0078D4" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="8"
+                    stroke-linecap="round" stroke-width="2.5"/>
+              <line x1="12" y1="12" x2="12" y2="16"
+                    stroke-linecap="round" stroke-width="2"/>
+            </svg>
+            <span data-ko="문의 후 안내드립니다"
+                  data-en="Available upon request">
+              Available upon request
+            </span>
+          </div>
+          <p data-ko="해당 카테고리는 제품의 특성상 가격 및 MOQ를 별도로 공개하지 않습니다. 바이어의 요건에 맞는 맞춤형 소싱 제안을 위해 별도의 문의를 주시기 바랍니다."
+             data-en="Pricing and MOQ details are provided upon request only. Please reach out to us separately for a customized sourcing proposal tailored to your market.">
+            Pricing and MOQ details are provided upon request only.
+            Please reach out to us separately for a customized
+            sourcing proposal tailored to your market.
+          </p>
+        </div>
+
+        <p class="inquiry-tag-label"
+           data-ko="취급 가능 품목"
+           data-en="ITEMS WE CAN SOURCE">
+          ITEMS WE CAN SOURCE
+        </p>
+        <div class="inquiry-tags">
+          <span data-ko="철강 자재" data-en="Steel Materials">Steel Materials</span>
+          <span data-ko="알루미늄 프로파일" data-en="Aluminum Profiles">Aluminum Profiles</span>
+          <span data-ko="산업용 체인" data-en="Industrial Chains">Industrial Chains</span>
+          <span data-ko="볼트 & 너트" data-en="Fasteners & Bolts">Fasteners &amp; Bolts</span>
+          <span data-ko="배관 자재" data-en="Pipes & Fittings">Pipes &amp; Fittings</span>
+          <span data-ko="맞춤 소싱 가능" data-en="Custom Sourcing Available">Custom Sourcing Available</span>
+        </div>
+
+        <a href="contact.html" class="inquiry-cta">
+          <span data-ko="문의하기"
+                data-en="Contact Us for a Quote">
+            Contact Us for a Quote
+          </span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ALL PRODUCTS VIEW -->
+    <div id="grid-all">
+      <div class="cat-title" data-ko="전체보기" data-en="All Products">All Products</div>
+      <div id="all-count" style="font-size:14px; color:#6B7280; margin-bottom:24px;" data-ko="총 0개 제품" data-en="0 Products">0 Products</div>
+      <div class="all-product-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px;"></div>
+    </div>
+
+    <!-- DETAIL VIEW -->
+    <div class="detail-view" id="detail-view">
+      <a class="detail-back" onclick="hideDetail()">
+        ← <span id="back-label">Back to Food</span>
+      </a>
+
+      <div class="detail-top">
+        <div class="detail-image-col">
+          <div class="detail-main-img">
+            <div class="detail-arrow detail-arrow-left" onclick="changeDetailImage(-1)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </div>
+            <div class="detail-img-placeholder" id="detail-main-image"
+                 data-ko="제품 이미지 준비 중" data-en="Product image coming soon">
+              Product image coming soon
+            </div>
+            <div class="detail-arrow detail-arrow-right" onclick="changeDetailImage(1)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+          </div>
+          <div class="detail-thumbs" id="detail-thumbs">
+            <div class="detail-thumb active" onclick="selectDetailThumb(0)"><div style="font-size:9px;color:#9CA3AF;">1</div></div>
+            <div class="detail-thumb" onclick="selectDetailThumb(1)"><div style="font-size:9px;color:#9CA3AF;">2</div></div>
+            <div class="detail-thumb" onclick="selectDetailThumb(2)"><div style="font-size:9px;color:#9CA3AF;">3</div></div>
+            <div class="detail-thumb" onclick="selectDetailThumb(3)"><div style="font-size:9px;color:#9CA3AF;">4</div></div>
+            <div class="detail-thumb" onclick="selectDetailThumb(4)"><div style="font-size:9px;color:#9CA3AF;">5</div></div>
+          </div>
+        </div>
+
+        <div class="detail-info-col">
+          <div>
+            <p class="detail-name" id="detail-name">Product Name</p>
+            <p class="detail-desc" id="detail-desc">Product description coming soon.</p>
+            <div id="detail-spec-wrap" class="detail-spec-wrap hidden">
+              <table class="detail-spec-table">
+                <tbody id="detail-spec-body"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="detail-btns">
+            <a id="detail-catalog-link" href="files/pathfinder-product-catalog.pdf" class="detail-btn-primary" download="pathfinder-product-catalog.pdf"
+               data-ko="카탈로그 다운로드"
+               data-en="Download Catalog">
+              Download Catalog
+            </a>
+            <a href="contact.html" class="detail-btn-outline"
+               data-ko="문의하기"
+               data-en="Inquire Now">
+              Inquire Now
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-bottom">
+        <p class="detail-bottom-title"
+           data-ko="제품 상세"
+           data-en="Product Details">
+          Product Details
+        </p>
+        <div class="detail-detail-img">
+          <div class="detail-img-placeholder"
+               data-ko="상세 이미지 준비 중"
+               data-en="Detail image coming soon">
+            Detail image coming soon
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer style="background:#F5F7FA; border-top:0.5px solid #E5E7EB; width:100%; box-sizing:border-box; padding:0;">
+  <div style="max-width:1160px; margin:0 auto; padding:0;">
+  <div style="padding-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:flex-start;">
+    <div style="display:flex; align-items:flex-start; gap:20px;">
+      <img src="images/(cutout)CI_LOGO_NAVY.png" alt="PATHFINDER Inc." style="height:150px; width:auto; object-fit:contain; flex-shrink:0; display:block;">
+      <div style="width:1px; background:#E5E7EB; align-self:stretch; flex-shrink:0;"></div>
+      <div style="padding-top:2px;">
+        <p style="font-size:13px; font-style:italic; font-weight:500; color:#0F2A5C; letter-spacing:0.02em; margin:0 0 6px 0;">Connecting Values, Inspiring the World</p>
+        <p data-ko="(주)패스파인더아이엔씨는<br>귀사의 해외 비즈니스 성공을 위해<br>최선을 다합니다." data-en="Trusted global trade partner.<br>PATHFINDER Inc. is committed to<br>your global business success." style="font-size:13px; color:#6B7280; line-height:1.7; margin:0;">Trusted global trade partner.<br>PATHFINDER Inc. is committed to<br>your global business success.</p>
+        <div style="display:flex; gap:12px; margin-top:16px;">
+          <a href="javascript:void(0)" aria-disabled="true" onclick="return false;" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:0.5px solid #D1D5DB;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;color:#4B5563;text-decoration:none;" onmouseover="this.style.background='#0078D4';this.style.borderColor='#0078D4';this.querySelector('svg').style.stroke='#ffffff'" onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#D1D5DB';this.querySelector('svg').style.stroke='#4B5563'">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#4B5563" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          </a>
+          <a href="javascript:void(0)" aria-disabled="true" onclick="return false;" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:0.5px solid #D1D5DB;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;color:#4B5563;text-decoration:none;" onmouseover="this.style.background='#0078D4';this.style.borderColor='#0078D4';this.querySelector('svg').style.stroke='#ffffff'" onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#D1D5DB';this.querySelector('svg').style.stroke='#4B5563'">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#4B5563" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:5px; padding-top:4px; margin-left:auto;">
+      <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;"><span data-ko="상호" data-en="Company" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Company</span><span data-ko="(주)패스파인더아이엔씨" data-en="PATHFINDER Inc." style="color:#374151;">PATHFINDER Inc.</span></div>
+      <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;"><span data-ko="대표자" data-en="CEO" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">CEO</span><span data-ko="황현웅" data-en="Hyunwoong Hwang" style="color:#374151;">Hyunwoong Hwang</span></div>
+      <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;"><span data-ko="사업자등록번호" data-en="Business Reg. No." style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Business Reg. No.</span><span style="color:#374151;">719-86-03411</span></div>
+      <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;"><span data-ko="주소" data-en="Address" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Address</span><span data-ko="서울특별시 강서구 강서로 385,<br>8층 804-4호 (마곡동, 우성에스비타워)" data-en="804-4, 385, Gangseo-ro, Gangseo-gu,<br>Seoul, 07803, Republic of Korea" style="color:#374151;">804-4, 385, Gangseo-ro, Gangseo-gu,<br>Seoul, 07803, Republic of Korea</span></div>
+      <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;"><span data-ko="개인정보보호책임자" data-en="Privacy Officer" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Privacy Officer</span><span style="color:#374151; display:flex; gap:8px; align-items:baseline;"><span data-ko="백성욱" data-en="Sungwook Baek">Sungwook Baek</span> <span style="color:#374151; font-size:11px;">(<span style="color:#0078D4;">sam.baek@pathfinderinc.co</span>)</span></span></div>
+    </div>
+  </div>
+  <div style="margin-top:20px; padding:11px 0 52px; border-top:0.5px solid #E5E7EB; display:flex; align-items:center; justify-content:space-between;">
+    <span style="font-size:11px; color:#9CA3AF;">© 2026 PATHFINDER Inc. All rights reserved.</span>
+    <div style="display:flex; gap:16px;">
+      <a href="terms.html" data-ko="이용약관" data-en="Terms of Service" style="font-size:11px; color:#6B7280; text-decoration:underline; text-underline-offset:2px;">Terms of Service</a>
+      <a href="privacy.html" data-ko="개인정보처리방침" data-en="Privacy Policy" style="font-size:11px; color:#6B7280; text-decoration:underline; text-underline-offset:2px;">Privacy Policy</a>
+    </div>
+  </div>
+  </div>
+</footer>
+
+<script>
+  let currentLang = 'en';
+  let currentCategory = 'all';
+  /** 상세를 연 직전 목록이 전체보기였는지(뒤로가기 시 grid-all 복원용) */
+  let lastListViewWasAll = false;
+  let currentDetailImageIndex = 0;
+  /** 브라우저 popstate·초기 replaceState 시 pushState를 타지 않도록 */
+  let productsSuppressHistory = false;
+  const PRODUCTS_URL_CATEGORIES = ['food', 'health', 'beauty', 'fashion', 'automotive', 'industrial'];
+
+  function productsBuildUrl(category, productId) {
+    const p = new URLSearchParams();
+    if (productId && category) {
+      p.set('category', category);
+      p.set('product', productId);
+    } else if (category && category !== 'all' && PRODUCTS_URL_CATEGORIES.indexOf(category) !== -1) {
+      p.set('category', category);
+    } else {
+      p.set('category', 'all');
+    }
+    return location.pathname + '?' + p.toString();
+  }
+
+  function productsPushHistoryState(state, category, productId) {
+    history.pushState(state || {}, '', productsBuildUrl(category, productId));
+  }
+
+  function productsReplaceHistoryState(state, category, productId) {
+    history.replaceState(state || {}, '', productsBuildUrl(category, productId));
+  }
+
+  const catNames = {
+    all:        { ko:'전체보기',     en:'All Products' },
+    food:       { ko:'식품',        en:'Food' },
+    health:     { ko:'건강기능식품', en:'Health' },
+    beauty:     { ko:'화장품',      en:'Beauty' },
+    fashion:    { ko:'패션',        en:'Fashion' },
+    automotive: { ko:'자동차부품',   en:'Automotive' },
+    industrial: { ko:'산업재',      en:'Industrial' }
+  };
+
+  /** 제품 카드가 노출되는 카테고리 순서(사이드바·전체보기). CSV에는 food 행 → health 행 … 식으로 이 순서에 맞게 그룹 적으면 됨. */
+  const CATEGORY_SEQUENCE_FOR_PRODUCTS = ['food', 'health', 'beauty', 'fashion'];
+
+  /** 카테고리별 제품 정렬. 각 배열은 sample-products-import.csv에서 해당 category의 행 순서(위→아래)와 동일한 productId 나열. */
+  const PRODUCT_ORDER = {
+    food: ['mochi', 'tteokbokki', 'can', 'rice', 'pancake', 'tart', 'choco', 'drink'],
+    health: ['deerA', 'deerK'],
+    beauty: ['toner', 'serum', 'gel'],
+    fashion: ['eyeglass', 'socks', 'sunglasses']
+  };
+
+  function parseShowDetailFromCard(card) {
+    const oc = card.getAttribute('onclick');
+    if (!oc) return null;
+    const m = oc.match(/showDetail\s*\(\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]+)['"]\s*\)/);
+    return m ? { cat: m[1], id: m[2] } : null;
+  }
+
+  function applyProductOrderInGrids() {
+    CATEGORY_SEQUENCE_FOR_PRODUCTS.forEach(function(cat) {
+      const gridView = document.getElementById('grid-' + cat);
+      if (!gridView) return;
+      const grid = gridView.querySelector('.product-grid');
+      if (!grid) return;
+      const order = PRODUCT_ORDER[cat];
+      if (!order || !order.length) return;
+      const cards = Array.prototype.slice.call(grid.querySelectorAll(':scope > .prod-card'));
+      function rank(productId) {
+        const i = order.indexOf(productId);
+        return i === -1 ? 10000 : i;
+      }
+      cards.sort(function(a, b) {
+        const pa = parseShowDetailFromCard(a);
+        const pb = parseShowDetailFromCard(b);
+        if (!pa || !pb) return 0;
+        return rank(pa.id) - rank(pb.id);
+      });
+      cards.forEach(function(c) { grid.appendChild(c); });
+    });
+  }
+
+  applyProductOrderInGrids();
+
+  /** 전체보기: Automotive / Industrial 카테고리 진입용 썸네일(그리드 맨 앞에 배치) */
+  function appendAllViewCategoryNavCards(allGrid) {
+    var lang = currentLang === 'ko' ? 'ko' : 'en';
+    var defs = [
+      {
+        cat: 'automotive',
+        img: 'images/products_automotive.png?v=2',
+        alt: 'Automotive & Used Cars',
+        nameKo: '자동차 부품 & 중고차',
+        nameEn: 'Automotive & Used Cars',
+        descKo: '문의 후 안내드립니다',
+        descEn: 'Available upon request'
+      },
+      {
+        cat: 'industrial',
+        img: 'images/products_industrial.png',
+        alt: 'Industrial',
+        nameKo: '산업재',
+        nameEn: 'Industrial',
+        descKo: '문의 후 안내드립니다',
+        descEn: 'Available upon request'
+      }
+    ];
+    defs.forEach(function(d) {
+      var card = document.createElement('div');
+      card.className = 'prod-card prod-card-nav-cat';
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.addEventListener('click', function() { selectCategory(d.cat); });
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectCategory(d.cat);
+        }
+      });
+      var imgWrap = document.createElement('div');
+      imgWrap.className = 'prod-card-img';
+      var img = document.createElement('img');
+      img.src = d.img;
+      img.alt = d.alt;
+      imgWrap.appendChild(img);
+      var info = document.createElement('div');
+      info.className = 'prod-card-info';
+      var nameEl = document.createElement('div');
+      nameEl.className = 'prod-card-name';
+      nameEl.setAttribute('data-ko', d.nameKo);
+      nameEl.setAttribute('data-en', d.nameEn);
+      nameEl.textContent = lang === 'ko' ? d.nameKo : d.nameEn;
+      var descEl = document.createElement('div');
+      descEl.className = 'prod-card-desc';
+      descEl.setAttribute('data-ko', d.descKo);
+      descEl.setAttribute('data-en', d.descEn);
+      descEl.textContent = lang === 'ko' ? d.descKo : d.descEn;
+      info.appendChild(nameEl);
+      info.appendChild(descEl);
+      card.appendChild(imgWrap);
+      card.appendChild(info);
+      allGrid.appendChild(card);
+    });
+  }
+
+  function populateAllProductsGrid() {
+    const allGrid = document.querySelector('#grid-all .all-product-grid');
+    if (!allGrid) return;
+    allGrid.innerHTML = '';
+    document.querySelectorAll('.grid-view .prod-card').forEach(function(card) {
+      allGrid.appendChild(card.cloneNode(true));
+    });
+    /* Automotive / Industrial은 항상 마지막에 배치 */
+    appendAllViewCategoryNavCards(allGrid);
+    const count = allGrid.querySelectorAll('.prod-card:not(.prod-card-nav-cat)').length;
+    const countEl = document.getElementById('all-count');
+    if (countEl) {
+      countEl.setAttribute('data-ko', '총 ' + count + '개 제품');
+      countEl.setAttribute('data-en', count + ' Products');
+      countEl.textContent = currentLang === 'ko' ? '총 ' + count + '개 제품' : count + ' Products';
+    }
+  }
+
+  function setLang(lang) {
+    currentLang = lang;
+    sessionStorage.setItem('pathfinder_lang', lang);
+    document.documentElement.lang = lang;
+    document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    const bkm = document.getElementById('btn-ko-m');
+    const bem = document.getElementById('btn-en-m');
+    if (bkm) bkm.classList.toggle('active', lang === 'ko');
+    if (bem) bem.classList.toggle('active', lang === 'en');
+    document.querySelectorAll('[data-ko]').forEach(el => {
+      el.innerHTML = lang === 'ko' ? el.dataset.ko : el.dataset.en;
+    });
+    document.querySelectorAll('[data-ko-ph]').forEach(el => {
+      el.placeholder = lang === 'ko' ? el.dataset.koPh : el.dataset.enPh;
+    });
+    // Update back button label
+    updateBackLabel();
+    document.title = lang === 'ko'
+      ? 'PATHFINDER Inc. - 취급제품'
+      : 'PATHFINDER Inc. - Products';
+    /* 전체보기가 열린 채 언어 전환 시: 복제 카드가 부모 data-ko 처리로 깨질 수 있어 목록 재구성 */
+    const ga = document.getElementById('grid-all');
+    if (ga && !ga.classList.contains('hidden')) {
+      populateAllProductsGrid();
+    }
+  }
+
+  function updateBackLabel() {
+    const lbl = document.getElementById('back-label');
+    if (!lbl) return;
+    const detailEl = document.getElementById('detail-view');
+    const inDetail = detailEl && detailEl.classList.contains('visible');
+    const nameKey = inDetail && lastListViewWasAll ? 'all' : currentCategory;
+    const name = catNames[nameKey][currentLang];
+    lbl.textContent = currentLang === 'ko'
+      ? name + '으로 돌아가기'
+      : 'Back to ' + name;
+  }
+
+  function selectAll(suppressHistory) {
+    // Hide all individual grids and detail
+    document.querySelectorAll('.grid-view').forEach(el => el.classList.add('hidden'));
+    hideDetail(true);
+    document.querySelector('.main-content').classList.remove('show-all');
+    lastListViewWasAll = true;
+    populateAllProductsGrid();
+    // Show all-products view
+    document.getElementById('grid-all').classList.remove('hidden');
+    // Update sidebar
+    document.querySelectorAll('.cat-sidebar-item').forEach(el => {
+      el.classList.toggle('active', el.dataset.cat === 'all');
+    });
+    currentCategory = 'all';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (!suppressHistory && !productsSuppressHistory) {
+      productsPushHistoryState({ category: 'all', product: null }, 'all', null);
+    }
+  }
+
+  function selectCategory(cat, suppressHistory) {
+    lastListViewWasAll = false;
+    // Hide all grids and all-products view
+    document.querySelectorAll('.grid-view').forEach(el => el.classList.add('hidden'));
+    document.getElementById('grid-all').classList.add('hidden');
+    document.querySelector('.main-content').classList.remove('show-all');
+    // Hide detail
+    hideDetail(true);
+    // Show target grid
+    const grid = document.getElementById('grid-' + cat);
+    if (grid) grid.classList.remove('hidden');
+    // Update sidebar
+    document.querySelectorAll('.cat-sidebar-item').forEach(el => {
+      el.classList.toggle('active', el.dataset.cat === cat);
+    });
+    currentCategory = cat;
+    updateBackLabel();
+    // Scroll top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (!suppressHistory && !productsSuppressHistory) {
+      productsPushHistoryState({ category: cat, product: null }, cat, null);
+    }
+  }
+
+  const DETAIL_IMG_PLACEHOLDER = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"><rect fill="#F3F4F6" width="512" height="512"/><text x="256" y="272" text-anchor="middle" fill="#9CA3AF" font-size="15" font-family="system-ui,sans-serif">Image coming soon</text></svg>');
+
+  /** 카탈로그 PDF: project/files/ 아래에 동일 파일명으로 두면 다운로드됨. 제품별로 다르면 productData 항목에 catalogUrl 지정 */
+  const DEFAULT_PRODUCT_CATALOG_PATH = 'files/pathfinder-product-catalog.pdf';
+
+  function productDetailStub(nameKo, nameEn) {
+    const img = DETAIL_IMG_PLACEHOLDER;
+    return {
+      nameKo: nameKo,
+      nameEn: nameEn,
+      descKo: '제품 상세 정보는 준비 중입니다.',
+      descEn: 'Product information will be updated soon.',
+      catalogUrl: '',
+      mainImg: img,
+      thumbs: [img, img, img, img, img],
+      details: []
+    };
+  }
+
+  /** catalogUrl 키가 있고 값이 공백이면 카탈로그 없음(CSV 공란과 동일). 키가 없으면 기본 PDF 유지. */
+  function applyDetailCatalogLink(data) {
+    const catalogLink = document.getElementById('detail-catalog-link');
+    if (!catalogLink) return;
+    if (!data) {
+      catalogLink.hidden = false;
+      catalogLink.href = DEFAULT_PRODUCT_CATALOG_PATH;
+      catalogLink.setAttribute('download', DEFAULT_PRODUCT_CATALOG_PATH.split('/').pop() || 'catalog.pdf');
+      return;
+    }
+    if (Object.prototype.hasOwnProperty.call(data, 'catalogUrl')) {
+      const path = String(data.catalogUrl || '').trim();
+      if (!path) {
+        catalogLink.hidden = true;
+        catalogLink.removeAttribute('href');
+        catalogLink.removeAttribute('download');
+        return;
+      }
+      catalogLink.hidden = false;
+      catalogLink.href = path;
+      catalogLink.setAttribute('download', path.split('/').pop() || 'catalog.pdf');
+      return;
+    }
+    catalogLink.hidden = false;
+    catalogLink.href = DEFAULT_PRODUCT_CATALOG_PATH;
+    catalogLink.setAttribute('download', DEFAULT_PRODUCT_CATALOG_PATH.split('/').pop() || 'catalog.pdf');
+  }
+
+  const productData = {
+    food: {
+      mochi: {
+        nameEn: 'Korean Sticky Rice Cake(Mochi)',
+        nameKo: '찹쌀떡(14종)',
+        descEn: 'We use only healthy, high-quality Korean ingredients, including domestic rice grown on our own farms. Our products contain no artificial food colorings or synthetic flavorings.Choose from over 10 different flavors to suit your personal taste. No cooking or heating is required. Simply keep it frozen and thaw at room temperature before eating to enjoy its chewy texture. Now you can conveniently enjoy Korea’s healthy and delicious traditional snacks.',
+        descKo: '당사는 직접 운영하는 자사 농지에서 재배한 국산 쌀을 비롯하여, 엄선된 고품질의 한국산 원재료만을 사용하고 있습니다. 본 제품에는 인공 색소나 합성 향료가 일절 첨가되지 않아 안심하고 드실 수 있습니다. 고객님의 취향을 충족시키기 위해 10여 가지 이상의 다채로운 풍미를 제공합니다. 별도의 가열이나 조리 과정 없이, 냉동 상태에서 상온 자연 해동만으로도 고유의 쫄깃한 식감을 완벽하게 복원하여 즐기실 수 있습니다. 이제 한국의 건강하고 맛있는 전통 간식을 가장 편리한 방식으로 경험해 보시기 바랍니다.',
+        catalogUrl: 'files/CSCR_catalog_en.pdf',
+        mainImg: 'images/products/food/CSCR/CSCR_mochi_main.jpg',
+        thumbs: [
+          'images/products/food/CSCR/CSCR_mochi_main.jpg',
+          'images/products/food/CSCR/CSCR_mochi_thumb1.jpg',
+          'images/products/food/CSCR/CSCR_mochi_thumb2.jpg',
+          'images/products/food/CSCR/CSCR_mochi_thumb3.jpg',
+          'images/products/food/CSCR/CSCR_mochi_thumb4.jpg'
+        ],
+        details: [
+          'images/products/food/CSCR/CSCR_mochi_detail1.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail2.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail3.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail4.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail5.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail6.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail7.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail8.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail9.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail10.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail11.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail12.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail13.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail14.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail15.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail16.jpg',
+          'images/products/food/CSCR/CSCR_mochi_detail17.jpg'
+        ],
+        specRows: [
+          { valueKo: '청사초롱', valueEn: 'Cheong Sa Cho Rong' },
+          { valueKo: '찹쌀떡, 한국 전통 모찌, 14종', valueEn: 'chapssaltteok, korean mochi, rice cake, sticky rice cake' },
+          { valueKo: '찹쌀, 멥쌀, 옥수수전분, 통팥 앙금, 과일 퓨레, 과일 농축액, 정제소금 등', valueEn: 'Glutinous Rice, Non-glutinous Rice, Corn Starch, Whole Red Bean Paste, Fruit Puree, Fruit Concentrate, Refined Salt, etc.' },
+          { valueKo: 'FDA, HACCP, HALAL, FSSC22000', valueEn: 'FDA, HACCP, HALAL, FSSC22000' },
+          { valueKo: '90 * 30 * 210(mm) / 300g', valueEn: '90 * 30 * 210(mm) / 300g' },
+          { valueKo: '냉동 보관', valueEn: 'Frozen' },
+          { valueKo: '12개월', valueEn: '12 months' }
+        ]
+      },
+      tteokbokki: {
+        nameEn: 'Tteoboki Meal Kit',
+        nameKo: '떡볶이 밀키트(3종)',
+        descEn: 'We use only healthy, high-quality Korean ingredients, including domestic rice grown on our own farms. Our products contain no artificial food colorings or synthetic flavorings. You can choose from three spice levels―mild, original, and spicy―to suit your preference. With our simple recipe, anyone can prepare a delicious meal in just 5 minutes. Experience the healthy and delicious spicy flavors of Korea with ease!',
+        descKo: '당사는 직접 운영하는 자사 농지에서 재배한 국산 쌀을 비롯하여, 엄격하게 선별된 건강하고 우수한 품질의 한국산 원재료만을 사용하고 있습니다. 본 제품에는 인공 색소나 합성 향료가 일절 첨가되지 않아 원재료 본연의 안전성과 맛을 보장합니다. 고객의 기호에 맞추어 순한맛, 오리지널, 매운맛의 세 가지 단계별 맵기를 선택하여 즐기실 수 있습니다. 간편한 조리법을 통해 누구나 단 5분 만에 훌륭한 요리를 완성할 수 있도록 설계되었습니다. 한국의 건강하고 깊은 매운맛을 가장 편리한 방식으로 경험해 보시기 바랍니다',
+        catalogUrl: 'files/CSCR_catalog_en.pdf',
+        mainImg: 'images/products/food/CSCR/CSCR_tteokbokki_main.jpg',
+        thumbs: [
+          'images/products/food/CSCR/CSCR_tteokbokki_main.jpg',
+          'images/products/food/CSCR/CSCR_tteokbokki_thumb1.jpg',
+          'images/products/food/CSCR/CSCR_tteokbokki_thumb2.jpg',
+          'images/products/food/CSCR/CSCR_tteokbokki_thumb3.jpg'
+        ],
+        details: [
+          'images/products/food/CSCR/CSCR_tteokbokki_detail1.jpg',
+          'images/products/food/CSCR/CSCR_tteokbokki_detail2.jpg',
+          'images/products/food/CSCR/CSCR_tteokbokki_detail3.jpg',
+          'images/products/food/CSCR/CSCR_tteokbokki_detail4.jpg',
+          'images/products/food/CSCR/CSCR_tteokbokki_detail5.jpg',
+          'images/products/food/CSCR/CSCR_tteokbokki_detail6.jpg',
+          'images/products/food/CSCR/CSCR_tteokbokki_detail7.jpg',
+          'images/products/food/CSCR/CSCR_tteokbokki_detail8.jpg'
+        ],
+        specRows: [
+          { valueKo: '청사초롱', valueEn: 'Cheong Sa Cho Rong' },
+          { valueKo: '떡볶이, 밀키드, 5분 조리, 간편식', valueEn: 'tteokbokki, meal kit, 3 flavors, mild, original, spicy, 5min.' },
+          { valueKo: '멥쌀, 구운 채소, 어육, 고춧가루, 쌀가루, 양파가루, 마늘가루, 대두, 밀 등', valueEn: 'Non-glutinous rice, Fried vegetables, Fish meat, Red pepper powder, steamed rice flour, onion powder, Garlic powder, Soybean, Wheat, etc.' },
+          { valueKo: 'FDA, HACCP, FSSC22000', valueEn: 'FDA, HACCP, FSSC22000' },
+          { valueKo: '180 * 20 * 210(mm) / 470g', valueEn: '180 * 20 * 210(mm) / 470g' },
+          { valueKo: '냉동 보관', valueEn: 'Frozen' },
+          { valueKo: '12개월', valueEn: '12 months' }
+        ]
+      },
+      can: {
+        nameEn: 'Vegan Canned Stir-fried Kimchi',
+        nameKo: '비건 볶음김치캔',
+        descEn: 'This 100% plant-based vegan canned stir-fried kimchi is designed for an international audience. It faithfully recreates Korea’s signature savory flavor and crispiness while remaining entirely free of animal-based ingredients. With its superior shelf-stability and \'ready-to-eat\' convenience, it serves as a premium gateway for global consumers to experience the wellness of authentic K-food.',
+        descKo: '전 세계인을 위한 100% 식물성 비건 볶음김치 캔입니다. 젓갈 없이도 한국 고유의 감칠맛과 아삭함을 완벽히 구현했으며, 상온 보관이 가능해 휴대성과 편의성이 뛰어납니다. 조리 없이 바로 즐길 수 있는 이 제품은 K-푸드의 건강함을 세계 각국의 식탁으로 이어주는 최고의 선택이 될 것입니다.',
+        catalogUrl: 'files/SLC_catalog_en.pdf',
+        mainImg: 'images/products/food/SLC/SLC_can_main.jpg',
+        thumbs: [
+          'images/products/food/SLC/SLC_can_main.jpg',
+          'images/products/food/SLC/SLC_can_thumb1.jpg',
+          'images/products/food/SLC/SLC_can_thumb2.jpg',
+          'images/products/food/SLC/SLC_can_thumb3.jpg',
+          'images/products/food/SLC/SLC_can_thumb4.jpg'
+        ],
+        details: [
+          'images/products/food/SLC/SLC_can_detail1.jpg',
+          'images/products/food/SLC/SLC_can_detail2.jpg'
+        ],
+        specRows: [
+          { valueKo: '슬런치팩토리', valueEn: 'Slunch Factory' },
+          { valueKo: '볶음김치, 김치캔, 100% 식물성, 비건인증', valueEn: 'Kimchi, Stir-FriedKimchi, CannedKimchi, 100%Vegan' },
+          { valueKo: '배추, 고춧가루, 무, 파기름 등', valueEn: 'Napa cabbage, Red Pepper Powder, Radish, Green Onion Oil, etc.' },
+          { valueKo: 'VEGAN, HACCP, ISO22000, FSSC22000', valueEn: 'VEGAN, HACCP, ISO22000, FSSC22000' },
+          { valueKo: '75 * 75 * 50(mm) / 160g', valueEn: '75 * 75 * 50(mm) / 160g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '36개월', valueEn: '36 months' }
+        ]
+      },
+      rice: {
+        nameEn: 'Vegan Kimchi Fried Rice Meal Kit',
+        nameKo: '비건 김치볶음밥 밀키트',
+        descEn: 'This premium kimchi fried rice meal kit is made with carefully selected vegan kimchi. It delivers a healthy, deep flavor without any animal-derived ingredients and offers the convenience of being ready in just 5 minutes, featuring a combination of canned stir-fried kimchi and instant rice. Experience the spicy and savory essence of traditional Korea easily and healthily, anywhere in the world.',
+        descKo: '엄선된 비건 김치로 만든 프리미엄 김치볶음밥 밀키트입니다. 동물성 성분 없이 건강한 깊은 맛을 담았으며, 볶음김치 캔과 즉석밥 구성으로 5분 만에 완성되는 간편함을 제공합니다. 한국 전통의 매콤 고소한 풍미를 전 세계 어디서든 쉽고 건강하게 경험해 보세요.',
+        catalogUrl: 'files/SLC_catalog_en.pdf',
+        mainImg: 'images/products/food/SLC/SLC_rice_main.jpg',
+        thumbs: [
+          'images/products/food/SLC/SLC_rice_main.jpg',
+          'images/products/food/SLC/SLC_rice_thumb1.jpg',
+          'images/products/food/SLC/SLC_rice_thumb2.jpg',
+          'images/products/food/SLC/SLC_rice_thumb3.jpg',
+          'images/products/food/SLC/SLC_rice_thumb4.jpg'
+        ],
+        details: [
+          'images/products/food/SLC/SLC_rice_detail1.jpg',
+          'images/products/food/SLC/SLC_rice_detail2.jpg'
+        ],
+        specRows: [
+          { valueKo: '슬런치팩토리', valueEn: 'Slunch Factory' },
+          { valueKo: '김치볶음밥, 밀키트, 100% 식물성, 비건인증', valueEn: 'Kimchi, Fried-Rice, MealKit, 100%Vegan' },
+          { valueKo: '배추, 고춧가루, 무, 멥쌀, 올리브오일 등', valueEn: 'Napa Cabbage, Red Pepper Powder, Radish, Non-glutinous rice, Olive Oil, etc.' },
+          { valueKo: 'VEGAN, HACCP, ISO22000, FSSC22000', valueEn: 'VEGAN, HACCP, ISO22000, FSSC22000' },
+          { valueKo: '210 * 150 * 78(mm) / 760g', valueEn: '210 * 150 * 78(mm) / 760g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '9개월', valueEn: '9 months' }
+        ]
+      },
+      pancake: {
+        nameEn: 'Vegan Kimchi pancake Meal Kit',
+        nameKo: '비건 김치전 밀키트',
+        descEn: 'This is an all-in-one vegan Kimchi pancake meal kit made with 100% plant-based ingredients. Its cup-style packaging maximizes portability, offering global vegan consumers a healthy and delicious K-food experience that is ready in just 3 minutes by simply adding water.',
+        descKo: '100% 식물성 원료로 만든 올인원 비건 김치전 밀키트입니다. 컵 타입으로 휴대성을 극대화했으며, 물만 넣어 3분이면 완성되는 간편함으로 글로벌 비건 소비자들에게 건강하고 맛있는 K-푸드 경험을 선사합니다.',
+        catalogUrl: 'files/SLC_catalog_en.pdf',
+        mainImg: 'images/products/food/SLC/SLC_pancake_main.jpg',
+        thumbs: [
+          'images/products/food/SLC/SLC_pancake_main.jpg',
+          'images/products/food/SLC/SLC_pancake_thumb1.jpg',
+          'images/products/food/SLC/SLC_pancake_thumb2.jpg'
+        ],
+        details: [
+          'images/products/food/SLC/SLC_pancake_detail1.jpg',
+          'images/products/food/SLC/SLC_pancake_detail2.jpg'
+        ],
+        specRows: [
+          { valueKo: '슬런치팩토리', valueEn: 'Slunch Factory' },
+          { valueKo: '김치전, 밀키트, 100% 식물성, 비건인증', valueEn: 'Kimchi, KimchiPancake, MealKit, 100%Vegan' },
+          { valueKo: '밀가루, 통옥수수분말, 쌀가루, 배추, 고춧가루, 무 등', valueEn: 'Wheat flour, Corn whole kernel powder, Rice flour, Napa cabbage, Red Pepper Powder, Radish, etc.' },
+          { valueKo: 'VEGAN, HACCP, ISO22000, FSSC22000', valueEn: 'VEGAN, HACCP, ISO22000, FSSC22000' },
+          { valueKo: '100 * 100 * 95(mm) / 240g', valueEn: '100 * 100 * 95(mm) / 240g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '12개월', valueEn: '12 months' }
+        ]
+      },
+      tart: {
+        nameEn: 'Vegan Fruit Tart(peach, blueberry)',
+        nameKo: '비건 과일 타르트(2종)',
+        descEn: 'Crafted without eggs, milk, or butter, we use 100% plant-based ingredients to achieve a moist and smooth texture even without dairy. By using almond flour as a base, we have lowered the carbohydrate and gluten content while further enhancing the nutty and savory flavors. Enjoy the sweet, rich taste of real fruit in a healthy and convenient way.',
+        descKo: '계란, 우유, 버터를 사용하지 않고 100% 식물성 재료를 사용하여 유제품 없이도 촉촉함과 부드러움을 구현했습니다. 아몬드 가루를 베이스로 하여 탄수화물과 글루텐 함량은 낮추고 고소함과 감칠맛은 한층 더 살렸습니다. 풍성한 원물 과일의 달콤함을 건강하고 간편하게 즐겨 보세요.',
+        catalogUrl: 'files/SLC_catalog_en.pdf',
+        mainImg: 'images/products/food/SLC/SLC_tart_main.jpg',
+        thumbs: [
+          'images/products/food/SLC/SLC_tart_main.jpg',
+          'images/products/food/SLC/SLC_tart_thumb1.jpg',
+          'images/products/food/SLC/SLC_tart_thumb2.jpg',
+          'images/products/food/SLC/SLC_tart_thumb3.jpg',
+          'images/products/food/SLC/SLC_tart_thumb4.jpg'
+        ],
+        details: [
+          'images/products/food/SLC/SLC_tart_detail1.jpg',
+          'images/products/food/SLC/SLC_tart_detail2.jpg'
+        ],
+        specRows: [
+          { valueKo: '슬런치팩토리', valueEn: 'Slunch Factory' },
+          { valueKo: '타르트, NO버터, NO우유, NO계란, 100% 식물성, 비건인증', valueEn: 'Tart, Peach, Blueberry, No-Milk/Butter/Egg, 100%Vegan' },
+          { valueKo: '복숭아, 블루베리, 블랙베리, 라즈베리, 유기농시어버터유, 식물성휘핑크림, 두유 등', valueEn: 'Peach, Frozen Blueberrie, Frozen Blackberries, Frozen Raspberries, Organic Shea Butter Oil, Almond Powder, Vegetable Whipping Cream, Soy Milk, etc.' },
+          { valueKo: 'VEGAN, HACCP, ISO22000, FSSC22000', valueEn: 'VEGAN, HACCP, ISO22000, FSSC22000' },
+          { valueKo: '120 * 110 * 30(mm) / 115g', valueEn: '120 * 110 * 30(mm) / 115g' },
+          { valueKo: '냉동 보관', valueEn: 'Frozen' },
+          { valueKo: '12개월', valueEn: '12 months' }
+        ]
+      },
+      choco: {
+        nameEn: 'Vegan Peanut Butter Choco Bar',
+        nameKo: '비건 피넛 버터 초코바',
+        descEn: 'Crafted with savory peanut butter dough and strictly selected nuts, this bar delivers a deep and rich flavor. By using unrefined ingredients, we have reduced the sugar content, ensuring a natural and gentle sweetness that lasts. It is 100% plant-based, containing absolutely no eggs, milk, or butter. Rich in plant-based protein and unsaturated fatty acids, it perfectly balances both taste and health.',
+        descKo: '고소한 피넛 버터 반죽과 엄선된 견과류를 사용하여 깊고 진한 풍미를 완성했습니다. 비정제 원료를 사용하여 당 함량을 낮추고 자연스럽고 은은한 단맛이 오래 유지됩니다. 계란, 우유, 버터를 전혀 사용하지 않은 100% 식물성입니다. 식물성 단백질과 불포화 지방산이 풍부하게 함유되어 맛과 건강을 모두 챙겼습니다.',
+        catalogUrl: 'files/SLC_catalog_en.pdf',
+        mainImg: 'images/products/food/SLC/SLC_choco_main.jpg',
+        thumbs: [
+          'images/products/food/SLC/SLC_choco_main.jpg',
+          'images/products/food/SLC/SLC_choco_thumb1.jpg',
+          'images/products/food/SLC/SLC_choco_thumb2.jpg',
+          'images/products/food/SLC/SLC_choco_thumb3.jpg',
+          'images/products/food/SLC/SLC_choco_thumb4.jpg'
+        ],
+        details: [
+          'images/products/food/SLC/SLC_choco_detail1.jpg',
+          'images/products/food/SLC/SLC_choco_detail2.jpg'
+        ],
+        specRows: [
+          { valueKo: '슬런치팩토리', valueEn: 'Slunch Factory' },
+          { valueKo: '초코바, 피넛버터, NO버터, NO우유, NO계란, 100% 식물성, 비건인증', valueEn: 'ChocoBar, PeanutButter, No-Milk/Butter/Egg, 100%Vegan' },
+          { valueKo: '다크초콜릿, 땅콩버터, 아몬드, 호두, 밀가루, 아몬드분말 등', valueEn: 'Dark Chocolate, Skippy Peanut Butter, Almond Powder, Wheat Flour, Walnuts, Almonds, etc.' },
+          { valueKo: 'VEGAN, HACCP, ISO22000, FSSC22000', valueEn: 'VEGAN, HACCP, ISO22000, FSSC22000' },
+          { valueKo: '120 * 110 * 30(mm) / 140g', valueEn: '120 * 110 * 30(mm) / 140g' },
+          { valueKo: '냉동 보관', valueEn: 'Frozen' },
+          { valueKo: '12개월', valueEn: '12 months' }
+        ]
+      },
+      drink: {
+        nameEn: 'Pouch-type RTD Beverage (COFFEE, ICED TEA, ADE)',
+        nameKo: 'RTD 파우치 음료',
+        descEn: 'This is a pouch-type RTD beverage designed to be poured into an ice cup, optimized for convenience store consumption. It offers a wide range of flavors, including coffee, iced tea, and fruit-based ade, to meet diverse consumer preferences. Made with low-calorie sweeteners, it delivers a light, refreshing taste while preserving fresh flavor quality.',
+        descKo: '편의점 판매에 최적화된 제품으로, 얼음컵에 바로 부어 마실 수 있도록 설계된 파우치형 RTD 음료입니다. 다양한 소비자의 취향을 만족시키기 위해 커피, 아이스티, 과일 에이드 등 폭넓은 맛의 선택지를 제공합니다. 저칼로리 감미료를 사용하여 신선한 풍미는 그대로 유지하면서도 가볍고 청량한 맛을 선사합니다.',
+        catalogUrl: 'files/ONCUP_catalog_en.pdf',
+        mainImg: 'images/products/food/ONCUP/ONCUP_drink_main.jpg',
+        thumbs: [
+          'images/products/food/ONCUP/ONCUP_drink_main.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_thumb1.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_thumb2.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_thumb3.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_thumb4.jpg'
+        ],
+        details: [
+          'images/products/food/ONCUP/ONCUP_drink_detail1.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_detail2.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_detail3.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_detail4.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_detail5.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_detail6.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_detail7.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_detail8.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_detail9.jpg',
+          'images/products/food/ONCUP/ONCUP_drink_detail10.jpg'
+        ],
+        specRows: [
+          { valueKo: '온컵', valueEn: 'OnCup' },
+          { valueKo: '파우치음료, 아이스커피, 아이스티, 에이드, 8종', valueEn: 'RTD-Drink, PouchType, Iced-Americano, Iced-Tea, Ade' },
+          { valueKo: '정제수, 에스프레소커피추출물, 과일농축액, 과일퓨레, 홍차추춘분말 등', valueEn: 'Purified Water, Espresso Coffee Extract, Fruit Concentrate, Fruit Puree, Black Tea Extract Powder, etc.' },
+          { valueKo: 'HACCP, ISO9001:2015', valueEn: 'HACCP, ISO9001:2015' },
+          { valueKo: '200 * 110 * 35(mm) / 240g', valueEn: '200 * 110 * 35(mm) / 240g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '18개월', valueEn: '18 months' }
+        ]
+      }
+    },
+
+    health: {
+      deerA: {
+        nameKo: '[성인]녹용 건강기능식품',
+        nameEn: '[MOM&YOUNG] Health Food - Adult Line',
+        descKo: '현대인의 라이프스타일에 맞추어 액상, 농축액, 젤리 등 다양한 형태로 섭취하기 편하면서도 최적의 맛과 성분 배합을 개발했습니다. 녹용과 홍삼, 그리고 필수 영양소의 완벽한 시너지를 담은 몸앤용으로 사랑하는 가족에게 건강과 활력을 선물하세요.',
+        descEn: 'Tailored to the modern lifestyle, we have developed an optimal blend of flavors and ingredients in various easy-to-take formats, including liquids, concentrates, and jellies. Give your loved ones the gift of health and vitality with MOM&YOUNG—the perfect synergy of velvet antler, red ginseng, and essential nutrients.',
+        catalogUrl: 'files/MNY_catalog_en.pdf',
+        mainImg: 'images/products/health/MNY/MNY_adult_main.jpg',
+        thumbs: [
+          'images/products/health/MNY/MNY_adult_main.jpg',
+          'images/products/health/MNY/MNY_adult_thumb1.jpg',
+          'images/products/health/MNY/MNY_adult_thumb2.jpg',
+          'images/products/health/MNY/MNY_adult_thumb3.jpg',
+          'images/products/health/MNY/MNY_adult_thumb4.jpg'
+        ],
+        details: [
+          'images/products/health/MNY/MNY_adult_detail1.jpg',
+          'images/products/health/MNY/MNY_adult_detail2.jpg',
+          'images/products/health/MNY/MNY_adult_detail3.jpg',
+          'images/products/health/MNY/MNY_adult_detail4.jpg',
+          'images/products/health/MNY/MNY_adult_detail5.jpg',
+          'images/products/health/MNY/MNY_adult_detail6.jpg',
+          'images/products/health/MNY/MNY_adult_detail7.jpg',
+          'images/products/health/MNY/MNY_adult_detail8.jpg',
+          'images/products/health/MNY/MNY_adult_detail9.jpg',
+          'images/products/health/MNY/MNY_adult_detail10.jpg'
+        ],
+        specRows: [
+          { valueKo: '몸엔용', valueEn: 'MOM&YOUNG' },
+          { valueKo: '건강기능식품, 홍삼, 녹용, 마카, 콜라겐, 성인제품', valueEn: 'HealthFunctionalFood, RedGinseng, DeerAntler, Maca, Collagen, AdultProducts' },
+          { valueKo: '녹용 농축액, 홍삼 농축액, 블랙마카 추출물, 저분자 콜라겐, 비타민 등', valueEn: 'Deer Antler Extract, Black Maca Concentrate, Red Ginseng Extract, Low-molecular Collagen, Vitamin, etc.' },
+          { valueKo: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000', valueEn: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000' },
+          { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '24개월', valueEn: '24 months' }
+        ]
+      },
+      deerK: {
+        nameKo: '[어린이]녹용 건강기능식품',
+        nameEn: '[MOM&YOUNG] Health Food - Kids Line',
+        descKo: '아이들의 섬세한 입맛을 고려하여 음료, 농축액, 젤리 등 맛있고 섭취하기 편한 다양한 형태와 최적의 배합을 개발했습니다. 녹용과 홍삼, 그리고 필수 영양소의 완벽한 조화를 담은 몸앤용으로 아이의 성장과 면역력, 두뇌 발달에 최고의 기반을 선물하세요.',
+        descEn: 'Understanding children\'s delicate palates, we have developed a diverse range of delicious, easy-to-take formats—including drinks, concentrates, and jellies—with an optimal blend of ingredients. Give your child the ultimate foundation for growth, immunity, and cognitive development with MOM&YOUNG—the perfect synergy of velvet antler, red ginseng, and essential nutrients.',
+        catalogUrl: 'files/MNY_catalog_en.pdf',
+        mainImg: 'images/products/health/MNY/MNY_kids_main.jpg',
+        thumbs: [
+          'images/products/health/MNY/MNY_kids_main.jpg',
+          'images/products/health/MNY/MNY_kids_thumb1.jpg',
+          'images/products/health/MNY/MNY_kids_thumb2.jpg',
+          'images/products/health/MNY/MNY_kids_thumb3.jpg',
+          'images/products/health/MNY/MNY_kids_thumb4.jpg'
+        ],
+        details: [
+          'images/products/health/MNY/MNY_kids_detail1.jpg',
+          'images/products/health/MNY/MNY_kids_detail2.jpg',
+          'images/products/health/MNY/MNY_kids_detail3.jpg',
+          'images/products/health/MNY/MNY_kids_detail4.jpg',
+          'images/products/health/MNY/MNY_kids_detail5.jpg',
+          'images/products/health/MNY/MNY_kids_detail6.jpg'
+        ],
+        specRows: [
+          { valueKo: '몸엔용', valueEn: 'MOM&YOUNG' },
+          { valueKo: '건강기능식품, 홍삼, 녹용, 비타민, 아연, 어린이제품', valueEn: 'HealthFunctionalFood, RedGinseng, DeerAntler, Vitamin, Zinc, KidsProducts' },
+          { valueKo: '녹용 농충액, 홍삼 농축액, 비타민 B/C/D/E, 아연 등', valueEn: 'Deer Antler Extract, Red Ginseng Extract, Vitamin B/C/D/E, Taurine, Zinc, etc.' },
+          { valueKo: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000', valueEn: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000' },
+          { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '24개월', valueEn: '24 months' }
+        ]
+      }
+    },
+    beauty: {
+      toner: productDetailStub('토너', 'Toner'),
+      serum: productDetailStub('세럼 & 앰플', 'Serum & Ampoule'),
+      gel: productDetailStub('수딩젤', 'Soothing Gel')
+    },
+    fashion: {
+      eyeglass: productDetailStub('안경테', 'Eyeglass Frame'),
+      socks: productDetailStub('양말', 'Korean Socks'),
+      sunglasses: productDetailStub('선글라스', 'Sunglasses')
+    }
+  };
+
+  function parseProductsRoute() {
+    const params = new URLSearchParams(location.search);
+    const cat = params.get('category');
+    const product = params.get('product');
+    if (product && cat && PRODUCTS_URL_CATEGORIES.indexOf(cat) !== -1) {
+      if (productData[cat] && productData[cat][product]) {
+        return { mode: 'detail', cat: cat, product: product };
+      }
+    }
+    if (cat && PRODUCTS_URL_CATEGORIES.indexOf(cat) !== -1) {
+      return { mode: 'list', cat: cat };
+    }
+    return { mode: 'list', cat: 'all' };
+  }
+
+  function applyProductsFromUrl() {
+    const r = parseProductsRoute();
+    if (r.mode === 'detail') {
+      showDetail(r.cat, r.product, true);
+    } else if (r.cat !== 'all') {
+      selectCategory(r.cat, true);
+    } else {
+      selectAll(true);
+    }
+  }
+
+  /** 모든 제품 상세 동일 7행 표. 제품별 값만 바꿀 때: productData[cat][id].specRows 에 동일 순서로 valueKo/valueEn */
+  const DEFAULT_SPEC_ROWS = [
+    { labelKo: '브랜드 네임', labelEn: 'Brand Name', valueKo: '', valueEn: '' },
+    { labelKo: '키워드', labelEn: 'Keywords', valueKo: '', valueEn: '' },
+    { labelKo: '주요 성분', labelEn: 'Key Ingredients', valueKo: '', valueEn: '' },
+    { labelKo: '인증 정보', labelEn: 'Certifications', valueKo: '', valueEn: '' },
+    { labelKo: '제품 규격', labelEn: 'Specifications', valueKo: '', valueEn: '' },
+    { labelKo: '보관 방법', labelEn: 'Storage Info.', valueKo: '', valueEn: '' },
+    { labelKo: '유통기한', labelEn: 'Expiration date', valueKo: '', valueEn: '' }
+  ];
+
+  function mergeSpecRows(data) {
+    const base = DEFAULT_SPEC_ROWS.map(function(r) {
+      return { labelKo: r.labelKo, labelEn: r.labelEn, valueKo: r.valueKo, valueEn: r.valueEn };
+    });
+    if (data && Array.isArray(data.specRows) && data.specRows.length) {
+      for (var i = 0; i < base.length && i < data.specRows.length; i++) {
+        var row = data.specRows[i];
+        if (row.labelKo != null) base[i].labelKo = row.labelKo;
+        if (row.labelEn != null) base[i].labelEn = row.labelEn;
+        if (row.valueKo != null) base[i].valueKo = row.valueKo;
+        if (row.valueEn != null) base[i].valueEn = row.valueEn;
+      }
+    }
+    return base;
+  }
+
+  function renderDetailSpec(data) {
+    const wrap = document.getElementById('detail-spec-wrap');
+    const tbody = document.getElementById('detail-spec-body');
+    if (!wrap || !tbody) return;
+    const rows = mergeSpecRows(data);
+    const lang = sessionStorage.getItem('pathfinder_lang') || 'en';
+    tbody.innerHTML = '';
+    rows.forEach(function(row) {
+      const tr = document.createElement('tr');
+      const th = document.createElement('th');
+      const td = document.createElement('td');
+      const lab = document.createElement('span');
+      lab.setAttribute('data-ko', row.labelKo);
+      lab.setAttribute('data-en', row.labelEn);
+      lab.textContent = lang === 'ko' ? row.labelKo : row.labelEn;
+      const val = document.createElement('span');
+      const vKo = row.valueKo != null ? String(row.valueKo) : '';
+      const vEn = row.valueEn != null ? String(row.valueEn) : '';
+      const shown = lang === 'ko' ? vKo : vEn;
+      if (shown) {
+        val.setAttribute('data-ko', vKo);
+        val.setAttribute('data-en', vEn);
+        val.textContent = shown;
+        val.classList.remove('detail-spec-empty');
+      } else {
+        /* 빈 칸: 레이아웃 유지 + setLang 시에도 NBSP가 data 속성으로 복원됨 */
+        val.setAttribute('data-ko', '\u00A0');
+        val.setAttribute('data-en', '\u00A0');
+        val.textContent = '\u00A0';
+        val.classList.add('detail-spec-empty');
+      }
+      th.appendChild(lab);
+      td.appendChild(val);
+      tr.appendChild(th);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+    });
+    wrap.classList.remove('hidden');
+  }
+
+  function showDetail(cat, productId, suppressHistory) {
+    const gridAllEl = document.getElementById('grid-all');
+    lastListViewWasAll = !!(gridAllEl && !gridAllEl.classList.contains('hidden'));
+    if (suppressHistory && history.state && typeof history.state.fromAll === 'boolean') {
+      lastListViewWasAll = history.state.fromAll;
+    }
+    currentCategory = cat;
+    // Hide grid and all-products view
+    const grid = document.getElementById('grid-' + cat);
+    if (grid) grid.classList.add('hidden');
+    document.getElementById('grid-all').classList.add('hidden');
+
+    // Populate product data if available
+    const data = productData[cat] && productData[cat][productId];
+    if (data) {
+      const lang = sessionStorage.getItem('pathfinder_lang') || 'en';
+
+      // Product name
+      const nameEl = document.getElementById('detail-name');
+      nameEl.setAttribute('data-ko', data.nameKo);
+      nameEl.setAttribute('data-en', data.nameEn);
+      nameEl.textContent = lang === 'ko' ? data.nameKo : data.nameEn;
+
+      // Product description
+      const descEl = document.getElementById('detail-desc');
+      descEl.setAttribute('data-ko', data.descKo);
+      descEl.setAttribute('data-en', data.descEn);
+      descEl.textContent = lang === 'ko' ? data.descKo : data.descEn;
+
+      // Main image
+      const mainImgBox = document.querySelector('.detail-main-img');
+      const existingPlaceholder = document.getElementById('detail-main-image');
+      if (existingPlaceholder) existingPlaceholder.remove();
+      let mainImg = mainImgBox.querySelector('img.main-product-img');
+      if (!mainImg) {
+        mainImg = document.createElement('img');
+        mainImg.className = 'main-product-img';
+        mainImg.style.cssText = 'width:100%;height:100%;object-fit:contain;';
+        const rightArrow = mainImgBox.querySelector('.detail-arrow-right');
+        mainImgBox.insertBefore(mainImg, rightArrow);
+      }
+      mainImg.src = data.mainImg;
+      mainImg.alt = data.nameEn;
+      resetMainImageZoom();
+
+      // Thumbnail images
+      const thumbsContainer = document.getElementById('detail-thumbs');
+      thumbsContainer.innerHTML = '';
+      data.thumbs.forEach((src, i) => {
+        const div = document.createElement('div');
+        div.className = 'detail-thumb' + (i === 0 ? ' active' : '');
+        div.onclick = (function(idx) {
+          return function() { selectDetailThumb(idx); };
+        })(i);
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = data.nameEn + ' ' + (i + 1);
+        div.appendChild(img);
+        thumbsContainer.appendChild(div);
+      });
+      currentDetailImageIndex = 0;
+      selectDetailThumb(0);
+
+      // Detail images
+      const detailImgBox = document.querySelector('.detail-detail-img');
+      detailImgBox.innerHTML = '';
+      const detailSources = (Array.isArray(data.details) && data.details.length)
+        ? data.details.slice()
+        : (Array.isArray(data.thumbs) ? data.thumbs.slice() : []);
+      detailSources.forEach((src, i) => {
+        const img = document.createElement('img');
+        const fallbackSrc = (Array.isArray(data.thumbs) && data.thumbs.length)
+          ? (data.thumbs[i % data.thumbs.length] || data.mainImg)
+          : data.mainImg;
+        let triedFallback = false;
+        img.onerror = function() {
+          if (!triedFallback && fallbackSrc && img.src !== fallbackSrc) {
+            triedFallback = true;
+            img.src = fallbackSrc;
+            return;
+          }
+          img.remove();
+        };
+        img.src = src;
+        img.alt = data.nameEn + ' detail ' + (i + 1);
+        img.className = 'detail-gallery-img';
+        img.loading = i < 2 ? 'eager' : 'lazy';
+        detailImgBox.appendChild(img);
+      });
+
+      applyDetailCatalogLink(data);
+
+      renderDetailSpec(data);
+    } else {
+      applyDetailCatalogLink(null);
+      renderDetailSpec(null);
+    }
+
+    // Show detail
+    const detail = document.getElementById('detail-view');
+    detail.classList.add('visible');
+    updateBackLabel();
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) {
+      // Mobile: always start detail view from the very top, without animation.
+      const htmlEl = document.documentElement;
+      const bodyEl = document.body;
+      const prevHtmlBehavior = htmlEl.style.scrollBehavior;
+      const prevBodyBehavior = bodyEl.style.scrollBehavior;
+      htmlEl.style.scrollBehavior = 'auto';
+      bodyEl.style.scrollBehavior = 'auto';
+      htmlEl.scrollTop = 0;
+      bodyEl.scrollTop = 0;
+      window.scrollTo(0, 0);
+      requestAnimationFrame(function() {
+        htmlEl.style.scrollBehavior = prevHtmlBehavior;
+        bodyEl.style.scrollBehavior = prevBodyBehavior;
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (!suppressHistory && !productsSuppressHistory) {
+      productsPushHistoryState(
+        { category: cat, product: productId, fromAll: lastListViewWasAll },
+        cat,
+        productId
+      );
+    }
+  }
+
+  function hideDetail(silent) {
+    const detailEl = document.getElementById('detail-view');
+    const inDetail = detailEl && detailEl.classList.contains('visible');
+    if (!silent && inDetail && !productsSuppressHistory) {
+      history.back();
+      return;
+    }
+    const detail = document.getElementById('detail-view');
+    detail.classList.remove('visible');
+    if (!silent) {
+      if (lastListViewWasAll) {
+        selectAll(true);
+      } else {
+        document.getElementById('grid-all').classList.add('hidden');
+        const grid = document.getElementById('grid-' + currentCategory);
+        if (grid) grid.classList.remove('hidden');
+      }
+    }
+    updateBackLabel();
+  }
+
+  let menuLockScrollY = 0;
+  function lockBodyScroll() {
+    menuLockScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${menuLockScrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+  }
+  function unlockBodyScroll() {
+    const y = menuLockScrollY;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    const htmlEl = document.documentElement;
+    const prevScrollBehavior = htmlEl.style.scrollBehavior;
+    htmlEl.style.scrollBehavior = 'auto';
+    window.scrollTo(0, y);
+    requestAnimationFrame(() => {
+      htmlEl.style.scrollBehavior = prevScrollBehavior;
+    });
+  }
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const btn = document.getElementById('hamburger');
+    const isOpen = menu.classList.toggle('open');
+    if (backdrop) backdrop.classList.toggle('open', isOpen);
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+    if (isOpen) {
+      lockBodyScroll();
+    } else {
+      unlockBodyScroll();
+    }
+  }
+  function closeMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const btn = document.getElementById('hamburger');
+    menu.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    unlockBodyScroll();
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  const savedLang = sessionStorage.getItem('pathfinder_lang') || 'en';
+  /* 언어 적용 후 목록/전체보기 초기화: setLang이 innerHTML을 갱신한 뒤에 카드를 복제해야 구조가 깨지지 않음 */
+  setLang(savedLang);
+
+  window.addEventListener('popstate', function() {
+    productsSuppressHistory = true;
+    applyProductsFromUrl();
+    productsSuppressHistory = false;
+  });
+
+  // 초기 라우트: URL과 화면을 맞추고 replaceState로 현재 항목만 남김(뒤로가기가 이전 사이트로 가도록)
+  (function initProductsRoute() {
+    productsSuppressHistory = true;
+    const route = parseProductsRoute();
+    if (route.mode === 'detail') {
+      showDetail(route.cat, route.product, true);
+    } else if (route.cat !== 'all') {
+      selectCategory(route.cat, true);
+    } else {
+      selectAll(true);
+    }
+    productsSuppressHistory = false;
+    if (route.mode === 'detail') {
+      productsReplaceHistoryState(
+        { category: route.cat, product: route.product, fromAll: false },
+        route.cat,
+        route.product
+      );
+    } else if (route.cat !== 'all') {
+      productsReplaceHistoryState({ category: route.cat, product: null }, route.cat, null);
+    } else {
+      productsReplaceHistoryState({ category: 'all', product: null }, 'all', null);
+    }
+  })();
+
+  function selectDetailThumb(index, options) {
+    const opts = options || {};
+    const thumbs = document.querySelectorAll('#detail-thumbs .detail-thumb');
+    const n = thumbs.length;
+    if (n === 0) return;
+    const i = Math.max(0, Math.min(index, n - 1));
+    currentDetailImageIndex = i;
+    thumbs.forEach((el, j) => {
+      el.classList.toggle('active', j === i);
+    });
+    const mainImg = document.querySelector('.detail-main-img img.main-product-img');
+    const thumbImg = thumbs[i].querySelector('img');
+    if (!mainImg || !thumbImg || !thumbImg.getAttribute('src')) return;
+
+    if (opts.transition === 'swipe') {
+      swapMainImageWithSwipe(mainImg, thumbImg.src, opts.enterFrom || 'right');
+    } else {
+      swapMainImageWithFade(mainImg, thumbImg.src);
+    }
+  }
+
+  function swapMainImageWithFade(mainImg, nextSrc) {
+    if (!mainImg || !nextSrc || mainImg.src === nextSrc) {
+      resetMainImageZoom();
+      return;
+    }
+    mainImg.style.opacity = '0';
+    window.setTimeout(function() {
+      mainImg.src = nextSrc;
+      resetMainImageZoom();
+      requestAnimationFrame(function() {
+        mainImg.style.opacity = '1';
+      });
+    }, 90);
+  }
+
+  function swapMainImageWithSwipe(mainImg, nextSrc, enterFrom) {
+    if (!mainImg || !nextSrc || mainImg.src === nextSrc) {
+      resetMainImageZoom();
+      return;
+    }
+    const box = document.querySelector('.detail-main-img');
+    if (!box) {
+      mainImg.src = nextSrc;
+      resetMainImageZoom();
+      return;
+    }
+    const width = box.clientWidth || 300;
+    const enterOffset = enterFrom === 'right' ? width : -width;
+    const exitOffset = enterFrom === 'right' ? -Math.round(width * 0.35) : Math.round(width * 0.35);
+
+    const ghost = document.createElement('img');
+    ghost.src = mainImg.src;
+    ghost.className = 'main-product-img';
+    ghost.style.position = 'absolute';
+    ghost.style.inset = '0';
+    ghost.style.width = '100%';
+    ghost.style.height = '100%';
+    ghost.style.objectFit = 'contain';
+    ghost.style.pointerEvents = 'none';
+    ghost.style.transform = 'translateX(0)';
+    ghost.style.opacity = '1';
+    ghost.style.zIndex = '1';
+    box.appendChild(ghost);
+
+    mainImg.style.zIndex = '1';
+    mainImg.style.transition = 'none';
+    mainImg.src = nextSrc;
+    mainImg.style.transform = 'translateX(' + enterOffset + 'px) scale(1)';
+    mainImg.style.opacity = '0';
+
+    requestAnimationFrame(function() {
+      ghost.style.transition = 'transform 0.24s ease, opacity 0.24s ease';
+      ghost.style.transform = 'translateX(' + exitOffset + 'px)';
+      ghost.style.opacity = '0';
+
+      mainImg.style.transition = 'transform 0.24s ease, opacity 0.24s ease';
+      mainImg.style.transform = 'translateX(0) scale(1)';
+      mainImg.style.opacity = '1';
+    });
+
+    window.setTimeout(function() {
+      if (ghost.parentNode) ghost.parentNode.removeChild(ghost);
+      resetMainImageZoom();
+    }, 260);
+  }
+
+  function changeDetailImage(direction, options) {
+    const thumbs = document.querySelectorAll('#detail-thumbs .detail-thumb');
+    const n = thumbs.length;
+    if (n === 0) return;
+    const next = ((currentDetailImageIndex + direction) % n + n) % n;
+    selectDetailThumb(next, options);
+  }
+
+  function resetMainImageZoom() {
+    const mainImg = document.querySelector('.detail-main-img img.main-product-img');
+    if (!mainImg) return;
+    mainImg.style.transition = 'transform 0.15s ease-out, opacity 0.18s ease';
+    mainImg.style.transform = 'translateX(0) scale(1)';
+    mainImg.style.transformOrigin = '50% 50%';
+    mainImg.style.opacity = '1';
+  }
+
+  function handleMainImageZoomMove(e) {
+    const box = document.querySelector('.detail-main-img');
+    const mainImg = box ? box.querySelector('img.main-product-img') : null;
+    if (!box || !mainImg) return;
+    if (e.target && e.target.closest('.detail-arrow')) return;
+    const rect = box.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const y = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+    mainImg.style.transformOrigin = (x * 100) + '% ' + (y * 100) + '%';
+    mainImg.style.transform = 'scale(2)';
+  }
+
+  (function initMainImageZoom() {
+    const box = document.querySelector('.detail-main-img');
+    if (!box) return;
+    const mq = window.matchMedia('(max-width: 768px)');
+    let zoomBound = false;
+    let swipeBound = false;
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    function bindZoom() {
+      if (zoomBound) return;
+      box.addEventListener('mousemove', handleMainImageZoomMove);
+      box.addEventListener('mouseleave', resetMainImageZoom);
+      zoomBound = true;
+    }
+    function unbindZoom() {
+      if (!zoomBound) return;
+      box.removeEventListener('mousemove', handleMainImageZoomMove);
+      box.removeEventListener('mouseleave', resetMainImageZoom);
+      zoomBound = false;
+      resetMainImageZoom();
+    }
+    function applyZoomMode() {
+      if (mq.matches) {
+        unbindZoom(); // mobile: disable image zoom effect
+      } else {
+        bindZoom();
+      }
+    }
+    function onTouchStart(e) {
+      if (!mq.matches) return;
+      if (!e.touches || e.touches.length !== 1) return;
+      if (e.target && e.target.closest('.detail-arrow')) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }
+    function onTouchMove(e) {
+      if (!mq.matches) return;
+      if (!e.touches || e.touches.length !== 1) return;
+      const dx = e.touches[0].clientX - touchStartX;
+      const dy = e.touches[0].clientY - touchStartY;
+      if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) {
+        // Prevent page-level horizontal drag while swiping image.
+        e.preventDefault();
+      }
+    }
+    function onTouchEnd(e) {
+      if (!mq.matches) return;
+      if (!e.changedTouches || e.changedTouches.length !== 1) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      const isNext = dx < 0;
+      const direction = isNext ? 1 : -1;
+      const enterFrom = isNext ? 'right' : 'left';
+      changeDetailImage(direction, { transition: 'swipe', enterFrom: enterFrom });
+    }
+    function bindSwipe() {
+      if (swipeBound) return;
+      box.addEventListener('touchstart', onTouchStart, { passive: true });
+      box.addEventListener('touchmove', onTouchMove, { passive: false });
+      box.addEventListener('touchend', onTouchEnd, { passive: true });
+      swipeBound = true;
+    }
+
+    applyZoomMode();
+    bindSwipe();
+    if (typeof mq.addEventListener === 'function') {
+      mq.addEventListener('change', applyZoomMode);
+    } else if (typeof mq.addListener === 'function') {
+      mq.addListener(applyZoomMode);
+    }
+  })();
+</script>
+
+<!-- SCROLL BUTTONS -->
+<div class="scroll-btns">
+  <a href="contact.html" class="scroll-btn floating-cta" title="사업 문의 / Contact">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="4" width="20" height="16" rx="2" fill="#0078D4"/>
+      <path d="M2 6.5L12 13L22 6.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </a>
+  <button class="scroll-btn floating-cta" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="맨 위로">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="6 15 12 9 18 15" stroke="#0078D4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button class="scroll-btn floating-cta" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})" title="맨 아래로">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="6 9 12 15 18 9" stroke="#0078D4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>
+</body>
+</html>

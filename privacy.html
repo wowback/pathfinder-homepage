@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — PATHFINDER Inc.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #0F4C8A;
+      --accent: #0078D4;
+      --text-primary: #111111;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --bg-white: #FFFFFF;
+      --border: #E5E7EB;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.6;
+      background: #ffffff;
+    }
+    h1, h2, h3, .nav-logo {
+      font-family: 'Plus Jakarta Sans', 'Pretendard', sans-serif;
+    }
+
+    /* ── NAV (index.html 과 동일) ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+    .logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    nav ul a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--text-secondary); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg-white) !important;
+      padding: 9px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #006BBD !important; color: var(--bg-white) !important; }
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 4px;
+      gap: 0;
+      border: 1px solid #E5E7EB;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #6B7280;
+      font-size: 0.8rem;
+      font-weight: 400;
+      padding: 4px 12px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+    }
+    .lang-btn .flag { display: none; }
+    .lang-btn.active { background: #0078D4; color: #ffffff; font-weight: 500; }
+    .lang-btn:hover:not(.active) { color: #0078D4; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1100;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100vw;
+      bottom: auto;
+      height: auto;
+      max-height: min(560px, calc(100dvh - 56px));
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      flex-direction: column;
+      padding: 12px 24px 20px;
+      gap: 0;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      z-index: 998;
+      border-top: 0;
+      border-radius: 0 0 12px 12px;
+      overflow-y: auto;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .mobile-menu-backdrop {
+      display: none;
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 36, 99, 0.28);
+      z-index: 997;
+    }
+    .mobile-menu-backdrop.open { display: block; }
+    .nav-mobile-menu a {
+      color: rgba(10,36,99,0.8);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(10,36,99,0.06);
+      transition: color 0.2s;
+      display: block;
+    }
+    .nav-mobile-menu a:hover { color: var(--primary); }
+    .nav-mobile-menu a.mobile-cta {
+      margin-top: 12px;
+      background: var(--accent);
+      color: #fff !important;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 20px;
+      text-align: center;
+      font-weight: 700;
+      border-bottom: none;
+    }
+    .nav-mobile-menu a.mobile-cta:hover { filter: brightness(0.9); }
+    .mobile-lang-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(10,36,99,0.06);
+    }
+    .mobile-lang-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(10,36,99,0.7);
+    }
+    .mobile-lang-row .lang-toggle {
+      border: 1.5px solid rgba(10,36,99,0.25);
+      transform: scale(0.85);
+      transform-origin: right center;
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      nav ul { display: none; }
+      .hamburger { display: flex !important; }
+      nav .logo {
+        max-width: calc(100vw - 84px);
+        min-width: 0;
+        overflow: hidden;
+      }
+      nav .logo img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    /* index.html 하단 light-theme 네비(실제 메인과 동일) */
+    nav {
+      background: #FFFFFF !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border-bottom: 0.5px solid var(--border) !important;
+      box-shadow: none !important;
+    }
+    nav ul a {
+      color: var(--primary) !important;
+      font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 0.95rem;
+    }
+    nav ul a:hover { color: var(--accent) !important; }
+    nav .logo img { display: block; width: auto; filter: none !important; }
+    nav #logo-title { color: var(--primary) !important; }
+    .nav-cta {
+      background: var(--accent) !important;
+      border: none !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      padding: 0 20px !important;
+      height: 32px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      color: #fff !important;
+      border-radius: 8px !important;
+    }
+    .nav-cta:hover {
+      filter: brightness(0.9);
+      transform: translateY(-1px) !important;
+    }
+    .lang-toggle {
+      background: #ffffff !important;
+      border: 1px solid #E5E7EB !important;
+      border-radius: 20px !important;
+      padding: 4px !important;
+    }
+    .lang-btn {
+      color: #6B7280 !important;
+      font-weight: 400 !important;
+    }
+    .lang-btn.active {
+      background: #0078D4 !important;
+      color: #ffffff !important;
+      font-weight: 500 !important;
+    }
+    .lang-btn:hover:not(.active) {
+      color: #0078D4 !important;
+      background: transparent !important;
+    }
+    .hamburger span { background: var(--primary); }
+    .nav-mobile-menu { background: rgba(255,255,255,0.97) !important; }
+    .nav-mobile-menu a:not(.mobile-cta) { color: var(--primary); }
+
+    /* ── MAIN CONTENT ── */
+    .page-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 100px 40px 60px;
+    }
+    .page-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0F2A5C;
+      margin-bottom: 8px;
+    }
+    .page-intro {
+      font-size: 0.9rem;
+      color: #374151;
+      line-height: 1.85;
+      margin-bottom: 12px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article {
+      margin-bottom: 36px;
+    }
+    .article h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0F2A5C;
+      margin-bottom: 12px;
+    }
+    .article p, .article li {
+      font-size: 0.9rem;
+      color: #374151;
+      line-height: 1.85;
+      margin-bottom: 8px;
+    }
+    .article ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+    .article ul li { margin-bottom: 4px; }
+    .contact-highlight {
+      color: #0078D4;
+    }
+    .addendum {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #F5F7FA;
+      border-top: 0.5px solid #E5E7EB;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0;
+    }
+    footer,
+    footer > div[style*="max-width:1160px"],
+    footer .footer-inner,
+    .footer-bottom {
+      background: #F5F7FA !important;
+    }
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .footer-grid {
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: flex-start;
+    }
+    .footer-bottom {
+      margin-top: 20px;
+      padding: 11px 0 52px;
+      border-top: 0.5px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sns-icon-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #FFFFFF; border: 0.5px solid #D1D5DB;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s ease; color: #4B5563; text-decoration: none;
+    }
+    .sns-icon-btn:hover {
+      background: #0078D4; border-color: #0078D4;
+    }
+    .sns-icon-btn:hover svg { stroke: #ffffff; }
+
+    /* SCROLL BUTTONS (index 기준 통일) */
+    .scroll-btns {
+      position: fixed;
+      bottom: 120px;
+      right: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+    .scroll-btn {
+      width: 40px;
+      height: 40px;
+      background: #ffffff;
+      color: #0078D4;
+      border: 1px solid #E5E7EB;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+      opacity: 1;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .scroll-btn:hover {
+      background: #F0F7FF;
+      border-color: #0078D4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,120,212,0.2), 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .floating-cta {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #0078D4;
+      border: 1px solid #E5E7EB;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+      opacity: 1;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .floating-cta:hover {
+      background: #F0F7FF;
+      border-color: #0078D4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,120,212,0.2), 0 2px 6px rgba(0,0,0,0.1);
+    }
+    body.menu-open .scroll-btns { display: none !important; }
+    @media (max-width: 768px) {
+      .page-wrap { padding: 86px 20px 42px; }
+      .page-title { font-size: 1.55rem; }
+      .page-intro { margin-bottom: 10px; padding-bottom: 18px; }
+      .article { margin-bottom: 28px; }
+      .article p, .article li { line-height: 1.7; }
+      .footer-inner { padding: 0 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding-bottom: 28px;
+      }
+      .scroll-btns { bottom: 80px; right: 16px; }
+    }
+    @media (max-width: 480px) {
+      .page-wrap { padding: 80px 16px 36px; }
+      .page-title { font-size: 1.35rem; }
+      .article h2 { font-size: 0.98rem; }
+      .article p, .article li { font-size: 0.86rem; }
+      .footer-inner { padding: 0 16px; }
+      .scroll-btns { bottom: 72px; right: 12px; gap: 6px; }
+      .scroll-btn { width: 40px; height: 40px; }
+      .floating-cta { width: 40px; height: 40px; }
+    }
+    @media (max-width: 430px) {
+      .page-wrap { padding-top: 74px; }
+      .page-intro { font-size: 0.84rem; line-height: 1.62; }
+      .article p, .article li { line-height: 1.62; }
+    }
+    @media (max-width: 390px) {
+      .page-title { font-size: 1.2rem; }
+      .article h2 { font-size: 0.92rem; }
+      .article p, .article li { font-size: 0.82rem; }
+      .scroll-btns { right: 10px; }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        height: 56px !important;
+        padding: 0 14px !important;
+        max-width: 100vw !important;
+      }
+      nav > ul { display: none !important; }
+      nav > .logo {
+        max-width: calc(100vw - 84px) !important;
+        min-width: 0;
+        overflow: hidden;
+      }
+      nav > .logo img { max-width: 100%; height: auto; }
+      #hamburger.hamburger {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative;
+        z-index: 1102;
+      }
+      .nav-mobile-menu { top: 56px !important; }
+      .mobile-menu-backdrop { top: 56px !important; }
+    }
+
+    @media (max-width: 768px) {
+      footer { overflow: hidden; }
+      footer > div[style*="max-width:1160px"],
+      footer .footer-inner {
+        width: calc(100% - 24px) !important;
+        max-width: calc(100% - 24px) !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+      }
+      footer > div > div[style*="padding-top:28px"],
+      footer .footer-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 18px !important;
+        padding-top: 18px !important;
+        width: 100% !important;
+      }
+      footer [style*="display:flex; align-items:flex-start; gap:20px;"] {
+        flex-direction: row !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        --footer-brand-h: clamp(59px, 18vw, 77px);
+        width: 100% !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        padding-bottom: 56px !important;
+      }
+      footer [style*="width:1px; background:#E5E7EB"] { display: block !important; }
+      footer img[src*="CI_LOGO_NAVY"] {
+        height: var(--footer-brand-h) !important;
+        width: auto !important;
+        max-width: 38vw !important;
+      }
+      footer [style*="padding-top:2px;"] {
+        padding-top: 0 !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+        height: var(--footer-brand-h) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+      }
+      footer p[style*="font-style:italic; font-weight:500; color:#0F2A5C"] {
+        font-size: clamp(11px, 3.1vw, 13px) !important;
+        line-height: 1.3 !important;
+        margin: 0 0 6px 0 !important;
+        white-space: nowrap !important;
+      }
+      footer p[data-ko*="(주)패스파인더아이엔씨는"] {
+        font-size: clamp(10px, 2.8vw, 12px) !important;
+        line-height: 1.6 !important;
+      }
+      footer [style*="display:flex; gap:12px; margin-top:16px;"] {
+        margin-top: 0 !important;
+        width: auto !important;
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: -24px !important;
+        justify-content: center !important;
+      }
+      footer [style*="width:36px;height:36px;border-radius:50%"],
+      footer .sns-icon-btn {
+        width: 38px !important;
+        height: 38px !important;
+      }
+      footer [style*="display:flex; flex-direction:column; gap:5px; padding-top:4px; margin-left:auto;"] {
+        margin-left: 0 !important;
+        width: 100% !important;
+        gap: 8px !important;
+        padding-top: 0 !important;
+        margin-top: 40px !important;
+      }
+      footer [style*="display:flex; gap:12px; font-size:12px; line-height:1.6;"] {
+        display: grid !important;
+        grid-template-columns: 92px minmax(0, 1fr) !important;
+        gap: 6px 10px !important;
+        font-size: 11px !important;
+        line-height: 1.5 !important;
+      }
+      footer [style*="min-width:110px"] {
+        min-width: 0 !important;
+        font-size: 10px !important;
+      }
+      footer [style*="display:flex; gap:8px; align-items:baseline;"] { display: block !important; }
+      footer [style*="margin-top:20px; padding:11px 0 52px"],
+      footer .footer-bottom {
+        margin-top: 14px !important;
+        padding: 12px 0 22px !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        text-align: right !important;
+        gap: 8px !important;
+      }
+      footer [style*="display:flex; gap:16px;"],
+      footer .footer-bottom > div {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-end !important;
+        gap: 6px 12px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="images/(cutout)CI_LOGO_NAVY(2).png" alt="PATHFINDER" style="height:clamp(18px,2.8vw,28px);width:auto;display:block;" />
+  </a>
+  <ul>
+    <li><a href="index.html#home" data-ko="홈" data-en="Home">Home</a></li>
+    <li><a href="index.html#about" data-ko="회사소개" data-en="About">About</a></li>
+    <li><a href="index.html#services" data-ko="사업영역" data-en="Our Business">Our Business</a></li>
+    <li><a href="products.html" data-ko="제품" data-en="Products">Products</a></li>
+    <li><a href="contact.html" class="nav-cta" data-ko="문의 하기" data-en="Contact">Contact</a></li>
+    <li>
+      <div class="lang-toggle">
+        <button class="lang-btn" id="btn-ko" onclick="setLang('ko')"><span class="flag">🇰🇷</span>KO</button>
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')"><span class="flag">🇺🇸</span>EN</button>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="메뉴 열기" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="index.html#home" data-ko="홈" data-en="Home" onclick="closeMenu()">Home</a>
+  <a href="index.html#about" data-ko="회사소개" data-en="About" onclick="closeMenu()">About</a>
+  <a href="index.html#services" data-ko="사업영역" data-en="Our Business" onclick="closeMenu()">Our Business</a>
+  <a href="products.html" data-ko="제품" data-en="Products" onclick="closeMenu()">Products</a>
+  <div class="mobile-lang-row">
+    <span class="mobile-lang-label" data-ko="언어 설정" data-en="Language">Language</span>
+    <div class="lang-toggle">
+      <button class="lang-btn" id="btn-ko-m" onclick="setLang('ko')"><span class="flag">🇰🇷</span>KO</button>
+      <button class="lang-btn active" id="btn-en-m" onclick="setLang('en')"><span class="flag">🇺🇸</span>EN</button>
+    </div>
+  </div>
+  <a href="contact.html" class="mobile-cta" data-ko="사업 문의" data-en="Contact" onclick="closeMenu()">Contact</a>
+</div>
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop" onclick="closeMenu()"></div>
+
+<!-- CONTENT -->
+<div class="page-wrap">
+  <h1 class="page-title" data-ko="개인정보처리방침" data-en="Privacy Policy">Privacy Policy</h1>
+  <p class="page-intro"
+     data-ko="(주)패스파인더아이엔씨(이하 &quot;회사&quot;)는 개인정보보호법 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보처리방침을 수립·공개합니다."
+     data-en="PATHFINDER Inc. (hereinafter &quot;Company&quot;) establishes and discloses this Privacy Policy in accordance with Article 30 of the Personal Information Protection Act to protect the personal information of data subjects and to handle related grievances promptly and smoothly.">
+    PATHFINDER Inc. (hereinafter "Company") establishes and discloses this Privacy Policy in accordance with Article 30 of the Personal Information Protection Act to protect the personal information of data subjects and to handle related grievances promptly and smoothly.
+  </p>
+
+  <!-- Article 1 -->
+  <div class="article">
+    <h2 data-ko="제1조 (개인정보의 수집 및 이용 목적)" data-en="Article 1 (Purpose of Collection and Use of Personal Information)">Article 1 (Purpose of Collection and Use of Personal Information)</h2>
+    <p data-ko="회사는 다음의 목적을 위해 개인정보를 수집·이용합니다. 수집된 개인정보는 아래 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경될 경우 별도의 동의를 받는 등 필요한 조치를 이행합니다."
+       data-en="The Company collects and uses personal information for the following purposes. Collected personal information will not be used for purposes other than those stated below, and if the purpose of use changes, necessary measures such as obtaining separate consent will be taken.">
+      The Company collects and uses personal information for the following purposes. Collected personal information will not be used for purposes other than those stated below, and if the purpose of use changes, necessary measures such as obtaining separate consent will be taken.
+    </p>
+    <p data-ko="① 사업 문의 접수 및 처리: 문의 내용 확인, 답변 회신, 후속 업무 처리" data-en="① Business inquiry reception and processing: Reviewing inquiry content, responding, and handling follow-up tasks">① Business inquiry reception and processing: Reviewing inquiry content, responding, and handling follow-up tasks</p>
+    <p data-ko="② 서비스 개선: 사이트 이용 현황 파악 및 서비스 품질 개선" data-en="② Service improvement: Understanding site usage and improving service quality">② Service improvement: Understanding site usage and improving service quality</p>
+  </div>
+
+  <!-- Article 2 -->
+  <div class="article">
+    <h2 data-ko="제2조 (수집하는 개인정보 항목 및 수집 방법)" data-en="Article 2 (Personal Information Items Collected and Collection Methods)">Article 2 (Personal Information Items Collected and Collection Methods)</h2>
+    <p data-ko="① 수집 항목" data-en="① Items collected">① Items collected</p>
+    <ul>
+      <li data-ko="필수: 담당자명, 회사명, 이메일 주소" data-en="Required: Contact name, company name, email address">Required: Contact name, company name, email address</li>
+      <li data-ko="선택: 연락처(전화번호)" data-en="Optional: Phone number">Optional: Phone number</li>
+      <li data-ko="자동 수집: 접속 IP, 접속 일시, 브라우저 종류" data-en="Automatically collected: IP address, access date and time, browser type">Automatically collected: IP address, access date and time, browser type</li>
+    </ul>
+    <p data-ko="② 수집 방법" data-en="② Collection methods">② Collection methods</p>
+    <ul>
+      <li data-ko="사이트 내 문의 양식을 통한 이용자 직접 입력" data-en="Direct input by users through the inquiry form on the Site">Direct input by users through the inquiry form on the Site</li>
+      <li data-ko="사이트 접속 시 자동 수집(쿠키, 서버 로그)" data-en="Automatic collection upon site access (cookies, server logs)">Automatic collection upon site access (cookies, server logs)</li>
+    </ul>
+  </div>
+
+  <!-- Article 3 -->
+  <div class="article">
+    <h2 data-ko="제3조 (개인정보의 보유 및 이용 기간)" data-en="Article 3 (Retention and Use Period of Personal Information)">Article 3 (Retention and Use Period of Personal Information)</h2>
+    <p data-ko="① 회사는 개인정보 수집·이용 목적이 달성된 후 해당 정보를 지체 없이 파기합니다. 단, 관련 법령에 의해 보존이 필요한 경우 아래와 같이 보관합니다."
+       data-en="① The Company destroys personal information without delay once the purpose of collection and use has been achieved. However, where retention is required by applicable laws, the information is retained as follows.">
+      ① The Company destroys personal information without delay once the purpose of collection and use has been achieved. However, where retention is required by applicable laws, the information is retained as follows.
+    </p>
+    <ul>
+      <li data-ko="계약 또는 청약철회 등에 관한 기록: 5년 (전자상거래법)" data-en="Records related to contracts or withdrawal of offers: 5 years (E-Commerce Act)">Records related to contracts or withdrawal of offers: 5 years (E-Commerce Act)</li>
+      <li data-ko="소비자 불만 또는 분쟁 처리에 관한 기록: 3년 (전자상거래법)" data-en="Records related to consumer complaints or dispute resolution: 3 years (E-Commerce Act)">Records related to consumer complaints or dispute resolution: 3 years (E-Commerce Act)</li>
+      <li data-ko="접속에 관한 기록: 3개월 (통신비밀보호법)" data-en="Records related to access: 3 months (Protection of Communications Secrets Act)">Records related to access: 3 months (Protection of Communications Secrets Act)</li>
+    </ul>
+    <p data-ko="② 문의 접수를 통해 수집된 개인정보는 문의 처리 완료 후 1년간 보관 후 파기합니다."
+       data-en="② Personal information collected through inquiries is retained for 1 year after the inquiry has been processed, then destroyed.">
+      ② Personal information collected through inquiries is retained for 1 year after the inquiry has been processed, then destroyed.
+    </p>
+  </div>
+
+  <!-- Article 4 -->
+  <div class="article">
+    <h2 data-ko="제4조 (개인정보의 제3자 제공)" data-en="Article 4 (Provision of Personal Information to Third Parties)">Article 4 (Provision of Personal Information to Third Parties)</h2>
+    <p data-ko="① 회사는 정보주체의 개인정보를 제1조에서 명시한 목적 범위 내에서만 처리하며, 원칙적으로 제3자에게 제공하지 않습니다."
+       data-en="① The Company processes personal information only within the scope specified in Article 1 and does not, in principle, provide it to third parties.">
+      ① The Company processes personal information only within the scope specified in Article 1 and does not, in principle, provide it to third parties.
+    </p>
+    <p data-ko="② 단, 다음의 경우에는 예외로 합니다." data-en="② Exceptions apply in the following cases.">② Exceptions apply in the following cases.</p>
+    <ul>
+      <li data-ko="정보주체가 사전에 동의한 경우" data-en="When the data subject has given prior consent">When the data subject has given prior consent</li>
+      <li data-ko="법령의 규정에 의거하거나 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우"
+          data-en="When required by law or requested by investigative authorities in accordance with legally prescribed procedures">When required by law or requested by investigative authorities in accordance with legally prescribed procedures</li>
+    </ul>
+  </div>
+
+  <!-- Article 5 -->
+  <div class="article">
+    <h2 data-ko="제5조 (개인정보의 파기)" data-en="Article 5 (Destruction of Personal Information)">Article 5 (Destruction of Personal Information)</h2>
+    <p data-ko="① 회사는 개인정보 보유기간의 경과, 처리 목적 달성 등 개인정보가 불필요하게 된 경우 지체 없이 해당 개인정보를 파기합니다."
+       data-en="① The Company destroys personal information without delay when it becomes unnecessary, such as when the retention period has expired or the processing purpose has been achieved.">
+      ① The Company destroys personal information without delay when it becomes unnecessary, such as when the retention period has expired or the processing purpose has been achieved.
+    </p>
+    <p data-ko="② 파기 방법은 다음과 같습니다." data-en="② Methods of destruction are as follows.">② Methods of destruction are as follows.</p>
+    <ul>
+      <li data-ko="전자적 파일: 복구 불가능한 방법으로 영구 삭제" data-en="Electronic files: Permanently deleted using methods that prevent recovery">Electronic files: Permanently deleted using methods that prevent recovery</li>
+      <li data-ko="종이 문서: 분쇄 또는 소각" data-en="Paper documents: Shredded or incinerated">Paper documents: Shredded or incinerated</li>
+    </ul>
+  </div>
+
+  <!-- Article 6 -->
+  <div class="article">
+    <h2 data-ko="제6조 (정보주체의 권리·의무 및 행사 방법)" data-en="Article 6 (Rights and Obligations of Data Subjects and How to Exercise Them)">Article 6 (Rights and Obligations of Data Subjects and How to Exercise Them)</h2>
+    <p data-ko="① 정보주체는 회사에 대해 언제든지 다음 각 호의 권리를 행사할 수 있습니다." data-en="① Data subjects may exercise the following rights against the Company at any time.">① Data subjects may exercise the following rights against the Company at any time.</p>
+    <ul>
+      <li data-ko="개인정보 열람 요구" data-en="Request to access personal information">Request to access personal information</li>
+      <li data-ko="개인정보 정정·삭제 요구" data-en="Request to correct or delete personal information">Request to correct or delete personal information</li>
+      <li data-ko="개인정보 처리 정지 요구" data-en="Request to suspend processing of personal information">Request to suspend processing of personal information</li>
+      <li data-ko="개인정보 처리에 대한 동의 철회" data-en="Withdrawal of consent to processing of personal information">Withdrawal of consent to processing of personal information</li>
+    </ul>
+    <p data-ko="② 권리 행사는 이메일(info@pathfinderinc.co)을 통해 요청하실 수 있으며, 회사는 이에 대해 지체 없이 조치합니다."
+       data-en="② Rights may be exercised by contacting us via email at info@pathfinderinc.co, and the Company will take action without delay.">
+      ② Rights may be exercised by contacting us via email at <span class="contact-highlight">info@pathfinderinc.co</span>, and the Company will take action without delay.
+    </p>
+    <p data-ko="③ 정보주체가 개인정보의 오류 등에 대한 정정 또는 삭제를 요구한 경우, 회사는 정정 또는 삭제를 완료할 때까지 해당 개인정보를 이용하거나 제공하지 않습니다."
+       data-en="③ If a data subject requests correction or deletion of personal information due to errors, the Company will not use or provide the relevant information until correction or deletion is complete.">
+      ③ If a data subject requests correction or deletion of personal information due to errors, the Company will not use or provide the relevant information until correction or deletion is complete.
+    </p>
+  </div>
+
+  <!-- Article 7 -->
+  <div class="article">
+    <h2 data-ko="제7조 (개인정보의 안전성 확보 조치)" data-en="Article 7 (Measures to Ensure Safety of Personal Information)">Article 7 (Measures to Ensure Safety of Personal Information)</h2>
+    <p data-ko="회사는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다." data-en="The Company takes the following measures to ensure the safety of personal information.">The Company takes the following measures to ensure the safety of personal information.</p>
+    <p data-ko="① 관리적 조치: 개인정보 처리 담당자 최소화 및 교육 실시" data-en="① Administrative measures: Minimizing personnel handling personal information and providing training">① Administrative measures: Minimizing personnel handling personal information and providing training</p>
+    <p data-ko="② 기술적 조치: 개인정보처리시스템 접근권한 관리, 보안 프로그램 설치·운영" data-en="② Technical measures: Managing access rights to personal information processing systems, installing and operating security programs">② Technical measures: Managing access rights to personal information processing systems, installing and operating security programs</p>
+    <p data-ko="③ 물리적 조치: 개인정보 보관 장소에 대한 접근 통제" data-en="③ Physical measures: Access control for locations where personal information is stored">③ Physical measures: Access control for locations where personal information is stored</p>
+  </div>
+
+  <!-- Article 8 -->
+  <div class="article">
+    <h2 data-ko="제8조 (쿠키의 운영 및 거부)" data-en="Article 8 (Operation and Refusal of Cookies)">Article 8 (Operation and Refusal of Cookies)</h2>
+    <p data-ko="① 회사는 이용자에게 맞춤형 서비스를 제공하기 위해 쿠키(cookie)를 사용할 수 있습니다." data-en="① The Company may use cookies to provide customized services to users.">① The Company may use cookies to provide customized services to users.</p>
+    <p data-ko="② 이용자는 쿠키 설치에 대한 선택권을 가지고 있으며, 브라우저 설정을 통해 쿠키를 허용하거나 거부할 수 있습니다." data-en="② Users have the right to choose whether to accept cookies and may allow or refuse cookies through browser settings.">② Users have the right to choose whether to accept cookies and may allow or refuse cookies through browser settings.</p>
+    <ul>
+      <li data-ko="Chrome: 설정 → 개인정보 및 보안 → 쿠키 및 기타 사이트 데이터" data-en="Chrome: Settings → Privacy and Security → Cookies and other site data">Chrome: Settings → Privacy and Security → Cookies and other site data</li>
+      <li data-ko="Safari: 환경설정 → 개인정보보호 → 쿠키 및 웹사이트 데이터" data-en="Safari: Preferences → Privacy → Cookies and website data">Safari: Preferences → Privacy → Cookies and website data</li>
+    </ul>
+    <p data-ko="③ 쿠키 설치를 거부할 경우 일부 서비스 이용에 불편이 있을 수 있습니다." data-en="③ Refusing cookie installation may cause inconvenience in using some services.">③ Refusing cookie installation may cause inconvenience in using some services.</p>
+  </div>
+
+  <!-- Article 9 -->
+  <div class="article">
+    <h2 data-ko="제9조 (개인정보보호 책임자)" data-en="Article 9 (Privacy Officer)">Article 9 (Privacy Officer)</h2>
+    <p data-ko="① 회사는 개인정보 처리에 관한 업무를 총괄하고 개인정보 처리와 관련한 정보주체의 불만 처리 및 피해 구제를 위해 아래와 같이 개인정보보호 책임자를 지정합니다."
+       data-en="① The Company designates a Privacy Officer as follows to oversee personal information processing and handle complaints and remedies related to personal information.">
+      ① The Company designates a Privacy Officer as follows to oversee personal information processing and handle complaints and remedies related to personal information.
+    </p>
+    <ul>
+      <li data-ko="성명: 백성욱" data-en="Name: Sungwook Baek">Name: Sungwook Baek</li>
+      <li data-ko="직책: 전략총괄이사" data-en="Title: Chief Strategy Officer">Title: Chief Strategy Officer</li>
+      <li><span data-ko="이메일:" data-en="Email:">Email:</span> <span class="contact-highlight">sam.baek@pathfinderinc.co</span></li>
+    </ul>
+    <p data-ko="② 정보주체는 개인정보 침해신고 및 상담을 아래 기관에 문의하실 수 있습니다." data-en="② Data subjects may contact the following organizations regarding personal information infringement reports and consultations.">② Data subjects may contact the following organizations regarding personal information infringement reports and consultations.</p>
+    <ul>
+      <li data-ko="개인정보침해신고센터: privacy.go.kr / 국번 없이 182" data-en="Personal Information Infringement Report Center: privacy.go.kr / 182 (no area code)">Personal Information Infringement Report Center: privacy.go.kr / 182 (no area code)</li>
+      <li data-ko="개인정보분쟁조정위원회: kopico.go.kr / 1833-6972" data-en="Personal Information Dispute Mediation Committee: kopico.go.kr / 1833-6972">Personal Information Dispute Mediation Committee: kopico.go.kr / 1833-6972</li>
+      <li data-ko="대검찰청 사이버범죄수사단: spo.go.kr / 02-3480-3573" data-en="Supreme Prosecutors' Office Cyber Crime Investigation: spo.go.kr / 02-3480-3573">Supreme Prosecutors' Office Cyber Crime Investigation: spo.go.kr / 02-3480-3573</li>
+      <li data-ko="경찰청 사이버안전국: cyberbureau.police.go.kr / 국번 없이 182" data-en="National Police Agency Cyber Safety Bureau: cyberbureau.police.go.kr / 182 (no area code)">National Police Agency Cyber Safety Bureau: cyberbureau.police.go.kr / 182 (no area code)</li>
+    </ul>
+  </div>
+
+  <!-- Article 10 -->
+  <div class="article">
+    <h2 data-ko="제10조 (개인정보처리방침의 변경)" data-en="Article 10 (Changes to Privacy Policy)">Article 10 (Changes to Privacy Policy)</h2>
+    <p data-ko="① 이 개인정보처리방침은 법령·정책 또는 보안 기술의 변경에 따라 내용이 추가·삭제·수정될 수 있습니다."
+       data-en="① This Privacy Policy may be supplemented, deleted, or revised due to changes in laws, policies, or security technology.">
+      ① This Privacy Policy may be supplemented, deleted, or revised due to changes in laws, policies, or security technology.
+    </p>
+    <p data-ko="② 변경 시 사이트를 통해 공지하며, 변경 사항은 공지한 날로부터 효력이 발생합니다."
+       data-en="② Any changes will be announced on the Site, and amendments will take effect from the date of announcement.">
+      ② Any changes will be announced on the Site, and amendments will take effect from the date of announcement.
+    </p>
+  </div>
+
+  <div class="addendum">
+    <p data-ko="부칙: 이 개인정보처리방침은 0000년 00월 00일부터 시행합니다." data-en="Addendum: This Privacy Policy shall take effect as of [Date to be filled in upon website launch].">Addendum: This Privacy Policy shall take effect as of [Date to be filled in upon website launch].</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div style="display:flex; align-items:flex-start; gap:20px;">
+        <img src="images/(cutout)CI_LOGO_NAVY.png" alt="PATHFINDER Inc." style="height:150px; width:auto; object-fit:contain; flex-shrink:0; display:block;">
+        <div style="width:1px; background:#E5E7EB; align-self:stretch; flex-shrink:0;"></div>
+        <div style="padding-top:2px;">
+          <p style="font-size:13px; font-style:italic; font-weight:500; color:#0F2A5C; letter-spacing:0.02em; margin:0 0 6px 0;">Connecting Values, Inspiring the World</p>
+          <p data-ko="(주)패스파인더아이엔씨는<br>귀사의 해외 비즈니스 성공을 위해<br>최선을 다합니다."
+             data-en="Trusted global trade partner.<br>PATHFINDER Inc. is committed to<br>your global business success."
+             style="font-size:13px; color:#6B7280; line-height:1.7; margin:0;">
+            Trusted global trade partner.<br>PATHFINDER Inc. is committed to<br>your global business success.
+          </p>
+          <div style="display:flex; gap:12px; margin-top:16px;">
+            <a href="javascript:void(0)" aria-disabled="true" onclick="return false;" class="sns-icon-btn"
+               onmouseover="this.style.background='#0078D4';this.style.borderColor='#0078D4';this.querySelector('svg').style.stroke='#ffffff'"
+               onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#D1D5DB';this.querySelector('svg').style.stroke='#4B5563'">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#4B5563" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            </a>
+            <a href="javascript:void(0)" aria-disabled="true" onclick="return false;" class="sns-icon-btn"
+               onmouseover="this.style.background='#0078D4';this.style.borderColor='#0078D4';this.querySelector('svg').style.stroke='#ffffff'"
+               onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#D1D5DB';this.querySelector('svg').style.stroke='#4B5563'">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#4B5563" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:5px; padding-top:4px; margin-left:auto;">
+        <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+          <span data-ko="상호" data-en="Company" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Company</span>
+          <span data-ko="(주)패스파인더아이엔씨" data-en="PATHFINDER Inc." style="color:#374151;">PATHFINDER Inc.</span>
+        </div>
+        <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+          <span data-ko="대표자" data-en="CEO" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">CEO</span>
+          <span data-ko="황현웅" data-en="Hyunwoong Hwang" style="color:#374151;">Hyunwoong Hwang</span>
+        </div>
+        <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+          <span data-ko="사업자등록번호" data-en="Business Reg. No." style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Business Reg. No.</span>
+          <span style="color:#374151;">719-86-03411</span>
+        </div>
+        <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+          <span data-ko="주소" data-en="Address" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Address</span>
+          <span data-ko="서울특별시 강서구 강서로 385,<br>8층 804-4호 (마곡동, 우성에스비타워)"
+                data-en="804-4, 385, Gangseo-ro, Gangseo-gu,<br>Seoul, 07803, Republic of Korea"
+                style="color:#374151;">804-4, 385, Gangseo-ro, Gangseo-gu,<br>Seoul, 07803, Republic of Korea</span>
+        </div>
+        <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+          <span data-ko="개인정보보호책임자" data-en="Privacy Officer" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">Privacy Officer</span>
+          <span style="color:#374151; display:flex; gap:8px; align-items:baseline;">
+            <span data-ko="백성욱" data-en="Sungwook Baek">Sungwook Baek</span>
+            <span style="font-size:11px;">(<span style="color:#0078D4;">sam.baek@pathfinderinc.co</span>)</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span style="font-size:11px; color:#9CA3AF;">© 2026 PATHFINDER Inc. All rights reserved.</span>
+      <div style="display:flex; gap:16px;">
+        <a href="terms.html" data-ko="이용약관" data-en="Terms of Service"
+           style="font-size:11px; color:#6B7280; text-decoration:underline; text-underline-offset:2px;">Terms of Service</a>
+        <a href="privacy.html" data-ko="개인정보처리방침" data-en="Privacy Policy"
+           style="font-size:11px; color:#6B7280; text-decoration:underline; text-underline-offset:2px;">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- SCROLL BUTTONS -->
+<div class="scroll-btns">
+  <a href="contact.html" class="scroll-btn floating-cta" title="사업 문의 / Contact">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="4" width="20" height="16" rx="2" fill="#0078D4"/>
+      <path d="M2 6.5L12 13L22 6.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </a>
+  <button class="scroll-btn floating-cta" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="맨 위로">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="6 15 12 9 18 15" stroke="#0078D4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button class="scroll-btn floating-cta" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})" title="맨 아래로">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="6 9 12 15 18 9" stroke="#0078D4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    sessionStorage.setItem('pathfinder_lang', lang);
+    document.documentElement.lang = lang;
+    document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    const bkm = document.getElementById('btn-ko-m');
+    const bem = document.getElementById('btn-en-m');
+    if (bkm) bkm.classList.toggle('active', lang === 'ko');
+    if (bem) bem.classList.toggle('active', lang === 'en');
+    document.querySelectorAll('[data-ko]').forEach(el => {
+      el.innerHTML = lang === 'ko' ? el.dataset.ko : el.dataset.en;
+    });
+    document.title = lang === 'ko'
+      ? '개인정보처리방침 — PATHFINDER Inc.'
+      : 'Privacy Policy — PATHFINDER Inc.';
+  }
+
+  let menuLockScrollY = 0;
+  function lockBodyScroll() {
+    menuLockScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${menuLockScrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+  }
+  function unlockBodyScroll() {
+    const y = menuLockScrollY;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    const htmlEl = document.documentElement;
+    const prevScrollBehavior = htmlEl.style.scrollBehavior;
+    htmlEl.style.scrollBehavior = 'auto';
+    window.scrollTo(0, y);
+    requestAnimationFrame(() => {
+      htmlEl.style.scrollBehavior = prevScrollBehavior;
+    });
+  }
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const btn = document.getElementById('hamburger');
+    const isOpen = menu.classList.toggle('open');
+    if (backdrop) backdrop.classList.toggle('open', isOpen);
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+    if (isOpen) {
+      lockBodyScroll();
+    } else {
+      unlockBodyScroll();
+    }
+  }
+  function closeMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const btn = document.getElementById('hamburger');
+    menu.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    unlockBodyScroll();
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+  // Init with saved language or English
+  const savedLang = sessionStorage.getItem('pathfinder_lang') || 'en';
+  setLang(savedLang);
+</script>
+</body>
+</html>

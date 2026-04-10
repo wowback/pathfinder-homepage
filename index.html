@@ -1,0 +1,3364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PATHFINDER Inc. - 세계를 잇는 무역 파트너</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0F4C8A;
+      --accent: #0078D4;
+      --text-primary: #111111;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F7FA;
+      --border: #E5E7EB;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.6;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .nav-logo, .hero-badge, .stat-number {
+      font-family: 'Plus Jakarta Sans', 'Pretendard', sans-serif;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100vw;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      padding: 12px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+
+    .logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    nav ul a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover {
+      color: var(--text-secondary);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg-white);
+      padding: 9px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: #006BBD;
+      color: var(--bg-white);
+    }
+
+    /* ── LANG TOGGLE ── */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 4px;
+      gap: 0;
+      border: 1px solid #E5E7EB;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #6B7280;
+      font-size: 0.8rem;
+      font-weight: 400;
+      padding: 4px 12px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+    }
+
+    .lang-btn .flag {
+      display: none;
+    }
+
+    .lang-btn.active {
+      background: #0078D4;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .lang-btn:hover:not(.active) {
+      color: #0078D4;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      height: 100vh;
+      background: var(--primary);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 8%;
+      padding-right: 8%;
+      overflow: hidden;
+      gap: 48px;
+      width: 100%;
+      max-width: 100vw;
+    }
+
+
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/Gemini_Generated_Image_rih6tdrih6tdrih6.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .hero-bg-pattern::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,76,138,0.65) 0%, rgba(15,76,138,0.45) 100%);
+    }
+
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: left;
+      color: var(--bg-white);
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.5);
+      color: #ffffff;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+      padding: 7px 20px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow:
+        0 4px 16px rgba(0,0,0,0.35),
+        0 1px 0 rgba(255,255,255,0.18) inset,
+        0 -1px 0 rgba(0,0,0,0.25) inset;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      font-style: italic;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #4DB8FF;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 560px;
+      margin: 0 0 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 2px solid var(--accent);
+      transition: filter 0.2s, transform 0.2s;
+      min-width: 160px;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(0.9);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.75);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      min-width: 160px;
+      text-align: center;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: flex-start;
+      margin-top: 48px;
+      z-index: 3;
+    }
+
+    .hero-stat {
+      text-align: left;
+      color: var(--bg-white);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #4DB8FF;
+    }
+
+    .hero-stat span {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 120px 40px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: #EFF6FF;
+      color: #0078D4;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      border: none;
+      box-shadow: none;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      width: 100%;
+      background: #ffffff;
+      padding: 80px 0 80px 8%;
+      box-sizing: border-box;
+    }
+
+    .about-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 160px;
+      max-width: none;
+      margin: 0;
+      padding-right: 0;
+    }
+
+    .about-left {
+      flex: 0 0 36%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-left .section-tag {
+      display: inline-block !important;
+      background: #EFF6FF !important;
+      color: #0078D4 !important;
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      padding: 4px 14px !important;
+      border-radius: 20px !important;
+      border: none !important;
+      width: auto !important;
+      box-sizing: content-box !important;
+      max-width: fit-content !important;
+    }
+
+    .about-title {
+      font-size: 2rem;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 1.3;
+      margin: 16px 0 24px;
+    }
+
+    .about-body p {
+      color: #374151;
+      line-height: 1.8;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .about-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-video-wrap {
+      position: relative;
+      width: 100%;
+      border-radius: 12px 0 0 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    }
+
+    .about-video-wrap video {
+      width: 100%;
+      height: auto;
+      object-position: center center;
+      display: block;
+      border-radius: 12px 0 0 12px;
+      background: transparent;
+    }
+
+    .about-video-wrap::after {
+      display: none;
+    }
+
+    .about-overlay { display: none; }
+    .about-image { display: none; }
+    .text-accent { color: var(--accent); }
+    .text-primary { color: var(--primary); }
+
+    .about-list {
+      list-style: none;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+    }
+
+    .check-icon {
+      width: 22px;
+      height: 22px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: white;
+      font-size: 0.7rem;
+      box-shadow: 0 3px 8px rgba(15,76,138,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: linear-gradient(135deg, var(--primary) 0%, #0A3C6E 50%, #0D4A85 100%);
+      position: relative;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+      transition: all 0.2s ease;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    }
+
+    #services .section-tag {
+      background: #EFF6FF !important;
+      color: #0078D4 !important;
+      border: none !important;
+    }
+
+    #services h2 {
+      color: #ffffff;
+    }
+
+    #services > p, #services .section-header p {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .service-card h3 {
+      color: #ffffff;
+    }
+
+    .service-card p {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .service-text { flex: 1; min-width: 0; }
+    .service-text h3 { margin-top: 0; margin-bottom: 8px; word-break: keep-all; overflow-wrap: break-word; }
+    .service-text p { word-break: keep-all; overflow-wrap: break-word; line-height: 1.7; }
+
+    .service-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111111;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: #6B7280;
+      font-size: 0.9rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    /* ── PRODUCTS ── */
+    #products {
+      background: var(--bg-light);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background: var(--bg-light);
+      border-radius: 12px;
+      padding: 24px 24px 0;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    }
+
+    .product-emoji {
+      display: none;
+    }
+
+    .product-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-family: 'Plus Jakarta Sans', 'Pretendard', sans-serif;
+    }
+
+    .product-sub {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .product-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .product-tag {
+      background: var(--bg-light);
+      color: var(--text-primary);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      border: 1px solid var(--border);
+    }
+
+    .product-cta {
+      margin: 0 -28px;
+      padding: 10px 28px;
+      background: #0078D4;
+      color: #fff;
+      font-weight: 400;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.2s ease;
+      margin-top: auto;
+    }
+
+    .product-card:hover .product-cta {
+      background: #0F4C8A;
+    }
+
+    .product-card p {
+      display: none;
+    }
+
+    /* ── 새 카드 레이아웃 (v2) ── */
+    .product-card-v2 {
+      min-height: 240px;
+    }
+
+    .product-card-v2 .pc-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .product-card-v2 .pc-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #EFF6FF;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .product-card-v2 h3 {
+      margin-bottom: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111111;
+    }
+
+    .product-card-v2 .product-sub {
+      display: block;
+      margin-bottom: 0;
+      font-size: 0.9rem;
+      color: #6B7280;
+      line-height: 1.7;
+    }
+
+    .product-card-v2 .product-tags {
+      margin-top: auto;
+      padding-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .product-card-v2 .product-tag {
+      font-size: 0.62rem;
+      padding: 2px 7px;
+    }
+
+    .product-card-v2 .product-tag-more {
+      background: none;
+      border: none;
+      padding: 2px 4px;
+      font-size: 0.62rem;
+      color: var(--accent);
+      font-weight: 600;
+      align-self: flex-end;
+    }
+
+    /* ── WHY US ── */
+    #why {
+      background: linear-gradient(135deg, var(--primary) 0%, #0D2B5E 100%);
+      color: var(--bg-white);
+    }
+
+    #why .section-tag {
+      display: inline-block !important;
+      background: #EFF6FF !important;
+      color: #0078D4 !important;
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      padding: 4px 14px !important;
+      border-radius: 20px !important;
+      border: none !important;
+      width: auto !important;
+    }
+
+    #why .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0F4C8A;
+    }
+
+    #why .section-header p {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .why-card {
+      background: #ffffff;
+      border: 0.5px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      box-shadow: none;
+      transition: all 0.2s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .why-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .why-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    /* ── PARTNERS ── */
+    #partners {
+      background: var(--bg-light);
+      padding: 80px 40px;
+    }
+
+    /* ── PARTNERS MARQUEE ── */
+    #partners {
+      background: #ffffff;
+      padding: 80px 0;
+      overflow: hidden;
+    }
+    .partners-header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 0 40px;
+    }
+    .partners-header h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: #111111;
+      margin-top: 14px;
+    }
+    .marquee-wrapper {
+      overflow: hidden;
+      width: 100%;
+      margin-bottom: 12px;
+    }
+    .marquee-wrapper { margin-bottom: 24px; }
+    .marquee-wrapper:last-child { margin-bottom: 0; }
+    .marquee-track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+    }
+    @keyframes marqueeLeft {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes marqueeRight {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+    .marquee-left  { animation: marqueeLeft  50s linear infinite; }
+    .marquee-right { animation: marqueeRight 50s linear infinite; }
+
+    .partner-logo-item {
+      background: transparent;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 24px;
+      height: 56px;
+      min-width: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .partner-logo-item img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--bg-white);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      max-width: 1160px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .channel-hours {
+      margin-top: auto;
+    }
+
+    .contact-info h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 18px;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--bg-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .contact-item span {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      height: 100%;
+    }
+    .contact-form .form-group.textarea-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-form .form-group.textarea-group textarea {
+      flex: 1;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      outline: none;
+      background: var(--bg-light);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      background: var(--bg-white);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .mobile-service-select { display: none; }
+    .mobile-service-select[hidden] { display: none !important; }
+    .mobile-service-trigger {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid rgba(165, 196, 232, 0.45);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      outline: none;
+      background: rgba(133, 173, 219, 0.24);
+      color: #F7FBFF;
+      text-align: left;
+      position: relative;
+      cursor: pointer;
+    }
+    .mobile-service-trigger::after {
+      content: "▾";
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(247, 251, 255, 0.72);
+      font-size: 12px;
+    }
+    .mobile-service-trigger.is-placeholder { color: rgba(247, 251, 255, 0.74); }
+    .mobile-service-panel {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(100% + 6px);
+      border: 1px solid rgba(165, 196, 232, 0.45);
+      border-radius: 8px;
+      background: #2E5E93;
+      box-shadow: 0 8px 22px rgba(6, 20, 38, 0.34);
+      overflow: hidden;
+      z-index: 30;
+    }
+    .mobile-service-panel.open { display: block; }
+    .mobile-service-option {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid rgba(165, 196, 232, 0.26);
+      background: transparent;
+      color: #F7FBFF;
+      text-align: left;
+      padding: 11px 12px;
+      font-size: 0.92rem;
+      line-height: 1.35;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .mobile-service-option:last-child { border-bottom: none; }
+    .mobile-service-option:hover { background: rgba(247, 251, 255, 0.12); }
+
+    .form-submit {
+      background: var(--primary);
+      color: var(--bg-white);
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      font-family: inherit;
+    }
+
+    .form-submit:hover {
+      filter: brightness(0.9);
+      transform: translateY(-1px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-light);
+      color: #6B7280;
+      padding: 60px 40px 30px;
+      border-top: 1px solid #E5E7EB;
+    }
+    footer,
+    footer > div[style*="max-width:1160px"],
+    footer .footer-inner,
+    .footer-bottom {
+      background: #F5F7FA !important;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1160px;
+      margin: 0 auto 40px;
+    }
+
+    .footer-brand .logo {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+    }
+
+    .footer-col h4 {
+      color: var(--bg-white);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    /* ── SCROLL BUTTONS ── */
+    .scroll-btns {
+      position: fixed;
+      bottom: 120px;
+      right: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .scroll-btn {
+      width: 40px;
+      height: 40px;
+      background: #ffffff;
+      color: #0078D4;
+      border: 1px solid #E5E7EB;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+      opacity: 1;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .scroll-btn:hover {
+      background: #F0F7FF;
+      border-color: #0078D4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,120,212,0.2), 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .floating-cta {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #0078D4;
+      border: 1px solid #E5E7EB;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+      opacity: 1;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .floating-cta:hover {
+      background: #F0F7FF;
+      border-color: #0078D4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,120,212,0.2), 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: white;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s;
+      z-index: 9999;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1100;
+      flex-shrink: 0;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100vw;
+      bottom: auto;
+      height: auto;
+      max-height: min(560px, calc(100dvh - 68px));
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      flex-direction: column;
+      padding: 12px 24px calc(10px + env(safe-area-inset-bottom));
+      gap: 0;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      z-index: 1201;
+      border-top: 0;
+      border-bottom: 1px solid rgba(10,36,99,0.08);
+      border-radius: 0 0 12px 12px;
+      overflow-y: auto;
+    }
+
+    .nav-mobile-menu.open { display: flex; }
+    body.menu-open .scroll-btns { display: none !important; }
+    .mobile-menu-backdrop {
+      display: none;
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 36, 99, 0.28);
+      z-index: 1200;
+    }
+    .mobile-menu-backdrop.open { display: block; }
+
+    .nav-mobile-menu a {
+      color: rgba(10,36,99,0.8);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(10,36,99,0.06);
+      transition: color 0.2s;
+      display: block;
+    }
+
+    .nav-mobile-menu a:hover { color: var(--primary); }
+
+    .nav-mobile-menu a.mobile-cta {
+      margin-top: 12px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 20px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .nav-mobile-menu a.mobile-cta:hover { filter: brightness(0.9); }
+
+    .mobile-lang-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(10,36,99,0.06);
+    }
+
+    .mobile-lang-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(10,36,99,0.7);
+    }
+
+    .mobile-lang-row .lang-toggle {
+      border: 1.5px solid rgba(10,36,99,0.25);
+      transform: scale(0.85);
+      transform-origin: right center;
+    }
+
+    /* ── PRODUCTS NEW LAYOUT ── */
+    .products-new-layout {
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .products-cat-list {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .products-cat-item {
+      border-radius: 8px;
+      padding: 10px 14px;
+      border: 0.5px solid #E5E7EB;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      position: relative;
+    }
+    .products-cat-item:hover,
+    .products-cat-item.active {
+      background: #0078D4;
+      border-color: #0078D4;
+    }
+    .cat-item-top {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .cat-item-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cat-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cat-icon svg { transition: stroke 0.2s ease; }
+    .products-cat-item:hover .cat-icon svg,
+    .products-cat-item.active .cat-icon svg { stroke: #ffffff !important; }
+    .cat-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111111;
+      transition: color 0.2s ease;
+    }
+    .products-cat-item:hover .cat-name,
+    .products-cat-item.active .cat-name { color: #ffffff; }
+    .cat-sub {
+      font-size: 11px;
+      color: #6B7280;
+      padding-left: 28px;
+      transition: color 0.2s ease;
+      line-height: 1.4;
+    }
+    .products-cat-item:hover .cat-sub,
+    .products-cat-item.active .cat-sub { color: rgba(255,255,255,0.8); }
+    .cat-arrow-badge {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1;
+      color: #0078D4;
+      flex-shrink: 0;
+      transition: color 0.2s ease;
+    }
+    .products-cat-item:hover .cat-arrow-badge,
+    .products-cat-item.active .cat-arrow-badge {
+      color: #ffffff;
+    }
+    .products-image-box {
+      width: 60%;
+      border-radius: 16px;
+      background: #D8E4F0;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .products-card-tap-toast {
+      position: absolute;
+      right: 8px;
+      bottom: 6px;
+      transform: translateY(6px);
+      background: rgba(17, 24, 39, 0.82);
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 9px;
+      line-height: 1.2;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 3;
+      white-space: nowrap;
+    }
+    .products-card-tap-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .prod-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .prod-img.active { opacity: 1; }
+    .products-image-overlay {
+      position: relative;
+      width: 100%;
+      background: linear-gradient(transparent, rgba(0,0,0,0.82));
+      padding: 60px 16px 16px;
+      border-radius: 0 0 16px 16px;
+    }
+    .overlay-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+    .overlay-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .overlay-tags span {
+      font-size: 10px;
+      padding: 2px 9px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.2);
+      color: #ffffff;
+    }
+    .overlay-more {
+      font-size: 10px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 2px;
+    }
+
+    /* ── LIGHT THEME GLOBAL OVERRIDE ── */
+
+    body {
+      background: var(--bg-white);
+      color: var(--text-secondary);
+    }
+
+    /* NAV — white glass */
+    nav {
+      background: #FFFFFF !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border-bottom: 0.5px solid var(--border) !important;
+      box-shadow: none !important;
+    }
+    nav ul a { color: var(--primary); }
+    nav ul a:hover { color: var(--accent); }
+    nav .logo { color: var(--primary); }
+    nav .logo img { display: block; width: auto; filter: none !important; }
+    nav .logo span, nav .logo span span { color: var(--primary); }
+    nav #logo-title { color: var(--primary); }
+    footer .logo span, footer .logo span span { color: #0F4C8A !important; }
+    .nav-cta {
+      background: var(--accent);
+      border: none !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      padding: 0 20px !important;
+      height: 32px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      color: #fff !important;
+      border-radius: 8px !important;
+    }
+    .nav-cta:hover {
+      filter: brightness(0.9);
+      transform: translateY(-1px) !important;
+    }
+
+    .lang-toggle {
+      background: #ffffff !important;
+      border: 1px solid #E5E7EB !important;
+      border-radius: 20px !important;
+      padding: 4px !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    .lang-btn {
+      color: #6B7280 !important;
+      font-weight: 400 !important;
+      background: transparent !important;
+      padding: 4px 12px !important;
+      border-radius: 16px !important;
+      transition: all 0.22s !important;
+    }
+    .lang-btn.active {
+      background: #0078D4 !important;
+      color: #ffffff !important;
+      font-weight: 500 !important;
+      box-shadow: none !important;
+    }
+    .lang-btn:hover:not(.active) {
+      color: #0078D4 !important;
+      background: transparent !important;
+    }
+    .hamburger span { background: var(--primary); }
+    .nav-mobile-menu {
+      background: rgba(255,255,255,0.97) !important;
+      backdrop-filter: blur(20px) !important;
+    }
+    .nav-mobile-menu a { color: var(--primary); }
+
+    /* HERO BADGE — section-tag shape + gold text */
+    .hero-badge {
+      background: rgba(255,255,255,0.15) !important;
+      border: 2px solid rgba(255,255,255,0.5) !important;
+      border-radius: 20px !important;
+      backdrop-filter: blur(4px) !important;
+      -webkit-backdrop-filter: blur(4px) !important;
+      box-shadow: none !important;
+      color: #ffffff !important;
+      text-shadow: none !important;
+    }
+
+    /* SECTION HEADERS */
+    .section-tag {
+      background: #EFF6FF !important;
+      color: #0078D4 !important;
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.05em !important;
+      padding: 4px 14px !important;
+      border-radius: 20px !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    .section-header h2 { color: var(--text-primary); }
+    .section-header p { color: var(--text-secondary); }
+
+    /* SECTIONS — natural color transitions, no visible border lines */
+    #about {
+      background: #ffffff !important;
+      border-top: none !important;
+    }
+    #why {
+      background: var(--bg-light);
+      border-top: none !important;
+    }
+    #services {
+      background: var(--bg-white);
+      border-top: none !important;
+    }
+    #products {
+      background: var(--bg-light);
+      border-top: none !important;
+    }
+    #partners {
+      background: var(--bg-white);
+      border-top: none !important;
+    }
+    #contact {
+      background: #0F4C8A;
+      border-top: none !important;
+    }
+
+    /* ABOUT */
+    .about-text h2 { color: var(--primary); font-size: 2rem; font-weight: 800; margin-bottom: 18px; }
+    .about-checklist span { color: var(--text-primary); }
+    .about-checklist i { color: var(--accent) !important; }
+    .about-list li span:last-child { color: var(--accent) !important; }
+    .about-stat-value { color: var(--accent) !important; }
+    .about-stat-label { color: var(--text-secondary); }
+    .about-stats {
+      background: rgba(255,255,255,0.80) !important;
+      border: 1px solid rgba(0,0,0,0.08) !important;
+      backdrop-filter: blur(10px) !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07) !important;
+    }
+
+    /* SECTION TITLES — unified style (excluding hero & about) */
+    #why .section-header h2,
+    #services .section-header h2,
+    #products .section-header h2,
+    #contact .section-header h2 {
+      color: #111111 !important;
+      font-weight: 800 !important;
+      font-size: 2rem !important;
+    }
+    #services .section-header p,
+    #products .section-header p,
+    #contact .section-header p {
+      color: #6B7280 !important;
+      font-weight: 400 !important;
+      font-size: 1rem !important;
+      line-height: 1.7 !important;
+    }
+
+    /* SERVICES — light cards */
+    .service-card {
+      background: var(--bg-light) !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      padding: 1.5rem !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06) !important;
+      transition: all 0.2s ease !important;
+      display: flex !important;
+      gap: 14px !important;
+      align-items: flex-start !important;
+    }
+    .service-card:hover {
+      background: var(--bg-white) !important;
+      transform: translateY(-4px) !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10) !important;
+    }
+    .service-card h3 { font-size: 1rem !important; font-weight: 600 !important; color: #111111 !important; }
+    .service-card p { font-size: 0.9rem !important; font-weight: 400 !important; color: #6B7280 !important; line-height: 1.7 !important; }
+    #services h2 { color: var(--text-primary); }
+    #services > p, #services .section-header p { color: var(--text-secondary); }
+    .service-icon {
+      width: 44px !important;
+      height: 44px !important;
+      background: #ffffff !important;
+      border-radius: 10px !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .service-icon svg { width: 22px !important; height: 22px !important; }
+
+    /* PRODUCTS — light cards */
+    .product-card {
+      background: #ffffff !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border: 0.5px solid #E5E7EB !important;
+      border-radius: 12px !important;
+      box-shadow: none !important;
+      transition: all 0.2s ease !important;
+    }
+    .product-card:hover {
+      background: #ffffff !important;
+      transform: translateY(-4px) !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
+    }
+    .product-card h3 { color: var(--text-primary); }
+    .product-card .product-sub { color: #6b7280 !important; }
+    .product-tag {
+      background: rgba(26,42,74,0.06) !important;
+      border: 1px solid rgba(26,42,74,0.12) !important;
+      color: var(--text-secondary);
+    }
+    .product-tag-more { color: var(--accent) !important; background: none !important; border: none !important; }
+    .product-cta { background: #0078D4 !important; color: #fff; transition: background 0.2s ease; }
+    .product-card:hover .product-cta { background: #0F4C8A !important; filter: none; }
+    .pc-icon {
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 8px !important;
+      background: #EFF6FF !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+    }
+    .product-card-v2 h3 { font-size: 1rem !important; font-weight: 600 !important; color: #111111 !important; }
+    .product-card-v2 .product-sub { font-size: 0.9rem !important; color: #6B7280 !important; line-height: 1.7 !important; }
+
+    /* WHY US */
+    #why .section-tag { background: #0078D4 !important; color: #ffffff !important; }
+    #products .section-tag { background: #0078D4 !important; color: #ffffff !important; }
+    #why .section-header h2 { font-size: 2rem !important; font-weight: 800 !important; color: #111111 !important; }
+    #why .section-header p { color: #6B7280 !important; font-weight: 400 !important; font-size: 1rem !important; line-height: 1.7 !important; }
+    .why-card {
+      background: #ffffff !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border: 0.5px solid #E5E7EB !important;
+      border-radius: 12px !important;
+      padding: 1.5rem !important;
+      box-shadow: none !important;
+      transition: all 0.2s ease !important;
+    }
+    .why-card:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
+    }
+    .why-card h3 { color: var(--text-primary); }
+    .why-card p { color: #6b7280 !important; }
+
+    /* PARTNERS — marquee style, handled above */
+
+    /* CONTACT — dark navy bg */
+    #contact .section-tag {
+      background: rgba(255,255,255,0.18) !important;
+      color: #ffffff !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      text-shadow: none !important;
+    }
+    #contact .section-header h2 { color: #ffffff !important; }
+    #contact .section-header p { color: rgba(255,255,255,0.70) !important; }
+    .contact-info h3 { color: #ffffff !important; }
+    .contact-info p { color: rgba(255,255,255,0.70) !important; }
+    .contact-item strong { color: rgba(255,255,255,0.50) !important; }
+    .contact-item span { color: rgba(255,255,255,0.90) !important; }
+    .contact-icon {
+      background: rgba(255,255,255,0.15) !important;
+      backdrop-filter: blur(8px) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255,255,255,0.25) !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.20) !important;
+    }
+    .contact-icon svg { stroke: #ffffff !important; }
+    #contact .contact-item .address-text { color: var(--accent) !important; }
+    #contact .contact-item .phone-text { color: var(--accent) !important; }
+
+    /* Channel cards */
+    .channel-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.08) !important;
+      border: 1px solid rgba(255,255,255,0.15) !important;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+    }
+    .channel-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .channel-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .channel-info strong {
+      color: #ffffff !important;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .channel-info span {
+      color: rgba(255,255,255,0.85) !important;
+      font-size: 0.78rem;
+    }
+    .channel-qr {
+      flex-shrink: 0;
+    }
+    .channel-hours {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(255,255,255,0.06) !important;
+      border: 1px solid rgba(255,255,255,0.12) !important;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 4px;
+    }
+    .channel-hours strong {
+      display: block;
+      color: #ffffff !important;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .channel-hours span {
+      display: block;
+      color: rgba(255,255,255,0.85) !important;
+      font-size: 0.82rem;
+    }
+    .channel-hours .hours-sub {
+      color: rgba(255,255,255,0.85) !important;
+      font-size: 0.75rem;
+    }
+    #contact .contact-info h3 { color: #ffffff !important; margin-bottom: 6px; }
+    #contact .contact-info-desc { color: rgba(255,255,255,0.65) !important; font-size: 0.82rem !important; line-height: 1.6; margin-bottom: 16px; }
+    .form-group label { color: rgba(255,255,255,0.85) !important; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.10) !important;
+      border: 1.5px solid rgba(255,255,255,0.20) !important;
+      color: #ffffff !important;
+      backdrop-filter: blur(8px) !important;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.40) !important; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent) !important;
+      background: rgba(255,255,255,0.18) !important;
+    }
+    .form-group select option { background: var(--primary); color: #ffffff; }
+    .form-submit {
+      background: var(--accent) !important;
+      border: none !important;
+      color: #fff !important;
+    }
+    .form-submit:hover { filter: brightness(0.9); transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      background: #F5F7FA !important;
+      color: #6B7280 !important;
+      border-top: 0.5px solid #E5E7EB !important;
+      padding: 0 !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    footer h4, footer .footer-brand { color: #111111 !important; }
+    footer a { color: #6B7280 !important; }
+    footer a:hover { color: #0F4C8A !important; }
+    footer .logo { color: #0F4C8A !important; }
+    footer .logo img { filter: brightness(0) invert(1) !important; }
+    .footer-bottom { border-top: 1px solid #E5E7EB !important; color: #9CA3AF !important; }
+
+    /* SCROLL + FLOAT BUTTONS — glassmorphism */
+    .scroll-btn {
+      background: #ffffff !important;
+      border: 1px solid #E5E7EB !important;
+      color: #0078D4 !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08) !important;
+      transition: all 0.2s ease !important;
+    }
+    .scroll-btn:hover {
+      background: #F0F7FF !important;
+      border-color: #0078D4 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 16px rgba(0,120,212,0.2), 0 2px 6px rgba(0,0,0,0.1) !important;
+    }
+    .floating-cta {
+      background: #ffffff !important;
+      border: 1px solid #E5E7EB !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08) !important;
+      color: #0078D4 !important;
+      opacity: 1 !important;
+    }
+    .floating-cta:hover {
+      background: #F0F7FF !important;
+      border-color: #0078D4 !important;
+      filter: none;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 16px rgba(0,120,212,0.2), 0 2px 6px rgba(0,0,0,0.1) !important;
+    }
+
+    /* ── RESPONSIVE: TABLET (≤1024px) ── */
+    @media (max-width: 1024px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+      section { padding: 90px 32px; }
+      #partners { padding: 64px 32px; }
+      footer { padding: 0 !important; }
+    }
+
+    /* ── RESPONSIVE: MOBILE (≤768px) ── */
+    .mobile-break-products { display: none; }
+    .mobile-break-contact { display: none; }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      nav ul { display: none; }
+      .hamburger { display: flex; }
+      nav .logo {
+        max-width: calc(100vw - 84px);
+        min-width: 0;
+        overflow: hidden;
+      }
+      .hero-badge {
+        border: 1.5px solid rgba(255,255,255,0.5) !important;
+        border-radius: 14px !important;
+        padding: 5px 14px !important;
+        font-size: 0.74rem !important;
+        letter-spacing: 0.5px !important;
+        margin-bottom: 18px !important;
+      }
+
+      /* ABOUT mobile layout */
+      #about {
+        padding: 56px 20px 52px;
+      }
+      .about-inner {
+        flex-direction: column;
+        gap: 24px;
+        max-width: 100%;
+        margin: 0 auto;
+        padding-right: 0;
+      }
+      .about-left {
+        flex: 1 1 auto;
+        width: 100%;
+      }
+      .about-title {
+        font-size: 1.95rem;
+        margin: 12px 0 16px;
+      }
+      .about-body p {
+        font-size: 0.95rem;
+        line-height: 1.72;
+        margin-bottom: 12px;
+      }
+      .about-right {
+        width: 100%;
+        display: block;
+      }
+      .about-video-wrap {
+        width: 100%;
+        border-radius: 12px;
+        aspect-ratio: auto;
+        max-height: none;
+      }
+      .about-video-wrap video {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        background: transparent;
+      }
+
+      section { padding: 72px 20px; }
+      .section-header { margin-bottom: 40px; }
+      #partners { padding: 52px 20px; }
+      footer { padding: 0 !important; }
+
+      .hero p { font-size: 1rem; }
+      .hero-buttons { flex-direction: row; align-items: center; justify-content: center; gap: 10px; }
+      .hero-buttons a { width: auto; flex: 1; max-width: 160px; text-align: center; padding: 10px 14px; font-size: 0.85rem; min-width: unset; }
+      .hero-stats { gap: 16px; flex-wrap: nowrap; justify-content: flex-start; margin-top: 32px; }
+      .hero-stat strong { font-size: 1.5rem; }
+      .hero-stat span { font-size: 0.72rem; white-space: nowrap; }
+
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image { height: 240px; }
+      .about-text h2 { font-size: 1.6rem; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      #services .section-header { margin-bottom: 28px; }
+      #services .section-header h2 { font-size: 1.55rem !important; line-height: 1.28; }
+      #services .section-header p { font-size: 0.88rem !important; line-height: 1.5 !important; }
+      .service-card {
+        padding: 1rem 0.9rem !important;
+        gap: 10px !important;
+        border-radius: 10px;
+      }
+      .service-icon {
+        width: 34px !important;
+        height: 34px !important;
+        border-radius: 8px !important;
+      }
+      .service-icon svg { width: 16px !important; height: 16px !important; }
+      .service-card h3 { font-size: 0.9rem !important; margin-bottom: 4px !important; line-height: 1.35; }
+      .service-card p { font-size: 0.76rem !important; line-height: 1.45 !important; }
+
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      #products .section-header h2 { font-size: 1.55rem !important; line-height: 1.28; }
+      #products .section-header p { font-size: 0.88rem !important; line-height: 1.5 !important; }
+      #contact .section-header h2 { font-size: 1.55rem !important; line-height: 1.28; }
+      #contact .section-header p { font-size: 0.88rem !important; line-height: 1.5 !important; }
+      #contact .contact-info h3 { font-size: 1.05rem !important; margin-bottom: 4px !important; }
+      #contact .contact-info-desc { font-size: 0.74rem !important; line-height: 1.45 !important; margin-bottom: 12px !important; }
+      .products-new-layout {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .products-cat-list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .products-cat-item {
+        padding: 9px 10px;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 46px;
+      }
+      .cat-item-top { gap: 0; }
+      .cat-item-left { gap: 6px; }
+      .cat-icon { width: 16px; height: 16px; }
+      .cat-name { font-size: 11px; }
+      .cat-sub,
+      .cat-arrow-badge { display: none !important; }
+      .products-image-box {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        min-height: 210px;
+        border-radius: 12px;
+      }
+      .products-image-overlay {
+        padding: 42px 12px 12px;
+        border-radius: 0 0 12px 12px;
+      }
+
+      .why-grid { grid-template-columns: 1fr; }
+      #why .section-header { margin-bottom: 28px; }
+      #why .section-header h2 { font-size: 1.55rem !important; line-height: 1.28; }
+      #why .section-header p { font-size: 0.88rem !important; line-height: 1.5 !important; }
+      .why-card {
+        padding: 1rem 0.9rem !important;
+        gap: 10px !important;
+        border-radius: 10px;
+      }
+      .why-num { font-size: 1.45rem; line-height: 1; }
+      .why-card h3 { font-size: 0.9rem; margin-bottom: 4px; line-height: 1.35; }
+      .why-card p { font-size: 0.76rem !important; line-height: 1.45 !important; }
+
+      #contact { padding: 60px 20px; }
+      #contact .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+      #contact .contact-info,
+      #contact .contact-form {
+        width: 100%;
+        min-width: 0;
+      }
+      #service { display: none; }
+      .mobile-service-select {
+        display: block;
+        position: relative;
+      }
+      .mobile-service-trigger {
+        min-height: 44px;
+        font-size: 16px;
+        line-height: 1.35;
+      }
+      .mobile-service-option { font-size: 15px; }
+      #contact .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        width: 100%;
+      }
+      #contact .form-group { min-width: 0; }
+      #contact .form-group input,
+      #contact .form-group select,
+      #contact .form-group textarea {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        font-size: 0.9rem;
+        padding: 11px 13px;
+      }
+      #contact .form-group textarea { min-height: 110px; }
+      .channel-qr svg { width: 36px; height: 36px; }
+
+      /* partners — marquee, no override needed */
+
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+      .scroll-btns { bottom: 80px; right: 16px; }
+      .toast { right: 16px; left: 16px; bottom: 20px; text-align: center; }
+      footer [style*="max-width:1160px"] { padding: 0 16px !important; }
+      footer [style*="display:flex; justify-content:space-between; align-items:flex-start"] {
+        flex-direction: column !important;
+        gap: 18px !important;
+      }
+      footer [style*="display:flex; flex-direction:column; gap:5px; padding-top:4px; margin-left:auto;"] {
+        margin-left: 0 !important;
+        width: 100%;
+      }
+      footer [style*="display:flex; gap:12px; font-size:12px; line-height:1.6;"] { flex-wrap: wrap; }
+      footer [style*="min-width:110px"] { min-width: 86px !important; }
+      footer [style*="padding:11px 0 52px"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        padding-bottom: 28px !important;
+      }
+    }
+
+    /* ── RESPONSIVE: SMALL MOBILE (≤480px) ── */
+    @media (max-width: 480px) {
+      nav { padding: 0 16px; }
+      .logo { font-size: 1.25rem; }
+
+      section { padding: 60px 16px; }
+      #partners { padding: 44px 16px; }
+      footer { padding: 0 !important; }
+
+      .hero-stats { gap: 14px; margin-top: 28px; }
+      .hero-stat strong { font-size: 1.4rem; }
+      .hero-stat span { font-size: 0.78rem; }
+
+      .products-grid { grid-template-columns: 1fr 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+
+      /* partners — marquee, no override needed */
+
+      .scroll-btns { bottom: 72px; right: 12px; gap: 6px; }
+      .scroll-btn { width: 40px; height: 40px; }
+      .floating-cta { width: 40px; height: 40px; }
+      .channel-qr svg { width: 32px; height: 32px; }
+    }
+    @media (max-width: 430px) {
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .hero-buttons a { max-width: none; width: 100%; }
+      .hero-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 16px;
+      }
+      .hero-stat { min-width: 92px; text-align: center; }
+      .products-grid { grid-template-columns: 1fr; }
+      #products .section-header h2 { font-size: 1.35rem !important; }
+      #products .section-header p { font-size: 0.8rem !important; }
+      #contact .section-header h2 { font-size: 1.35rem !important; }
+      #contact .section-header p { font-size: 0.8rem !important; }
+      #contact .contact-info h3 { font-size: 0.95rem !important; }
+      #contact .contact-info-desc { font-size: 0.7rem !important; line-height: 1.4 !important; }
+      .section-header h2 { font-size: 1.45rem; }
+      .contact-wrapper { gap: 28px; }
+      #services .section-header h2 { font-size: 1.35rem !important; }
+      #services .section-header p { font-size: 0.8rem !important; }
+      .service-card { padding: 0.85rem 0.75rem !important; gap: 8px !important; }
+      .service-icon { width: 30px !important; height: 30px !important; border-radius: 7px !important; }
+      .service-icon svg { width: 14px !important; height: 14px !important; }
+      .service-card h3 { font-size: 0.82rem !important; }
+      .service-card p { font-size: 0.72rem !important; line-height: 1.4 !important; }
+      #why .section-header h2 { font-size: 1.35rem !important; }
+      #why .section-header p { font-size: 0.8rem !important; }
+      .why-card { padding: 0.85rem 0.75rem !important; gap: 8px !important; }
+      .why-num { font-size: 1.25rem; }
+      .why-card h3 { font-size: 0.82rem; }
+      .why-card p { font-size: 0.72rem !important; line-height: 1.4 !important; }
+      #about { padding: 48px 16px 44px; }
+      .about-inner { gap: 18px; }
+      .about-title { font-size: 1.7rem; line-height: 1.24; }
+      .about-body p { font-size: 0.88rem; line-height: 1.66; }
+      .about-video-wrap { aspect-ratio: auto; max-height: none; }
+    }
+    @media (max-width: 390px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 0.92rem; }
+      .hero-stat strong { font-size: 1.2rem; }
+      .hero-stat span { font-size: 0.72rem; }
+      .section-header h2 { font-size: 1.3rem; }
+      .scroll-btns { right: 10px; }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        height: 56px !important;
+        padding: 0 14px !important;
+        max-width: 100vw !important;
+      }
+      nav > ul { display: none !important; }
+      nav > .logo {
+        max-width: calc(100vw - 84px) !important;
+        min-width: 0;
+        overflow: hidden;
+      }
+      nav > .logo img { max-width: 100%; height: auto; }
+      #hamburger.hamburger {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative;
+        z-index: 1102;
+      }
+      .nav-mobile-menu { top: 56px !important; }
+      .mobile-menu-backdrop { top: 56px !important; }
+
+      /* SERVICES mobile compact (explicit override) */
+      #services .section-header { margin-bottom: 24px !important; }
+      #services .section-header h2 {
+        font-size: 1.36rem !important;
+        line-height: 1.24 !important;
+        margin-bottom: 8px !important;
+      }
+      #services .section-header p {
+        font-size: 0.8rem !important;
+        line-height: 1.42 !important;
+      }
+      #services .services-grid { gap: 10px !important; }
+      #services .service-card {
+        padding: 0.82rem 0.72rem !important;
+        gap: 8px !important;
+        border-radius: 10px !important;
+      }
+      #services .service-icon {
+        width: 28px !important;
+        height: 28px !important;
+        border-radius: 7px !important;
+      }
+      #services .service-icon svg {
+        width: 13px !important;
+        height: 13px !important;
+      }
+      #services .service-card h3 {
+        font-size: 0.8rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 3px !important;
+      }
+      #services .service-card p {
+        font-size: 0.69rem !important;
+        line-height: 1.36 !important;
+      }
+      .mobile-break-products { display: inline; }
+      .mobile-break-contact { display: inline; }
+    }
+
+    @media (max-width: 768px) {
+      footer { overflow: hidden; }
+      footer > div[style*="max-width:1160px"],
+      footer .footer-inner {
+        width: calc(100% - 24px) !important;
+        max-width: calc(100% - 24px) !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+      }
+      footer > div > div[style*="padding-top:28px"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 18px !important;
+        padding-top: 18px !important;
+        width: 100% !important;
+      }
+      footer [style*="display:flex; align-items:flex-start; gap:20px;"] {
+        flex-direction: row !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        --footer-brand-h: clamp(59px, 18vw, 77px);
+        width: 100% !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        padding-bottom: 56px !important;
+      }
+      footer [style*="width:1px; background:#E5E7EB"] { display: block !important; }
+      footer img[src*="CI_LOGO_NAVY"] {
+        height: var(--footer-brand-h) !important;
+        width: auto !important;
+        max-width: 38vw !important;
+      }
+      footer [style*="padding-top:2px;"] {
+        padding-top: 0 !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+        height: var(--footer-brand-h) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+      }
+      footer p[style*="font-style:italic; font-weight:500; color:#0F2A5C"] {
+        font-size: clamp(11px, 3.1vw, 13px) !important;
+        line-height: 1.3 !important;
+        margin: 0 0 6px 0 !important;
+        white-space: nowrap !important;
+      }
+      footer p[data-ko*="(주)패스파인더아이엔씨는"] {
+        font-size: clamp(10px, 2.8vw, 12px) !important;
+        line-height: 1.6 !important;
+      }
+      footer [style*="display:flex; gap:12px; margin-top:16px;"] {
+        margin-top: 0 !important;
+        width: auto !important;
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: -24px !important;
+        justify-content: center !important;
+      }
+      footer [style*="width:36px;height:36px;border-radius:50%"] {
+        width: 38px !important;
+        height: 38px !important;
+      }
+      footer [style*="display:flex; flex-direction:column; gap:5px; padding-top:4px; margin-left:auto;"] {
+        margin-left: 0 !important;
+        width: 100% !important;
+        gap: 8px !important;
+        padding-top: 0 !important;
+        margin-top: 40px !important;
+      }
+      footer [style*="display:flex; gap:12px; font-size:12px; line-height:1.6;"] {
+        display: grid !important;
+        grid-template-columns: 92px minmax(0, 1fr) !important;
+        gap: 6px 10px !important;
+        font-size: 11px !important;
+        line-height: 1.5 !important;
+      }
+      footer [style*="min-width:110px"] {
+        min-width: 0 !important;
+        font-size: 10px !important;
+      }
+      footer [style*="display:flex; gap:8px; align-items:baseline;"] {
+        display: block !important;
+      }
+      footer [style*="margin-top:20px; padding:11px 0 52px"] {
+        margin-top: 14px !important;
+        padding: 12px 0 22px !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        text-align: right !important;
+        gap: 8px !important;
+      }
+      footer [style*="display:flex; gap:16px;"] {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-end !important;
+        gap: 6px 12px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="logo" style="text-decoration:none;display:flex;align-items:center;">
+    <img src="images/(cutout)CI_LOGO_NAVY(2).png" alt="PATHFINDER" style="height:clamp(18px,2.8vw,28px);width:auto;display:block;" />
+  </a>
+  <ul>
+    <li><a href="#home" data-ko="홈" data-en="Home">Home</a></li>
+    <li><a href="#about" data-ko="회사소개" data-en="About">회사소개</a></li>
+    <li><a href="#services" data-ko="사업영역" data-en="Our Business">사업영역</a></li>
+    <li><a href="products.html" data-ko="제품" data-en="Products">제품</a></li>
+    <li><a href="contact.html" class="nav-cta" data-ko="문의 하기" data-en="Contact">문의 하기</a></li>
+    <li>
+      <div class="lang-toggle">
+        <button class="lang-btn" id="btn-ko" onclick="setLang('ko')"><span class="flag">🇰🇷</span>KO</button>
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')"><span class="flag">🇺🇸</span>EN</button>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="메뉴 열기" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#home" data-ko="홈" data-en="Home" onclick="goHomeFromMenu(event)">Home</a>
+  <a href="#about" data-ko="회사소개" data-en="About" onclick="closeMenu()">회사소개</a>
+  <a href="#services" data-ko="사업영역" data-en="Our Business" onclick="closeMenu()">사업영역</a>
+  <a href="products.html" data-ko="제품" data-en="Products" onclick="closeMenu()">제품</a>
+  <div class="mobile-lang-row">
+    <span class="mobile-lang-label" data-ko="언어 설정" data-en="Language">언어 설정</span>
+    <div class="lang-toggle">
+      <button class="lang-btn" id="btn-ko-m" onclick="setLang('ko')"><span class="flag">🇰🇷</span>KO</button>
+      <button class="lang-btn active" id="btn-en-m" onclick="setLang('en')"><span class="flag">🇺🇸</span>EN</button>
+    </div>
+  </div>
+  <a href="contact.html" class="mobile-cta" data-ko="사업 문의" data-en="Contact" onclick="closeMenu()">사업 문의</a>
+</div>
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop" onclick="closeMenu()"></div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge" data-ko="글로벌 무역 전문 기업" data-en="Global Trade Specialist">글로벌 무역 전문 기업</div>
+    <h1>Connecting values,<br /><span>inspiring the world</span></h1>
+    <p data-ko="당신의 시장이 원하는 것, 한국에 있습니다.<br>패스파인더가 연결합니다." data-en="Korea has what your market is looking for.<br><strong>PATHFINDER Inc.</strong> makes it yours.">당신의 시장이 원하는 것, 한국에 있습니다.<br>패스파인더가 연결합니다.</p>
+    <div class="hero-buttons">
+      <a href="contact.html" class="btn-primary" data-ko="사업 문의" data-en="Contact">사업 문의</a>
+      <a href="products.html" class="btn-outline" data-ko="제품 살펴보기" data-en="Explore Products">제품 살펴보기</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>50+</strong>
+        <span data-ko="거래 국가" data-en="Countries">거래 국가</span>
+      </div>
+      <div class="hero-stat">
+        <strong>100+</strong>
+        <span data-ko="협력 브랜드" data-en="Partner Brands">협력 브랜드</span>
+      </div>
+      <div class="hero-stat">
+        <strong>97%</strong>
+        <span data-ko="고객 만족도" data-en="Satisfaction">고객 만족도</span>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+
+    <div class="about-left">
+      <div class="section-tag" data-ko="회사 소개" data-en="About Us">About Us</div>
+      <h2 class="about-title">
+        <span class="text-accent">From K-Culture,</span><br>
+        <span class="text-primary">For Your Success.</span>
+      </h2>
+      <div class="about-body">
+        <p data-ko="K-Culture가 전 세계의 주목을 받는 지금, 그 뒤에는 글로벌 시장을 향해 준비된 수많은 우수한 한국 제품들이 있습니다. 패스파인더아이엔씨는 그 제품들을 글로벌 시장으로 연결하는 파트너입니다." data-en="K-Culture has taken the world by storm — and behind it lies a wealth of exceptional Korean products waiting to reach your market. PATHFINDER Inc. is your dedicated partner to make that happen.">K-Culture가 전 세계의 주목을 받는 지금, 그 뒤에는 글로벌 시장을 향해 준비된 수많은 우수한 한국 제품들이 있습니다. 패스파인더아이엔씨는 그 제품들을 글로벌 시장으로 연결하는 파트너입니다.</p>
+        <p data-ko="화장품, 식품, 건강기능식품, 패션 아이템 등 경쟁력 높은 한국 소비재를 중심으로 소싱·수출하며, 자동차 부품 등 산업재도 별도 문의를 통해 지원합니다." data-en="We source and export competitive Korean products across cosmetics, food, health supplements, and fashion. Industrial products such as automotive parts are also available upon request.">화장품, 식품, 건강기능식품, 패션 아이템 등 경쟁력 높은 한국 소비재를 중심으로 소싱·수출하며, 자동차 부품 등 산업재도 별도 문의를 통해 지원합니다.</p>
+        <p data-ko="중앙아시아, 동남아시아, 중남미, 유럽 등 전 세계 바이어와 신뢰와 투명성을 기반으로 한 장기적 파트너십을 만들어 갑니다." data-en="We work with buyers across Central Asia, Southeast Asia, Latin America, Europe, and beyond — building long-term partnerships grounded in trust, transparency, and results.">중앙아시아, 동남아시아, 중남미, 유럽 등 전 세계 바이어와 신뢰와 투명성을 기반으로 한 장기적 파트너십을 만들어 갑니다.</p>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <div class="about-video-wrap">
+        <video
+          id="aboutIntroVideo"
+          src="videos/interview_CEO.mp4"
+          data-desktop-src="videos/interview_CEO.mp4"
+          data-mobile-src="videos/interview_CEO_mobile.mp4"
+          autoplay
+          loop
+          muted
+          playsinline
+        ></video>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-header">
+    <div class="section-tag" data-ko="경쟁력" data-en="Why Us" style="display:inline-block;background:#0078D4;color:#ffffff;font-size:11px;font-weight:500;padding:4px 14px;border-radius:20px;border:none;">경쟁력</div>
+    <h2 data-ko="왜 PATHFINDER Inc.인가?" data-en="Why PATHFINDER Inc.?">왜 PATHFINDER Inc.인가?</h2>
+    <p data-ko="전 세계 바이어들이 <span style='color:#0078D4;font-weight:600;'>PATHFINDER Inc.</span>를 선택하는 이유입니다." data-en="Here's why global buyers choose <span style='color:#0078D4;font-weight:600;'>PATHFINDER Inc.</span>">전 세계 바이어들이 <span style="color:#0078D4;font-weight:600;">PATHFINDER Inc.</span>를 선택하는 이유입니다.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <div>
+        <h3 data-ko="검증된 국내 협력사 네트워크" data-en="Korean Supplier Network">검증된 국내 협력사 네트워크</h3>
+        <p data-ko="식품, 화장품, 패션, 자동차, 산업재 등 다양한 분야에서 검증된 100개 이상의 국내 협력사와 함께합니다." data-en="We work with 100+ verified domestic suppliers across diverse sectors — food, cosmetics, fashion, automotive, and industrial.">식품, 화장품, 패션, 자동차, 산업재 등 다양한 분야에서 검증된 100개 이상의 국내 협력사와 함께합니다.</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <div>
+        <h3 data-ko="KITA · KOTRA · aT 정식 회원사" data-en="Member of KITA · KOTRA · aT">KITA · KOTRA · aT 정식 회원사</h3>
+        <p data-ko="한국 주요 무역 기관의 정식 회원사로서, 인증된 한국 제품과 수출 지원 서비스를 바이어에게 제공합니다." data-en="As an official member of Korea's leading trade institutions, we provide buyers with verified access to certified Korean products and export support.">한국 주요 무역 기관의 정식 회원사로서, 인증된 한국 제품과 수출 지원 서비스를 바이어에게 제공합니다.</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <div>
+        <h3 data-ko="수출 전 과정 원스톱 관리" data-en="Full Export Management">수출 전 과정 원스톱 관리</h3>
+        <p data-ko="제품 소싱, 품질 확인, 서류 준비, 선적까지 — 전 과정을 책임지고 관리하여 바이어가 비즈니스 성장에만 집중할 수 있도록 지원합니다." data-en="From product sourcing and quality checks to documentation and shipment — we manage the entire process so you can focus on growing your business.">제품 소싱, 품질 확인, 서류 준비, 선적까지 — 전 과정을 책임지고 관리하여 바이어가 비즈니스 성장에만 집중할 수 있도록 지원합니다.</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">04</div>
+      <div>
+        <h3 data-ko="다분야 전문성 기반 맞춤 소싱" data-en="Multi-Industry Sourcing Expertise">다분야 전문성 기반 맞춤 소싱</h3>
+        <p data-ko="소비재부터 산업재까지 다양한 산업 분야의 전문 경력을 보유한 당사 팀이 각 시장에 최적화된 한국 제품을 소싱하여 제안합니다." data-en="Our team brings hands-on expertise across consumer goods and industrial sectors — sourcing and recommending the right Korean products tailored to your market.">소비재부터 산업재까지 다양한 산업 분야의 전문 경력을 보유한 당사 팀이 각 시장에 최적화된 한국 제품을 소싱하여 제안합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <div class="section-tag" data-ko="사업 영역" data-en="Our Business">사업 영역</div>
+    <h2 data-ko="소싱, 제조부터 배송까지" data-en="From Sourcing & Manufacturing to Delivery">소싱, 제조부터 배송까지</h2>
+    <p data-ko="바이어의 비즈니스에 맞춘 <span style='color:#0078D4; font-weight:600;'>맞춤형 수출 솔루션</span>을 제공합니다." data-en="We provide <span style='color:#0078D4; font-weight:600;'>customized export solutions</span><br>tailored to your business.">바이어의 비즈니스에 맞춘 <span style="color:#0078D4; font-weight:600;">맞춤형 수출 솔루션</span>을 제공합니다.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+      </div>
+      <div class="service-text">
+        <h3 data-ko="제품 소싱 & 수출" data-en="Product Sourcing & Export">제품 소싱 & 수출</h3>
+        <p data-ko="경쟁력 있는 한국 제품을 발굴·소싱하여 글로벌 시장에 공급합니다. 제품 선정부터 선적까지 전 수출 과정을 책임집니다." data-en="We identify and source competitive Korean products and bring them to global markets. From product selection to shipment, we manage the entire export process.">경쟁력 있는 한국 제품을 발굴·소싱하여 글로벌 시장에 공급합니다. 제품 선정부터 선적까지 전 수출 과정을 책임집니다.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      </div>
+      <div class="service-text">
+        <h3 data-ko="맞춤형 소싱" data-en="Custom Sourcing on Demand">맞춤형 소싱</h3>
+        <p data-ko="바이어가 원하는 제품이나 브랜드를 직접 소싱하여 공급합니다. 요청 사항에 맞춘 맞춤형 소싱 및 수출 전 과정을 관리합니다." data-en="Tell us what you need. We'll find it. Whether it's a specific product, brand, or category — we source to your exact requirements and manage the export process end-to-end.">바이어가 원하는 제품이나 브랜드를 직접 소싱하여 공급합니다. 요청 사항에 맞춘 맞춤형 소싱 및 수출 전 과정을 관리합니다.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </div>
+      <div class="service-text">
+        <h3 data-ko="공급망 연결 & 관리" data-en="Trade Matching & Process Management">공급망 연결 & 관리</h3>
+        <p data-ko="바이어와 적합한 한국 제조사를 연결하고, 첫 협의부터 최종 선적까지 거래의 모든 과정을 관리합니다." data-en="We connect buyers with the right Korean manufacturers and manage every step of the transaction — from initial contact to final shipment.">바이어와 적합한 한국 제조사를 연결하고, 첫 협의부터 최종 선적까지 거래의 모든 과정을 관리합니다.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+      </div>
+      <div class="service-text">
+        <h3 data-ko="OEM / ODM / OBM 서비스" data-en="OEM / ODM / OBM Services">OEM / ODM / OBM 서비스</h3>
+        <p data-ko="자체 제품 또는 브랜드 생산을 원하는 바이어를 위해 한국 제조사와 연결하거나, OEM/ODM/OBM 전 과정을 직접 관리합니다." data-en="Want your own product or brand? We connect you with trusted Korean manufacturers for custom production — or manage the entire OEM/ODM/OBM process on your behalf.">자체 제품 또는 브랜드 생산을 원하는 바이어를 위해 한국 제조사와 연결하거나, OEM/ODM/OBM 전 과정을 직접 관리합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-header">
+    <div class="section-tag" data-ko="취급 제품" data-en="OUR PRODUCTS" style="display:inline-block;background:#0078D4;color:#ffffff;font-size:11px;font-weight:500;padding:4px 14px;border-radius:20px;border:none;">취급 제품</div>
+    <h2 data-ko="세계가 주목하는 한국 제품" data-en="Korean Products <span class='mobile-break-products'><br></span>for Global Buyers">세계가 주목하는 한국 제품</h2>
+    <p data-ko="<span style='color:#0078D4; font-weight:600;'>K-푸드, K-뷰티, 패션, 산업재까지</span><br>당신의 비즈니스를 위한 최적의 한국 제품을 공급합니다." data-en="Your next best-selling product is already made in Korea.<br>Find it with <span style='color:#0078D4; font-weight:600;'>PATHFINDER Inc.</span>"><span style="color:#0078D4; font-weight:600;">K-푸드, K-뷰티, 패션, 산업재까지</span><br>당신의 비즈니스를 위한 최적의 한국 제품을 공급합니다.</p>
+  </div>
+  <div class="products-new-layout">
+    <!-- 좌측: 카테고리 리스트 -->
+    <div class="products-cat-list">
+
+      <div class="products-cat-item active" data-cat="food" onclick="window.location.href='products.html?category=food'" style="cursor:pointer;">
+        <div class="cat-item-top">
+          <div class="cat-item-left">
+            <div class="cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
+            <span class="cat-name" data-ko="식품" data-en="Food">식품</span>
+          </div>
+          <div class="cat-sub" data-ko="글로벌 식문화의 트렌드 K-푸드" data-en="K-Food Setting the Global Food Trend">글로벌 식문화의 트렌드 K-푸드</div>
+        </div>
+        <div class="cat-arrow-badge">→</div>
+      </div>
+
+      <div class="products-cat-item" data-cat="health" onclick="window.location.href='products.html?category=health'" style="cursor:pointer;">
+        <div class="cat-item-top">
+          <div class="cat-item-left">
+            <div class="cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><line x1="12" y1="6" x2="12" y2="11"/><line x1="9.5" y1="8.5" x2="14.5" y2="8.5"/></svg></div>
+            <span class="cat-name" data-ko="건강기능식품" data-en="Health">건강기능식품</span>
+          </div>
+          <div class="cat-sub" data-ko="글로벌이 신뢰하는 품질과 안전성" data-en="Trusted Quality and Safety for Global Markets">글로벌이 신뢰하는 품질과 안전성</div>
+        </div>
+        <div class="cat-arrow-badge">→</div>
+      </div>
+
+      <div class="products-cat-item" data-cat="beauty" onclick="window.location.href='products.html?category=beauty'" style="cursor:pointer;">
+        <div class="cat-item-top">
+          <div class="cat-item-left">
+            <div class="cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></div>
+            <span class="cat-name" data-ko="화장품" data-en="Beauty">화장품</span>
+          </div>
+          <div class="cat-sub" data-ko="세계 시장을 선도하는 K-뷰티" data-en="K-Beauty Leading the Global Skincare Market">세계 시장을 선도하는 K-뷰티</div>
+        </div>
+        <div class="cat-arrow-badge">→</div>
+      </div>
+
+      <div class="products-cat-item" data-cat="fashion" onclick="window.location.href='products.html?category=fashion'" style="cursor:pointer;">
+        <div class="cat-item-top">
+          <div class="cat-item-left">
+            <div class="cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 18H3.62a1 1 0 0 1-.7-1.72l7.08-6.63A2 2 0 0 0 10 8V7a2 2 0 0 1 4 0v1a2 2 0 0 0-.97 1.65l7.05 6.63A1 1 0 0 1 20.38 18Z"/><path d="M12 3a2 2 0 0 1 2 2"/></svg></div>
+            <span class="cat-name" data-ko="패션" data-en="Fashion">패션</span>
+          </div>
+          <div class="cat-sub" data-ko="글로벌 트렌드의 기준 K-패션" data-en="K-Fashion — The New Global Style Standard">글로벌 트렌드의 기준 K-패션</div>
+        </div>
+        <div class="cat-arrow-badge">→</div>
+      </div>
+
+      <div class="products-cat-item" data-cat="automotive" onclick="window.location.href='products.html?category=automotive'" style="cursor:pointer;">
+        <div class="cat-item-top">
+          <div class="cat-item-left">
+            <div class="cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></div>
+            <span class="cat-name" data-ko="자동차 부품 &amp; 중고차" data-en="Automotive">자동차 부품 &amp; 중고차</span>
+          </div>
+          <div class="cat-sub" data-ko="신뢰할 수 있는 품질과 경쟁력 있는 가격" data-en="Reliable Quality. Competitive Pricing.">신뢰할 수 있는 품질과 경쟁력 있는 가격</div>
+        </div>
+        <div class="cat-arrow-badge">→</div>
+      </div>
+
+      <div class="products-cat-item" data-cat="industrial" onclick="window.location.href='products.html?category=industrial'" style="cursor:pointer;">
+        <div class="cat-item-top">
+          <div class="cat-item-left">
+            <div class="cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+            <span class="cat-name" data-ko="산업재" data-en="Industrial">산업재</span>
+          </div>
+          <div class="cat-sub" data-ko="정밀한 기술력과 높은 수준의 성능" data-en="Precision Engineering. High-Level Performance.">정밀한 기술력과 높은 수준의 성능</div>
+        </div>
+        <div class="cat-arrow-badge">→</div>
+      </div>
+
+    </div>
+
+    <!-- 우측: 이미지 박스 -->
+    <div class="products-image-box">
+      <img src="images/1. Food-images.png"       class="prod-img active" data-cat="food"       alt="Food">
+      <img src="images/2. Health-images.png"     class="prod-img"        data-cat="health"     alt="Health">
+      <img src="images/3. Beauty-images.png"     class="prod-img"        data-cat="beauty"     alt="Beauty">
+      <img src="images/4. Fashion-images.png"    class="prod-img"        data-cat="fashion"    alt="Fashion">
+      <img src="images/5. Automotive-images.png" class="prod-img"        data-cat="automotive" alt="Automotive">
+      <img src="images/6. Industrial-images.png" class="prod-img"        data-cat="industrial" alt="Industrial">
+      <div class="products-image-overlay">
+        <div class="overlay-title" id="overlay-title">식품</div>
+        <div class="overlay-tags" id="overlay-tags">
+          <span>스낵</span><span>음료</span><span>밀키트</span><span>한국 전통 식품</span>
+        </div>
+        <div class="overlay-more">& more</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    var catData = {
+      food:       { ko: { name:'식품',               tags:['스낵','음료','밀키트','전통 한국식품'] },          en: { name:'Food',       tags:['Snacks','Beverages','Meal kits','Traditional Korean food'] } },
+      health:     { ko: { name:'건강기능식품',         tags:['비타민','콜라겐','프로틴','홍삼'] },              en: { name:'Health',     tags:['Vitamins','Collagen','Protein','Red ginseng'] } },
+      beauty:     { ko: { name:'화장품',               tags:['스킨케어','색조화장품','헤어케어','뷰티기기'] },  en: { name:'Beauty',     tags:['Skincare','Color cosmetics','Hair care','Beauty devices'] } },
+      fashion:    { ko: { name:'패션',                 tags:['안경테','선글라스','의류','양말'] },             en: { name:'Fashion',    tags:['Eyeglass frames','Sunglasses','Apparel','Socks'] } },
+      automotive: { ko: { name:'자동차 부품 & 중고차', tags:['재제조 부품','호환 부품','중고차'] },            en: { name:'Automotive', tags:['Remanufactured parts','Compatible parts','Used vehicles'] } },
+      industrial: { ko: { name:'산업재',               tags:['기계 부품','설비 & 기계장비','원자재'] },        en: { name:'Industrial', tags:['Machinery components','Equipment & machinery','Raw materials'] } }
+    };
+
+    function getLang() {
+      return document.documentElement.getAttribute('lang') || 'ko';
+    }
+
+    function updateOverlay(catId) {
+      var lang = getLang();
+      var data = catData[catId][lang];
+      document.getElementById('overlay-title').textContent = data.name;
+      document.getElementById('overlay-tags').innerHTML = data.tags.map(function(t){ return '<span>'+t+'</span>'; }).join('');
+      document.querySelector('.overlay-more').textContent = lang === 'ko' ? '& 더보기' : '& more';
+      document.querySelectorAll('.prod-img').forEach(function(img) {
+        img.classList.toggle('active', img.dataset.cat === catId);
+      });
+    }
+
+    var catItems = Array.from(document.querySelectorAll('.products-cat-item'));
+    var mobileProductsMq = window.matchMedia('(max-width: 768px)');
+    var lastTappedCat = null;
+    var tapToastTimer = null;
+    var currentTapToastEl = null;
+
+    function setActiveCat(catId) {
+      catItems.forEach(function(i) { i.classList.remove('active'); });
+      var next = catItems.find(function(i) { return i.dataset.cat === catId; });
+      if (next) next.classList.add('active');
+      updateOverlay(catId);
+    }
+
+    function showItemTapToast(item) {
+      if (!mobileProductsMq.matches) return;
+      if (!item) return;
+      if (currentTapToastEl && currentTapToastEl.parentNode) {
+        currentTapToastEl.parentNode.removeChild(currentTapToastEl);
+      }
+      var toast = document.createElement('span');
+      toast.className = 'products-card-tap-toast';
+      toast.textContent = getLang() === 'ko' ? '한 번 더 탭하면 이동' : 'Tap again to open';
+      item.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('show');
+      });
+      currentTapToastEl = toast;
+      if (tapToastTimer) clearTimeout(tapToastTimer);
+      tapToastTimer = setTimeout(function() {
+        toast.classList.remove('show');
+        setTimeout(function() {
+          if (toast.parentNode) toast.parentNode.removeChild(toast);
+          if (currentTapToastEl === toast) currentTapToastEl = null;
+        }, 180);
+      }, 1200);
+    }
+    function getCategoryHref(catId) {
+      return 'products.html?category=' + encodeURIComponent(catId || 'food');
+    }
+    function removeTapToast() {
+      if (tapToastTimer) {
+        clearTimeout(tapToastTimer);
+        tapToastTimer = null;
+      }
+      if (currentTapToastEl && currentTapToastEl.parentNode) {
+        currentTapToastEl.parentNode.removeChild(currentTapToastEl);
+      }
+      currentTapToastEl = null;
+    }
+    function applyProductsCardInteractionMode() {
+      var isMobile = mobileProductsMq.matches;
+      lastTappedCat = null;
+      removeTapToast();
+      catItems.forEach(function(item) {
+        var catId = item.dataset.cat;
+        if (!catId) return;
+        if (!item.__desktopHoverBound) {
+          item.addEventListener('mouseenter', function() {
+            if (!mobileProductsMq.matches) setActiveCat(catId);
+          });
+          item.__desktopHoverBound = true;
+        }
+        if (!item.__mobileTapHandler) {
+          item.__mobileTapHandler = function(e) {
+            if (!mobileProductsMq.matches) return;
+            e.preventDefault();
+            if (lastTappedCat === catId) {
+              window.location.href = getCategoryHref(catId);
+              return;
+            }
+            setActiveCat(catId);
+            lastTappedCat = catId;
+            showItemTapToast(item);
+          };
+        }
+        if (isMobile) {
+          item.removeAttribute('onclick');
+          item.addEventListener('click', item.__mobileTapHandler);
+        } else {
+          item.removeEventListener('click', item.__mobileTapHandler);
+          item.setAttribute('onclick', "window.location.href='" + getCategoryHref(catId) + "'");
+        }
+      });
+    }
+    applyProductsCardInteractionMode();
+    if (typeof mobileProductsMq.addEventListener === 'function') {
+      mobileProductsMq.addEventListener('change', applyProductsCardInteractionMode);
+    } else if (typeof mobileProductsMq.addListener === 'function') {
+      mobileProductsMq.addListener(applyProductsCardInteractionMode);
+    }
+
+    // 언어 변경 시 오버레이도 업데이트
+    var origSetLang = window.setLang;
+    window.setLang = function(lang) {
+      origSetLang(lang);
+      var active = document.querySelector('.products-cat-item.active');
+      if (active) updateOverlay(active.dataset.cat);
+    };
+
+    setActiveCat('food');
+  })();
+  </script>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <div class="section-tag" data-ko="문의 하기" data-en="CONTACT US" style="background:#ffffff !important;color:#0078D4 !important;font-weight:600 !important;">문의 하기</div>
+    <h2 data-ko="찾으시는 한국 제품이 있으신가요?" data-en="Looking for <span class='mobile-break-contact'><br></span>the Right Korean Product?">찾으시는 한국 제품이 있으신가요?</h2>
+    <p data-ko="제품 소싱, 샘플 요청, 가격 문의 등 무엇이든 문의해 주세요." data-en="From sourcing to samples and pricing - We're here to help.">제품 소싱, 샘플 요청, 가격 문의 등 무엇이든 문의해 주세요.</p>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <h3 data-ko="연락처 정보" data-en="Contact Information">연락처 정보</h3>
+      <p class="contact-info-desc" data-ko="아래의 연락처 또는 우측 문의하기를 통해 남겨주세요.<br>24시간 내에 회신드리겠습니다." data-en="Reach us via the channels below or use the inquiry form.<br>We'll get back to you within 24 hours.">아래의 연락처 또는 우측 문의하기를 통해 남겨주세요.<br>24시간 내에 회신드리겠습니다.</p>
+
+      <!-- 이메일 -->
+      <div class="channel-card">
+        <div class="channel-icon" style="background:#e63946;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="channel-info">
+          <strong data-ko="이메일" data-en="Email">이메일</strong>
+          <span style="color:#ffffff;">info@pathfinderinc.co</span>
+        </div>
+      </div>
+
+      <!-- 와츠앱 -->
+      <div class="channel-card">
+        <div class="channel-icon" style="background:#25D366;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        </div>
+        <div class="channel-info">
+          <strong data-ko="와츠앱" data-en="WhatsApp">와츠앱</strong>
+          <span data-ko="QR 스캔으로 바로 연결" data-en="Scan QR to connect">QR 스캔으로 바로 연결</span>
+        </div>
+        <div class="channel-qr">
+          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <rect width="44" height="44" rx="6" fill="rgba(255,255,255,0.12)"/>
+            <rect x="8" y="8" width="12" height="12" rx="1" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none"/>
+            <rect x="24" y="8" width="12" height="12" rx="1" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none"/>
+            <rect x="8" y="24" width="12" height="12" rx="1" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none"/>
+            <rect x="11" y="11" width="6" height="6" rx="0.5" fill="rgba(255,255,255,0.6)"/>
+            <rect x="27" y="11" width="6" height="6" rx="0.5" fill="rgba(255,255,255,0.6)"/>
+            <rect x="11" y="27" width="6" height="6" rx="0.5" fill="rgba(255,255,255,0.6)"/>
+            <rect x="24" y="24" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="29" y="24" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="24" y="29" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="34" y="29" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="34" y="24" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 위챗 -->
+      <div class="channel-card">
+        <div class="channel-icon" style="background:#07C160;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-7.063-6.088v-.034zm-2.789 3.29c.535 0 .969.44.969.983a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.543.434-.983.969-.983zm5.4 0c.535 0 .969.44.969.983a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.543.434-.983.969-.983z"/></svg>
+        </div>
+        <div class="channel-info">
+          <strong data-ko="위챗" data-en="WeChat">위챗</strong>
+          <span data-ko="QR 스캔으로 바로 연결" data-en="Scan QR to connect">QR 스캔으로 바로 연결</span>
+        </div>
+        <div class="channel-qr">
+          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <rect width="44" height="44" rx="6" fill="rgba(255,255,255,0.12)"/>
+            <rect x="8" y="8" width="12" height="12" rx="1" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none"/>
+            <rect x="24" y="8" width="12" height="12" rx="1" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none"/>
+            <rect x="8" y="24" width="12" height="12" rx="1" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none"/>
+            <rect x="11" y="11" width="6" height="6" rx="0.5" fill="rgba(255,255,255,0.6)"/>
+            <rect x="27" y="11" width="6" height="6" rx="0.5" fill="rgba(255,255,255,0.6)"/>
+            <rect x="11" y="27" width="6" height="6" rx="0.5" fill="rgba(255,255,255,0.6)"/>
+            <rect x="27" y="24" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="32" y="27" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="24" y="32" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="29" y="29" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="34" y="24" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 텔레그램 -->
+      <div class="channel-card">
+        <div class="channel-icon" style="background:#229ED9;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.820 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </div>
+        <div class="channel-info">
+          <strong data-ko="텔레그램" data-en="Telegram">텔레그램</strong>
+          <span data-ko="QR 스캔으로 바로 연결" data-en="Scan QR to connect">QR 스캔으로 바로 연결</span>
+        </div>
+        <div class="channel-qr">
+          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <rect width="44" height="44" rx="6" fill="rgba(255,255,255,0.12)"/>
+            <rect x="8" y="8" width="12" height="12" rx="1" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none"/>
+            <rect x="24" y="8" width="12" height="12" rx="1" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none"/>
+            <rect x="8" y="24" width="12" height="12" rx="1" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none"/>
+            <rect x="11" y="11" width="6" height="6" rx="0.5" fill="rgba(255,255,255,0.6)"/>
+            <rect x="27" y="11" width="6" height="6" rx="0.5" fill="rgba(255,255,255,0.6)"/>
+            <rect x="11" y="27" width="6" height="6" rx="0.5" fill="rgba(255,255,255,0.6)"/>
+            <rect x="24" y="24" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="30" y="24" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="27" y="27" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="33" y="27" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="24" y="30" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="30" y="33" width="3" height="3" fill="rgba(255,255,255,0.6)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 운영 시간 -->
+      <div class="channel-hours">
+        <div style="width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:-4px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <strong data-ko="운영 시간" data-en="Business Hours">운영 시간</strong>
+          <span data-ko="평일 09:00 ~ 18:00 (KST 기준)" data-en="Mon–Fri, 09:00–18:00 (KST)">평일 09:00 ~ 18:00 (KST 기준)</span>
+          <span class="hours-sub" data-ko="주말·공휴일 휴무" data-en="Closed on weekends & holidays">주말·공휴일 휴무</span>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name" data-ko="담당자 성함 *" data-en="Contact Name *">담당자 성함 *</label>
+          <input type="text" id="name"
+            data-ko-ph="홍길동" data-en-ph="John Doe"
+            placeholder="홍길동" required />
+        </div>
+        <div class="form-group">
+          <label for="company" data-ko="회사명 *" data-en="Company *">회사명 *</label>
+          <input type="text" id="company"
+            data-ko-ph="(주)예시회사" data-en-ph="Example Corp."
+            placeholder="(주)예시회사" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email" data-ko="이메일 *" data-en="Email *">이메일 *</label>
+          <input type="email" id="email" placeholder="example@company.com" required />
+        </div>
+        <div class="form-group">
+          <label for="phone" data-ko="연락처" data-en="Phone">연락처</label>
+          <input type="tel" id="phone"
+            data-ko-ph="010-0000-0000" data-en-ph="+82-10-0000-0000"
+            placeholder="010-0000-0000" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service" data-ko="문의 서비스" data-en="Service Inquiry">문의 서비스</label>
+        <select id="service">
+          <option value="" disabled selected data-ko="선택해주세요" data-en="Please select">선택해주세요</option>
+          <option data-ko="▸ 제품 구매 문의" data-en="▸ Product Purchase Inquiry">▸ 제품 구매 문의</option>
+          <option data-ko="▸ 맞춤 소싱 문의" data-en="▸ Custom Sourcing Request">▸ 맞춤 소싱 문의</option>
+          <option data-ko="▸ OEM / ODM / OBM 문의" data-en="▸ OEM / ODM / OBM Inquiry">▸ OEM / ODM / OBM 문의</option>
+          <option data-ko="▸ 기타 문의" data-en="▸ Other">▸ 기타 문의</option>
+        </select>
+        <div class="mobile-service-select" id="mobileServiceSelect" hidden>
+          <button type="button" class="mobile-service-trigger is-placeholder" id="mobileServiceTrigger">Please select</button>
+          <div class="mobile-service-panel" id="mobileServicePanel"></div>
+        </div>
+      </div>
+      <div class="form-group textarea-group">
+        <label for="message" data-ko="문의 내용 *" data-en="Message *">문의 내용 *</label>
+        <textarea id="message"
+          data-ko-ph="문의하실 내용을 자세히 작성해 주세요." data-en-ph="Please describe your inquiry in detail."
+          placeholder="문의하실 내용을 자세히 작성해 주세요." required></textarea>
+      </div>
+      <button type="submit" class="form-submit" data-ko="문의 보내기 →" data-en="Send Message →">문의 보내기 →</button>
+    </form>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="partners-header">
+    <span data-ko="주요 협력 기관 및 파트너" data-en="KEY PARTNERS &amp; AFFILIATES" style="display:block;background:none;border:none;padding:0;box-shadow:none;text-shadow:none;text-decoration:none;font-size:15px;font-weight:700;color:#BBBBBB;letter-spacing:0.08em;text-align:center;margin-bottom:24px;">주요 협력 기관 및 파트너</span>
+  </div>
+
+  <!-- Row 1: left → right (기관·협력사) -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track marquee-left">
+      <!-- set 1 -->
+      <div class="partner-logo-item"><img src="images/partners/1.%20KITA_logo.png" alt="KITA" style="height:68px"></div>
+      <div class="partner-logo-item"><img src="images/partners/2.%20KOTRA_logo_EN.png" alt="KOTRA"></div>
+      <div class="partner-logo-item"><img src="images/partners/3.%20aT_logo.png" alt="aT" style="height:56px"></div>
+      <div class="partner-logo-item"><img src="images/partners/4.%20slunch_logo.png" alt="Slunch" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/5.%20shinsung_logo.png" alt="Shinsung" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/6.%20cheongsachorong_logo.png" alt="Cheongsachorong" style="height:56px"></div>
+      <div class="partner-logo-item"><img src="images/partners/7.%20mom%26young_logo.png" alt="Mom&amp;Young" style="height:80px"></div>
+      <div class="partner-logo-item"><img src="images/partners/8.%20nanumi_logo.png" alt="Nanumi" style="height:68px"></div>
+      <div class="partner-logo-item"><img src="images/partners/9.%20biopolytech_logo.png" alt="Biopolytech" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/10.%20dawonbio_logo.png" alt="Dawonbio"></div>
+      <div class="partner-logo-item"><img src="images/partners/11.%20plarit_logo.png" alt="Plarit" style="height:80px"></div>
+      <div class="partner-logo-item"><img src="images/partners/12.%20Nfood_logo.png" alt="Nfood" style="height:80px"></div>
+      <!-- set 2 (duplicate for seamless loop) -->
+      <div class="partner-logo-item"><img src="images/partners/1.%20KITA_logo.png" alt="KITA" style="height:68px"></div>
+      <div class="partner-logo-item"><img src="images/partners/2.%20KOTRA_logo_EN.png" alt="KOTRA"></div>
+      <div class="partner-logo-item"><img src="images/partners/3.%20aT_logo.png" alt="aT" style="height:56px"></div>
+      <div class="partner-logo-item"><img src="images/partners/4.%20slunch_logo.png" alt="Slunch" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/5.%20shinsung_logo.png" alt="Shinsung" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/6.%20cheongsachorong_logo.png" alt="Cheongsachorong" style="height:56px"></div>
+      <div class="partner-logo-item"><img src="images/partners/7.%20mom%26young_logo.png" alt="Mom&amp;Young" style="height:80px"></div>
+      <div class="partner-logo-item"><img src="images/partners/8.%20nanumi_logo.png" alt="Nanumi" style="height:68px"></div>
+      <div class="partner-logo-item"><img src="images/partners/9.%20biopolytech_logo.png" alt="Biopolytech" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/10.%20dawonbio_logo.png" alt="Dawonbio"></div>
+      <div class="partner-logo-item"><img src="images/partners/11.%20plarit_logo.png" alt="Plarit" style="height:80px"></div>
+      <div class="partner-logo-item"><img src="images/partners/12.%20Nfood_logo.png" alt="Nfood" style="height:80px"></div>
+    </div>
+  </div>
+
+  <!-- Row 2: right → left (브랜드) -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track marquee-right">
+      <!-- set 1 -->
+      <div class="partner-logo-item"><img src="images/partners/a.%20Dr.Ceuracle_logo.png" alt="Dr.Ceuracle"></div>
+      <div class="partner-logo-item"><img src="images/partners/b.%20Dr.tobia_logo.png" alt="Dr.Tobia"></div>
+      <div class="partner-logo-item"><img src="images/partners/c.%20skinua_logo.png" alt="Skinua" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/d.%20careCL_logo.png" alt="CareCL" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/e.%20Dr.Sancle_logo.png" alt="Dr.Sancle"></div>
+      <div class="partner-logo-item"><img src="images/partners/f.%20iwouldyou_logo.png" alt="iWouldYou"></div>
+      <div class="partner-logo-item"><img src="images/partners/g.%20OnCup_logo.png" alt="OnCup" style="height:52px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/h.%20kalphabets_logo.png" alt="Kalphabets"></div>
+      <div class="partner-logo-item"><img src="images/partners/i.%20yummyyomil_logo.png" alt="YummyYomil"></div>
+      <div class="partner-logo-item"><img src="images/partners/j.%20healslab_logo.png" alt="HealsLab"></div>
+      <div class="partner-logo-item"><img src="images/partners/k.%20MUZIK_LOGO.png" alt="MUZIK" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/l.%20STEALER_LOGO_Black.png" alt="STEALER" style="height:32px;width:auto;object-fit:contain;"></div>
+      <!-- set 2 (duplicate for seamless loop) -->
+      <div class="partner-logo-item"><img src="images/partners/a.%20Dr.Ceuracle_logo.png" alt="Dr.Ceuracle"></div>
+      <div class="partner-logo-item"><img src="images/partners/b.%20Dr.tobia_logo.png" alt="Dr.Tobia"></div>
+      <div class="partner-logo-item"><img src="images/partners/c.%20skinua_logo.png" alt="Skinua" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/d.%20careCL_logo.png" alt="CareCL" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/e.%20Dr.Sancle_logo.png" alt="Dr.Sancle"></div>
+      <div class="partner-logo-item"><img src="images/partners/f.%20iwouldyou_logo.png" alt="iWouldYou"></div>
+      <div class="partner-logo-item"><img src="images/partners/g.%20OnCup_logo.png" alt="OnCup" style="height:52px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/h.%20kalphabets_logo.png" alt="Kalphabets"></div>
+      <div class="partner-logo-item"><img src="images/partners/i.%20yummyyomil_logo.png" alt="YummyYomil"></div>
+      <div class="partner-logo-item"><img src="images/partners/j.%20healslab_logo.png" alt="HealsLab"></div>
+      <div class="partner-logo-item"><img src="images/partners/k.%20MUZIK_LOGO.png" alt="MUZIK" style="height:32px;width:auto;object-fit:contain;"></div>
+      <div class="partner-logo-item"><img src="images/partners/l.%20STEALER_LOGO_Black.png" alt="STEALER" style="height:32px;width:auto;object-fit:contain;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#F5F7FA; border-top:0.5px solid #E5E7EB; width:100%; box-sizing:border-box; padding:0;">
+  <div style="max-width:1160px; margin:0 auto; padding:0;">
+  <div style="padding-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:flex-start;">
+
+    <!-- 좌측: 로고 + 구분선 + 소개 문구 -->
+    <div style="display:flex; align-items:flex-start; gap:20px;">
+      <img src="images/(cutout)CI_LOGO_NAVY.png" alt="PATHFINDER Inc."
+           style="height:150px; width:auto; object-fit:contain; flex-shrink:0; display:block;">
+      <div style="width:1px; background:#E5E7EB; align-self:stretch; flex-shrink:0;"></div>
+      <div style="padding-top:2px;">
+        <p style="font-size:13px; font-style:italic; font-weight:500; color:#0F2A5C; letter-spacing:0.02em; margin:0 0 6px 0;">Connecting Values, Inspiring the World</p>
+        <p data-ko="(주)패스파인더아이엔씨는<br>귀사의 해외 비즈니스 성공을 위해<br>최선을 다합니다."
+           data-en="Trusted global trade partner.<br>PATHFINDER Inc. is committed to<br>your global business success."
+           style="font-size:13px; color:#6B7280; line-height:1.7; margin:0;">
+          (주)패스파인더아이엔씨는<br>귀사의 해외 비즈니스 성공을 위해<br>최선을 다합니다.
+        </p>
+        <div style="display:flex; gap:12px; margin-top:16px;">
+          <a href="javascript:void(0)" aria-disabled="true" onclick="return false;"
+             style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:0.5px solid #D1D5DB;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;color:#4B5563;text-decoration:none;"
+             onmouseover="this.style.background='#0078D4';this.style.borderColor='#0078D4';this.querySelector('svg').style.stroke='#ffffff'"
+             onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#D1D5DB';this.querySelector('svg').style.stroke='#4B5563'">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#4B5563" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          </a>
+          <a href="javascript:void(0)" aria-disabled="true" onclick="return false;"
+             style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:0.5px solid #D1D5DB;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;color:#4B5563;text-decoration:none;"
+             onmouseover="this.style.background='#0078D4';this.style.borderColor='#0078D4';this.querySelector('svg').style.stroke='#ffffff'"
+             onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#D1D5DB';this.querySelector('svg').style.stroke='#4B5563'">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#4B5563" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 우측: 회사 정보 -->
+    <div style="display:flex; flex-direction:column; gap:5px; padding-top:4px; margin-left:auto;">
+      <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+        <span data-ko="상호" data-en="Company" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">상호</span>
+        <span data-ko="(주)패스파인더아이엔씨" data-en="PATHFINDER Inc." style="color:#374151;">(주)패스파인더아이엔씨</span>
+      </div>
+      <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+        <span data-ko="대표자" data-en="CEO" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">대표자</span>
+        <span data-ko="황현웅" data-en="Hyunwoong Hwang" style="color:#374151;">황현웅</span>
+      </div>
+      <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+        <span data-ko="사업자등록번호" data-en="Business Reg. No." style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">사업자등록번호</span>
+        <span style="color:#374151;">719-86-03411</span>
+      </div>
+      <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+        <span data-ko="주소" data-en="Address" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">주소</span>
+        <span data-ko="서울특별시 강서구 강서로 385,<br>8층 804-4호 (마곡동, 우성에스비타워)"
+              data-en="804-4, 385, Gangseo-ro, Gangseo-gu,<br>Seoul, 07803, Republic of Korea"
+              style="color:#374151;">서울특별시 강서구 강서로 385,<br>8층 804-4호 (마곡동, 우성에스비타워)</span>
+      </div>
+      <div style="display:flex; gap:12px; font-size:12px; line-height:1.6;">
+        <span data-ko="개인정보보호책임자" data-en="Privacy Officer" style="color:#9CA3AF; font-size:11px; min-width:110px; flex-shrink:0;">개인정보보호책임자</span>
+        <span style="color:#374151; display:flex; gap:8px; align-items:baseline;">
+          <span data-ko="백성욱" data-en="Sungwook Baek">백성욱</span>
+          <span style="color:#374151; font-size:11px;">(<span style="color:#0078D4;">sam.baek@pathfinderinc.co</span>)</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 카피라이트 -->
+  <div style="margin-top:20px; padding:11px 0 52px; border-top:0.5px solid #E5E7EB; display:flex; align-items:center; justify-content:space-between;">
+    <span style="font-size:11px; color:#9CA3AF;">© 2026 PATHFINDER Inc. All rights reserved.</span>
+    <div style="display:flex; gap:16px;">
+      <a href="terms.html" data-ko="이용약관" data-en="Terms of Service"
+         style="font-size:11px; color:#6B7280; text-decoration:underline; text-underline-offset:2px;">이용약관</a>
+      <a href="privacy.html" data-ko="개인정보처리방침" data-en="Privacy Policy"
+         style="font-size:11px; color:#6B7280; text-decoration:underline; text-underline-offset:2px;">개인정보처리방침</a>
+    </div>
+  </div>
+  </div>
+</footer>
+
+<!-- SCROLL BUTTONS -->
+<div class="scroll-btns">
+  <a href="contact.html" class="scroll-btn floating-cta" title="사업 문의 / Contact">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="4" width="20" height="16" rx="2" fill="#0078D4"/>
+      <path d="M2 6.5L12 13L22 6.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </a>
+  <button class="scroll-btn floating-cta" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="맨 위로">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="6 15 12 9 18 15" stroke="#0078D4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button class="scroll-btn floating-cta" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})" title="맨 아래로">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="6 9 12 15 18 9" stroke="#0078D4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" data-ko="✅ 문의가 성공적으로 접수되었습니다!" data-en="✅ Your inquiry has been submitted successfully!">✅ 문의가 성공적으로 접수되었습니다!</div>
+
+<script>
+  // ── LANGUAGE SWITCH ──
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    sessionStorage.setItem('pathfinder_lang', lang);
+    document.documentElement.lang = lang;
+
+    // Toggle desktop button states
+    document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    // Toggle mobile button states
+    const btnKoM = document.getElementById('btn-ko-m');
+    const btnEnM = document.getElementById('btn-en-m');
+    if (btnKoM) btnKoM.classList.toggle('active', lang === 'ko');
+    if (btnEnM) btnEnM.classList.toggle('active', lang === 'en');
+
+    // Update all [data-ko] / [data-en] elements (innerHTML)
+    document.querySelectorAll('[data-ko]').forEach(el => {
+      el.innerHTML = lang === 'ko' ? el.dataset.ko : el.dataset.en;
+    });
+
+    // Update placeholders
+    document.querySelectorAll('[data-ko-ph]').forEach(el => {
+      el.placeholder = lang === 'ko' ? el.dataset.koPh : el.dataset.enPh;
+    });
+
+    // Update page title
+    document.title = lang === 'ko'
+      ? 'PATHFINDER Inc. - 세계를 잇는 무역 파트너'
+      : 'PATHFINDER Inc. - Connecting Values, Inspiring the World';
+    if (window.refreshMobileServiceSelect) window.refreshMobileServiceSelect();
+  }
+
+
+  // ── MOBILE MENU ──
+  let menuLockScrollY = 0;
+  function lockBodyScroll() {
+    menuLockScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${menuLockScrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+  }
+  function unlockBodyScroll(restorePosition = true) {
+    const y = menuLockScrollY;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    if (restorePosition) {
+      const htmlEl = document.documentElement;
+      const prevScrollBehavior = htmlEl.style.scrollBehavior;
+      htmlEl.style.scrollBehavior = 'auto';
+      window.scrollTo(0, y);
+      requestAnimationFrame(() => {
+        htmlEl.style.scrollBehavior = prevScrollBehavior;
+      });
+    }
+  }
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const btn = document.getElementById('hamburger');
+    const isOpen = menu.classList.toggle('open');
+    if (backdrop) backdrop.classList.toggle('open', isOpen);
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+    if (isOpen) {
+      lockBodyScroll();
+    } else {
+      unlockBodyScroll();
+    }
+  }
+
+  function closeMenu(restorePosition = true) {
+    const menu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const btn = document.getElementById('hamburger');
+    menu.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    unlockBodyScroll(restorePosition);
+  }
+
+  function goHomeFromMenu(e) {
+    if (e) e.preventDefault();
+    closeMenu(false);
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Close menu on outside click
+  document.addEventListener('click', e => {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ── FORM SUBMIT ──
+  function handleSubmit(e) {
+    e.preventDefault();
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3500);
+    e.target.reset();
+  }
+
+  // ── SCROLL ANIMATION ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .product-card, .why-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+
+  // ── MOBILE SERVICE SELECT (CUSTOM DROPDOWN) ──
+  (function initMobileServiceSelect() {
+    const select = document.getElementById('service');
+    const wrap = document.getElementById('mobileServiceSelect');
+    const trigger = document.getElementById('mobileServiceTrigger');
+    const panel = document.getElementById('mobileServicePanel');
+    if (!select || !wrap || !trigger || !panel) return;
+    const mq = window.matchMedia('(max-width: 768px)');
+    let enabled = false;
+
+    function closePanel() {
+      panel.classList.remove('open');
+    }
+    function syncTrigger() {
+      const lang = document.documentElement.lang === 'ko' ? 'ko' : 'en';
+      const selected = select.options[select.selectedIndex];
+      const placeholder = lang === 'ko' ? '선택해주세요' : 'Please select';
+      const text = selected ? selected.textContent.trim() : placeholder;
+      trigger.textContent = text || placeholder;
+      trigger.classList.toggle('is-placeholder', !select.value);
+    }
+    function buildOptions() {
+      panel.innerHTML = '';
+      Array.from(select.options).forEach((opt, idx) => {
+        if (idx === 0) return;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'mobile-service-option';
+        btn.textContent = opt.textContent.trim();
+        btn.addEventListener('click', () => {
+          select.selectedIndex = idx;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+          syncTrigger();
+          closePanel();
+        });
+        panel.appendChild(btn);
+      });
+    }
+    function applyMode() {
+      enabled = mq.matches;
+      wrap.hidden = !enabled;
+      if (!enabled) {
+        closePanel();
+        return;
+      }
+      buildOptions();
+      syncTrigger();
+    }
+
+    trigger.addEventListener('click', (e) => {
+      if (!enabled) return;
+      e.preventDefault();
+      panel.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!enabled) return;
+      if (!wrap.contains(e.target)) closePanel();
+    });
+
+    applyMode();
+    if (typeof mq.addEventListener === 'function') {
+      mq.addEventListener('change', applyMode);
+    } else if (typeof mq.addListener === 'function') {
+      mq.addListener(applyMode);
+    }
+
+    window.refreshMobileServiceSelect = function refreshMobileServiceSelect() {
+      if (!enabled) return;
+      buildOptions();
+      syncTrigger();
+    };
+  })();
+
+  // ── ABOUT VIDEO SOURCE (DESKTOP / MOBILE) ──
+  (function initResponsiveAboutVideoSource() {
+    const video = document.getElementById('aboutIntroVideo');
+    if (!video) return;
+    const mq = window.matchMedia('(max-width: 768px)');
+    const desktopSrc = video.dataset.desktopSrc;
+    const mobileSrc = video.dataset.mobileSrc;
+    const applyVideoSource = () => {
+      const nextSrc = mq.matches ? mobileSrc : desktopSrc;
+      if (!nextSrc || video.getAttribute('src') === nextSrc) return;
+      video.setAttribute('src', nextSrc);
+      video.load();
+      video.play().catch(() => {});
+    };
+    applyVideoSource();
+    if (typeof mq.addEventListener === 'function') {
+      mq.addEventListener('change', applyVideoSource);
+    } else if (typeof mq.addListener === 'function') {
+      mq.addListener(applyVideoSource);
+    }
+  })();
+
+  /* 세션당 첫 로드는 영문; 같은 탭에서 언어 변경 후에는 sessionStorage 값 유지 */
+  setLang(sessionStorage.getItem('pathfinder_lang') || 'en');
+</script>
+</body>
+</html>
