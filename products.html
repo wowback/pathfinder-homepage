@@ -830,6 +830,7 @@
     .detail-spec-table td { padding:8px 10px; text-align:left; border:1px solid #111; vertical-align:middle; line-height:1.45; }
     .detail-spec-table th { width:34%; max-width:160px; font-weight:600; color:#111; background:#FAFAFA; }
     .detail-spec-table td { color:#374151; min-height:2.5em; }
+    .detail-spec-table td .detail-spec-value { white-space: pre-line; word-break: break-word; }
     .detail-spec-table td .detail-spec-empty { color:#9CA3AF; font-weight:400; }
     .detail-btns { display:flex; gap:10px; margin-top:24px; flex-wrap:wrap; justify-content:flex-start; width:100%; flex-shrink:0; }
     .detail-btn-primary { display:inline-block; flex:0 0 auto; width:140px; text-align:center; background:transparent; color:#0078D4; border:1px solid #0078D4; font-size:12px; font-weight:500; padding:8px 0; border-radius:6px; text-decoration:none; white-space:nowrap; box-sizing:border-box; transition:background 0.2s ease; }
@@ -1198,14 +1199,14 @@
         <div class="prod-card" onclick="showDetail('food','tteokbokki')">
           <div class="prod-card-img">
             <img src="images/products/food/CSCR/CSCR_tteokbokki_main.jpg"
-                 alt="Tteoboki Meal Kit"
+                 alt="Tteobokki Meal Kit"
                  />
           </div>
           <div class="prod-card-info">
             <div class="prod-card-name"
                  data-ko="떡볶이 밀키트(3종)"
-                 data-en="Tteoboki Meal Kit">
-              Tteoboki Meal Kit
+                 data-en="Tteobokki Meal Kit">
+              Tteobokki Meal Kit
             </div>
             <div class="prod-card-desc"
                  data-ko="청사초롱"
@@ -1366,6 +1367,44 @@
             </div>
           </div>
         </div>
+        <div class="prod-card" onclick="showDetail('food','kal-choco')">
+          <div class="prod-card-img">
+            <img src="images/products/food/KPB/KPB_choco_main.jpg"
+                 alt="Kaphabets(Choco Flavor)"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="한글과자 초코맛"
+                 data-en="Kaphabets(Choco Flavor)">
+              Kaphabets(Choco Flavor)
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="한글과자"
+                 data-en="KALPHABETS">
+              KALPHABETS
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('food','kal-garlic')">
+          <div class="prod-card-img">
+            <img src="images/products/food/KPB/KPB_garlic_main.jpg"
+                 alt="Kaphabets(Garlic Flavor)"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="한글과자 마늘맛"
+                 data-en="Kaphabets(Garlic Flavor)">
+              Kaphabets(Garlic Flavor)
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="한글과자"
+                 data-en="KALPHABETS">
+              KALPHABETS
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1407,6 +1446,132 @@
                  data-ko="몸엔용"
                  data-en="MOM&amp;YOUNG">
               MOM&amp;YOUNG
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('health','hong')">
+          <div class="prod-card-img">
+            <img src="images/products/health/NNM/NNM_hong_main.jpg"
+                 alt="Jelly Hong (Kid's Red Ginseng Jelly)" />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="젤리홍(어린이 홍삼 젤리)"
+                 data-en="Jelly Hong (Kid's Red Ginseng Jelly)">
+              Jelly Hong (Kid's Red Ginseng Jelly)
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="나누미"
+                 data-en="NANUMI">
+              NANUMI
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('health','my')">
+          <div class="prod-card-img">
+            <img src="images/products/health/NNM/NNM_my_main.jpg"
+                 alt="My Beauty Time" />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="마이뷰티타임"
+                 data-en="My Beauty Time">
+              My Beauty Time
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="나누미"
+                 data-en="NANUMI">
+              NANUMI
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('health','reason')">
+          <div class="prod-card-img">
+            <img src="images/products/health/NNM/NNM_reason_main.jpg"
+                 alt="Red Ginseng Collagen Jelly" />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="2유있는홍삼콜라겐"
+                 data-en="Red Ginseng Collagen Jelly">
+              Red Ginseng Collagen Jelly
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="나누미"
+                 data-en="NANUMI">
+              NANUMI
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('health','meal')">
+          <div class="prod-card-img">
+            <img src="images/products/health/DAW/DAW_meal_main.jpg"
+                 alt="Nutritional Meal Line-up" />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="힐스랩 영양식 모음(분말)"
+                 data-en="Nutritional Meal Line-up">
+              Nutritional Meal Line-up
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="힐스랩"
+                 data-en="Heals Lab">
+              Heals Lab
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('health','tab')">
+          <div class="prod-card-img">
+            <img src="images/products/health/DAW/DAW_tab_main.jpg"
+                 alt="Dietary Supplements Line-up" />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="힐스랩 영양제 모음(알약)"
+                 data-en="Dietary Supplements Line-up">
+              Dietary Supplements Line-up
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="힐스랩"
+                 data-en="Heals Lab">
+              Heals Lab
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('health','pow')">
+          <div class="prod-card-img">
+            <img src="images/products/health/DAW/DAW_pow_main.jpg"
+                 alt="Daily Nutrition Powder Line-up" />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="힐스랩 영양제 모음(분말)"
+                 data-en="Daily Nutrition Powder Line-up">
+              Daily Nutrition Powder Line-up
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="힐스랩"
+                 data-en="Heals Lab">
+              Heals Lab
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('health','kom')">
+          <div class="prod-card-img">
+            <img src="images/products/health/DAW/DAW_kom_main.jpg"
+                 alt="Kombucha Line-up" />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="힐스랩 콤부차 모음"
+                 data-en="Kombucha Line-up">
+              Kombucha Line-up
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="힐스랩"
+                 data-en="Heals Lab">
+              Heals Lab
             </div>
           </div>
         </div>
@@ -1825,8 +1990,8 @@
 
   /** 카테고리별 제품 정렬. 각 배열은 sample-products-import.csv에서 해당 category의 행 순서(위→아래)와 동일한 productId 나열. */
   const PRODUCT_ORDER = {
-    food: ['mochi', 'tteokbokki', 'can', 'rice', 'pancake', 'tart', 'choco', 'drink', 'cookie', 'cracker'],
-    health: ['deerA', 'deerK'],
+    food: ['mochi', 'tteokbokki', 'can', 'rice', 'pancake', 'tart', 'choco', 'drink', 'cookie', 'cracker', 'kal-choco', 'kal-garlic'],
+    health: ['deerA', 'deerK', 'hong', 'my', 'reason', 'meal', 'tab', 'pow', 'kom'],
     beauty: ['toner', 'serum', 'gel'],
     fashion: ['eyeglass', 'socks', 'sunglasses']
   };
@@ -2082,10 +2247,10 @@
   const productData = {
     food: {
       mochi: {
-        nameEn: 'Korean Sticky Rice Cake(Mochi)',
         nameKo: '찹쌀떡(14종)',
-        descEn: 'We use only healthy, high-quality Korean ingredients, including domestic rice grown on our own farms. Our products contain no artificial food colorings or synthetic flavorings.Choose from over 10 different flavors to suit your personal taste. No cooking or heating is required. Simply keep it frozen and thaw at room temperature before eating to enjoy its chewy texture. Now you can conveniently enjoy Korea’s healthy and delicious traditional snacks.',
+        nameEn: 'Korean Sticky Rice Cake(Mochi)',
         descKo: '당사는 직접 운영하는 자사 농지에서 재배한 국산 쌀을 비롯하여, 엄선된 고품질의 한국산 원재료만을 사용하고 있습니다. 본 제품에는 인공 색소나 합성 향료가 일절 첨가되지 않아 안심하고 드실 수 있습니다. 고객님의 취향을 충족시키기 위해 10여 가지 이상의 다채로운 풍미를 제공합니다. 별도의 가열이나 조리 과정 없이, 냉동 상태에서 상온 자연 해동만으로도 고유의 쫄깃한 식감을 완벽하게 복원하여 즐기실 수 있습니다. 이제 한국의 건강하고 맛있는 전통 간식을 가장 편리한 방식으로 경험해 보시기 바랍니다.',
+        descEn: 'We use only healthy, high-quality Korean ingredients, including domestic rice grown on our own farms. Our products contain no artificial food colorings or synthetic flavorings.Choose from over 10 different flavors to suit your personal taste. No cooking or heating is required. Simply keep it frozen and thaw at room temperature before eating to enjoy its chewy texture. Now you can conveniently enjoy Korea’s healthy and delicious traditional snacks.',
         catalogUrl: 'files/CSCR_catalog_en.pdf',
         mainImg: 'images/products/food/CSCR/CSCR_mochi_main.jpg',
         thumbs: [
@@ -2093,7 +2258,7 @@
           'images/products/food/CSCR/CSCR_mochi_thumb1.jpg',
           'images/products/food/CSCR/CSCR_mochi_thumb2.jpg',
           'images/products/food/CSCR/CSCR_mochi_thumb3.jpg',
-          'images/products/food/CSCR/CSCR_mochi_thumb4.jpg'
+          'images/products/food/CSCR/CSCR_mochi_thumb4.jpg',
         ],
         details: [
           'images/products/food/CSCR/CSCR_mochi_detail1.jpg',
@@ -2112,7 +2277,7 @@
           'images/products/food/CSCR/CSCR_mochi_detail14.jpg',
           'images/products/food/CSCR/CSCR_mochi_detail15.jpg',
           'images/products/food/CSCR/CSCR_mochi_detail16.jpg',
-          'images/products/food/CSCR/CSCR_mochi_detail17.jpg'
+          'images/products/food/CSCR/CSCR_mochi_detail17.jpg',
         ],
         specRows: [
           { valueKo: '청사초롱', valueEn: 'Cheong Sa Cho Rong' },
@@ -2121,21 +2286,21 @@
           { valueKo: 'FDA, HACCP, HALAL, FSSC22000', valueEn: 'FDA, HACCP, HALAL, FSSC22000' },
           { valueKo: '90 * 30 * 210(mm) / 300g', valueEn: '90 * 30 * 210(mm) / 300g' },
           { valueKo: '냉동 보관', valueEn: 'Frozen' },
-          { valueKo: '12개월', valueEn: '12 months' }
+          { valueKo: '12개월', valueEn: '12 months' },
         ]
       },
       tteokbokki: {
-        nameEn: 'Tteoboki Meal Kit',
         nameKo: '떡볶이 밀키트(3종)',
+        nameEn: 'Tteobokki Meal Kit',
+        descKo: '당사는 직접 운영하는 자사 농지에서 재배한 국산 쌀을 비롯하여, 엄격하게 선별된 건강하고 우수한 품질의 한국산 원재료만을 사용하고 있습니다. 본 제품에는 인공 색소나 합성 향료가 일절 첨가되지 않아 원재료 본연의 안전성과 맛을 보장합니다. 고객의 기호에 맞추어 순한맛, 오리지널, 매운맛의 세 가지 단계별 맵기를 선택하여 즐기실 수 있습니다. 간편한 조리법을 통해 누구나 단 5분 만에 훌륭한 요리를 완성할 수 있도록 설계되었습니다. 한국의 건강하고 깊은 매운맛을 가장 편리한 방식으로 경험해 보시기 바랍니다.',
         descEn: 'We use only healthy, high-quality Korean ingredients, including domestic rice grown on our own farms. Our products contain no artificial food colorings or synthetic flavorings. You can choose from three spice levels―mild, original, and spicy―to suit your preference. With our simple recipe, anyone can prepare a delicious meal in just 5 minutes. Experience the healthy and delicious spicy flavors of Korea with ease!',
-        descKo: '당사는 직접 운영하는 자사 농지에서 재배한 국산 쌀을 비롯하여, 엄격하게 선별된 건강하고 우수한 품질의 한국산 원재료만을 사용하고 있습니다. 본 제품에는 인공 색소나 합성 향료가 일절 첨가되지 않아 원재료 본연의 안전성과 맛을 보장합니다. 고객의 기호에 맞추어 순한맛, 오리지널, 매운맛의 세 가지 단계별 맵기를 선택하여 즐기실 수 있습니다. 간편한 조리법을 통해 누구나 단 5분 만에 훌륭한 요리를 완성할 수 있도록 설계되었습니다. 한국의 건강하고 깊은 매운맛을 가장 편리한 방식으로 경험해 보시기 바랍니다',
         catalogUrl: 'files/CSCR_catalog_en.pdf',
         mainImg: 'images/products/food/CSCR/CSCR_tteokbokki_main.jpg',
         thumbs: [
           'images/products/food/CSCR/CSCR_tteokbokki_main.jpg',
           'images/products/food/CSCR/CSCR_tteokbokki_thumb1.jpg',
           'images/products/food/CSCR/CSCR_tteokbokki_thumb2.jpg',
-          'images/products/food/CSCR/CSCR_tteokbokki_thumb3.jpg'
+          'images/products/food/CSCR/CSCR_tteokbokki_thumb3.jpg',
         ],
         details: [
           'images/products/food/CSCR/CSCR_tteokbokki_detail1.jpg',
@@ -2145,7 +2310,7 @@
           'images/products/food/CSCR/CSCR_tteokbokki_detail5.jpg',
           'images/products/food/CSCR/CSCR_tteokbokki_detail6.jpg',
           'images/products/food/CSCR/CSCR_tteokbokki_detail7.jpg',
-          'images/products/food/CSCR/CSCR_tteokbokki_detail8.jpg'
+          'images/products/food/CSCR/CSCR_tteokbokki_detail8.jpg',
         ],
         specRows: [
           { valueKo: '청사초롱', valueEn: 'Cheong Sa Cho Rong' },
@@ -2154,14 +2319,14 @@
           { valueKo: 'FDA, HACCP, FSSC22000', valueEn: 'FDA, HACCP, FSSC22000' },
           { valueKo: '180 * 20 * 210(mm) / 470g', valueEn: '180 * 20 * 210(mm) / 470g' },
           { valueKo: '냉동 보관', valueEn: 'Frozen' },
-          { valueKo: '12개월', valueEn: '12 months' }
+          { valueKo: '12개월', valueEn: '12 months' },
         ]
       },
       can: {
-        nameEn: 'Vegan Canned Stir-fried Kimchi',
         nameKo: '비건 볶음김치캔',
-        descEn: 'This 100% plant-based vegan canned stir-fried kimchi is designed for an international audience. It faithfully recreates Korea’s signature savory flavor and crispiness while remaining entirely free of animal-based ingredients. With its superior shelf-stability and \'ready-to-eat\' convenience, it serves as a premium gateway for global consumers to experience the wellness of authentic K-food.',
+        nameEn: 'Vegan Canned Stir-fried Kimchi',
         descKo: '전 세계인을 위한 100% 식물성 비건 볶음김치 캔입니다. 젓갈 없이도 한국 고유의 감칠맛과 아삭함을 완벽히 구현했으며, 상온 보관이 가능해 휴대성과 편의성이 뛰어납니다. 조리 없이 바로 즐길 수 있는 이 제품은 K-푸드의 건강함을 세계 각국의 식탁으로 이어주는 최고의 선택이 될 것입니다.',
+        descEn: 'This 100% plant-based vegan canned stir-fried kimchi is designed for an international audience. It faithfully recreates Korea’s signature savory flavor and crispiness while remaining entirely free of animal-based ingredients. With its superior shelf-stability and \'ready-to-eat\' convenience, it serves as a premium gateway for global consumers to experience the wellness of authentic K-food.',
         catalogUrl: 'files/SLC_catalog_en.pdf',
         mainImg: 'images/products/food/SLC/SLC_can_main.jpg',
         thumbs: [
@@ -2169,27 +2334,27 @@
           'images/products/food/SLC/SLC_can_thumb1.jpg',
           'images/products/food/SLC/SLC_can_thumb2.jpg',
           'images/products/food/SLC/SLC_can_thumb3.jpg',
-          'images/products/food/SLC/SLC_can_thumb4.jpg'
+          'images/products/food/SLC/SLC_can_thumb4.jpg',
         ],
         details: [
           'images/products/food/SLC/SLC_can_detail1.jpg',
-          'images/products/food/SLC/SLC_can_detail2.jpg'
+          'images/products/food/SLC/SLC_can_detail2.jpg',
         ],
         specRows: [
           { valueKo: '슬런치팩토리', valueEn: 'Slunch Factory' },
-          { valueKo: '볶음김치, 김치캔, 100% 식물성, 비건인증', valueEn: 'Kimchi, Stir-FriedKimchi, CannedKimchi, 100%Vegan' },
+          { valueKo: '볶음김치, 김치캔, 100% 식물성, 비건인증', valueEn: 'Kimchi, Stir-Fried Kimchi, Canned Kimchi, 100% Vegan' },
           { valueKo: '배추, 고춧가루, 무, 파기름 등', valueEn: 'Napa cabbage, Red Pepper Powder, Radish, Green Onion Oil, etc.' },
           { valueKo: 'VEGAN, HACCP, ISO22000, FSSC22000', valueEn: 'VEGAN, HACCP, ISO22000, FSSC22000' },
           { valueKo: '75 * 75 * 50(mm) / 160g', valueEn: '75 * 75 * 50(mm) / 160g' },
           { valueKo: '실온 보관', valueEn: 'Room temp.' },
-          { valueKo: '36개월', valueEn: '36 months' }
+          { valueKo: '36개월', valueEn: '36 months' },
         ]
       },
       rice: {
-        nameEn: 'Vegan Kimchi Fried Rice Meal Kit',
         nameKo: '비건 김치볶음밥 밀키트',
-        descEn: 'This premium kimchi fried rice meal kit is made with carefully selected vegan kimchi. It delivers a healthy, deep flavor without any animal-derived ingredients and offers the convenience of being ready in just 5 minutes, featuring a combination of canned stir-fried kimchi and instant rice. Experience the spicy and savory essence of traditional Korea easily and healthily, anywhere in the world.',
+        nameEn: 'Vegan Kimchi Fried Rice Meal Kit',
         descKo: '엄선된 비건 김치로 만든 프리미엄 김치볶음밥 밀키트입니다. 동물성 성분 없이 건강한 깊은 맛을 담았으며, 볶음김치 캔과 즉석밥 구성으로 5분 만에 완성되는 간편함을 제공합니다. 한국 전통의 매콤 고소한 풍미를 전 세계 어디서든 쉽고 건강하게 경험해 보세요.',
+        descEn: 'This premium kimchi fried rice meal kit is made with carefully selected vegan kimchi. It delivers a healthy, deep flavor without any animal-derived ingredients and offers the convenience of being ready in just 5 minutes, featuring a combination of canned stir-fried kimchi and instant rice. Experience the spicy and savory essence of traditional Korea easily and healthily, anywhere in the world.',
         catalogUrl: 'files/SLC_catalog_en.pdf',
         mainImg: 'images/products/food/SLC/SLC_rice_main.jpg',
         thumbs: [
@@ -2197,53 +2362,53 @@
           'images/products/food/SLC/SLC_rice_thumb1.jpg',
           'images/products/food/SLC/SLC_rice_thumb2.jpg',
           'images/products/food/SLC/SLC_rice_thumb3.jpg',
-          'images/products/food/SLC/SLC_rice_thumb4.jpg'
+          'images/products/food/SLC/SLC_rice_thumb4.jpg',
         ],
         details: [
           'images/products/food/SLC/SLC_rice_detail1.jpg',
-          'images/products/food/SLC/SLC_rice_detail2.jpg'
+          'images/products/food/SLC/SLC_rice_detail2.jpg',
         ],
         specRows: [
           { valueKo: '슬런치팩토리', valueEn: 'Slunch Factory' },
-          { valueKo: '김치볶음밥, 밀키트, 100% 식물성, 비건인증', valueEn: 'Kimchi, Fried-Rice, MealKit, 100%Vegan' },
+          { valueKo: '김치볶음밥, 밀키트, 100% 식물성, 비건인증', valueEn: 'Kimchi, Fried-Rice, Meal Kit, 100% Vegan' },
           { valueKo: '배추, 고춧가루, 무, 멥쌀, 올리브오일 등', valueEn: 'Napa Cabbage, Red Pepper Powder, Radish, Non-glutinous rice, Olive Oil, etc.' },
           { valueKo: 'VEGAN, HACCP, ISO22000, FSSC22000', valueEn: 'VEGAN, HACCP, ISO22000, FSSC22000' },
           { valueKo: '210 * 150 * 78(mm) / 760g', valueEn: '210 * 150 * 78(mm) / 760g' },
           { valueKo: '실온 보관', valueEn: 'Room temp.' },
-          { valueKo: '9개월', valueEn: '9 months' }
+          { valueKo: '9개월', valueEn: '9 months' },
         ]
       },
       pancake: {
-        nameEn: 'Vegan Kimchi pancake Meal Kit',
         nameKo: '비건 김치전 밀키트',
-        descEn: 'This is an all-in-one vegan Kimchi pancake meal kit made with 100% plant-based ingredients. Its cup-style packaging maximizes portability, offering global vegan consumers a healthy and delicious K-food experience that is ready in just 3 minutes by simply adding water.',
+        nameEn: 'Vegan Kimchi pancake Meal Kit',
         descKo: '100% 식물성 원료로 만든 올인원 비건 김치전 밀키트입니다. 컵 타입으로 휴대성을 극대화했으며, 물만 넣어 3분이면 완성되는 간편함으로 글로벌 비건 소비자들에게 건강하고 맛있는 K-푸드 경험을 선사합니다.',
+        descEn: 'This is an all-in-one vegan Kimchi pancake meal kit made with 100% plant-based ingredients. Its cup-style packaging maximizes portability, offering global vegan consumers a healthy and delicious K-food experience that is ready in just 3 minutes by simply adding water.',
         catalogUrl: 'files/SLC_catalog_en.pdf',
         mainImg: 'images/products/food/SLC/SLC_pancake_main.jpg',
         thumbs: [
           'images/products/food/SLC/SLC_pancake_main.jpg',
           'images/products/food/SLC/SLC_pancake_thumb1.jpg',
-          'images/products/food/SLC/SLC_pancake_thumb2.jpg'
+          'images/products/food/SLC/SLC_pancake_thumb2.jpg',
         ],
         details: [
           'images/products/food/SLC/SLC_pancake_detail1.jpg',
-          'images/products/food/SLC/SLC_pancake_detail2.jpg'
+          'images/products/food/SLC/SLC_pancake_detail2.jpg',
         ],
         specRows: [
           { valueKo: '슬런치팩토리', valueEn: 'Slunch Factory' },
-          { valueKo: '김치전, 밀키트, 100% 식물성, 비건인증', valueEn: 'Kimchi, KimchiPancake, MealKit, 100%Vegan' },
+          { valueKo: '김치전, 밀키트, 100% 식물성, 비건인증', valueEn: 'Kimchi, Kimchi Pancake, Meal Kit, 100% Vegan' },
           { valueKo: '밀가루, 통옥수수분말, 쌀가루, 배추, 고춧가루, 무 등', valueEn: 'Wheat flour, Corn whole kernel powder, Rice flour, Napa cabbage, Red Pepper Powder, Radish, etc.' },
           { valueKo: 'VEGAN, HACCP, ISO22000, FSSC22000', valueEn: 'VEGAN, HACCP, ISO22000, FSSC22000' },
           { valueKo: '100 * 100 * 95(mm) / 240g', valueEn: '100 * 100 * 95(mm) / 240g' },
           { valueKo: '실온 보관', valueEn: 'Room temp.' },
-          { valueKo: '12개월', valueEn: '12 months' }
+          { valueKo: '12개월', valueEn: '12 months' },
         ]
       },
       tart: {
-        nameEn: 'Vegan Fruit Tart(peach, blueberry)',
         nameKo: '비건 과일 타르트(2종)',
-        descEn: 'Crafted without eggs, milk, or butter, we use 100% plant-based ingredients to achieve a moist and smooth texture even without dairy. By using almond flour as a base, we have lowered the carbohydrate and gluten content while further enhancing the nutty and savory flavors. Enjoy the sweet, rich taste of real fruit in a healthy and convenient way.',
+        nameEn: 'Vegan Fruit Tart(peach, blueberry)',
         descKo: '계란, 우유, 버터를 사용하지 않고 100% 식물성 재료를 사용하여 유제품 없이도 촉촉함과 부드러움을 구현했습니다. 아몬드 가루를 베이스로 하여 탄수화물과 글루텐 함량은 낮추고 고소함과 감칠맛은 한층 더 살렸습니다. 풍성한 원물 과일의 달콤함을 건강하고 간편하게 즐겨 보세요.',
+        descEn: 'Crafted without eggs, milk, or butter, we use 100% plant-based ingredients to achieve a moist and smooth texture even without dairy. By using almond flour as a base, we have lowered the carbohydrate and gluten content while further enhancing the nutty and savory flavors. Enjoy the sweet, rich taste of real fruit in a healthy and convenient way.',
         catalogUrl: 'files/SLC_catalog_en.pdf',
         mainImg: 'images/products/food/SLC/SLC_tart_main.jpg',
         thumbs: [
@@ -2251,27 +2416,27 @@
           'images/products/food/SLC/SLC_tart_thumb1.jpg',
           'images/products/food/SLC/SLC_tart_thumb2.jpg',
           'images/products/food/SLC/SLC_tart_thumb3.jpg',
-          'images/products/food/SLC/SLC_tart_thumb4.jpg'
+          'images/products/food/SLC/SLC_tart_thumb4.jpg',
         ],
         details: [
           'images/products/food/SLC/SLC_tart_detail1.jpg',
-          'images/products/food/SLC/SLC_tart_detail2.jpg'
+          'images/products/food/SLC/SLC_tart_detail2.jpg',
         ],
         specRows: [
           { valueKo: '슬런치팩토리', valueEn: 'Slunch Factory' },
-          { valueKo: '타르트, NO버터, NO우유, NO계란, 100% 식물성, 비건인증', valueEn: 'Tart, Peach, Blueberry, No-Milk/Butter/Egg, 100%Vegan' },
+          { valueKo: '타르트, NO버터, NO우유, NO계란, 100% 식물성, 비건인증', valueEn: 'Tart, Peach, Blueberry, No-Milk/Butter/Egg, 100% Vegan' },
           { valueKo: '복숭아, 블루베리, 블랙베리, 라즈베리, 유기농시어버터유, 식물성휘핑크림, 두유 등', valueEn: 'Peach, Frozen Blueberrie, Frozen Blackberries, Frozen Raspberries, Organic Shea Butter Oil, Almond Powder, Vegetable Whipping Cream, Soy Milk, etc.' },
           { valueKo: 'VEGAN, HACCP, ISO22000, FSSC22000', valueEn: 'VEGAN, HACCP, ISO22000, FSSC22000' },
           { valueKo: '120 * 110 * 30(mm) / 115g', valueEn: '120 * 110 * 30(mm) / 115g' },
           { valueKo: '냉동 보관', valueEn: 'Frozen' },
-          { valueKo: '12개월', valueEn: '12 months' }
+          { valueKo: '12개월', valueEn: '12 months' },
         ]
       },
       choco: {
-        nameEn: 'Vegan Peanut Butter Choco Bar',
         nameKo: '비건 피넛 버터 초코바',
-        descEn: 'Crafted with savory peanut butter dough and strictly selected nuts, this bar delivers a deep and rich flavor. By using unrefined ingredients, we have reduced the sugar content, ensuring a natural and gentle sweetness that lasts. It is 100% plant-based, containing absolutely no eggs, milk, or butter. Rich in plant-based protein and unsaturated fatty acids, it perfectly balances both taste and health.',
+        nameEn: 'Vegan Peanut Butter Choco Bar',
         descKo: '고소한 피넛 버터 반죽과 엄선된 견과류를 사용하여 깊고 진한 풍미를 완성했습니다. 비정제 원료를 사용하여 당 함량을 낮추고 자연스럽고 은은한 단맛이 오래 유지됩니다. 계란, 우유, 버터를 전혀 사용하지 않은 100% 식물성입니다. 식물성 단백질과 불포화 지방산이 풍부하게 함유되어 맛과 건강을 모두 챙겼습니다.',
+        descEn: 'Crafted with savory peanut butter dough and strictly selected nuts, this bar delivers a deep and rich flavor. By using unrefined ingredients, we have reduced the sugar content, ensuring a natural and gentle sweetness that lasts. It is 100% plant-based, containing absolutely no eggs, milk, or butter. Rich in plant-based protein and unsaturated fatty acids, it perfectly balances both taste and health.',
         catalogUrl: 'files/SLC_catalog_en.pdf',
         mainImg: 'images/products/food/SLC/SLC_choco_main.jpg',
         thumbs: [
@@ -2279,27 +2444,27 @@
           'images/products/food/SLC/SLC_choco_thumb1.jpg',
           'images/products/food/SLC/SLC_choco_thumb2.jpg',
           'images/products/food/SLC/SLC_choco_thumb3.jpg',
-          'images/products/food/SLC/SLC_choco_thumb4.jpg'
+          'images/products/food/SLC/SLC_choco_thumb4.jpg',
         ],
         details: [
           'images/products/food/SLC/SLC_choco_detail1.jpg',
-          'images/products/food/SLC/SLC_choco_detail2.jpg'
+          'images/products/food/SLC/SLC_choco_detail2.jpg',
         ],
         specRows: [
           { valueKo: '슬런치팩토리', valueEn: 'Slunch Factory' },
-          { valueKo: '초코바, 피넛버터, NO버터, NO우유, NO계란, 100% 식물성, 비건인증', valueEn: 'ChocoBar, PeanutButter, No-Milk/Butter/Egg, 100%Vegan' },
+          { valueKo: '초코바, 피넛버터, NO버터, NO우유, NO계란, 100% 식물성, 비건인증', valueEn: 'ChocoBar, Peanut Butter, No-Milk/Butter/Egg, 100% Vegan' },
           { valueKo: '다크초콜릿, 땅콩버터, 아몬드, 호두, 밀가루, 아몬드분말 등', valueEn: 'Dark Chocolate, Skippy Peanut Butter, Almond Powder, Wheat Flour, Walnuts, Almonds, etc.' },
           { valueKo: 'VEGAN, HACCP, ISO22000, FSSC22000', valueEn: 'VEGAN, HACCP, ISO22000, FSSC22000' },
           { valueKo: '120 * 110 * 30(mm) / 140g', valueEn: '120 * 110 * 30(mm) / 140g' },
           { valueKo: '냉동 보관', valueEn: 'Frozen' },
-          { valueKo: '12개월', valueEn: '12 months' }
+          { valueKo: '12개월', valueEn: '12 months' },
         ]
       },
       drink: {
-        nameEn: 'Pouch-type RTD Beverage (COFFEE, ICED TEA, ADE)',
         nameKo: 'RTD 파우치 음료',
-        descEn: 'This is a pouch-type RTD beverage designed to be poured into an ice cup, optimized for convenience store consumption. It offers a wide range of flavors, including coffee, iced tea, and fruit-based ade, to meet diverse consumer preferences. Made with low-calorie sweeteners, it delivers a light, refreshing taste while preserving fresh flavor quality.',
+        nameEn: 'Pouch-type RTD Beverage (COFFEE, ICED TEA, ADE)',
         descKo: '편의점 판매에 최적화된 제품으로, 얼음컵에 바로 부어 마실 수 있도록 설계된 파우치형 RTD 음료입니다. 다양한 소비자의 취향을 만족시키기 위해 커피, 아이스티, 과일 에이드 등 폭넓은 맛의 선택지를 제공합니다. 저칼로리 감미료를 사용하여 신선한 풍미는 그대로 유지하면서도 가볍고 청량한 맛을 선사합니다.',
+        descEn: 'This is a pouch-type RTD beverage designed to be poured into an ice cup, optimized for convenience store consumption. It offers a wide range of flavors, including coffee, iced tea, and fruit-based ade, to meet diverse consumer preferences. Made with low-calorie sweeteners, it delivers a light, refreshing taste while preserving fresh flavor quality.',
         catalogUrl: 'files/ONCUP_catalog_en.pdf',
         mainImg: 'images/products/food/ONCUP/ONCUP_drink_main.jpg',
         thumbs: [
@@ -2307,7 +2472,7 @@
           'images/products/food/ONCUP/ONCUP_drink_thumb1.jpg',
           'images/products/food/ONCUP/ONCUP_drink_thumb2.jpg',
           'images/products/food/ONCUP/ONCUP_drink_thumb3.jpg',
-          'images/products/food/ONCUP/ONCUP_drink_thumb4.jpg'
+          'images/products/food/ONCUP/ONCUP_drink_thumb4.jpg',
         ],
         details: [
           'images/products/food/ONCUP/ONCUP_drink_detail1.jpg',
@@ -2319,23 +2484,23 @@
           'images/products/food/ONCUP/ONCUP_drink_detail7.jpg',
           'images/products/food/ONCUP/ONCUP_drink_detail8.jpg',
           'images/products/food/ONCUP/ONCUP_drink_detail9.jpg',
-          'images/products/food/ONCUP/ONCUP_drink_detail10.jpg'
+          'images/products/food/ONCUP/ONCUP_drink_detail10.jpg',
         ],
         specRows: [
           { valueKo: '온컵', valueEn: 'OnCup' },
-          { valueKo: '파우치음료, 아이스커피, 아이스티, 에이드, 8종', valueEn: 'RTD-Drink, PouchType, Iced-Americano, Iced-Tea, Ade' },
+          { valueKo: '파우치음료, 아이스커피, 아이스티, 에이드, 8종', valueEn: 'RTD-Drink, Pouch Type, Iced-Americano, Iced-Tea, Ade' },
           { valueKo: '정제수, 에스프레소커피추출물, 과일농축액, 과일퓨레, 홍차추춘분말 등', valueEn: 'Purified Water, Espresso Coffee Extract, Fruit Concentrate, Fruit Puree, Black Tea Extract Powder, etc.' },
           { valueKo: 'HACCP, ISO9001:2015', valueEn: 'HACCP, ISO9001:2015' },
           { valueKo: '200 * 110 * 35(mm) / 240g', valueEn: '200 * 110 * 35(mm) / 240g' },
           { valueKo: '실온 보관', valueEn: 'Room temp.' },
-          { valueKo: '18개월', valueEn: '18 months' }
+          { valueKo: '18개월', valueEn: '18 months' },
         ]
       },
       cookie: {
-        nameEn: 'Protein Cookie',
         nameKo: '프로틴 쿠키',
-        descEn: 'This high-protein vegan snack contains 9g of plant-based protein per bag. Made with 100% plant-based ingredients—free from milk, butter, and eggs—it is oven-baked to reduce fat and maximize crunchiness. The lineup includes a mild rice base and a fiber-rich whole wheat base, available in four flavors: Almond, Chocolate, Orange Peel, and Cranberry. All products are safely manufactured in HACCP-certified facilities, ensuring reliable quality.',
+        nameEn: 'Protein Cookie',
         descKo: '본 제품은 한 봉지당 9g의 식물성 단백질을 함유한 고단백 비건 스낵입니다. 우유, 버터, 달걀을 배제한 100% 식물성 원료를 사용했으며, 오븐 베이킹 공법으로 지방은 낮추고 바삭함은 살렸습니다. 라인업은 담백한 쌀 베이스와 식이섬유가 풍부한 통밀 베이스로 구분되며, 아몬드, 초코, 오렌지 필, 크랜베리 4종의 맛을 제공합니다. 모든 제품은 HACCP 인증 시설에서 안전하게 제조되어 신뢰할 수 있는 품질을 보장합니다.',
+        descEn: 'This high-protein vegan snack contains 9g of plant-based protein per bag. Made with 100% plant-based ingredients—free from milk, butter, and eggs—it is oven-baked to reduce fat and maximize crunchiness. The lineup includes a mild rice base and a fiber-rich whole wheat base, available in four flavors: Almond, Chocolate, Orange Peel, and Cranberry. All products are safely manufactured in HACCP-certified facilities, ensuring reliable quality.',
         catalogUrl: 'files/YMYM_catalog_cookie_en.pdf',
         mainImg: 'images/products/food/YMYM/YMYM_cookie_main.jpg',
         thumbs: [
@@ -2343,7 +2508,7 @@
           'images/products/food/YMYM/YMYM_cookie_thumb1.jpg',
           'images/products/food/YMYM/YMYM_cookie_thumb2.jpg',
           'images/products/food/YMYM/YMYM_cookie_thumb3.jpg',
-          'images/products/food/YMYM/YMYM_cookie_thumb4.jpg'
+          'images/products/food/YMYM/YMYM_cookie_thumb4.jpg',
         ],
         details: [
           'images/products/food/YMYM/YMYM_cookie_detail1.jpg',
@@ -2353,23 +2518,23 @@
           'images/products/food/YMYM/YMYM_cookie_detail5.jpg',
           'images/products/food/YMYM/YMYM_cookie_detail6.jpg',
           'images/products/food/YMYM/YMYM_cookie_detail7.jpg',
-          'images/products/food/YMYM/YMYM_cookie_detail8.jpg'
+          'images/products/food/YMYM/YMYM_cookie_detail8.jpg',
         ],
         specRows: [
           { valueKo: '야미요밀', valueEn: 'YUMMY YOMIL' },
-          { valueKo: '단백질쿠키, 식물성단백질9g, NO버터, NO우유, NO계란, 100%식물성', valueEn: 'ProteinCookie, Plant-Base-Protein(9g), No-Butter, No-Milk, No-Eggs, 100%Plant-based' },
-          { valueKo: '분리대두단백, 대두레시틴, 아몬드분말, 쌀가루, 통밀가루 등', valueEn: 'Isolated soy protein, Soy lecithin,Almond powder, Rice flour, Whole wheat flour, etc.' },
+          { valueKo: '단백질쿠키, 식물성단백질9g, NO버터, NO우유, NO계란, 100%식물성', valueEn: 'Protein Cookie, Plant-Base-Protein(9g), No-Butter, No-Milk, No-Eggs, 100% Plant-based' },
+          { valueKo: '분리대두단백, 대두레시틴, 아몬드분말, 쌀가루, 통밀가루 등', valueEn: 'Isolated soy protein, Soy lecithin, Almond powder, Rice flour, Whole wheat flour, etc.' },
           { valueKo: 'HACCP, ISO22000:2018, FSSC22000', valueEn: 'HACCP, ISO22000:2018, FSSC22000' },
           { valueKo: '150 * 10 * 220(mm) / 245g', valueEn: '150 * 10 * 220(mm) / 245g' },
           { valueKo: '실온 보관', valueEn: 'Room temp.' },
-          { valueKo: '12개월', valueEn: '12 months' }
+          { valueKo: '12개월', valueEn: '12 months' },
         ]
       },
       cracker: {
-        nameEn: 'Protein Cracker',
         nameKo: '프로틴 크래커',
-        descEn: 'This high-protein vegan snack contains 10g of plant-based protein per bag. Made with 100% plant-based ingredients—free from milk, butter, and eggs—it is oven-baked to reduce fat and maximize crunchiness. The lineup includes a mild rice base and a fiber-rich whole wheat base, available in four flavors: Original, Onion, Vegetable, and Black Olive. All products are safely manufactured in HACCP-certified facilities, ensuring reliable quality.',
+        nameEn: 'Protein Cracker',
         descKo: '본 제품은 한 봉지당 10g의 식물성 단백질을 함유한 고단백 비건 스낵입니다. 우유, 버터, 달걀을 배제한 100% 식물성 원료를 사용했으며, 오븐 베이킹 공법으로 지방은 낮추고 바삭함은 살렸습니다. 라인업은 담백한 쌀 베이스와 식이섬유가 풍부한 통밀 베이스로 구분되며, 오리지널, 어니언, 채소, 블랙 올리브 4종의 맛을 제공합니다. 모든 제품은 HACCP 인증 시설에서 안전하게 제조되어 신뢰할 수 있는 품질을 보장합니다.',
+        descEn: 'This high-protein vegan snack contains 10g of plant-based protein per bag. Made with 100% plant-based ingredients—free from milk, butter, and eggs—it is oven-baked to reduce fat and maximize crunchiness. The lineup includes a mild rice base and a fiber-rich whole wheat base, available in four flavors: Original, Onion, Vegetable, and Black Olive. All products are safely manufactured in HACCP-certified facilities, ensuring reliable quality.',
         catalogUrl: 'files/YMYM_catalog_cracker_en.pdf',
         mainImg: 'images/products/food/YMYM/YMYM_cracker_main.jpg',
         thumbs: [
@@ -2377,7 +2542,7 @@
           'images/products/food/YMYM/YMYM_cracker_thumb1.jpg',
           'images/products/food/YMYM/YMYM_cracker_thumb2.jpg',
           'images/products/food/YMYM/YMYM_cracker_thumb3.jpg',
-          'images/products/food/YMYM/YMYM_cracker_thumb4.jpg'
+          'images/products/food/YMYM/YMYM_cracker_thumb4.jpg',
         ],
         details: [
           'images/products/food/YMYM/YMYM_cracker_detail1.jpg',
@@ -2387,20 +2552,75 @@
           'images/products/food/YMYM/YMYM_cracker_detail5.jpg',
           'images/products/food/YMYM/YMYM_cracker_detail6.jpg',
           'images/products/food/YMYM/YMYM_cracker_detail7.jpg',
-          'images/products/food/YMYM/YMYM_cracker_detail8.jpg'
+          'images/products/food/YMYM/YMYM_cracker_detail8.jpg',
         ],
         specRows: [
           { valueKo: '야미요밀', valueEn: 'YUMMY YOMIL' },
-          { valueKo: '단백질크래커, 식물성단백질10g, NO버터, NO우유, NO계란, 100%식물성', valueEn: 'ProteinCracker, Plant-Base-Protein(10g), No-Butter, No-Milk, No-Eggs, 100%Plant-based' },
-          { valueKo: '분리대두단백, 대두레시틴, 아몬드분말, 쌀가루, 통밀가루 등', valueEn: 'Isolated soy protein, Soy lecithin,Almond powder, Rice flour, Whole wheat flour, etc.' },
+          { valueKo: '단백질크래커, 식물성단백질10g, NO버터, NO우유, NO계란, 100%식물성', valueEn: 'Protein Cracker, Plant-Base-Protein(10g), No-Butter, No-Milk, No-Eggs, 100% Plant-based' },
+          { valueKo: '분리대두단백, 대두레시틴, 아몬드분말, 쌀가루, 통밀가루 등', valueEn: 'Isolated soy protein, Soy lecithin, Almond powder, Rice flour, Whole wheat flour, etc.' },
           { valueKo: 'HACCP, ISO22000:2018, FSSC22000', valueEn: 'HACCP, ISO22000:2018, FSSC22000' },
           { valueKo: '150 * 10 * 220(mm) / 245g', valueEn: '150 * 10 * 220(mm) / 245g' },
           { valueKo: '실온 보관', valueEn: 'Room temp.' },
-          { valueKo: '12개월', valueEn: '12 months' }
+          { valueKo: '12개월', valueEn: '12 months' },
         ]
-      }
+      },
+      'kal-choco': {
+        nameKo: '한글과자 초코맛',
+        nameEn: 'Kaphabets(Choco Flavor)',
+        descKo: '한글과자는 한글 자음과 모음 모양을 그대로 담아낸 세계 최초의 K-푸드 스낵으로, 그 자체로 독보적인 제품입니다. 계란·버터·우유를 포함한 모든 동물성 원료를 사용하지 않아 비건은 물론 다양한 식이 제한을 가진 전 세계 소비자가 즐길 수 있습니다. 한글 기반의 게임을 통해 단순한 스낵 그 이상의 경험을 제공하며, 글자를 조합해 직접 메시지를 전달할 수 있어 어떤 자리에서도 기억에 남는 선물이 됩니다.',
+        descEn: 'Kalphabets is the world\'s first K-food snack shaped after the consonants and vowels of the Korean alphabet — a truly one-of-a-kind product. Made entirely with plant-based ingredients, it\'s free from eggs, butter, and milk, making it enjoyable for vegans and consumers with diverse dietary restrictions worldwide. It goes beyond snacking by offering Korean alphabet-based games, and the letter shapes can be arranged to spell personal messages, making it a memorable gift for any occasion.',
+        catalogUrl: 'files/KPB_catalog_en.pdf',
+        mainImg: 'images/products/food/KPB/KPB_choco_main.jpg',
+        thumbs: [
+          'images/products/food/KPB/KPB_choco_main.jpg',
+          'images/products/food/KPB/KPB_choco_thumb1.jpg',
+          'images/products/food/KPB/KPB_choco_thumb2.jpg',
+          'images/products/food/KPB/KPB_choco_thumb3.jpg',
+          'images/products/food/KPB/KPB_choco_thumb4.jpg',
+        ],
+        details: [
+          'images/products/food/KPB/KPB_choco_detail1.jpg',
+          'images/products/food/KPB/KPB_choco_detail2.jpg',
+          'images/products/food/KPB/KPB_choco_detail3.jpg',
+        ],
+        specRows: [
+          { valueKo: '한글과자', valueEn: 'KALPHABETS' },
+          { valueKo: '한글, 쿠키, NO버터, NO우유, NO계란, 100%식물성', valueEn: 'Hangeul, the Korean alphabet, No-Butter, No-Milk, No-Eggs, 100% Plant-based' },
+          { valueKo: '밀가루, 옥수수전분, 코코아분말, 식물성유지, 백설탕 등', valueEn: 'Wheat flour, corn starch, cocoa powder, vegetable oil, white sugar, etc.' },
+          { valueKo: 'HACCP, FSC', valueEn: 'HACCP, FSC' },
+          { valueKo: '[2packs]110 * 62 * 141(mm) / 120g\n[6packs]110 * 200 * 133(mm) / 330g', valueEn: '[2packs]110 * 62 * 141(mm) / 120g\n[6packs]110 * 200 * 133(mm) / 330g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '12개월', valueEn: '12 months' },
+        ]
+      },
+      'kal-garlic': {
+        nameKo: '한글과자 마늘맛',
+        nameEn: 'Kaphabets(Garlic Flavor)',
+        descKo: '한글과자는 한글 자음과 모음 모양을 그대로 담아낸 세계 최초의 K-푸드 스낵으로, 그 자체로 독보적인 제품입니다. 계란·버터·우유를 포함한 모든 동물성 원료를 사용하지 않아 비건은 물론 다양한 식이 제한을 가진 전 세계 소비자가 즐길 수 있습니다. 한글 기반의 게임을 통해 단순한 스낵 그 이상의 경험을 제공하며, 글자를 조합해 직접 메시지를 전달할 수 있어 어떤 자리에서도 기억에 남는 선물이 됩니다.',
+        descEn: 'Kalphabets is the world\'s first K-food snack shaped after the consonants and vowels of the Korean alphabet — a truly one-of-a-kind product. Made entirely with plant-based ingredients, it\'s free from eggs, butter, and milk, making it enjoyable for vegans and consumers with diverse dietary restrictions worldwide. It goes beyond snacking by offering Korean alphabet-based games, and the letter shapes can be arranged to spell personal messages, making it a memorable gift for any occasion.',
+        catalogUrl: 'files/KPB_catalog_en.pdf',
+        mainImg: 'images/products/food/KPB/KPB_garlic_main.jpg',
+        thumbs: [
+          'images/products/food/KPB/KPB_garlic_main.jpg',
+          'images/products/food/KPB/KPB_garlic_thumb1.jpg',
+          'images/products/food/KPB/KPB_garlic_thumb2.jpg',
+          'images/products/food/KPB/KPB_garlic_thumb3.jpg',
+          'images/products/food/KPB/KPB_garlic_thumb4.jpg',
+        ],
+        details: [
+          'images/products/food/KPB/KPB_garlic_detail1.jpg?v=2',
+        ],
+        specRows: [
+          { valueKo: '한글과자', valueEn: 'KALPHABETS' },
+          { valueKo: '한글, 쿠키, NO버터, NO우유, NO계란, 100%식물성', valueEn: 'Hangeul, the Korean alphabet, No-Butter, No-Milk, No-Eggs, 100% Plant-based' },
+          { valueKo: '밀가루, 옥수수전분, 마늘분말, 식물성유지, 백설탕 등', valueEn: 'Wheat flour, corn starch, garlic powder, vegetable oil, white sugar, etc.' },
+          { valueKo: 'HACCP, FSC', valueEn: 'HACCP, FSC' },
+          { valueKo: '[2packs]110 * 62 * 141(mm) / 120g\n[6packs]110 * 200 * 133(mm) / 330g', valueEn: '[2packs]110 * 62 * 141(mm) / 120g\n[6packs]110 * 200 * 133(mm) / 330g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '12개월', valueEn: '12 months' },
+        ]
+      },
     },
-
     health: {
       deerA: {
         nameKo: '[성인]녹용 건강기능식품',
@@ -2414,7 +2634,7 @@
           'images/products/health/MNY/MNY_adult_thumb1.jpg',
           'images/products/health/MNY/MNY_adult_thumb2.jpg',
           'images/products/health/MNY/MNY_adult_thumb3.jpg',
-          'images/products/health/MNY/MNY_adult_thumb4.jpg'
+          'images/products/health/MNY/MNY_adult_thumb4.jpg',
         ],
         details: [
           'images/products/health/MNY/MNY_adult_detail1.jpg',
@@ -2426,23 +2646,23 @@
           'images/products/health/MNY/MNY_adult_detail7.jpg',
           'images/products/health/MNY/MNY_adult_detail8.jpg',
           'images/products/health/MNY/MNY_adult_detail9.jpg',
-          'images/products/health/MNY/MNY_adult_detail10.jpg'
+          'images/products/health/MNY/MNY_adult_detail10.jpg',
         ],
         specRows: [
           { valueKo: '몸엔용', valueEn: 'MOM&YOUNG' },
-          { valueKo: '건강기능식품, 홍삼, 녹용, 마카, 콜라겐, 성인제품', valueEn: 'HealthFunctionalFood, RedGinseng, DeerAntler, Maca, Collagen, AdultProducts' },
+          { valueKo: '건강기능식품, 홍삼, 녹용, 마카, 콜라겐, 성인제품', valueEn: 'Health Functional Food, Red Ginseng, Deer Antler, Maca, Collagen, For Adult' },
           { valueKo: '녹용 농축액, 홍삼 농축액, 블랙마카 추출물, 저분자 콜라겐, 비타민 등', valueEn: 'Deer Antler Extract, Black Maca Concentrate, Red Ginseng Extract, Low-molecular Collagen, Vitamin, etc.' },
-          { valueKo: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000', valueEn: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000' },
+          { valueKo: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000 ', valueEn: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000 ' },
           { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
           { valueKo: '실온 보관', valueEn: 'Room temp.' },
-          { valueKo: '24개월', valueEn: '24 months' }
+          { valueKo: '24개월', valueEn: '24 months' },
         ]
       },
       deerK: {
         nameKo: '[어린이]녹용 건강기능식품',
         nameEn: '[MOM&YOUNG] Health Food - Kids Line',
         descKo: '아이들의 섬세한 입맛을 고려하여 음료, 농축액, 젤리 등 맛있고 섭취하기 편한 다양한 형태와 최적의 배합을 개발했습니다. 녹용과 홍삼, 그리고 필수 영양소의 완벽한 조화를 담은 몸앤용으로 아이의 성장과 면역력, 두뇌 발달에 최고의 기반을 선물하세요.',
-        descEn: 'Understanding children\'s delicate palates, we have developed a diverse range of delicious, easy-to-take formats—including drinks, concentrates, and jellies—with an optimal blend of ingredients. Give your child the ultimate foundation for growth, immunity, and cognitive development with MOM&YOUNG—the perfect synergy of velvet antler, red ginseng, and essential nutrients.',
+        descEn: 'Understanding children’s delicate palates, we have developed a diverse range of delicious, easy-to-take formats—including drinks, concentrates, and jellies—with an optimal blend of ingredients. Give your child the ultimate foundation for growth, immunity, and cognitive development with MOM&YOUNG—the perfect synergy of velvet antler, red ginseng, and essential nutrients.',
         catalogUrl: 'files/MNY_catalog_en.pdf',
         mainImg: 'images/products/health/MNY/MNY_kids_main.jpg',
         thumbs: [
@@ -2450,7 +2670,7 @@
           'images/products/health/MNY/MNY_kids_thumb1.jpg',
           'images/products/health/MNY/MNY_kids_thumb2.jpg',
           'images/products/health/MNY/MNY_kids_thumb3.jpg',
-          'images/products/health/MNY/MNY_kids_thumb4.jpg'
+          'images/products/health/MNY/MNY_kids_thumb4.jpg',
         ],
         details: [
           'images/products/health/MNY/MNY_kids_detail1.jpg',
@@ -2458,18 +2678,231 @@
           'images/products/health/MNY/MNY_kids_detail3.jpg',
           'images/products/health/MNY/MNY_kids_detail4.jpg',
           'images/products/health/MNY/MNY_kids_detail5.jpg',
-          'images/products/health/MNY/MNY_kids_detail6.jpg'
+          'images/products/health/MNY/MNY_kids_detail6.jpg',
         ],
         specRows: [
           { valueKo: '몸엔용', valueEn: 'MOM&YOUNG' },
-          { valueKo: '건강기능식품, 홍삼, 녹용, 비타민, 아연, 어린이제품', valueEn: 'HealthFunctionalFood, RedGinseng, DeerAntler, Vitamin, Zinc, KidsProducts' },
+          { valueKo: '건강기능식품, 홍삼, 녹용, 비타민, 아연, 어린이제품', valueEn: 'Health Functional Food, Red Ginseng, Deer Antler, Vitamin, Zinc, For Kids' },
           { valueKo: '녹용 농충액, 홍삼 농축액, 비타민 B/C/D/E, 아연 등', valueEn: 'Deer Antler Extract, Red Ginseng Extract, Vitamin B/C/D/E, Taurine, Zinc, etc.' },
-          { valueKo: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000', valueEn: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000' },
+          { valueKo: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000 ', valueEn: 'HACCP, GMP, FSSC22000, ISO9001/14001/22000 ' },
           { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
           { valueKo: '실온 보관', valueEn: 'Room temp.' },
-          { valueKo: '24개월', valueEn: '24 months' }
+          { valueKo: '24개월', valueEn: '24 months' },
         ]
-      }
+      },
+      hong: {
+        nameKo: '젤리홍(어린이 홍삼 젤리)',
+        nameEn: 'Jelly Hong(Kid\'s Red Ginseng Jelly)',
+        descKo: '젤리홍은 사과와 배의 천연 성분을 가득 담아 아이들을 위해 특별히 개발된 한국 홍삼 젤리입니다. 1회 섭취 시 진세노사이드 7mg을 함유해 성장기 아이들에게 효과적이고 꼭 필요한 홍삼 섭취를 가능하게 합니다. 100% 6년근 진안 홍삼을 사용했으며, 사과와 배 농축액으로 쓴맛을 자연스럽게 잡아 아이들이 좋아하는 맛을 완성했습니다. 인공 첨가물을 일절 사용하지 않고 HACCP·ISO22000·LOHAS 인증 시설에서 생산되어 아이와 부모 모두가 믿고 선택할 수 있는 제품입니다.',
+        descEn: 'Jelly Hong is a Korean red ginseng jelly specially developed for children, packed with the natural goodness of apples and pears. Each serving delivers a powerful 7mg of ginsenosides, making red ginseng intake both effective and essential for growing kids. Made with 100% 6-year-grown Jinan red ginseng, the bitterness is naturally offset by apple and pear concentrates for a flavor children love. Free from all artificial additives and produced in HACCP, ISO22000, and LOHAS certified facilities, it\'s a product both kids and parents can trust.',
+        catalogUrl: 'files/NNM_catalog_hong_en.pdf',
+        mainImg: 'images/products/health/NNM/NNM_hong_main.jpg',
+        thumbs: [
+          'images/products/health/NNM/NNM_hong_main.jpg',
+          'images/products/health/NNM/NNM_hong_thumb1.jpg',
+          'images/products/health/NNM/NNM_hong_thumb2.jpg',
+          'images/products/health/NNM/NNM_hong_thumb3.jpg',
+          'images/products/health/NNM/NNM_hong_thumb4.jpg',
+        ],
+        details: [
+          'images/products/health/NNM/NNM_hong_detail1.jpg',
+          'images/products/health/NNM/NNM_hong_detail2.jpg',
+          'images/products/health/NNM/NNM_hong_detail3.jpg',
+          'images/products/health/NNM/NNM_hong_detail4.jpg',
+        ],
+        specRows: [
+          { valueKo: '나누미', valueEn: 'NANUMI' },
+          { valueKo: '건강기능식품, 어린이제품, 홍삼, 비타민, 젤리타입', valueEn: 'Health Functional Food, For Kids, Red Ginseng, Vitamin, Jelly Stick ' },
+          { valueKo: '홍삼추출물, 배농축액, 천연사과향, 혼합채소농축액 등', valueEn: 'Red ginseng extract, Pear concentrate, Natural apple flavor, Mixed vegetable concentrate, etc.' },
+          { valueKo: 'FDA, HACCP, FSSC22000, LOHAS', valueEn: 'FDA, HACCP, FSSC22000, LOHAS' },
+          { valueKo: '103 * 103 * 160(mm) / 580g', valueEn: '103 * 103 * 160(mm) / 580g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '24개월', valueEn: '24 months' },
+        ]
+      },
+      my: {
+        nameKo: '마이뷰티타임',
+        nameEn: 'My Beauty Time',
+        descKo: '마이 뷰티 타임은 콜라겐과 홍삼을 스틱 하나에 담아 아름다움과 면역력을 동시에 챙길 수 있는 여성 전용 건강기능식품입니다. 스틱 하나에 저분자 피쉬 콜라겐이 가득 함유되어 있으며, 석류·배·구기자가 콜라겐과 비타민C의 흡수를 극대화하는 데 도움을 줍니다. 100% 6년근 진안 홍삼에서 추출한 사포닌 12mg을 함유하고 인공 첨가물을 일절 사용하지 않아 깨끗하고 믿을 수 있는 선택이며, HACCP·ISO22000·LOHAS 인증이 이를 뒷받침합니다.',
+        descEn: 'My Beauty Time is a women\'s health supplement combining collagen and red ginseng in a single stick, supporting both beauty and immunity at once. Each stick is loaded with low molecular weight fish collagen, while pomegranate, pear, and goji berry help maximize collagen and vitamin C absorption. With 12mg of saponins from 100% 6-year-grown Jinan red ginseng and zero artificial additives, it\'s a clean and trustworthy choice — backed by HACCP, ISO22000, and LOHAS certifications.',
+        catalogUrl: 'files/NNM_catalog_my_en.pdf',
+        mainImg: 'images/products/health/NNM/NNM_my_main.jpg',
+        thumbs: [
+          'images/products/health/NNM/NNM_my_main.jpg',
+          'images/products/health/NNM/NNM_my_thumb1.jpg',
+          'images/products/health/NNM/NNM_my_thumb2.jpg',
+          'images/products/health/NNM/NNM_my_thumb3.jpg',
+          'images/products/health/NNM/NNM_my_thumb4.jpg',
+        ],
+        details: [
+          'images/products/health/NNM/NNM_my_detail1.jpg',
+          'images/products/health/NNM/NNM_my_detail2.jpg',
+          'images/products/health/NNM/NNM_my_detail3.jpg',
+        ],
+        specRows: [
+          { valueKo: '나누미', valueEn: 'NANUMI' },
+          { valueKo: '건강기능식품, 여성제품, 홍삼, 콜라겐, 젤리타입', valueEn: 'Health Functional Food, For Women, Red Ginseng, Collagen, Jelly Stick ' },
+          { valueKo: '홍삼농축액, 피쉬콜라겐펩타이드, 배농축액, 석류농축액, 구기자추출물 등', valueEn: 'Red ginseng extract concentrate, Fish collagen peptide, Pear concentrate, Pomegranate concentrate, Goji berry extract, etc.' },
+          { valueKo: 'FDA, HACCP, FSSC22000, LOHAS', valueEn: 'FDA, HACCP, FSSC22000, LOHAS' },
+          { valueKo: '70 * 30 * 130(mm) / 320g', valueEn: '70 * 30 * 130(mm) / 320g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '24개월', valueEn: '24 months' },
+        ]
+      },
+      reason: {
+        nameKo: '2유있는홍삼콜라겐',
+        nameEn: 'Red Ginseng Collagen Jelly',
+        descKo: '이 제품은 콜라겐과 홍삼을 한 번에 담아 아름다움과 면역력을 동시에 챙길 수 있습니다. 스틱 하나에 저분자 피쉬 콜라겐이 가득 함유되어 있으며, 석류와 오미자가 콜라겐과 비타민C 흡수를 효과적으로 도와줍니다. 100% 6년근 진안 홍삼에서 추출한 사포닌 12mg 함유, 인공 첨가물 무첨가, HACCP·ISO22000·LOHAS 인증까지 갖춰 건강과 아름다움을 위한 깨끗하고 믿을 수 있는 선택입니다.',
+        descEn: 'This product combines collagen and red ginseng in one, supporting both beauty and immunity at once. Each stick is loaded with low molecular weight fish collagen, with pomegranate and Schisandra berry to boost collagen and vitamin C absorption. With 12mg of saponins from 100% 6-year-grown Jinan red ginseng, zero artificial additives, and HACCP, ISO22000, and LOHAS certifications, it\'s a clean and trustworthy choice for your health and beauty.',
+        catalogUrl: 'files/NNM_catalog_reason_en.pdf',
+        mainImg: 'images/products/health/NNM/NNM_reason_main.jpg',
+        thumbs: [
+          'images/products/health/NNM/NNM_reason_main.jpg',
+          'images/products/health/NNM/NNM_reason_thumb1.jpg',
+          'images/products/health/NNM/NNM_reason_thumb2.jpg',
+          'images/products/health/NNM/NNM_reason_thumb3.jpg',
+          'images/products/health/NNM/NNM_reason_thumb4.jpg',
+        ],
+        details: [
+          'images/products/health/NNM/NNM_reason_detail1.jpg',
+          'images/products/health/NNM/NNM_reason_detail2.jpg',
+        ],
+        specRows: [
+          { valueKo: '나누미', valueEn: 'NANUMI' },
+          { valueKo: '건강기능식품, 여성제품, 홍삼, 콜라겐, 젤리타입', valueEn: 'Health Functional Food, For Women, Red Ginseng, Collagen, Jelly Stick ' },
+          { valueKo: '홍삼농축액, 피쉬콜라겐펩타이드, 배농축액, 석류농축액, 오미자추출물 등', valueEn: 'Red ginseng extract concentrate, Fish collagen peptide, Pear concentrate, Pomegranate concentrate, Schisandra berry extract, etc.' },
+          { valueKo: 'FDA, HACCP, FSSC22000, LOHAS', valueEn: 'FDA, HACCP, FSSC22000, LOHAS' },
+          { valueKo: '260 * 175 * 40(mm) / 600g', valueEn: '260 * 175 * 40(mm) / 600g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '24개월', valueEn: '24 months' },
+        ]
+      },
+      meal: {
+        nameKo: '힐스랩 영양식 모음(분말)',
+        nameEn: 'Nutritional Meal Line-up',
+        descKo: '힐스랩의 영양식 라인업은 고품질 단백질과 필수 영양소를 균형 있게 배합한 제품으로, 피트니스 애호가, 다이어터, 일반식 섭취가 어려운 고령자와 환자 모두에게 최적의 솔루션을 제공합니다. 초콜릿, 딸기, 바나나, 고구마, 곡물 등 다양한 맛으로 물·우유·두유에 간편하게 타서 빠르게 한 끼를 해결할 수 있습니다. 자체 생산 시설 다원바이오에서 HACCP·GMP 인증 기준에 따라 엄격하게 제조되어 글로벌 시장에 걸맞는 일관된 품질과 안전성을 보장합니다.',
+        descEn: 'HealsLab\'s nutritional meal lineup delivers a balanced blend of high-quality protein and essential nutrients, ideal for fitness enthusiasts, dieters, and seniors or patients with difficulty eating regular meals. Available in flavors including chocolate, strawberry, banana, sweet potato, and grain, it mixes easily with water, milk, or soy milk for a quick meal replacement. Manufactured at HealsLab\'s dedicated facility, Dawon Bio, under strict HACCP and GMP certified standards, every product guarantees consistent quality and safety for the global market.',
+        catalogUrl: 'files/DAW_catalog_en.pdf',
+        mainImg: 'images/products/health/DAW/DAW_meal_main.jpg',
+        thumbs: [
+          'images/products/health/DAW/DAW_meal_main.jpg',
+          'images/products/health/DAW/DAW_meal_thumb1.jpg',
+          'images/products/health/DAW/DAW_meal_thumb2.jpg',
+          'images/products/health/DAW/DAW_meal_thumb3.jpg',
+          'images/products/health/DAW/DAW_meal_thumb4.jpg',
+        ],
+        details: [
+          'images/products/health/DAW/DAW_meal_detail1.jpg',
+          'images/products/health/DAW/DAW_meal_detail2.jpg',
+          'images/products/health/DAW/DAW_meal_detail3.jpg',
+          'images/products/health/DAW/DAW_meal_detail4.jpg',
+          'images/products/health/DAW/DAW_meal_detail5.jpg',
+        ],
+        specRows: [
+          { valueKo: '힐스랩', valueEn: 'Heals Lab' },
+          { valueKo: '건강기능식품, 게이너, 건강식, 영양식, 프로틴, 파우더타입', valueEn: 'Health Supplements, Gainer, Health Food, Nutritional Meal, Protein, Powder-Type' },
+          { valueKo: '분리대두단백, 비타민C, 비타민A, 비타민B, 칼슘, 아연 등', valueEn: 'Isolated soy protein, Vitamin C, Vitamin A, Vitamin B, Calcium, Zinc, etc.' },
+          { valueKo: 'HACCP, GMP, ISO22000', valueEn: 'HACCP, GMP, ISO22000' },
+          { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '24개월', valueEn: '24 months' },
+        ]
+      },
+      tab: {
+        nameKo: '힐스랩 영양제 모음(알약)',
+        nameEn: 'Dietary Supplements Line-up',
+        descKo: '힐스랩은 현대인의 라이프스타일에 맞춰 고품질 천연 원료를 간편한 타블릿 형태로 구현한 프리미엄 건강기능식품 라인업을 제공합니다. 에너지 증진부터 뼈 건강, 관절 케어까지 개인의 건강 목표에 정확하게 맞출 수 있는 다양한 포트폴리오를 보유하고 있습니다. 모든 제품은 자체 생산 시설 다원바이오에서 HACCP·GMP 인증 기준에 따라 엄격하게 제조되어 글로벌 시장에 걸맞는 일관된 효능과 안전성을 보장합니다.',
+        descEn: 'HealsLab offers a premium dietary supplement lineup formulated with high-quality natural ingredients in convenient tablet form, designed for the modern lifestyle. From energy boosting to bone and joint health, our diverse portfolio allows users to precisely target their individual health goals. All products are manufactured at our dedicated in-house facility, Dawon Bio, under strict HACCP and GMP certified standards, ensuring consistent efficacy and safety for the global market.',
+        catalogUrl: 'files/DAW_catalog_en.pdf',
+        mainImg: 'images/products/health/DAW/DAW_tab_main.jpg',
+        thumbs: [
+          'images/products/health/DAW/DAW_tab_main.jpg',
+          'images/products/health/DAW/DAW_tab_thumb1.jpg',
+          'images/products/health/DAW/DAW_tab_thumb2.jpg',
+          'images/products/health/DAW/DAW_tab_thumb3.jpg',
+          'images/products/health/DAW/DAW_tab_thumb4.jpg',
+        ],
+        details: [
+          'images/products/health/DAW/DAW_tab_detail1.jpg',
+          'images/products/health/DAW/DAW_tab_detail2.jpg',
+          'images/products/health/DAW/DAW_tab_detail3.jpg',
+          'images/products/health/DAW/DAW_tab_detail4.jpg',
+          'images/products/health/DAW/DAW_tab_detail5.jpg',
+          'images/products/health/DAW/DAW_tab_detail6.jpg',
+        ],
+        specRows: [
+          { valueKo: '힐스랩', valueEn: 'Heals Lab' },
+          { valueKo: '건강기능식품, 아르기닌, 콘드로이친, 멜라토닌, 칼슘, 알약타입', valueEn: 'Dietary Supplements, Arginine, Chondroitin, Melatonin, Calcium, Tablet-Type' },
+          { valueKo: 'L-아르기닌, 상어연골추출분말, 토마토추출분말, 녹차추출물, 밀크칼슘 등', valueEn: 'L-Arginine, Shark Cartilage Extract Powder, Tomato Extract Powder, Green Tea Extract, Milk Calcium SP, etc.' },
+          { valueKo: 'HACCP, GMP, ISO22000', valueEn: 'HACCP, GMP, ISO22000' },
+          { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '24개월', valueEn: '24 months' },
+        ]
+      },
+      pow: {
+        nameKo: '힐스랩 영양제 모음(분말)',
+        nameEn: 'Daily Nutrition Powder Line-up',
+        descKo: '힐스랩은 현대인의 라이프스타일에 맞춰 고품질 천연 원료를 간편한 파우더 스틱 형태로 구현한 프리미엄 건강기능식품 라인업을 제공합니다. 장 건강, 피부 케어, 에너지 증진, 소화 지원 등 개인의 건강 목표에 정확하게 맞출 수 있는 다양한 포트폴리오를 보유하고 있습니다. 모든 제품은 자체 생산 시설 다원바이오에서 HACCP·GMP 인증 기준에 따라 엄격하게 제조되어 글로벌 시장에 걸맞는 일관된 효능과 안전성을 보장합니다.',
+        descEn: 'HealsLab offers a premium dietary supplement lineup formulated with high-quality natural ingredients in convenient powder stick form, designed for the modern lifestyle. From gut health and skincare to energy boosting and digestive support, our diverse portfolio allows users to precisely target their individual health goals. All products are manufactured at our dedicated in-house facility, Dawon Bio, under strict HACCP and GMP certified standards, ensuring consistent efficacy and safety for the global market.',
+        catalogUrl: 'files/DAW_catalog_en.pdf',
+        mainImg: 'images/products/health/DAW/DAW_pow_main.jpg',
+        thumbs: [
+          'images/products/health/DAW/DAW_pow_main.jpg',
+          'images/products/health/DAW/DAW_pow_thumb1.jpg',
+          'images/products/health/DAW/DAW_pow_thumb2.jpg',
+          'images/products/health/DAW/DAW_pow_thumb3.jpg',
+          'images/products/health/DAW/DAW_pow_thumb4.jpg',
+        ],
+        details: [
+          'images/products/health/DAW/DAW_pow_detail1.jpg',
+          'images/products/health/DAW/DAW_pow_detail2.jpg',
+          'images/products/health/DAW/DAW_pow_detail3.jpg',
+          'images/products/health/DAW/DAW_pow_detail4.jpg',
+          'images/products/health/DAW/DAW_pow_detail5.jpg',
+          'images/products/health/DAW/DAW_pow_detail6.jpg',
+          'images/products/health/DAW/DAW_pow_detail7.jpg',
+          'images/products/health/DAW/DAW_pow_detail8.jpg',
+        ],
+        specRows: [
+          { valueKo: '힐스랩', valueEn: 'Heals Lab' },
+          { valueKo: '건강기능식품, 유산균, 프로바이오틱스, 콜라겐, 효소, 멀티비타민, 파우더타입', valueEn: 'Dietary Supplements, Lactobacillus, Probiotics, Collagen, Enzyme, Multivitamin, Powder-Type' },
+          { valueKo: '17종혼합프로바이틱스, 히알루론산, L-프롤린, 비타민미네랄믹스, 저분자마린콜라겐펩타이드, 양배추추출분말, 13종곡물발효효소 등', valueEn: '17 Types of Mixed Probiotics, Hyaluronic Acid, L-Proline, Vitamin Mineral Mix, Low-molecular Marine Collagen Peptide, Cabbage Extract Powder, 13 Kinds of Grain Fermented Enzyme, etc.' },
+          { valueKo: 'HACCP, GMP, ISO22000', valueEn: 'HACCP, GMP, ISO22000' },
+          { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '24개월', valueEn: '24 months' },
+        ]
+      },
+      kom: {
+        nameKo: '힐스랩 콤부차 모음',
+        nameEn: 'Kombucha Line-up',
+        descKo: '힐스랩의 콤부차 라인업은 17종의 프로바이오틱스와 2종의 프리바이오틱스를 배합하여 소화 건강을 지원하도록 설계된 프리미엄 기능성 음료입니다. 일반적으로 차갑게 마시는 기존 콤부차와 달리, 내열성 포스트바이오틱스를 적용하여 따뜻한 차로 즐길 때도 유익한 균이 그대로 살아있습니다. 14가지 다양한 맛으로 구성되어 차갑게 또는 따뜻하게 어떻게 즐기든 탁월한 맛과 종합적인 건강 효능을 동시에 만족시키는 프리미엄 경험을 제공합니다.',
+        descEn: 'HealsLab\'s Kombucha lineup is a premium functional beverage designed to support digestive health, formulated with 17 strains of probiotics and 2 types of prebiotics. Unlike conventional kombucha served cold, heat-resistant postbiotics keep the beneficial cultures intact even as a warm tea. Available in 14 distinct flavors, it delivers a premium experience that harmonizes exceptional taste with comprehensive health benefits — chilled or warm.',
+        catalogUrl: 'files/DAW_catalog_en.pdf',
+        mainImg: 'images/products/health/DAW/DAW_kom_main.jpg',
+        thumbs: [
+          'images/products/health/DAW/DAW_kom_main.jpg',
+          'images/products/health/DAW/DAW_kom_thumb1.jpg',
+          'images/products/health/DAW/DAW_kom_thumb2.jpg',
+          'images/products/health/DAW/DAW_kom_thumb3.jpg',
+          'images/products/health/DAW/DAW_kom_thumb4.jpg',
+        ],
+        details: [
+          'images/products/health/DAW/DAW_kom_detail1.jpg',
+          'images/products/health/DAW/DAW_kom_detail2.jpg',
+          'images/products/health/DAW/DAW_kom_detail3.jpg',
+        ],
+        specRows: [
+          { valueKo: '힐스랩', valueEn: 'Heals Lab' },
+          { valueKo: '콤부차, 핫콤부차, 14종 맛, 유산균, 프리바이오틱스, 비타민C 함유', valueEn: 'Kombucha, Hot Kombucha, 14 flavors, Contains Lactobacillus, Prebiotics, Vitamin C' },
+          { valueKo: '유기농콤부차파우더, 홍차추출분말, 프로바이오틱스, 비타민C, 히알루론산, 과일농축분말 등', valueEn: 'Organic Kombucha Powder, Black Tea Extract Powder, Probiotics, Vitamin C, Hyaluronic Acid, Fruit Concentrate Powder, etc.' },
+          { valueKo: 'HACCP, GMP, ISO22000', valueEn: 'HACCP, GMP, ISO22000' },
+          { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '24개월', valueEn: '24 months' },
+        ]
+      },
     },
     beauty: {
       toner: productDetailStub('토너', 'Toner'),
@@ -2552,6 +2985,7 @@
       lab.setAttribute('data-en', row.labelEn);
       lab.textContent = lang === 'ko' ? row.labelKo : row.labelEn;
       const val = document.createElement('span');
+      val.classList.add('detail-spec-value');
       const vKo = row.valueKo != null ? String(row.valueKo) : '';
       const vEn = row.valueEn != null ? String(row.valueEn) : '';
       const shown = lang === 'ko' ? vKo : vEn;
