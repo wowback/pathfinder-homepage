@@ -834,9 +834,12 @@
     .detail-spec-table td .detail-spec-empty { color:#9CA3AF; font-weight:400; }
     .detail-btns { display:flex; gap:10px; margin-top:24px; flex-wrap:wrap; justify-content:flex-start; width:100%; flex-shrink:0; }
     .detail-btn-primary { display:inline-block; flex:0 0 auto; width:140px; text-align:center; background:transparent; color:#0078D4; border:1px solid #0078D4; font-size:12px; font-weight:500; padding:8px 0; border-radius:6px; text-decoration:none; white-space:nowrap; box-sizing:border-box; transition:background 0.2s ease; }
+    /* [hidden] alone loses to .detail-btn-primary { display:inline-block } — must win for catalog toggle */
+    #detail-catalog-link[hidden] { display:none !important; }
     .detail-btn-primary:hover { background:#EFF6FF; }
     .detail-btn-outline { display:inline-block; flex:0 0 auto; width:140px; text-align:center; background:#0078D4; color:#ffffff; border:1px solid #0078D4; font-size:12px; font-weight:500; padding:8px 0; border-radius:6px; text-decoration:none; white-space:nowrap; box-sizing:border-box; transition:background 0.2s ease; }
     .detail-btn-outline:hover { background:#0F4C8A; border-color:#0F4C8A; }
+    .detail-btns--catalog-hidden { justify-content: flex-start; }
     .detail-bottom { border-top:0.5px solid #E5E7EB; padding-top:24px; }
     .detail-bottom-title { font-size:14px; font-weight:700; color:#111111; margin:0 0 16px; }
     .detail-detail-img { border:0.5px solid #E5E7EB; border-radius:12px; overflow:hidden; width:100%; max-width:100%; display:flex; flex-direction:column; align-items:center; gap:0; box-sizing:border-box; }
@@ -950,6 +953,13 @@
         width: calc(50% - 3px);
         font-size: 0.72rem;
         padding: 9px 0;
+      }
+      .detail-btns--catalog-hidden {
+        justify-content: flex-start;
+      }
+      .detail-btns--catalog-hidden .detail-btn-outline {
+        width: 100%;
+        max-width: 100%;
       }
       .detail-bottom {
         padding-top: 18px;
@@ -1583,40 +1593,99 @@
       <div class="cat-title" data-ko="화장품" data-en="Beauty">Beauty</div>
       <div class="cat-desc" data-ko="글로벌 뷰티 시장을 선도하는 K-뷰티" data-en="K-Beauty Leading the Global Skincare Market">K-Beauty Leading the Global Skincare Market</div>
       <div class="product-grid">
-        <div class="prod-card" onclick="showDetail('beauty','toner')">
+        <div class="prod-card" onclick="showDetail('beauty','hair')">
           <div class="prod-card-img">
-            <div class="prod-card-placeholder-wrap">
-              <svg class="prod-card-cat-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
-              <span class="prod-card-placeholder" data-ko="업데이트 예정" data-en="To be Updated">To be Updated</span>
-            </div>
+            <img src="images/products/beauty/DRT/DRT_hair_main.jpg"
+                 alt="[Dr.Tobia] Hair Enhancing Foam"
+                 />
           </div>
           <div class="prod-card-info">
-            <div class="prod-card-name" data-ko="토너" data-en="Toner">Toner</div>
-            <div class="prod-card-desc" data-ko="수분 & 브라이트닝" data-en="Hydrating & brightening">Hydrating & brightening</div>
+            <div class="prod-card-name"
+                 data-ko="닥터토비아 헤어인핸싱폼"
+                 data-en="[Dr.Tobia] Hair Enhancing Foam">
+              [Dr.Tobia] Hair Enhancing Foam
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="닥터토비아"
+                 data-en="Dr.Tobia">
+              Dr.Tobia
+            </div>
           </div>
         </div>
-        <div class="prod-card" onclick="showDetail('beauty','serum')">
+        <div class="prod-card" onclick="showDetail('beauty','cica')">
           <div class="prod-card-img">
-            <div class="prod-card-placeholder-wrap">
-              <svg class="prod-card-cat-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
-              <span class="prod-card-placeholder" data-ko="업데이트 예정" data-en="To be Updated">To be Updated</span>
-            </div>
+            <img src="images/products/beauty/DRT/DRT_cica_main.jpg"
+                 alt="[Dr.Tobia] Cica Repair Cream"
+                 />
           </div>
           <div class="prod-card-info">
-            <div class="prod-card-name" data-ko="세럼 & 앰플" data-en="Serum & Ampoule">Serum & Ampoule</div>
-            <div class="prod-card-desc" data-ko="집중 케어 라인" data-en="Intensive care line">Intensive care line</div>
+            <div class="prod-card-name"
+                 data-ko="닥터토비아 EGF 펩타이드 시카 리페어 크림"
+                 data-en="[Dr.Tobia] Cica Repair Cream">
+              [Dr.Tobia] Cica Repair Cream
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="닥터토비아"
+                 data-en="Dr.Tobia">
+              Dr.Tobia
+            </div>
           </div>
         </div>
         <div class="prod-card" onclick="showDetail('beauty','gel')">
           <div class="prod-card-img">
-            <div class="prod-card-placeholder-wrap">
-              <svg class="prod-card-cat-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
-              <span class="prod-card-placeholder" data-ko="업데이트 예정" data-en="To be Updated">To be Updated</span>
-            </div>
+            <img src="images/products/beauty/DRS/DRS_gel_main.jpg"
+                 alt="[Dr.Sanicle] Baby Soothing Gel"
+                 />
           </div>
           <div class="prod-card-info">
-            <div class="prod-card-name" data-ko="수딩젤" data-en="Soothing Gel">Soothing Gel</div>
-            <div class="prod-card-desc" data-ko="진정 & 보습" data-en="Calming & moisturizing">Calming & moisturizing</div>
+            <div class="prod-card-name"
+                 data-ko="닥터세니클 베이비 수딩젤"
+                 data-en="[Dr.Sanicle] Baby Soothing Gel">
+              [Dr.Sanicle] Baby Soothing Gel
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="닥터세니클"
+                 data-en="Dr.Sanicle">
+              Dr.Sanicle
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('beauty','cream')">
+          <div class="prod-card-img">
+            <img src="images/products/beauty/DRS/DRS_cream_main.jpg"
+                 alt="[Dr.Sanicle] Baby Calming Cream"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="닥터세니클 베이비 카밍크림"
+                 data-en="[Dr.Sanicle] Baby Calming Cream">
+              [Dr.Sanicle] Baby Calming Cream
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="닥터세니클"
+                 data-en="Dr.Sanicle">
+              Dr.Sanicle
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('beauty','foam')">
+          <div class="prod-card-img">
+            <img src="images/products/beauty/DRS/DRS_foam_main.jpg"
+                 alt="[Dr.Sanicle] Baby Hip Cleanser"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="닥터세니클 베이비 힙클렌저"
+                 data-en="[Dr.Sanicle] Baby Hip Cleanser">
+              [Dr.Sanicle] Baby Hip Cleanser
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="닥터세니클"
+                 data-en="Dr.Sanicle">
+              Dr.Sanicle
+            </div>
           </div>
         </div>
       </div>
@@ -1992,7 +2061,7 @@
   const PRODUCT_ORDER = {
     food: ['mochi', 'tteokbokki', 'can', 'rice', 'pancake', 'tart', 'choco', 'drink', 'cookie', 'cracker', 'kal-choco', 'kal-garlic'],
     health: ['deerA', 'deerK', 'hong', 'my', 'reason', 'meal', 'tab', 'pow', 'kom'],
-    beauty: ['toner', 'serum', 'gel'],
+    beauty: ['hair', 'cica', 'gel', 'cream', 'foam'],
     fashion: ['eyeglass', 'socks', 'sunglasses']
   };
 
@@ -2220,10 +2289,17 @@
   function applyDetailCatalogLink(data) {
     const catalogLink = document.getElementById('detail-catalog-link');
     if (!catalogLink) return;
+    const btnRow = catalogLink.parentElement;
+    const setSingleInquireLayout = function (catalogHidden) {
+      if (btnRow && btnRow.classList) {
+        btnRow.classList.toggle('detail-btns--catalog-hidden', !!catalogHidden);
+      }
+    };
     if (!data) {
       catalogLink.hidden = false;
       catalogLink.href = DEFAULT_PRODUCT_CATALOG_PATH;
       catalogLink.setAttribute('download', DEFAULT_PRODUCT_CATALOG_PATH.split('/').pop() || 'catalog.pdf');
+      setSingleInquireLayout(false);
       return;
     }
     if (Object.prototype.hasOwnProperty.call(data, 'catalogUrl')) {
@@ -2232,16 +2308,19 @@
         catalogLink.hidden = true;
         catalogLink.removeAttribute('href');
         catalogLink.removeAttribute('download');
+        setSingleInquireLayout(true);
         return;
       }
       catalogLink.hidden = false;
       catalogLink.href = path;
       catalogLink.setAttribute('download', path.split('/').pop() || 'catalog.pdf');
+      setSingleInquireLayout(false);
       return;
     }
     catalogLink.hidden = false;
     catalogLink.href = DEFAULT_PRODUCT_CATALOG_PATH;
     catalogLink.setAttribute('download', DEFAULT_PRODUCT_CATALOG_PATH.split('/').pop() || 'catalog.pdf');
+    setSingleInquireLayout(false);
   }
 
   const productData = {
@@ -2608,7 +2687,7 @@
           'images/products/food/KPB/KPB_garlic_thumb4.jpg',
         ],
         details: [
-          'images/products/food/KPB/KPB_garlic_detail1.jpg?v=2',
+          'images/products/food/KPB/KPB_garlic_detail1.jpg',
         ],
         specRows: [
           { valueKo: '한글과자', valueEn: 'KALPHABETS' },
@@ -2759,9 +2838,9 @@
         thumbs: [
           'images/products/health/NNM/NNM_reason_main.jpg',
           'images/products/health/NNM/NNM_reason_thumb1.jpg',
-          'images/products/health/NNM/NNM_reason_thumb2.jpg',
-          'images/products/health/NNM/NNM_reason_thumb3.jpg',
-          'images/products/health/NNM/NNM_reason_thumb4.jpg',
+          'images/products/health/NNM/NNM_reason_thumb2.JPG',
+          'images/products/health/NNM/NNM_reason_thumb3.JPG',
+          'images/products/health/NNM/NNM_reason_thumb4.JPG',
         ],
         details: [
           'images/products/health/NNM/NNM_reason_detail1.jpg',
@@ -2905,9 +2984,149 @@
       },
     },
     beauty: {
-      toner: productDetailStub('토너', 'Toner'),
-      serum: productDetailStub('세럼 & 앰플', 'Serum & Ampoule'),
-      gel: productDetailStub('수딩젤', 'Soothing Gel')
+      hair: {
+        nameKo: '닥터토비아 헤어인핸싱폼',
+        nameEn: '[Dr.Tobia] Hair Enhancing Foam',
+        descKo: '닥터 토비아 헤어 인핸싱 폼은 가늘어진 모발과 탈모 고민을 가진 분들을 위해 특별히 개발된 리브-인 타입 두피 케어 제품입니다. 모근을 뿌리부터 튼튼하게 강화하여 탈모를 줄여주고, 두피 혈액순환을 촉진함으로써 모낭에 충분한 영양이 공급되어 자연스럽게 더 굵고 풍성한 모발로 가꿔줍니다. 별도로 씻어낼 필요 없이 두피에 바르기만 하면 되는 간편한 사용법으로 바쁜 아침에도 부담 없이 사용할 수 있으며, 하루 종일 지속적으로 효과가 유지됩니다. 모발이 가늘어지거나 탈모가 걱정되는 분, 더 굵고 건강한 모발을 원하는 모든 분께 적극 추천드립니다.',
+        descEn: 'Dr. Tobia Hair Enhancing Foam is a leave-in scalp care product specially developed for those struggling with thinning hair and hair loss. It strengthens hair roots from the base to reduce hair loss, while promoting scalp circulation to ensure follicles receive sufficient nourishment — naturally resulting in thicker, fuller hair. With a no-rinse formula that requires nothing more than a simple application to the scalp, it fits effortlessly into even the busiest morning routine, delivering benefits that last throughout the day. Highly recommended for anyone experiencing hair thinning or loss, or simply looking for thicker, healthier-looking hair.',
+        catalogUrl: '',
+        mainImg: 'images/products/beauty/DRT/DRT_hair_main.jpg',
+        thumbs: [
+          'images/products/beauty/DRT/DRT_hair_main.jpg',
+          'images/products/beauty/DRT/DRT_hair_thumb1.jpg',
+          'images/products/beauty/DRT/DRT_hair_thumb2.jpg',
+          'images/products/beauty/DRT/DRT_hair_thumb3.jpg',
+          'images/products/beauty/DRT/DRT_hair_thumb4.jpg',
+        ],
+        details: [
+          'images/products/beauty/DRT/DRT_hair_detail1.jpg',
+          'images/products/beauty/DRT/DRT_hair_detail2.jpg',
+          'images/products/beauty/DRT/DRT_hair_detail3.jpg',
+        ],
+        specRows: [
+          { valueKo: '닥터토비아', valueEn: 'Dr.Tobia' },
+          { valueKo: '기능성화장품, 헤어케어, 탈모방지, 모발강화, 폼타입', valueEn: 'Functional Cosmetics, Hair Care, Anti-Hair Loss, Hair Strengthening, Foam-Type' },
+          { valueKo: '비오틴, 판테놀, 카페인, 쏘팔메토열매추출물, 흑삼추출물, 은행잎추출물, 어성초추출물 등 ', valueEn: 'Biotin, Panthenol, Caffeine, Saw Palmetto Fruit Extract, Black Ginseng Extract, Ginkgo Biloba Leaf Extract, Houttuynia Cordata Extract, etc.' },
+          { valueKo: '', valueEn: '' },
+          { valueKo: '35 * 35 * 130(mm) / 50g', valueEn: '35 * 35 * 130(mm) / 50g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '24개월', valueEn: '24 months' },
+        ]
+      },
+      cica: {
+        nameKo: '닥터토비아 EGF 펩타이드 시카 리페어 크림',
+        nameEn: '[Dr.Tobia] Cica Repair Cream',
+        descKo: '닥터 토비아의 "EGF 펩타이드 시카 리페어 크림"은 외부 환경으로 인해 자극받은 피부를 회복시켜 줍니다. EGF, 펩타이드, 시카, 세라마이드, 히알루론산을 함유하여 피부 재생, 주름 개선, 안티에이징, 미백에 도움을 주는 기능성 제품입니다. "EGF 펩타이드 시카 리페어 크림"은 무향료·무색소 제품으로, 모든 성분이 EWG 그린 등급 인증을 받아 안심하고 사용할 수 있는 안전한 제품입니다.',
+        descEn: 'Dr. Tobia\'s "EGF Peptide Cica Repair Cream" repairs skin that has been irritated by external environments. Formulated with EGF, peptides, cica, ceramides, and hyaluronic acid, it is a functional product that helps with skin repair, anti-wrinkle, anti-aging, and whitening. Fragrance-free and colorant-free, with all ingredients certified EWG Green Grade, it is a safe and reliable product you can use with complete peace of mind.',
+        catalogUrl: '',
+        mainImg: 'images/products/beauty/DRT/DRT_cica_main.jpg',
+        thumbs: [
+          'images/products/beauty/DRT/DRT_cica_main.jpg',
+          'images/products/beauty/DRT/DRT_cica_thumb1.jpg',
+          'images/products/beauty/DRT/DRT_cica_thumb2.jpg',
+          'images/products/beauty/DRT/DRT_cica_thumb3.jpg',
+          'images/products/beauty/DRT/DRT_cica_thumb4.jpg',
+        ],
+        details: [
+          'images/products/beauty/DRT/DRT_cica_detail1.jpg',
+          'images/products/beauty/DRT/DRT_cica_detail2.jpg',
+          'images/products/beauty/DRT/DRT_cica_detail3.jpg',
+        ],
+        specRows: [
+          { valueKo: '닥터토비아', valueEn: 'Dr.Tobia' },
+          { valueKo: '기능성화장품, 피부재생, 주름개선, 피부미백, 보습, 무향료, 무색소', valueEn: 'Functional Cosmetics, Skin Repair, Anti-Wrinkle, Skin Whitening, Moisturizing, Fragrance-Free, Colorant-Free' },
+          { valueKo: '병풀추출물, 나이아신아마이드, 아데노신, 소듐히알루로네이트, 세라마이드, EGF펩타이드, 프로폴리스추출물 등', valueEn: 'Centella Asiatica Extract, Niacinamide, Adenosine, Sodium Hyaluronate, Ceramide, sh-Oligopeptide-1(EGF), Propolis Extract, etc.' },
+          { valueKo: 'EWG Green', valueEn: 'EWG Green' },
+          { valueKo: '30 * 30 * 130(mm) / 30g', valueEn: '30 * 30 * 130(mm) / 30g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '24개월', valueEn: '24 months' },
+        ]
+      },
+      gel: {
+        nameKo: '닥터세니클 베이비 수딩젤',
+        nameEn: '[Dr.Sanicle] Baby Soothing Gel',
+        descKo: '닥터세니클 \'베이비 수딩 젤\'은 영유아의 민감한 피부를 위해 특별히 설계된 진정 및 보습 전문 스킨케어 제품입니다. 특허받은 액상 플라즈마 제조 시스템으로 처리된 정제수를 사용하여 피부와 세포에 긍정적으로 작용하며, 탁월한 항균 효과와 순한 회복 케어로 민감한 피부를 빠르게 진정시키고 피부 장벽을 강화합니다. 12가지 종합 안전성 테스트를 통과하여 영유아 피부에 대한 안전성이 공식 검증된 제품으로, 글로벌 바이어의 엄격한 기준을 충족합니다.',
+        descEn: 'Dr. Sanicle \'Baby Soothing Gel\' is a specialized soothing and moisturizing skincare product designed specifically for the sensitive skin of infants and young children. Formulated with purified water processed through a patented liquid plasma manufacturing system, it interacts positively with the skin and cells, delivering outstanding antibacterial effects and gentle recovery care that quickly calms sensitive skin while reinforcing the skin barrier. Having passed 12 comprehensive safety tests with officially verified safety for infant skin, it meets the stringent standards of global buyers.',
+        catalogUrl: 'files/DRS_catalog_en.pdf',
+        mainImg: 'images/products/beauty/DRS/DRS_gel_main.jpg',
+        thumbs: [
+          'images/products/beauty/DRS/DRS_gel_main.jpg',
+          'images/products/beauty/DRS/DRS_gel_thumb1.jpg',
+          'images/products/beauty/DRS/DRS_gel_thumb2.jpg',
+          'images/products/beauty/DRS/DRS_gel_thumb3.jpg',
+        ],
+        details: [
+          'images/products/beauty/DRS/DRS_gel_detail1.jpg',
+          'images/products/beauty/DRS/DRS_gel_detail2.jpg',
+          'images/products/beauty/DRS/DRS_gel_detail3.jpg',
+        ],
+        specRows: [
+          { valueKo: '닥터세니클', valueEn: 'Dr.Sanicle' },
+          { valueKo: '기능성화장품, 영유아제품, 액상플라즈마, 보습, 향균, 피부진정, 피부재생, 무자극', valueEn: 'Functional Cosmetics, For Infant & Toddler, Liquid Plasma, Moisturizing, Antibacterial, Skin Soothing, Skin Repair, Non-Irritating' },
+          { valueKo: '판테놀, 알란토인, 불가리스메자뿌리추출물, 구기자추출물, 검은뽕나무열매추출물, 에리스리톨, 에틸헥실글리세린 등', valueEn: 'Panthenol, Allantoin, Lycium Barbarum Root Extract, Lycium Chinense Extract, Morus Nigra Fruit Extract, Erythritol, Ethylhexylglycerin, etc.' },
+          { valueKo: 'ISO22716, EWG Green, FSC', valueEn: 'ISO22716, EWG Green, FSC' },
+          { valueKo: '58 * 60 * 192(mm) / 170g', valueEn: '58 * 60 * 192(mm) / 170g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '36개월', valueEn: '36 months' },
+        ]
+      },
+      cream: {
+        nameKo: '닥터세니클 베이비 카밍크림',
+        nameEn: '[Dr.Sanicle] Baby Calming Cream',
+        descKo: '닥터세니클 \'베이비 카밍 크림\'은 공인 기관의 임상 검증과 12가지 종합 안전성 테스트를 통과한 영유아 전용 스킨케어 제품입니다. 외부 자극으로 손상된 피부를 효과적으로 진정시키고, 수분 장벽을 개선하여 피부 재생을 도우며, 건조함으로 인한 일시적인 가려움증을 완화해 줍니다. 모든 정제수는 특허받은 액상 플라즈마 제조 시스템을 통해 처리되어 피부와 세포에 긍정적으로 작용합니다.',
+        descEn: 'Dr. Sanicle \'Baby Calming Cream\' is a skincare product exclusively designed for infants and young children, clinically verified by certified institutions and proven safe through 12 comprehensive safety tests. It effectively soothes skin damaged by external irritation, supports skin regeneration by improving the moisture barrier, and relieves temporary itching caused by dryness. All purified water is processed through a patented liquid plasma manufacturing system, where plasma infused into purified water interacts positively with the skin and cells.',
+        catalogUrl: 'files/DRS_catalog_en.pdf',
+        mainImg: 'images/products/beauty/DRS/DRS_cream_main.jpg',
+        thumbs: [
+          'images/products/beauty/DRS/DRS_cream_main.jpg',
+          'images/products/beauty/DRS/DRS_cream_thumb1.jpg',
+          'images/products/beauty/DRS/DRS_cream_thumb2.jpg',
+          'images/products/beauty/DRS/DRS_cream_thumb3.jpg',
+        ],
+        details: [
+          'images/products/beauty/DRS/DRS_cream_detail1.jpg?v=2',
+          'images/products/beauty/DRS/DRS_cream_detail2.jpg?v=2',
+          'images/products/beauty/DRS/DRS_cream_detail3.jpg',
+          'images/products/beauty/DRS/DRS_cream_detail4.jpg?v=2',
+        ],
+        specRows: [
+          { valueKo: '닥터세니클', valueEn: 'Dr.Sanicle' },
+          { valueKo: '기능성화장품, 영유아제품, 액상플라즈마, 보습, 향균, 피부진정, 피부재생, 무자극', valueEn: 'Functional Cosmetics, For Infant & Toddler, Liquid Plasma, Moisturizing, Antibacterial, Skin Soothing, Skin Repair, Non-Irritating' },
+          { valueKo: '판테놀, 알란토인, 스쿠알란, 마카뿌리추출물, 홀리바질잎추출물, 세테아릴올리베이트, 소르비탄올리베이트 등', valueEn: 'Panthenol, Allantoin, Squalane, Maca Root Extract, Holy Basil Leaf Extract, Cetearyl Olivate, Sorbitan Olivate, etc.' },
+          { valueKo: 'ISO22716, EWG Green, FSC', valueEn: 'ISO22716, EWG Green, FSC' },
+          { valueKo: '52 * 40 * 155(mm) / 100g', valueEn: '52 * 40 * 155(mm) / 100g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '36개월', valueEn: '36 months' },
+        ]
+      },
+      foam: {
+        nameKo: '닥터세니클 베이비 힙클렌저',
+        nameEn: '[Dr.Sanicle] Baby Hip Cleanser',
+        descKo: '젖은 기저귀, 대변 세균, 알칼리성 세정제는 아기의 섬세한 피부 균형을 무너뜁니다. 닥터세니클 베이비 힙 클렌저는 안전하고 순한 솔루션을 제공합니다. 약산성 플라즈마 폼이 자극 없이 부드럽게 세정하며, 항균·진정·재생 효과로 알려진 액상 플라즈마 복합 성분이 민감한 피부를 보호하면서 효과적인 세정력을 발휘합니다. 닥터세니클 제품의 모든 정제수는 특허받은 액상 플라즈마 시스템으로 처리되며, 마이크로파로 생성된 플라즈마가 피부와 세포에 긍정적으로 작용합니다.',
+        descEn: 'Damp diapers, stool bacteria, and alkaline cleansers disrupt your baby\'s delicate skin balance. Dr.Sanicle Baby Hip Cleanser offers a safe and gentle solution. Its mildly acidic plasma foam cleanses gently without irritation, while the liquid plasma complex — known for its antibacterial, soothing, and regenerative properties — protects sensitive skin with effective cleansing. All purified water in Dr.Sanicle products is processed through a patented liquid plasma system, where microwave-generated plasma interacts positively with skin and cells.',
+        catalogUrl: 'files/DRS_catalog_en.pdf',
+        mainImg: 'images/products/beauty/DRS/DRS_foam_main.jpg',
+        thumbs: [
+          'images/products/beauty/DRS/DRS_foam_main.jpg',
+          'images/products/beauty/DRS/DRS_foam_thumb1.jpg',
+          'images/products/beauty/DRS/DRS_foam_thumb2.jpg',
+          'images/products/beauty/DRS/DRS_foam_thumb3.jpg',
+        ],
+        details: [
+          'images/products/beauty/DRS/DRS_foam_detail1.jpg',
+          'images/products/beauty/DRS/DRS_foam_detail2.jpg',
+          'images/products/beauty/DRS/DRS_foam_detail3.jpg',
+        ],
+        specRows: [
+          { valueKo: '닥터세니클', valueEn: 'Dr.Sanicle' },
+          { valueKo: '기능성화장품, 영유아제품, 액상플라즈마, 보습, 향균, 피부진정, 피부재생, 무자극', valueEn: 'Functional Cosmetics, For Infant & Toddler, Liquid Plasma, Moisturizing, Antibacterial, Skin Soothing, Skin Repair, Non-Irritating' },
+          { valueKo: '판테놀, 알란토인, 불가리스메자뿌리추출물, 구기자추출물, 검은뽕나무열매추출물, 에리스리톨, 에틸헥실글리세린 등', valueEn: 'Panthenol, Allantoin, Lycium Barbarum Root Extract, Lycium Chinense Extract, Morus Nigra Fruit Extract, Erythritol, Ethylhexylglycerin, etc.' },
+          { valueKo: 'ISO22716, EWG Green, FSC', valueEn: 'ISO22716, EWG Green, FSC' },
+          { valueKo: '70 * 70 * 145(mm) / 250g', valueEn: '70 * 70 * 145(mm) / 250g' },
+          { valueKo: '실온 보관', valueEn: 'Room temp.' },
+          { valueKo: '36개월', valueEn: '36 months' },
+        ]
+      }
     },
     fashion: {
       eyeglass: productDetailStub('안경테', 'Eyeglass Frame'),
@@ -2942,7 +3161,7 @@
     }
   }
 
-  /** 모든 제품 상세 동일 7행 표. 제품별 값만 바꿀 때: productData[cat][id].specRows 에 동일 순서로 valueKo/valueEn */
+  /** 모든 제품 상세 기본 7행. productData[cat][id].specRows 로 값 병합. valueKo·valueEn 모두 공백인 행은 표에 넣지 않음 */
   const DEFAULT_SPEC_ROWS = [
     { labelKo: '브랜드 네임', labelEn: 'Brand Name', valueKo: '', valueEn: '' },
     { labelKo: '키워드', labelEn: 'Keywords', valueKo: '', valueEn: '' },
@@ -2976,7 +3195,16 @@
     const rows = mergeSpecRows(data);
     const lang = sessionStorage.getItem('pathfinder_lang') || 'en';
     tbody.innerHTML = '';
-    rows.forEach(function(row) {
+    const visibleRows = rows.filter(function(row) {
+      const vKo = row.valueKo != null ? String(row.valueKo) : '';
+      const vEn = row.valueEn != null ? String(row.valueEn) : '';
+      return vKo.trim().length > 0 || vEn.trim().length > 0;
+    });
+    if (!visibleRows.length) {
+      wrap.classList.add('hidden');
+      return;
+    }
+    visibleRows.forEach(function(row) {
       const tr = document.createElement('tr');
       const th = document.createElement('th');
       const td = document.createElement('td');
