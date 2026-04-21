@@ -20,7 +20,7 @@
       --bg-light: #F5F7FA;
       --border: #E5E7EB;
     }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     body { font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif; color: var(--text-primary); line-height: 1.6; background: var(--bg-white); }
     h1,h2,h3 { font-family: 'Plus Jakarta Sans','Pretendard',sans-serif; }
 
@@ -291,7 +291,7 @@
       border-radius:12px; padding:12px 14px; margin-bottom:10px;
     }
     .channel-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .channel-info { flex:1; display:flex; flex-direction:column; gap:2px; }
+    .channel-info { flex:1; display:flex; flex-direction:column; gap:2px; min-width: 0; }
     .channel-info strong { color:#ffffff; font-size:0.85rem; font-weight:600; }
     .channel-info span { color:rgba(255,255,255,0.85) !important; font-size:0.78rem; }
     @media (min-width: 769px) {
@@ -619,7 +619,7 @@
       #contact .contact-info-desc { font-size: 0.7rem !important; line-height: 1.4 !important; }
       .channel-card {
         display: grid;
-        grid-template-columns: 36px 1fr auto;
+        grid-template-columns: 36px minmax(0, 1fr) auto;
         gap: 8px;
         align-items: center;
       }
