@@ -929,31 +929,31 @@
       <div class="form-row">
         <div class="form-group">
           <label data-ko="담당자 성함 *" data-en="Contact Name *">Contact Name *</label>
-          <input type="text" data-ko-ph="홍길동" data-en-ph="John Doe" placeholder="John Doe" required />
+          <input type="text" name="name" data-ko-ph="홍길동" data-en-ph="John Doe" placeholder="John Doe" required />
         </div>
         <div class="form-group">
           <label data-ko="회사명 *" data-en="Company *">Company *</label>
-          <input type="text" data-ko-ph="(주)예시회사" data-en-ph="Example Corp." placeholder="Example Corp." required />
+          <input type="text" name="company" data-ko-ph="(주)예시회사" data-en-ph="Example Corp." placeholder="Example Corp." required />
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label data-ko="이메일 *" data-en="Email *">Email *</label>
-          <input type="email" placeholder="example@company.com" required />
+          <input type="email" name="email" placeholder="example@company.com" required />
         </div>
         <div class="form-group">
           <label data-ko="연락처" data-en="Phone">Phone</label>
-          <input type="tel" data-ko-ph="010-0000-0000" data-en-ph="+82-10-0000-0000" placeholder="+82-10-0000-0000" />
+          <input type="tel" name="phone" data-ko-ph="010-0000-0000" data-en-ph="+82-10-0000-0000" placeholder="+82-10-0000-0000" />
         </div>
       </div>
       <div class="form-group">
         <label data-ko="문의 서비스" data-en="Service Inquiry">Service Inquiry</label>
-        <select id="service">
+        <select id="service" name="service">
           <option value="" disabled selected data-ko="선택해주세요" data-en="Please select">선택해주세요</option>
-          <option data-ko="▸ 제품 구매 문의" data-en="▸ Product Purchase Inquiry">▸ 제품 구매 문의</option>
-          <option data-ko="▸ 맞춤 소싱 문의" data-en="▸ Custom Sourcing Request">▸ 맞춤 소싱 문의</option>
-          <option data-ko="▸ OEM / ODM / OBM 문의" data-en="▸ OEM / ODM / OBM Inquiry">▸ OEM / ODM / OBM 문의</option>
-          <option data-ko="▸ 기타 문의" data-en="▸ Other">▸ 기타 문의</option>
+          <option value="product-purchase" data-ko="▸ 제품 구매 문의" data-en="▸ Product Purchase Inquiry">▸ 제품 구매 문의</option>
+          <option value="custom-sourcing" data-ko="▸ 맞춤 소싱 문의" data-en="▸ Custom Sourcing Request">▸ 맞춤 소싱 문의</option>
+          <option value="oem-odm-obm" data-ko="▸ OEM / ODM / OBM 문의" data-en="▸ OEM / ODM / OBM Inquiry">▸ OEM / ODM / OBM 문의</option>
+          <option value="other" data-ko="▸ 기타 문의" data-en="▸ Other">▸ 기타 문의</option>
         </select>
         <div class="mobile-service-select" id="mobileServiceSelect" hidden>
           <button type="button" class="mobile-service-trigger is-placeholder" id="mobileServiceTrigger">Please select</button>
@@ -962,7 +962,7 @@
       </div>
       <div class="form-group textarea-group">
         <label data-ko="문의 내용 *" data-en="Message *">Message *</label>
-        <textarea data-ko-ph="문의하실 내용을 자세히 작성해 주세요." data-en-ph="Please describe your inquiry in detail." placeholder="Please describe your inquiry in detail." required></textarea>
+        <textarea name="message" data-ko-ph="문의하실 내용을 자세히 작성해 주세요." data-en-ph="Please describe your inquiry in detail." placeholder="Please describe your inquiry in detail." required></textarea>
       </div>
       <button type="submit" class="form-submit" data-ko="문의 보내기 →" data-en="Send Message →">Send Message →</button>
     </form>
@@ -1123,12 +1123,33 @@
       closeMenu();
     }
   });
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    const form = e.target;
     const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3500);
-    e.target.reset();
+    const formData = new FormData(form);
+    formData.append('_subject', 'Homepage Contact Form Submission');
+
+    try {
+      const response = await fetch('https://formspree.io/f/mykldagn', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (!response.ok) throw new Error('submit_failed');
+
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+      form.reset();
+      if (typeof window.refreshMobileServiceSelect === 'function') {
+        window.refreshMobileServiceSelect();
+      }
+    } catch (err) {
+      alert(currentLang === 'ko' ? '문의 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.' : 'Failed to send inquiry. Please try again shortly.');
+    }
   }
   (function initQrModal() {
     const modal = document.getElementById('qrModal');
