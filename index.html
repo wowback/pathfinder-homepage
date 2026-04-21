@@ -1190,23 +1190,31 @@
     /* ── TOAST ── */
     .toast {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--primary);
-      color: white;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-      transform: translateY(100px);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.92);
+      width: min(92vw, 620px);
+      background: rgba(15, 76, 138, 0.97);
+      color: #ffffff;
+      padding: 22px 26px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.22);
+      font-size: 1.03rem;
+      font-weight: 700;
+      line-height: 1.5;
+      text-align: center;
+      box-shadow: 0 24px 56px rgba(0,0,0,0.32);
       opacity: 0;
-      transition: all 0.3s;
-      z-index: 9999;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
+      z-index: 10025;
     }
 
     .toast.show {
-      transform: translateY(0);
+      transform: translate(-50%, -50%) scale(1);
       opacity: 1;
+      visibility: visible;
     }
     .qr-modal {
       position: fixed;
@@ -2197,7 +2205,11 @@
       .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
 
       .scroll-btns { bottom: 80px; right: 16px; }
-      .toast { right: 16px; left: 16px; bottom: 20px; text-align: center; }
+      .toast {
+        width: calc(100vw - 32px);
+        padding: 18px 18px;
+        font-size: 0.95rem;
+      }
       footer [style*="max-width:1160px"] { padding: 0 16px !important; }
       footer [style*="display:flex; justify-content:space-between; align-items:flex-start"] {
         flex-direction: column !important;
@@ -3206,7 +3218,7 @@
 </div>
 
 <!-- TOAST -->
-<div class="toast" id="toast" data-ko="✅ 문의가 성공적으로 접수되었습니다!" data-en="✅ Your inquiry has been submitted successfully!">✅ 문의가 성공적으로 접수되었습니다!</div>
+<div class="toast" id="toast" data-ko="문의가 정상 접수되었습니다. 영업일 기준 24시간 이내에 회신드리겠습니다." data-en="Your inquiry has been received successfully. We will reply within 24 business hours.">Your inquiry has been received successfully. We will reply within 24 business hours.</div>
 <div class="qr-modal" id="qrModal" aria-hidden="true">
   <div class="qr-modal-content" role="dialog" aria-modal="true" aria-label="QR code preview">
     <button class="qr-modal-close" id="qrModalClose" aria-label="Close QR popup">&times;</button>
