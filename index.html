@@ -1208,6 +1208,63 @@
       transform: translateY(0);
       opacity: 1;
     }
+    .qr-modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.72);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+      z-index: 10020;
+    }
+    .qr-modal.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .qr-modal-content {
+      position: relative;
+      width: min(86vw, 420px);
+      background: rgba(11, 32, 59, 0.96);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    }
+    .qr-modal-image-wrap {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .qr-modal-image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+    .qr-modal-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #0F4C8A;
+      font-size: 1.3rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .channel-qr img {
+      cursor: zoom-in;
+    }
 
     /* ── HAMBURGER ── */
     .hamburger {
@@ -2869,7 +2926,7 @@
           <span data-ko="QR 스캔으로 바로 연결" data-en="Scan QR to connect">QR 스캔으로 바로 연결</span>
         </div>
         <div class="channel-qr">
-          <img src="images/qr/whatsapp-QR_leo.png" alt="WhatsApp QR" loading="lazy" decoding="async" />
+          <img src="images/qr/whatsapp-QR_leo.png" alt="WhatsApp QR" data-link="https://wa.me/qr/7357KSLH3UZRF1" loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -2883,7 +2940,7 @@
           <span data-ko="QR 스캔으로 바로 연결" data-en="Scan QR to connect">QR 스캔으로 바로 연결</span>
         </div>
         <div class="channel-qr">
-          <img src="images/qr/wechat-QR_leo.png" alt="WeChat QR" loading="lazy" decoding="async" />
+          <img src="images/qr/wechat-QR_leo.png" alt="WeChat QR" data-link="https://u.wechat.com/kLFLmzfqQiYh0qQbvK-MIQQ?s=0" loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -2897,7 +2954,7 @@
           <span data-ko="QR 스캔으로 바로 연결" data-en="Scan QR to connect">QR 스캔으로 바로 연결</span>
         </div>
         <div class="channel-qr">
-          <img src="images/qr/telegram-QR_leo.png" alt="Telegram QR" loading="lazy" decoding="async" />
+          <img src="images/qr/telegram-QR_leo.png" alt="Telegram QR" data-link="https://t.me/dcpro1" loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -3135,6 +3192,14 @@
 
 <!-- TOAST -->
 <div class="toast" id="toast" data-ko="✅ 문의가 성공적으로 접수되었습니다!" data-en="✅ Your inquiry has been submitted successfully!">✅ 문의가 성공적으로 접수되었습니다!</div>
+<div class="qr-modal" id="qrModal" aria-hidden="true">
+  <div class="qr-modal-content" role="dialog" aria-modal="true" aria-label="QR code preview">
+    <button class="qr-modal-close" id="qrModalClose" aria-label="Close QR popup">&times;</button>
+    <div class="qr-modal-image-wrap">
+      <img id="qrModalImage" src="" alt="QR code" />
+    </div>
+  </div>
+</div>
 
 <script>
   // ── LANGUAGE SWITCH ──
@@ -3266,6 +3331,63 @@
     setTimeout(() => toast.classList.remove('show'), 3500);
     e.target.reset();
   }
+
+  (function initQrModal() {
+    const modal = document.getElementById('qrModal');
+    const modalImage = document.getElementById('qrModalImage');
+    const closeBtn = document.getElementById('qrModalClose');
+    if (!modal || !modalImage || !closeBtn) return;
+
+    const qrThumbs = document.querySelectorAll('.channel-qr img');
+    if (!qrThumbs.length) return;
+
+    function isMobileViewport() {
+      return window.matchMedia('(max-width: 768px)').matches;
+    }
+
+    function openModal(src, alt) {
+      modalImage.src = src;
+      modalImage.alt = alt || 'QR code';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      modalImage.src = '';
+      document.body.style.overflow = '';
+    }
+
+    qrThumbs.forEach((img) => {
+      img.setAttribute('role', 'button');
+      img.setAttribute('tabindex', '0');
+
+      img.addEventListener('click', () => {
+        const deepLink = img.dataset.link;
+        if (isMobileViewport() && deepLink) {
+          window.location.href = deepLink;
+          return;
+        }
+        openModal(img.src, img.alt);
+      });
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(img.src, img.alt);
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+  })();
 
   // ── SCROLL ANIMATION ──
   const observer = new IntersectionObserver(entries => {
