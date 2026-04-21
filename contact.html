@@ -294,12 +294,22 @@
     .channel-info { flex:1; display:flex; flex-direction:column; gap:2px; }
     .channel-info strong { color:#ffffff; font-size:0.85rem; font-weight:600; }
     .channel-info span { color:rgba(255,255,255,0.85) !important; font-size:0.78rem; }
-    .channel-qr { flex-shrink:0; }
+    .channel-qr {
+      flex-shrink:0;
+      width: 56px;
+      height: 56px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
     .channel-qr img {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 6px;
-      object-fit: cover;
+      object-fit: contain;
       background: #ffffff;
       display: block;
     }
@@ -488,8 +498,9 @@
       #contact .contact-info-desc { font-size: 0.74rem !important; line-height: 1.45 !important; margin-bottom: 12px !important; }
       .channel-card { padding: 10px 12px; }
       .channel-hours { padding: 10px 12px; }
+      .channel-qr { width: 46px; height: 46px; }
       .channel-qr svg,
-      .channel-qr img { width: 36px; height: 36px; }
+      .channel-qr img { width: 38px; height: 38px; }
       .form-submit { width: 100%; }
       #service { display: none; }
       .mobile-service-select {
@@ -548,8 +559,9 @@
     @media(max-width:390px) {
       .section-header h2 { font-size: 1.2rem; }
       .section-header p { font-size: 0.86rem; }
+      .channel-qr { width: 42px; height: 42px; }
       .channel-qr svg,
-      .channel-qr img { width: 30px; height: 30px; }
+      .channel-qr img { width: 34px; height: 34px; }
       .form-submit { font-size: 0.92rem; padding: 12px; }
     }
 

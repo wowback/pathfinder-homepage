@@ -1800,12 +1800,20 @@
     }
     .channel-qr {
       flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
     }
     .channel-qr img {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 6px;
-      object-fit: cover;
+      object-fit: contain;
       background: #ffffff;
       display: block;
     }
@@ -2107,8 +2115,9 @@
         padding: 11px 13px;
       }
       #contact .form-group textarea { min-height: 110px; }
+      .channel-qr { width: 46px; height: 46px; }
       .channel-qr svg,
-      .channel-qr img { width: 36px; height: 36px; }
+      .channel-qr img { width: 38px; height: 38px; }
 
       /* partners — marquee, no override needed */
 
@@ -2158,8 +2167,9 @@
       .scroll-btns { bottom: 72px; right: 12px; gap: 6px; }
       .scroll-btn { width: 40px; height: 40px; }
       .floating-cta { width: 40px; height: 40px; }
+      .channel-qr { width: 42px; height: 42px; }
       .channel-qr svg,
-      .channel-qr img { width: 32px; height: 32px; }
+      .channel-qr img { width: 34px; height: 34px; }
     }
     @media (max-width: 430px) {
       .hero-buttons {
