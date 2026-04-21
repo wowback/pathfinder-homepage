@@ -1147,7 +1147,16 @@
     const form = e.target;
     const toast = document.getElementById('toast');
     const formData = new FormData(form);
-    formData.append('_subject', 'Homepage Contact Form Submission');
+    const name = String(formData.get('name') || '').trim() || 'No Name';
+    const company = String(formData.get('company') || '').trim() || 'No Company';
+    const serviceSelect = form.querySelector('select[name="service"]');
+    const serviceText = serviceSelect && serviceSelect.selectedIndex >= 0
+      ? serviceSelect.options[serviceSelect.selectedIndex].textContent.trim()
+      : 'No Service';
+    const subject = currentLang === 'ko'
+      ? `[홈페이지 문의] ${company} / ${name} / ${serviceText}`
+      : `[Homepage Inquiry] ${company} / ${name} / ${serviceText}`;
+    formData.set('_subject', subject);
 
     try {
       const response = await fetch('https://formspree.io/f/mojynzyn', {
