@@ -294,6 +294,21 @@
     .channel-info { flex:1; display:flex; flex-direction:column; gap:2px; }
     .channel-info strong { color:#ffffff; font-size:0.85rem; font-weight:600; }
     .channel-info span { color:rgba(255,255,255,0.85) !important; font-size:0.78rem; }
+    @media (min-width: 769px) {
+      .channel-card .channel-info span[data-ko][data-en] {
+        font-size: 0 !important;
+      }
+      html[lang="ko"] .channel-card .channel-info span[data-ko][data-en]::after {
+        content: "QR 스캔 또는 클릭하여 크게 보기";
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.85);
+      }
+      html[lang="en"] .channel-card .channel-info span[data-ko][data-en]::after {
+        content: "Scan QR or click to zoom in";
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.85);
+      }
+    }
     .channel-qr {
       flex-shrink:0;
       width: 56px;
