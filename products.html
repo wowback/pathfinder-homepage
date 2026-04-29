@@ -1846,7 +1846,7 @@
           </div>
           <div class="prod-card-info">
             <div class="prod-card-name"
-                 data-ko="뮤지크 아이웨어(코카콜라)"
+                 data-ko="뮤지크 아이웨어(코카콜라 에디션)"
                  data-en="[muzik] Eyewear Coca-Cola Edition">
               [muzik] Eyewear Coca-Cola Edition
             </div>
@@ -1854,6 +1854,82 @@
                  data-ko="뮤지크"
                  data-en="muzik">
               muzik
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('fashion','season')">
+          <div class="prod-card-img">
+            <img src="images/products/fashion/MZK/MZK_season_main.jpg"
+                 alt="[muzik] Eyewear Season Edition"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="뮤지크 아이웨어(시즌제품)"
+                 data-en="[muzik] Eyewear Season Edition">
+              [muzik] Eyewear Season Edition
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="뮤지크"
+                 data-en="muzik">
+              muzik
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('fashion','cho')">
+          <div class="prod-card-img">
+            <img src="images/products/fashion/MZK/MZK_cho_main.jpg"
+                 alt="[muzik] Eyewear CHO YONG PIL Edition"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="뮤지크 아이웨어(조용필 에디션)"
+                 data-en="[muzik] Eyewear CHO YONG PIL Edition">
+              [muzik] Eyewear CHO YONG PIL Edition
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="뮤지크"
+                 data-en="muzik">
+              muzik
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('fashion','stealer')">
+          <div class="prod-card-img">
+            <img src="images/products/fashion/STL/STL_stealer_main.jpg"
+                 alt="[STEALER] Eyewear Season Edition"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="스틸러 아이웨어(시즌제품)"
+                 data-en="[STEALER] Eyewear Season Edition">
+              [STEALER] Eyewear Season Edition
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="스틸러"
+                 data-en="STEALER">
+              STEALER
+            </div>
+          </div>
+        </div>
+        <div class="prod-card" onclick="showDetail('fashion','faker')">
+          <div class="prod-card-img">
+            <img src="images/products/fashion/STL/STL_faker_main.jpg"
+                 alt="[STEALER] Eyewear FAKER Edition"
+                 />
+          </div>
+          <div class="prod-card-info">
+            <div class="prod-card-name"
+                 data-ko="스틸러 아이웨어(FAKER 에디션)"
+                 data-en="[STEALER] Eyewear FAKER Edition">
+              [STEALER] Eyewear FAKER Edition
+            </div>
+            <div class="prod-card-desc"
+                 data-ko="스틸러"
+                 data-en="STEALER">
+              STEALER
             </div>
           </div>
         </div>
@@ -2187,7 +2263,7 @@
     food: ['mochi', 'tteokbokki', 'can', 'rice', 'pancake', 'tart', 'choco', 'drink', 'cookie', 'cracker', 'kal-choco', 'kal-garlic'],
     health: ['deerA', 'deerK', 'hong', 'my', 'reason', 'meal', 'tab', 'pow', 'kom'],
     beauty: ['hair', 'cica', 'gel', 'cream', 'foam', 'toner', 'cream2', 'pad', 'blemish', 'mask', 'treat', 'cream3'],
-    fashion: ['coca']
+    fashion: ['coca', 'season', 'cho', 'stealer', 'faker']
   };
 
   function parseShowDetailFromCard(card) {
@@ -3455,7 +3531,7 @@
     },
     fashion: {
       coca: {
-        nameKo: '뮤지크 아이웨어(코카콜라)',
+        nameKo: '뮤지크 아이웨어(코카콜라 에디션)',
         nameEn: '[muzik] Eyewear Coca-Cola Edition',
         descKo: 'muzik은 음악과 사운드에서 영감을 받아 이를 아이웨어 디자인으로 표현하는 대한민국의 주요 아이웨어 브랜드입니다. 유명한 한국 뮤지션들과의 협업을 진행하며, 대담하고 개성 있는 스타일로 많은 한국 셀러브리티들이 즐겨 착용하는 브랜드입니다. 코카콜라와 muzik의 아이웨어 에디션은 \'사운드\'를 메인 컨셉으로, 두 브랜드를 상징하는 요소들을 제품과 아트워크에 담아냈습니다.',
         descEn: 'muzik is a major eyewear brand from South Korea, inspired by music and sound, and expresses these elements through its eyewear designs. The brand collaborates with renowned Korean musicians and is widely worn by Korean celebrities for its bold and distinctive style. The eyewear edition by Coca-Cola and muzik features \'sound\' as its main concept, incorporating elements that symbolize both brands into the products and artwork.',
@@ -3481,6 +3557,137 @@
           { valueKo: '뮤지크', valueEn: 'muzik' },
           { valueKo: '패션안경, 안경테, 선글라스, 코카콜라, 프리미엄, 아세테이트, 티타늄, 스테인레스스틸', valueEn: 'Fashion Eyewear, Eyeglass Frames, Sunglasses, Coca-Cola, Premium, Acetate, Titanium, Stainless Steel' },
           { valueKo: '아세테이트, 티타늄, 스테인레스스틸', valueEn: 'Acetate, Titanium, Stainless Steel' },
+          { valueKo: '', valueEn: '' },
+          { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
+          { valueKo: '', valueEn: '' },
+          { valueKo: '', valueEn: '' },
+        ]
+      },
+      season: {
+        nameKo: '뮤지크 아이웨어(시즌제품)',
+        nameEn: '[muzik] Eyewear Season Edition',
+        descKo: 'muzik은 음악을 핵심 모티프로 브랜드를 전개하고 있습니다. 시즌 콘셉트, 제품명, 뮤지션에 대한 오마주, 아티스트와의 협업, 패키지 디자인, 나아가 음반 제작에 이르기까지 다양한 요소를 통해 브랜드만의 음악적 정체성을 적극적으로 표현합니다.',
+        descEn: 'muzik develops its brand with music as its core motif. The brand actively expresses its musical identity through various elements such as seasonal concepts, product naming, musician homages, collaborations with artists, package design, and even record production.',
+        catalogUrl: 'files/MZK_catalog_en.pdf',
+        mainImg: 'images/products/fashion/MZK/MZK_season_main.jpg',
+        thumbs: [
+          'images/products/fashion/MZK/MZK_season_main.jpg',
+          'images/products/fashion/MZK/MZK_season_thumb1.jpg',
+          'images/products/fashion/MZK/MZK_season_thumb2.jpg',
+          'images/products/fashion/MZK/MZK_season_thumb3.jpg',
+          'images/products/fashion/MZK/MZK_season_thumb4.jpg',
+        ],
+        details: [
+          'images/products/fashion/MZK/MZK_season_detail1.jpg',
+          'images/products/fashion/MZK/MZK_season_detail2.jpg',
+          'images/products/fashion/MZK/MZK_season_detail3.jpg',
+          'images/products/fashion/MZK/MZK_season_detail4.jpg',
+          'images/products/fashion/MZK/MZK_season_detail5.jpg',
+          'images/products/fashion/MZK/MZK_season_detail6.jpg',
+          'images/products/fashion/MZK/MZK_season_detail7.jpg',
+          'images/products/fashion/MZK/MZK_season_detail8.jpg',
+          'images/products/fashion/MZK/MZK_season_detail9.jpg',
+        ],
+        specRows: [
+          { valueKo: '뮤지크', valueEn: 'muzik' },
+          { valueKo: '패션안경, 안경테, 선글라스, 프리미엄, 아세테이트, 티타늄, 스테인레스스틸', valueEn: 'Fashion Eyewear, Eyeglass Frames, Sunglasses, Premium, Acetate, Titanium, Stainless Steel' },
+          { valueKo: '아세테이트, 티타늄, 스테인레스스틸', valueEn: 'Acetate, Titanium, Stainless Steel' },
+          { valueKo: '', valueEn: '' },
+          { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
+          { valueKo: '', valueEn: '' },
+          { valueKo: '', valueEn: '' },
+        ]
+      },
+      cho: {
+        nameKo: '뮤지크 아이웨어(조용필 에디션)',
+        nameEn: '[muzik] Eyewear CHO YONG PIL Edition',
+        descKo: 'muzik은 음악을 핵심 모티프로 브랜드를 전개하고 있습니다. 시즌 콘셉트, 제품명, 뮤지션에 대한 오마주, 아티스트와의 협업, 패키지 디자인, 나아가 음반 제작에 이르기까지 다양한 요소를 통해 브랜드만의 음악적 정체성을 적극적으로 표현합니다. 조용필 데뷔 55주년 기념 리미티드 에디션 선글라스. 끊임없는 도전과 실험적인 음악 세계를 통해, 뮤지션 조용필은 한국 대중음악사의 흐름에 큰 영향을 끼쳐온 아티스트입니다.',
+        descEn: 'muzik develops its brand with music as its core motif. The brand actively expresses its musical identity through various elements such as seasonal concepts, product naming, musician homages, collaborations with artists, package design, and even record production. CHO YONG PIL 55th ANNIVERSARY Limited Edition Sunglasses. Through his challenging and experimental musical endeavors, the musician Yong-Pil Cho has significantly influenced the history of Korean popular music.',
+        catalogUrl: 'files/MZK_catalog_en.pdf',
+        mainImg: 'images/products/fashion/MZK/MZK_cho_main.jpg',
+        thumbs: [
+          'images/products/fashion/MZK/MZK_cho_main.jpg',
+          'images/products/fashion/MZK/MZK_cho_thumb1.jpg',
+          'images/products/fashion/MZK/MZK_cho_thumb2.jpg',
+          'images/products/fashion/MZK/MZK_cho_thumb3.jpg',
+        ],
+        details: [
+          'images/products/fashion/MZK/MZK_cho_detail1.jpg',
+          'images/products/fashion/MZK/MZK_cho_detail2.jpg',
+          'images/products/fashion/MZK/MZK_cho_detail3.jpg',
+        ],
+        specRows: [
+          { valueKo: '뮤지크', valueEn: 'muzik' },
+          { valueKo: '패션안경, 안경테, 선글라스, 조용필, 프리미엄, 아세테이트, 티타늄, 스테인레스스틸', valueEn: 'Fashion Eyewear, Eyeglass Frames, ChoYongPil, Sunglasses, Premium, Acetate, Titanium, Stainless Steel' },
+          { valueKo: '아세테이트, 티타늄, 스테인레스스틸', valueEn: 'Acetate, Titanium, Stainless Steel' },
+          { valueKo: '', valueEn: '' },
+          { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
+          { valueKo: '', valueEn: '' },
+          { valueKo: '', valueEn: '' },
+        ]
+      },
+      stealer: {
+        nameKo: '스틸러 아이웨어(시즌제품)',
+        nameEn: '[STEALER] Eyewear Season Edition',
+        descKo: '강인함과 가벼움을 동시에 지닌 스틸은 가공이 용이한 소재입니다. 또한 제련 과정에서 첨가되는 탄소의 함량에 따라 그 특성이 달라지는 유연한 소재이기도 합니다. STEALER는 이러한 스틸 고유의 무한한 확장성을 아이웨어 제작에 적용하는 브랜드입니다. 우리는 소재에 대한 깊이 있는 이해와 자유로운 관점을 바탕으로, 스틸이라는 소재를 새롭게 재해석하고자 합니다.',
+        descEn: 'With immense strength and lightness, steel is an easy material to work with. Steel is also a flexible material, in the sense that its properties change depending on the amount of carbon added in its smelting process. STEALER is a brand that applies the limitless expandability of this distinctive material to the production of eyewear. As a brand, we aim to re-interpret the material with an in-depth and unconstrained point-of-view.',
+        catalogUrl: 'files/STL_catalog_en.pdf',
+        mainImg: 'images/products/fashion/STL/STL_stealer_main.jpg',
+        thumbs: [
+          'images/products/fashion/STL/STL_stealer_main.jpg',
+          'images/products/fashion/STL/STL_stealer_thumb1.jpg',
+          'images/products/fashion/STL/STL_stealer_thumb2.jpg',
+          'images/products/fashion/STL/STL_stealer_thumb3.jpg',
+          'images/products/fashion/STL/STL_stealer_thumb4.jpg',
+        ],
+        details: [
+          'images/products/fashion/STL/STL_stealer_detail1.jpg',
+          'images/products/fashion/STL/STL_stealer_detail2.jpg',
+          'images/products/fashion/STL/STL_stealer_detail3.jpg',
+          'images/products/fashion/STL/STL_stealer_detail4.jpg',
+          'images/products/fashion/STL/STL_stealer_detail5.jpg',
+          'images/products/fashion/STL/STL_stealer_detail6.jpg',
+          'images/products/fashion/STL/STL_stealer_detail7.jpg',
+          'images/products/fashion/STL/STL_stealer_detail8.jpg',
+          'images/products/fashion/STL/STL_stealer_detail9.jpg',
+          'images/products/fashion/STL/STL_stealer_detail10.jpg',
+        ],
+        specRows: [
+          { valueKo: '스틸러', valueEn: 'STEALER' },
+          { valueKo: '패션안경, 안경테, 선글라스, 프리미엄, 티타늄, 스테인레스스틸', valueEn: 'Fashion Eyewear, Eyeglass Frames, Sunglasses, Premium, Titanium, Stainless Steel' },
+          { valueKo: '티타늄, 스테인레스스틸', valueEn: 'Titanium, Stainless Steel' },
+          { valueKo: '', valueEn: '' },
+          { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
+          { valueKo: '', valueEn: '' },
+          { valueKo: '', valueEn: '' },
+        ]
+      },
+      faker: {
+        nameKo: '스틸러 아이웨어(FAKER 에디션)',
+        nameEn: '[STEALER] Eyewear FAKER Edition',
+        descKo: 'ONLY 1 ROAD는 프로 리그 오브 레전드 선수 **‘FAKER’**와 STEALER의 협업으로 탄생한 스페셜 컬렉션입니다. 컬렉션을 상징하는 세 가지 키워드, ‘ONLY’, ‘1’, ‘ROAD’는 FAKER가 걸어온 독보적이고 대체 불가능한 커리어를 의미합니다. 전 모델에 적용된 1mm 두께의 프레임은 실용적인 착용감과 함께, 한 팀과 함께 위대한 경지에 오른 FAKER의 단 하나뿐인 여정을 상징합니다.',
+        descEn: 'ONLY 1 ROAD is a special collection created in collaboration between professional League of Legends player ‘FAKER’ and STEALER. The three key words - ‘ONLY’, ‘1’, and ‘ROAD’ - symbolize FAKER’s unique and unparalleled career. The 1mm-thick frames applied to all models in the collection represent both practical comfort and the singular path to greatness FAKER has walked with one team.',
+        catalogUrl: 'files/STL_catalog_en.pdf',
+        mainImg: 'images/products/fashion/STL/STL_faker_main.jpg',
+        thumbs: [
+          'images/products/fashion/STL/STL_faker_main.jpg',
+          'images/products/fashion/STL/STL_faker_thumb1.jpg',
+          'images/products/fashion/STL/STL_faker_thumb2.jpg',
+          'images/products/fashion/STL/STL_faker_thumb3.jpg',
+          'images/products/fashion/STL/STL_faker_thumb4.jpg',
+        ],
+        details: [
+          'images/products/fashion/STL/STL_faker_detail1.jpg',
+          'images/products/fashion/STL/STL_faker_detail2.jpg',
+          'images/products/fashion/STL/STL_faker_detail3.jpg',
+          'images/products/fashion/STL/STL_faker_detail4.jpg',
+          'images/products/fashion/STL/STL_faker_detail5.jpg',
+          'images/products/fashion/STL/STL_faker_detail6.jpg',
+        ],
+        specRows: [
+          { valueKo: '스틸러', valueEn: 'STEALER' },
+          { valueKo: '패션안경, 안경테, 페이커, 리그오브레전드, 선글라스, 프리미엄, 티타늄, 스테인레스스틸', valueEn: 'Fashion Eyewear, Eyeglass Frames, FAKER, LEAGUE OF LEGENDS, Sunglasses, Premium, Titanium, Stainless Steel' },
+          { valueKo: '티타늄, 스테인레스스틸', valueEn: 'Titanium, Stainless Steel' },
           { valueKo: '', valueEn: '' },
           { valueKo: '제품 상세 정보 참조', valueEn: 'See Product Details' },
           { valueKo: '', valueEn: '' },
